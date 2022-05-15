@@ -1,0 +1,397 @@
+﻿<Window x:Class="ApkaJezykowa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApkaJezykowa"
+        xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="768" Width="1024"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="transparent">
+    <Window.Resources>
+        
+        
+    </Window.Resources>
+    <Window.DataContext>
+        <viewModel:LessonsViewModel/>
+    </Window.DataContext>
+    <Border Background="#323232"
+            CornerRadius="30">
+        <Grid>
+            <Grid Background="Black">
+                <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
+
+                    <Grid.Background>
+
+                        <ImageBrush x:Name="img_bg"
+                                    ImageSource="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\duo.png" 
+                                    Stretch="Uniform" 
+                                    Opacity="0.2"/>
+
+                    </Grid.Background>
+
+                </Grid>
+
+                <Grid x:Name="nav_pnl" Width="80" Background=" #484848" HorizontalAlignment="Left">
+                    <StackPanel x:Name="st_pln">
+                        <Grid Height="80">
+                            <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="85,0,0,0"
+                                    Text="Menu"
+                                    FontSize="22"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource Font_Style}">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="10"
+                                                          ShadowDepth="1"
+                                                          Direction="-90"
+                                                          Color="White"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        <ToggleButton x:Name="tg_btn"
+                                              Height="60"
+                                              Width="60"
+                                              BorderThickness="0"
+                                              HorizontalAlignment="Left"
+                                              Margin="10,0,0,0"
+                                              Style="{StaticResource tb_style}" Unchecked="tg_btn_Unchecked" Checked="tg_btn_Checked">
+                            <ToggleButton.Background>
+                                <ImageBrush ImageSource="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\menu.png" Stretch="Uniform"/>
+                            </ToggleButton.Background>
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideStackPanel">
+                                            <DoubleAnimation
+                                                        Storyboard.TargetName="nav_pnl"
+                                                        Storyboard.TargetProperty="Width"
+                                                        BeginTime="0:0:0"
+                                                        From="260" To="80"
+                                                        Duration="0:0:0.1"></DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowStackPanel">
+                                            <DoubleAnimation
+                                                        Storyboard.TargetName="nav_pnl"
+                                                        Storyboard.TargetProperty="Width"
+                                                        BeginTime="0:0:0"
+                                                        From="80" To="260"
+                                                        Duration="0:0:0.1"></DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+                    </Grid>
+                    <ListView x:Name="LV" Background="#484848" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0">
+                        <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                            <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Home"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Home">
+                                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\mainpage.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Home2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Home">
+                                        <TextBlock Text="Strona Główna"
+                                           Margin="0,0,80,0"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_home"
+                                         Content="Strona Główna"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+                        <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                            <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Lessons"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Lessons">
+                                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\lekcje2.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Lessons2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Lessons">
+                                        <TextBlock Text="Lekcje języka obcego"
+                                           Margin="0,0,80,0"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_lessons"
+                                         Content="Lekcje"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+                        <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                            <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Dictionary"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Dictionary">
+                                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\slownik.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Dictionary2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Dictionary">
+                                        <TextBlock Text="Słownik"
+                                           Margin="0,0,80,0"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_dictionary"
+                                         Content="Słownik"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+                        <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                            <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Information"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0">
+                                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\info.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Information2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            >
+                                        <TextBlock Text="Informacje"
+                                           Margin="0,0,80,0"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_information"
+                                         Content="Informacja"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+                        <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                            <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Settings"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0">
+                                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\settings.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Settings2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            >
+                                        <TextBlock Text="Ustawienia"
+                                           Margin="0,0,80,0"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_settings"
+                                         Content="Ustawienia"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+                        <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                            <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Logout"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0">
+                                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\logout.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Logout2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            >
+                                        <TextBlock Text="Zaloguj się"
+                                           Margin="0,0,80,0"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_logout"
+                                         Content="Zaloguj/Wyloguj się"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+                            <ListViewItem x:Name="LVI_end" Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseLeftButtonDown="LVI_end_MouseLeftButtonDown">
+                                <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Exit"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0">
+                                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\exit.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Exit2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            >
+                                        <TextBlock Text="Zakończ"
+                                           Margin="0,0,80,0"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                    
+                                </StackPanel>
+                                <ListViewItem.ToolTip>
+                                    <ToolTip x:Name="tt_exit"
+                                         Content="Zakończ"
+                                         Style="{StaticResource tt_style}"/>
+                                </ListViewItem.ToolTip>
+                            </ListViewItem>
+                            <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <Border x:Name="Bd"
+                                                    Height="80"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}"
+                                                    SnapsToDevicePixels="True">
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="IsMouseOver" Value="True"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background"
+                                                            TargetName="Bd"
+                                                            Value="#646464"/>
+                                                    <Setter Property="BorderBrush"
+                                                            TargetName="Bd"
+                                                            Value="#646464"/>
+                                                </MultiTrigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Margin="80,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1">
+                    <ContentControl Content="{Binding SelectedViewModel}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Linguonator"
+                           FontSize="48"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,8,0,0"/>
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Border>
+
+</Window>

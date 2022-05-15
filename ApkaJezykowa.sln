@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApkaJezykowa", "ApkaJezykowa\ApkaJezykowa.csproj", "{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6C23097-9B03-4279-98EB-247857D9E889}
+	EndGlobalSection
+EndGlobal

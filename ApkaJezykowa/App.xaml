@@ -1,0 +1,22 @@
+﻿<Application x:Class="ApkaJezykowa.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ApkaJezykowa"
+             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
+             xmlns:view="clr-namespace:ApkaJezykowa.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/ToolTip.xaml"/>
+                <ResourceDictionary Source="Themes/ListViewStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:LessonsViewModel}">
+                <view:LessonsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:DictionaryViewModel}">
+                <view:DictionaryView/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
