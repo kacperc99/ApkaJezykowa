@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="688" d:DesignWidth="944">
 
-
     <Grid Background="Black">
         <TextBlock Text="Wybierz język" HorizontalAlignment="Center" VerticalAlignment="Top"
                    Height="80" Width="500" FontSize="48" Foreground="#FFF70505" 
@@ -60,7 +59,9 @@
                                 Background="Transparent"
                         BorderThickness="0"
                         Opacity="0.5"
-                        Style="{StaticResource NoMouseOver}">
+                        Style="{StaticResource NoMouseOver}"
+                        Command="{Binding UpdateViewCommand}"
+                        CommandParameter="German">
                     <StackPanel>
                         <TextBlock Text="Język Niemiecki"
                        FontSize="24" 
@@ -141,7 +142,7 @@
                     </StackPanel>
                 </Button>
             </Border>
-
+            <ContentControl Content="{Binding SelectedViewModel}"/>
         </StackPanel>
     </Grid>
 </UserControl>

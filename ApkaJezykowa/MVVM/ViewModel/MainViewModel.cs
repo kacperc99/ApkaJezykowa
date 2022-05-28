@@ -26,5 +26,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         {
             UpdateViewCommand = new UpdateViewCommand(this);
         }
+
+
     }
 }
