@@ -99,7 +99,7 @@
                         BorderThickness="0"
                         Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
-                        Command="{Binding UpdateViewCommand}"
+                        Command="{Binding GermanUpdateViewCommand}"
                         CommandParameter="GermanLesson">
                     <StackPanel>
                         <TextBlock Text="Lekcje"
@@ -115,7 +115,7 @@
                     </StackPanel>
                 </Button>
             </Border>
-
         </StackPanel>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>

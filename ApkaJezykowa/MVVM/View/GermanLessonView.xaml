@@ -5,12 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="688" d:DesignWidth="944">
     <Grid Background="Gray">
         <Menu HorizontalAlignment="Left" Width="100">
             <MenuItem/>
         </Menu>
-        <TextBlock Height="400" Width="400" Background="White" Text="Alfabet niemiecki jest odmianą alfabetu łacińskiego i składa się z 30 liter. Oprócz 26 liter klasycznych zawiera także przegłosy ä, ö i ü (tzw. umlauty) oraz ß (tzw. Es-Zett lub scharfes S). Przy braku odpowiednich czcionek muszą one być zastępowane odpowiednimi dwuznakami (ä = ae, ö = oe, ü = ue, ß = ss).
+        <TextBlock Height="600" Width="700" Background="White" Text="Alfabet niemiecki jest odmianą alfabetu łacińskiego i składa się z 30 liter. Oprócz 26 liter klasycznych zawiera także przegłosy ä, ö i ü (tzw. umlauty) oraz ß (tzw. Es-Zett lub scharfes S). Przy braku odpowiednich czcionek muszą one być zastępowane odpowiednimi dwuznakami (ä = ae, ö = oe, ü = ue, ß = ss).
 
 A Ä B C D E F G H I J K L M N O Ö P Q R S ẞ T U Ü V W X Y Z
 a ä b c d e f g h i j k l m n o ö p q r s ß t u ü v w x y z

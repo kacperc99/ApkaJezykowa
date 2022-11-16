@@ -39,6 +39,6 @@ namespace ApkaJezykowa.Commands
             {
                 viewModel.SelectedViewModel = new MainViewModel();
             }
-    }
+        }
     }
 }
