@@ -9,7 +9,7 @@ using ApkaJezykowa.Commands;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
-    internal class LessonsViewModel : BaseViewModel
+     class LessonsViewModel : BaseViewModel
     {
         private BaseViewModel _selectedViewModel;
 

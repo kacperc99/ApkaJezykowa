@@ -35,6 +35,10 @@ namespace ApkaJezykowa.Commands
             {
                 viewModel.SelectedViewModel = new DictionaryViewModel();
             }
-        }
+            if (parameter.ToString() == "Home")
+            {
+                viewModel.SelectedViewModel = new MainViewModel();
+            }
+    }
     }
 }
