@@ -23,6 +23,12 @@
             <DataTemplate DataType="{x:Type viewModel:GermanLessonViewModel}">
                 <view:GermanLessonView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EnglishViewModel}">
+                <view:EnglishView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FrenchViewModel}">
+                <view:FrenchView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

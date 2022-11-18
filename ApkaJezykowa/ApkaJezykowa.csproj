@@ -62,10 +62,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\EnglishUpdateViewCommand.cs" />
+    <Compile Include="Commands\FrenchUpdateViewCommand.cs" />
     <Compile Include="Commands\GermanUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonUpdateViewComand.cs" />
+    <Compile Include="MVVM\ViewModel\EnglishViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\FrenchViewModel.cs" />
     <Compile Include="MVVM\ViewModel\GermanLessonViewModel.cs" />
     <Compile Include="MVVM\ViewModel\GermanViewModel.cs" />
+    <Compile Include="MVVM\View\EnglishView.xaml.cs">
+      <DependentUpon>EnglishView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\FrenchView.xaml.cs">
+      <DependentUpon>FrenchView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\GermanLessonView.xaml.cs">
       <DependentUpon>GermanLessonView.xaml</DependentUpon>
     </Compile>
@@ -87,6 +97,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MVVM\View\DictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\EnglishView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\FrenchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

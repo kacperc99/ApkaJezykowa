@@ -8,11 +8,11 @@ using System.Windows.Input;
 
 namespace ApkaJezykowa.Commands
 {
-  internal class GermanUpdateViewCommand : ICommand
+  internal class FrenchUpdateViewCommand : ICommand
   {
-    private GermanViewModel viewModel;
+    private FrenchViewModel viewModel;
 
-    public GermanUpdateViewCommand(GermanViewModel viewModel)
+    public FrenchUpdateViewCommand(FrenchViewModel viewModel)
     {
       this.viewModel = viewModel;
     }
@@ -27,14 +27,15 @@ namespace ApkaJezykowa.Commands
     public void Execute(object parameter)
     {
       Console.WriteLine("Clicked!");
-      if (parameter.ToString() == "GermanLesson")
+      if (parameter.ToString() == "FrenchLesson")
       {
-        viewModel.SelectedViewModel = new GermanLessonViewModel();
+        //viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
-      if (parameter.ToString() == "GermanReturn")
+      if (parameter.ToString() == "FrenchReturn")
       {
         viewModel.SelectedViewModel = new LessonsViewModel();
       }
     }
   }
 }
+

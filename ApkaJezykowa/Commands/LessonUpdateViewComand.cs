@@ -31,6 +31,14 @@ namespace ApkaJezykowa.Commands
                 {
                     viewModel.SelectedViewModel = new GermanViewModel();
                 }
-            }
+      if (parameter.ToString() == "French")
+      {
+        viewModel.SelectedViewModel = new FrenchViewModel();
+      }
+      if (parameter.ToString() == "English")
+      {
+        viewModel.SelectedViewModel = new EnglishViewModel();
+      }
+    }
     }
 }

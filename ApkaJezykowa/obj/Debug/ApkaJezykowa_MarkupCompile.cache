@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\App.xaml
-7681085084
+91950977554
 
-21303708510
+27-1574358612
 16-54908359
-MainWindow.xaml;MVVM\View\DictionaryView.xaml;MVVM\View\GermanLessonView.xaml;MVVM\View\GermanView.xaml;MVVM\View\LessonsView.xaml;Themes\ListViewStyles.xaml;Themes\ToolTip.xaml;
+MainWindow.xaml;MVVM\View\DictionaryView.xaml;MVVM\View\EnglishView.xaml;MVVM\View\FrenchView.xaml;MVVM\View\GermanLessonView.xaml;MVVM\View\GermanView.xaml;MVVM\View\LessonsView.xaml;Themes\ListViewStyles.xaml;Themes\ToolTip.xaml;
 
 False
 
