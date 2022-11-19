@@ -23,11 +23,35 @@
             <DataTemplate DataType="{x:Type viewModel:GermanLessonViewModel}">
                 <view:GermanLessonView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:GermanExerciseViewModel}">
+                <view:GermanExerciseView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:EnglishViewModel}">
                 <view:EnglishView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EnglishLessonViewModel}">
+                <view:EnglishLessonView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EnglishExerciseViewModel}">
+                <view:EnglishExerciseView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:FrenchViewModel}">
                 <view:FrenchView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FrenchLessonViewModel}">
+                <view:FrenchLessonView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FrenchExerciseViewModel}">
+                <view:FrenchExerciseView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:InfoViewModel}">
+                <view:InfoView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
+                <view:SettingsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
+                <view:LoginView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

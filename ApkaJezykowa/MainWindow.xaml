@@ -208,7 +208,9 @@
                                             Height="80"
                                             Width="80"
                                             HorizontalAlignment="Left" Click="Exit_Click"
-                                            BorderThickness="0">
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Info">
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\info.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Information2"
@@ -219,7 +221,8 @@
                                             HorizontalAlignment="Left" Click="Exit_Click"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
-                                            >
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Info">
                                         <TextBlock Text="Informacje"
                                            Margin="0,0,80,0"
                                            VerticalAlignment="Center"
@@ -241,7 +244,9 @@
                                             Height="80"
                                             Width="80"
                                             HorizontalAlignment="Left" Click="Exit_Click"
-                                            BorderThickness="0">
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Settings">
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\settings.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Settings2"
@@ -252,7 +257,8 @@
                                             HorizontalAlignment="Left" Click="Exit_Click"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
-                                            >
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Settings">
                                         <TextBlock Text="Ustawienia"
                                            Margin="0,0,80,0"
                                            VerticalAlignment="Center"
@@ -274,7 +280,9 @@
                                             Height="80"
                                             Width="80"
                                             HorizontalAlignment="Left" Click="Exit_Click"
-                                            BorderThickness="0">
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Login">
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\logout.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Logout2"
@@ -285,7 +293,8 @@
                                             HorizontalAlignment="Left" Click="Exit_Click"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
-                                            >
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Login">
                                         <TextBlock Text="Zaloguj się"
                                            Margin="0,0,80,0"
                                            VerticalAlignment="Center"
@@ -307,7 +316,9 @@
                                             Height="80"
                                             Width="80"
                                             HorizontalAlignment="Left" Click="Exit_Click"
-                                            BorderThickness="0">
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Close">
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\exit.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Exit2"
@@ -318,7 +329,8 @@
                                             HorizontalAlignment="Left" Click="Exit_Click"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
-                                            >
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Close">
                                         <TextBlock Text="Zakończ"
                                            Margin="0,0,80,0"
                                            VerticalAlignment="Center"

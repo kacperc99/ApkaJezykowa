@@ -29,11 +29,15 @@ namespace ApkaJezykowa.Commands
       Console.WriteLine("Clicked!");
       if (parameter.ToString() == "FrenchLesson")
       {
-        //viewModel.SelectedViewModel = new FrenchLessonViewModel();
+        viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
       if (parameter.ToString() == "FrenchReturn")
       {
         viewModel.SelectedViewModel = new LessonsViewModel();
+      }
+      if (parameter.ToString() == "FrenchExercise")
+      {
+        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
       }
     }
   }

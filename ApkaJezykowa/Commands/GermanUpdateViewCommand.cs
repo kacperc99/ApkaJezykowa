@@ -35,6 +35,10 @@ namespace ApkaJezykowa.Commands
       {
         viewModel.SelectedViewModel = new LessonsViewModel();
       }
+      if (parameter.ToString() == "GermanExercise")
+      {
+        viewModel.SelectedViewModel = new GermanExerciseViewModel();
+      }
     }
   }
 }

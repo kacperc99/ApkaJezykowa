@@ -28,7 +28,7 @@
                         BorderThickness="0"
                         Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
-                        Command="{Binding UpdateViewCommand}"
+                        Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchSomething">
                     <StackPanel>
                         <TextBlock Text="Coś tam"
@@ -64,7 +64,7 @@
                         BorderThickness="0"
                         Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
-                        Command="{Binding UpdateViewCommand}"
+                        Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchExercise">
                     <StackPanel>
                         <TextBlock Text="Ćwiczenia"
@@ -100,7 +100,7 @@
                         Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                         Command="{Binding FrenchUpdateViewCommand}"
-                        CommandParameter="EnglishLesson">
+                        CommandParameter="FrenchLesson">
                     <StackPanel>
                         <TextBlock Text="Lekcje"
                        FontSize="24" 

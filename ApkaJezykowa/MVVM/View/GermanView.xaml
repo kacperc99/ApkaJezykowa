@@ -28,7 +28,7 @@
                         BorderThickness="0"
                         Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
-                        Command="{Binding UpdateViewCommand}"
+                        Command="{Binding GermanUpdateViewCommand}"
                         CommandParameter="GermanSomething">
                     <StackPanel>
                         <TextBlock Text="Coś tam"
@@ -64,7 +64,7 @@
                         BorderThickness="0"
                         Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
-                        Command="{Binding UpdateViewCommand}"
+                        Command="{Binding GermanUpdateViewCommand}"
                         CommandParameter="GermanExercise">
                     <StackPanel>
                         <TextBlock Text="Ćwiczenia"
