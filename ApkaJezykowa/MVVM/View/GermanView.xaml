@@ -126,7 +126,7 @@
                         <GradientStop Color="LightBlue" Offset="0.6"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <Button x:Name="FrenchReturn"
+                <Button x:Name="GermanReturn"
                                 Height="100"
                                 Width="100"
                                 Background="Transparent"

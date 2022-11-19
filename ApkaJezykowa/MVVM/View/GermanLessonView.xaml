@@ -21,6 +21,32 @@ W 1998 r. wprowadzono reformę (potem kilkakrotnie modyfikowaną) niemieckiej or
 
 Wygląd szkolnego pisma ręcznego w języku niemieckim był ściśle uregulowany. Do 1925 r. było to pismo zwane Kurrentschrift (kurrenta; inaczej Spitzschrift), a w latach 1935–1941 Sütterlinschrift (inaczej Deutsche Schrift). Do dzisiaj widać te wpływy w piśmie ręcznym starszego pokolenia Niemców.
 
-Dla niemieckiego ze Szwajcarii i Liechtensteinu charakterystyczny jest brak litery ß w pisowni, zastępuje się ją podwójnym " TextWrapping="Wrap"/>
+Dla niemieckiego ze Szwajcarii i Liechtensteinu charakterystyczny jest brak litery ß w pisowni, zastępuje się ją podwójnym... Work in Progress..." TextWrapping="Wrap"/>
+        <StackPanel Margin="832,10,10,577">
+            <Border Height="100"
+                    Width="100" 
+                    CornerRadius="30">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="Blue" Offset="0.0"/>
+                        <GradientStop Color="LightBlue" Offset="0.6"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Button x:Name="GermanLessonReturn"
+                                Height="100"
+                                Width="100"
+                                Background="Transparent"
+                        BorderThickness="0"
+                        Style="{StaticResource NoMouseOver}"
+                        Command="{Binding GermanLessonUpdateViewCommand}"
+                        CommandParameter="GermanLessonReturn" Margin="0,10,0,-10">
+                    <StackPanel>
+                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\arrow.png" 
+                               Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+        </StackPanel>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>
