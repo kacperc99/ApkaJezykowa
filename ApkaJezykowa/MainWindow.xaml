@@ -394,12 +394,13 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="0">
-                    <TextBlock Text="Linguonator"
+                    <TextBlock Text="Witaj, gościu!"
                            FontSize="48"
                            Foreground="White"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Margin="0,8,0,0"/>
+                           Margin="0,8,0,0"
+                           />
                 </StackPanel>
 
             </Grid>
