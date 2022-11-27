@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="688" d:DesignWidth="944">
+    <UserControl.DataContext>
+        <viewModel:LoginViewModel/>
+    </UserControl.DataContext>
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -23,22 +27,59 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <TextBlock Text="Nazwa Użytwkonika" Foreground="Red" HorizontalAlignment="Center" Margin="0,100,100,0"/>
-            <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0"/>
+            <TextBox x:Name="username" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="0,20,0,0"/>
             <TextBlock Text="Hasło" Foreground="Red" HorizontalAlignment="Center" Margin="0,60,170,0"/>
-            <PasswordBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0"/>
+            <PasswordBox x:Name="password" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="0,20,0,0"/>
+            <StackPanel Margin="0,30,0,0" Width="100" Height="50">
+                <Border Height="50" Width="100" CornerRadius="30">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
+                            <GradientStop Color="Red" Offset="-0.1"/>
+                            <GradientStop Color="DarkRed" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button x:Name="Login" Background="Transparent" FontSize="16" FontWeight="Bold" Click="Login_Btt_Click">Zaloguj</Button>
+                </Border>
+            </StackPanel>
+            <StackPanel Margin="0,30,0,0" Width="100" Height="50">
+                <Border Height="50" Width="100" CornerRadius="30">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
+                            <GradientStop Color="Red" Offset="-0.1"/>
+                            <GradientStop Color="DarkRed" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button x:Name="FindPassword" Background="Transparent" FontSize="10" FontWeight="Bold">Zapominałem Hasła</Button>
+                </Border>
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBlock Text="Nazwa Użytwkonika" Foreground="Red" HorizontalAlignment="Center" Margin="0,100,100,0"/>
-            <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0"/>
-            <TextBlock Text="Hasło" Foreground="Red" HorizontalAlignment="Center" Margin="0,60,170,0"/>
-            <PasswordBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0"/>
-            <TextBlock Text="E-Mail" Foreground="Red" HorizontalAlignment="Center" Margin="0,60,170,0"/>
-            <PasswordBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0"/>
-            <TextBlock Text="Powtórz Hasło" Foreground="Red" HorizontalAlignment="Center" Margin="0,60,125,0"/>
-            <PasswordBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0"/>
-            <Button Name="Register" Margin="0,40,0,0" Width="100" Foreground="Red">
-                
-            </Button>
+            <TextBlock Text="Nazwa Użytwkonika" Foreground="Red" HorizontalAlignment="Center" Margin="0,60,100,0"/>
+            <TextBox x:Name="Registerusername" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0" Foreground="Red"/>
+            <TextBlock Text="Hasło" Foreground="Red" HorizontalAlignment="Center" Margin="0,40,170,0"/>
+            <PasswordBox x:Name="Registerpassword" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0" Foreground="Red"/>
+            <TextBlock Text="E-Mail" Foreground="Red" HorizontalAlignment="Center" Margin="0,40,170,0"/>
+            <TextBox x:Name="Registermail" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0" Foreground="Red"/>
+            <TextBlock Text="Powtórz Hasło" Foreground="Red" HorizontalAlignment="Center" Margin="0,40,125,0"/>
+            <PasswordBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0" Foreground="Red"/>
+            <TextBlock Text="Kraj" Foreground="Red" HorizontalAlignment="Center" Margin="0,40,180,0"/>
+            <ComboBox x:Name="registercountry" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0" Foreground="Red" IsEnabled="True" IsReadOnly="True">
+                <ComboBoxItem IsSelected="True">Polska</ComboBoxItem>
+                <ComboBoxItem>Niemcy</ComboBoxItem>
+                <ComboBoxItem>Francja</ComboBoxItem>
+                <ComboBoxItem>Anglia</ComboBoxItem>
+            </ComboBox>
+            <StackPanel Margin="0,30,0,0" Width="100" Height="50">
+                <Border Height="50" Width="100" CornerRadius="30">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
+                            <GradientStop Color="Red" Offset="-0.1"/>
+                            <GradientStop Color="DarkRed" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button x:Name="Register" Background="Transparent" FontSize="16" FontWeight="Bold" Click="Register_Btt_Click">Zarejestruj</Button>
+                </Border>
+            </StackPanel>
         </StackPanel>
         
     </Grid>

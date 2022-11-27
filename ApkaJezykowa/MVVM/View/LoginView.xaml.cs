@@ -24,5 +24,14 @@ namespace ApkaJezykowa.MVVM.View
     {
       InitializeComponent();
     }
+
+    private void Register_Btt_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+    private void Login_Btt_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
   }
 }
