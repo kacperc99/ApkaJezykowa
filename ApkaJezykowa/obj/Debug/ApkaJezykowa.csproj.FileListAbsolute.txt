@@ -49,3 +49,5 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\German
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\InfoView.baml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\LoginView.baml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\SettingsView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\CustomControls\BindablePasswordBox.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\CustomControls\BindablePasswordBox.baml

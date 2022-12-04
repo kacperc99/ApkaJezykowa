@@ -66,6 +66,9 @@
     <Compile Include="Commands\FrenchUpdateViewCommand.cs" />
     <Compile Include="Commands\GermanUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonUpdateViewComand.cs" />
+    <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
+      <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\ViewModel\EnglishExerciseViewModel.cs" />
     <Compile Include="MVVM\ViewModel\EnglishLessonViewModel.cs" />
     <Compile Include="MVVM\ViewModel\EnglishViewModel.cs" />
@@ -115,6 +118,10 @@
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="System\Web\HttpUtility.cs" />
+    <Page Include="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
