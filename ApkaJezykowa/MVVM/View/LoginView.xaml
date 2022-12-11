@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" xmlns:customcontrols="clr-namespace:ApkaJezykowa.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="688" d:DesignWidth="944">
@@ -48,7 +49,7 @@
                         </LinearGradientBrush>
                     </Border.Background>
                     <Button x:Name="Login" Background="Red" FontSize="16" FontWeight="Bold" Content="Zaloguj" Command="{Binding LoginCommand}">
-                        <Button.Style>
+                    <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="IndianRed"/>
                                 <Style.Triggers>
@@ -84,10 +85,10 @@
             <PasswordBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0" Foreground="Red"/>
             <TextBlock Text="Kraj" Foreground="Red" HorizontalAlignment="Center" Margin="0,40,180,0"/>
             <ComboBox x:Name="registercountry" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Margin="0,20,0,0" Foreground="Red" IsEnabled="True" IsReadOnly="True">
-                <ComboBoxItem IsSelected="True">Polska</ComboBoxItem>
-                <ComboBoxItem>Niemcy</ComboBoxItem>
-                <ComboBoxItem>Francja</ComboBoxItem>
-                <ComboBoxItem>Anglia</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Poland</ComboBoxItem>
+                <ComboBoxItem>Germany</ComboBoxItem>
+                <ComboBoxItem>France</ComboBoxItem>
+                <ComboBoxItem>England</ComboBoxItem>
             </ComboBox>
             <StackPanel Margin="0,30,0,0" Width="100" Height="50">
                 <Border Height="50" Width="100" CornerRadius="30">

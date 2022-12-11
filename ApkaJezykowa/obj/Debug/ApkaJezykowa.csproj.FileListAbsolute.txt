@@ -51,3 +51,6 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\LoginV
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\SettingsView.baml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\CustomControls\BindablePasswordBox.g.cs
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\CustomControls\BindablePasswordBox.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Microsoft.Xaml.Behaviors.xml

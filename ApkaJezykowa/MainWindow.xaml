@@ -15,7 +15,7 @@
         
     </Window.Resources>
     <Window.DataContext>
-        <viewModel:LessonsViewModel/>
+        <viewModel:MainViewModel/>
     </Window.DataContext>
     <Border Background="#323232"
             CornerRadius="30">
@@ -394,7 +394,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="0">
-                    <TextBlock Text="Witaj, gościu!"
+                    <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
                            FontSize="48"
                            Foreground="White"
                            HorizontalAlignment="Center"
