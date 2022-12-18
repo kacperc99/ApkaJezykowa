@@ -30,18 +30,15 @@ namespace ApkaJezykowa.Commands
     public void Execute(object parameter)
     {
       Console.WriteLine("Clicked!");
-      if (parameter.ToString() == "German")
-      {
+      //if (parameter.ToString() == "German")
+      //{
         //viewModel.SelectedViewModel = new GermanViewModel();
-      }
-      if (parameter.ToString() == "French")
-      {
-       // viewModel.SelectedViewModel = new FrenchViewModel();
-      }
-      if (parameter.ToString() == "English")
-      {
-        //viewModel.SelectedViewModel = new EnglishViewModel();
-      }
+      //}
+      //if(IsViewVisible==false)
+      //{
+        viewModel.SelectedViewModel = new MainViewModel();
+      //}
+      
     }
   }
 }

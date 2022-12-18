@@ -317,7 +317,7 @@
                                             Width="80"
                                             HorizontalAlignment="Left" Click="Exit_Click"
                                             BorderThickness="0"
-                                            Command="{Binding UpdateViewCommand}"
+                                            Command="{Binding Test}"
                                             CommandParameter="Close">
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\exit.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
@@ -394,12 +394,13 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="0">
-                    <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                    <TextBlock Text="{Binding WelcomeMessage}"
                            FontSize="48"
                            Foreground="White"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Margin="0,8,0,0"
+                           TextWrapping="Wrap"
                            />
                 </StackPanel>
 

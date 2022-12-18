@@ -102,6 +102,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       userRepository = new UserRepository();
       LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
       RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPassCommand("", ""));
+      LoginUpdateViewCommand = new LoginUpdateViewCommand(this);
     }
     private bool CanExecuteLoginCommand(object obj)
     {
@@ -118,13 +119,15 @@ namespace ApkaJezykowa.MVVM.ViewModel
       {
         Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
         IsViewVisible = false;
-        LoginUpdateViewCommand = new LoginUpdateViewCommand(this);
+        
       }
       else
       {
         ErrorMessage = "* Błędny Login lub Hasło";
       }
     }
+
+
     private void ExecuteRecoverPassCommand(string username, string email)
     {
 

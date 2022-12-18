@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ApkaJezykowa"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
              xmlns:view="clr-namespace:ApkaJezykowa.MVVM.View"
-             StartupUri="MainWindow.xaml">
+             Startup="Login">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -49,9 +49,6 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
                 <view:SettingsView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
-                <view:LoginView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

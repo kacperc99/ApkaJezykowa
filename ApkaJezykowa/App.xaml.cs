@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using ApkaJezykowa.MVVM.View;
 
 namespace ApkaJezykowa
 {
@@ -13,5 +14,16 @@ namespace ApkaJezykowa
     /// </summary>
     public partial class App : Application
     {
+      protected void Login(object sender, StartupEventArgs e)
+      {
+        var loginView = new LoginView();
+        loginView.Show();
+      loginView.IsVisibleChanged += (s, ev) =>
+      {
+        var mainView = new MainWindow();
+        mainView.Show();
+        loginView.Close();
+      };
+      }
     }
 }

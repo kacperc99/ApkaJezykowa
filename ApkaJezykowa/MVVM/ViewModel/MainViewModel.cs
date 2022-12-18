@@ -16,6 +16,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
         private BaseViewModel _selectedViewModel;
         private UserAccountModel _currentUserAccount;
+        string _welcomeMessage; 
 
     private IUserRepository userRepository;
 
@@ -33,13 +34,16 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
             }
         }
-        public ICommand UpdateViewCommand { get; set; }
+    public string WelcomeMessage { get { return _welcomeMessage; } set { _welcomeMessage = value; OnPropertyChanged(nameof(WelcomeMessage)); } }
+    public ICommand UpdateViewCommand { get; set; }
+        public ICommand Test { get; }
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
             LoadCurrentUserData();
+           // Test = new RelayCommand(ExecuteTest, CanExecuteTest);
         }
 
         private void LoadCurrentUserData()
@@ -49,11 +53,35 @@ namespace ApkaJezykowa.MVVM.ViewModel
             {
                   CurrentUserAccount.Username = user.Username;
                   CurrentUserAccount.DisplayName = $"Witaj, {user.Username}";
-            }
+        WelcomeMessage = $"Witaj, {user.Username}";
+        Console.WriteLine("Działa?");
+      }
             else
             {
-                  CurrentUserAccount.DisplayName = "Witaj, gościu!";
-            }
+        //LoadCurrentUserData();
+        Console.WriteLine("Nie działa :(");
+      }
         }
+        private bool CanExecuteTest(object obj)
+        {
+          return true;
+        }
+        private void ExecuteTest(object obj)
+        {
+      var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+      Console.WriteLine("Clicked!");
+      if (user != null)
+      {
+        CurrentUserAccount.Username = user.Username;
+        CurrentUserAccount.DisplayName = $"Witaj, {user.Username}";
+        WelcomeMessage = $"Witaj, {user.Username}";
+        Console.WriteLine("Działa?");
+      }
+      else
+      {
+        //LoadCurrentUserData();
+        Console.WriteLine("Nie działa :(");
+      }
+    }
   }
 }

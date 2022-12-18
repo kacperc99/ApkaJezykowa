@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ApkaJezykowa.MVVM.View
+namespace ApkaJezykowa
 {
   /// <summary>
   /// Logika interakcji dla klasy LoginView.xaml
   /// </summary>
-  public partial class LoginView : UserControl
+  public partial class LoginView : Window
   {
     public LoginView()
     {
       InitializeComponent();
-    }
-
-    private void Register_Btt_Click(object sender, RoutedEventArgs e)
-    {
-
-    }
-    private void Login_Btt_Click(object sender, RoutedEventArgs e)
-    {
-
     }
   }
 }
