@@ -56,6 +56,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     private void ExecuteLogoutCommand(object obj)
     {
       //IsViewVisible = false;
+      
     }
 
     private void LoadCurrentUserData()
