@@ -11,12 +11,14 @@
         ResizeMode="CanResize"
         Background="transparent">
     <Window.Resources>
-        
-        
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
     </Window.Resources>
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
     <Border Background="#323232"
             CornerRadius="30">
         <Grid>
@@ -110,7 +112,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="170"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             Command="{Binding UpdateViewCommand}"
@@ -135,7 +137,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="80"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Lessons">
@@ -146,7 +148,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="170"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             Command="{Binding UpdateViewCommand}"
@@ -171,7 +173,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="80"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Dictionary">
@@ -182,7 +184,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="170"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             Command="{Binding UpdateViewCommand}"
@@ -207,7 +209,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="80"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Info">
@@ -218,7 +220,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="170"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             Command="{Binding UpdateViewCommand}"
@@ -243,7 +245,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="80"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Settings">
@@ -254,7 +256,7 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="170"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             Command="{Binding UpdateViewCommand}"
@@ -279,10 +281,10 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="80"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
-                                            Command="{Binding UpdateViewCommand}"
-                                            CommandParameter="Login">
+                                            Command="{Binding LogoutCommand}"
+                                            >
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\logout.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Logout2"
@@ -290,11 +292,11 @@
                                             Background="Transparent"
                                             Height="80"
                                             Width="170"
-                                            HorizontalAlignment="Left" Click="Exit_Click"
+                                            HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
-                                            Command="{Binding UpdateViewCommand}"
-                                            CommandParameter="Login">
+                                            Command="{Binding LogoutCommand}"
+                                            >
                                         <TextBlock Text="Zaloguj się"
                                            Margin="0,0,80,0"
                                            VerticalAlignment="Center"

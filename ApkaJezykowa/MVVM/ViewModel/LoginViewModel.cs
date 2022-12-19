@@ -4,6 +4,7 @@ using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security;
 using System.Security.Principal;
@@ -69,7 +70,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     string _username;
     SecureString _password;
     string _errorMessage;
-    bool _isViewVisible = true;
+    public bool _isViewVisible = true;
 
     private IUserRepository userRepository;
 
@@ -98,12 +99,18 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public ICommand LoginUpdateViewCommand { get; set; }
     public LoginViewModel()
     {
-      
       userRepository = new UserRepository();
       LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
       RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPassCommand("", ""));
       LoginUpdateViewCommand = new LoginUpdateViewCommand(this);
+      LoadBool();
     }
+
+    private void LoadBool()
+    {
+      IsViewVisible = true;
+    }
+
     private bool CanExecuteLoginCommand(object obj)
     {
       bool validData;

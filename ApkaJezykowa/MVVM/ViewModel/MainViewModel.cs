@@ -16,7 +16,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
         private BaseViewModel _selectedViewModel;
         private UserAccountModel _currentUserAccount;
-        string _welcomeMessage; 
+        string _welcomeMessage;
+        //bool _isViewVisible = true;
 
     private IUserRepository userRepository;
 
@@ -35,18 +36,29 @@ namespace ApkaJezykowa.MVVM.ViewModel
             }
         }
     public string WelcomeMessage { get { return _welcomeMessage; } set { _welcomeMessage = value; OnPropertyChanged(nameof(WelcomeMessage)); } }
+    //public bool IsViewVisible { get { return _isViewVisible; } set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
     public ICommand UpdateViewCommand { get; set; }
-        public ICommand Test { get; }
+       public ICommand LogoutCommand { get; }
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
             LoadCurrentUserData();
-           // Test = new RelayCommand(ExecuteTest, CanExecuteTest);
+      LogoutCommand = new RelayCommand(ExecuteLogoutCommand, CanExecuteLogoutCommand);
         }
 
-        private void LoadCurrentUserData()
+    private bool CanExecuteLogoutCommand(object arg)
+    {
+      return true;
+    }
+
+    private void ExecuteLogoutCommand(object obj)
+    {
+      //IsViewVisible = false;
+    }
+
+    private void LoadCurrentUserData()
         {
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if(user!=null)
@@ -58,30 +70,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
             else
             {
-        //LoadCurrentUserData();
         Console.WriteLine("Nie działa :(");
       }
         }
-        private bool CanExecuteTest(object obj)
-        {
-          return true;
-        }
-        private void ExecuteTest(object obj)
-        {
-      var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
-      Console.WriteLine("Clicked!");
-      if (user != null)
-      {
-        CurrentUserAccount.Username = user.Username;
-        CurrentUserAccount.DisplayName = $"Witaj, {user.Username}";
-        WelcomeMessage = $"Witaj, {user.Username}";
-        Console.WriteLine("Działa?");
-      }
-      else
-      {
-        //LoadCurrentUserData();
-        Console.WriteLine("Nie działa :(");
-      }
-    }
   }
 }
