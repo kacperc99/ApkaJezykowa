@@ -7,6 +7,581 @@
              mc:Ignorable="d" 
              d:DesignHeight="688" d:DesignWidth="944">
     <Grid Background="Black">
-        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Text="Work in Progress"></TextBox>
+        <Grid x:Name="nav_pnl"
+              HorizontalAlignment="Right"
+              Width="20"
+              Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="st_pnl">
+                <Grid Height="80"
+                      Width="20"
+                      HorizontalAlignment="Right"
+                      Background="DarkGray">
+                    <ToggleButton x:Name="Tg_btn"
+                     VerticalAlignment="Center"
+                                  Grid.Column="0"
+                                  Height="80"
+                                  Width="20">
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\arrowchevron.png"/>
+                        </ToggleButton.Background>
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="HideStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                         Storyboard.TargetProperty="Width"
+                                                         BeginTime="0:0:0"
+                                                         From="230" To="20"
+                                                         Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="ShowStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                         Storyboard.TargetProperty="Width"
+                                                         BeginTime="0:0:0"
+                                                         From="20" To="230"
+                                                         Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
+                </Grid>
+                <ScrollViewer Grid.Row="1">
+                    <ListView x:Name="LV"
+                          Background="gray"
+                          BorderBrush="gray">
+
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French1"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French1">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French2">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French3"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French3">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French4"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French4">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French5"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French5">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French6"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French6">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French7"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French7">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French8"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French8">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French9"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French9">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French10"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French10">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French11"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French11">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French12"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French12">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French13"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French13">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French14"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French14">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French15"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French15">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French16"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French16">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French17"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French17">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French18"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French18">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French19"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French19">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Right"
+                                      Margin="0,0,0,0">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                <Button x:Name="French20"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            CommandParameter="French20">
+                                    <TextBlock Text="Podstawy"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                               Foreground="Red"/>
+                                </Button>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <Border x:Name="Bd"
+                                                    Height="80"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}"
+                                                    SnapsToDevicePixels="True">
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="IsMouseOver" Value="True"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background"
+                                                            TargetName="Bd"
+                                                            Value="#646464"/>
+                                                    <Setter Property="BorderBrush"
+                                                            TargetName="Bd"
+                                                            Value="#646464"/>
+                                                </MultiTrigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </ScrollViewer>
+            </StackPanel>
+            
+        </Grid>
     </Grid>
 </UserControl>
