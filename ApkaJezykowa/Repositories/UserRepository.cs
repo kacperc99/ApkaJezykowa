@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,9 +13,36 @@ namespace ApkaJezykowa.Repositories
 {
   internal class UserRepository : BaseRepository, IUserRepository
   {
-    public void Add(UserModel userModel)
+    public bool FindUser(NetworkCredential credential)
     {
-      throw new NotImplementedException();
+      bool newUser;
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection=connection;
+        command.CommandText = "select *from [User] where [Username]=@username or [Email]=@email";
+        command.Parameters.Add("@username",SqlDbType.NVarChar).Value = credential.UserName;
+        command.Parameters.Add("@email",SqlDbType.NVarChar).Value=credential.Password;
+        newUser = command.ExecuteScalar() == null ? false : true;
+      }
+      return newUser;
+    }
+    public void Add(string Username, SecureString Password, string Email, string Country)
+    {
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "insert into [User] values (@username, @password, @email, @country, @userstatus)";
+        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = Username;
+        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = Password;
+        command.Parameters.Add("@email", SqlDbType.NVarChar).Value = Email;
+        command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+        command.Parameters.Add("@userstatus", SqlDbType.NVarChar).Value = "user";
+
+      }
     }
 
     public bool AuthenticateUser(NetworkCredential credential)

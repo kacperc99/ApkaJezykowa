@@ -22,17 +22,34 @@ namespace ApkaJezykowa.MVVM.ViewModel
     string _errorMessage;
     public bool _isViewVisible = true;
 
+    string _rUsername;
+    SecureString _rPassword;
+    string _email;
+    SecureString _rPasswordRepeat;
+    string _country;
+    string _status;
+    string _registerMessage;
+
     private IUserRepository userRepository;
 
     public string Username { get { return _username; } set { _username = value; OnPropertyChanged(nameof(Username)); } }
     public SecureString Password { get { return _password; } set { _password = value; OnPropertyChanged(nameof(Password)); } }
     public string ErrorMessage { get { return _errorMessage; } set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); } }
     public bool IsViewVisible { get { return _isViewVisible; } set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
+
+    public string RUsername { get { return _rUsername; } set { _rUsername = value; OnPropertyChanged(nameof(RUsername)); } }
+    public SecureString RPassword { get { return _rPassword; } set { _rPassword = value; OnPropertyChanged(nameof(RPassword)); } }
+    public string Email { get { return _email; } set { _email = value; OnPropertyChanged(nameof(Email)); } }
+    public SecureString RPasswordRepeat { get { return _rPasswordRepeat; } set { _rPasswordRepeat = value; OnPropertyChanged(nameof(RPasswordRepeat)); } }
+    public string Country { get { return _country; } set { _country = value; OnPropertyChanged(nameof(Country)); } }
+    public string Status { get { return _status; } set { _status = "user"; OnPropertyChanged(nameof(Status)); } }
+    public string RegisterMessage { get { return _registerMessage; } set { _registerMessage = value; OnPropertyChanged(nameof(RegisterMessage)); } }  
     public ICommand LoginCommand { get; }
     public ICommand RecoverPasswordCommand { get; }
     public ICommand ShowPasswordCommand { get; }
     public ICommand RememberPasswordCommand { get; }
     public ICommand LogoutCommand { get; }
+    public ICommand RegisterCommand { get; set; }
 
     private BaseViewModel _selectedViewModel;
 
@@ -50,10 +67,43 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public LoginViewModel()
     {
       userRepository = new UserRepository();
+      RegisterCommand = new RelayCommand(ExecuteRegisterCommand, CanExecuteRegisterCommand);
       LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
       RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPassCommand("", ""));
       LoginUpdateViewCommand = new LoginUpdateViewCommand(this);
       LoadBool();
+    }
+
+    private bool CanExecuteRegisterCommand(object obj)
+    {
+      bool validData;
+      if (string.IsNullOrWhiteSpace(RUsername) || RPassword == null || string.IsNullOrWhiteSpace(Email) || RPasswordRepeat == null || string.IsNullOrWhiteSpace(Country))
+        validData = false;
+      else validData = true;
+      return validData;
+    }
+
+    private void ExecuteRegisterCommand(object obj)
+    {
+      var isNewUser = userRepository.FindUser(new System.Net.NetworkCredential(RUsername, Email));
+      if (isNewUser)
+      {
+        RegisterMessage = "* Login lub email już istnieją w bazie danych";
+      }
+      else
+      {
+        if(RPassword==RPasswordRepeat)
+        {
+          userRepository.Add(RUsername,RPassword,Email,Country);
+          RegisterMessage = "* Konto zostało założone!";
+        }
+        if(RPasswordRepeat!=RPassword)
+        {
+          RegisterMessage = "* Hasła nie są identyczne";
+          Console.WriteLine(value:RPassword);
+          Console.WriteLine(value:RPasswordRepeat);
+        }
+      }
     }
 
     private void LoadBool()
