@@ -37,7 +37,7 @@ namespace ApkaJezykowa.Commands
       }
       if (parameter.ToString() == "FrenchExercise")
       {
-        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+        viewModel.SelectedViewModel = new FrenchExerciseMenuViewModel();
       }
     }
   }

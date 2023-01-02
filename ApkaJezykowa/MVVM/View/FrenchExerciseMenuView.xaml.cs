@@ -1,5 +1,4 @@
-﻿using ApkaJezykowa.MVVM.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +16,13 @@ using System.Windows.Shapes;
 namespace ApkaJezykowa.MVVM.View
 {
   /// <summary>
-  /// Logika interakcji dla klasy FrenchExerciseView.xaml
+  /// Logika interakcji dla klasy FrenchExerciseMenuView.xaml
   /// </summary>
-  public partial class FrenchExerciseView : UserControl
+  public partial class FrenchExerciseMenuView : UserControl
   {
-    public FrenchExerciseView()
+    public FrenchExerciseMenuView()
     {
       InitializeComponent();
-      //int level = 
-      //DataContext = new FrenchExerciseViewModel(level);
     }
   }
 }

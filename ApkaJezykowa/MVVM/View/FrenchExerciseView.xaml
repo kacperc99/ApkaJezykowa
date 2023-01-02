@@ -4,11 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="688" d:DesignWidth="944">
+    <UserControl.DataContext>
+        <viewModel:FrenchExerciseViewModel/>
+    </UserControl.DataContext>
     <Grid Background="Black">
-        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="64" Text="Ćwiczenia - Francuski"></TextBox>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="64" Text="{Binding Test}"></TextBox>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="688" Width="944">
             <StackPanel Margin="0,90,0,0">
                 <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>

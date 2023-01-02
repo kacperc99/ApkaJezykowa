@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\EnglishUpdateViewCommand.cs" />
+    <Compile Include="Commands\FrenchExerciseMenuUpdateViewCommand.cs" />
     <Compile Include="Commands\FrenchLesson2UpdateViewCommand.cs" />
     <Compile Include="Commands\FrenchLesson3UpdateViewCommand.cs" />
     <Compile Include="Commands\FrenchLessonUpdateViewCommand.cs" />
@@ -76,9 +77,15 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\Model\ExerciseLevelModel.cs" />
+    <Compile Include="MVVM\Model\ExerciseModel.cs" />
     <Compile Include="MVVM\Model\ISessionContext.cs" />
+    <Compile Include="MVVM\ViewModel\FrenchExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\FrenchLesson2ViewModel.cs" />
     <Compile Include="MVVM\ViewModel\FrenchLesson3ViewModel.cs" />
+    <Compile Include="MVVM\View\FrenchExerciseMenuView.xaml.cs">
+      <DependentUpon>FrenchExerciseMenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\FrenchLesson2View.xaml.cs">
       <DependentUpon>FrenchLesson2View.xaml</DependentUpon>
     </Compile>
@@ -140,6 +147,10 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="System\Web\HttpUtility.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\FrenchExerciseMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

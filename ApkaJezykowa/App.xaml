@@ -47,6 +47,9 @@
             <DataTemplate DataType="{x:Type viewModel:FrenchLesson3ViewModel}">
                 <view:FrenchLesson3View/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FrenchExerciseMenuViewModel}">
+                <view:FrenchExerciseMenuView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:FrenchExerciseViewModel}">
                 <view:FrenchExerciseView/>
             </DataTemplate>
