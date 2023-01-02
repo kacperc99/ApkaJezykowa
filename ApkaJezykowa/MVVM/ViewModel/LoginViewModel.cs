@@ -92,17 +92,17 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       else
       {
-        if(RPassword==RPasswordRepeat)
-        {
+       // if(RPassword==RPasswordRepeat)
+       // {
           userRepository.Add(RUsername,RPassword,Email,Country);
           RegisterMessage = "* Konto zostało założone!";
-        }
+        /*}
         if(RPasswordRepeat!=RPassword)
         {
           RegisterMessage = "* Hasła nie są identyczne";
           Console.WriteLine(value:RPassword);
           Console.WriteLine(value:RPasswordRepeat);
-        }
+        }*/
       }
     }
 

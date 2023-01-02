@@ -30,18 +30,22 @@ namespace ApkaJezykowa.Repositories
     }
     public void Add(string Username, SecureString Password, string Email, string Country)
     {
-      using (var connection = GetConnection())
-      using (var command = new SqlCommand())
+      string Passwort = new NetworkCredential("",Password).Password;
+      using(var connection = GetConnection())
       {
         connection.Open();
-        command.Connection = connection;
-        command.CommandText = "insert into [User] values (@username, @password, @email, @country, @userstatus)";
-        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = Username;
-        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = Password;
-        command.Parameters.Add("@email", SqlDbType.NVarChar).Value = Email;
-        command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-        command.Parameters.Add("@userstatus", SqlDbType.NVarChar).Value = "user";
-
+        string sql = "insert into [User] values (@username, @password, @email, @country, @userstatus)";
+        using(SqlCommand cmd = new SqlCommand(sql,connection))
+        {
+          cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = Username;
+          cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = Passwort;
+          cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = Email;
+          cmd.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+          cmd.Parameters.Add("@userstatus", SqlDbType.NVarChar).Value = "user";
+          cmd.CommandType= CommandType.Text;
+          cmd.ExecuteNonQuery();
+        }
+        //sql = "insert into [User_Course] values(2,1),(2,2),(2";
       }
     }
 

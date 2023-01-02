@@ -4,9 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="688" d:DesignWidth="944">
+    <UserControl.DataContext>
+        <viewModel:InfoViewModel/>
+    </UserControl.DataContext>
     <Grid Background="Black">
-        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Text="Work in Progress"></TextBox>
+        <StackPanel Background="Black" Width="944" Height="688">
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o użytkowniku"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Username}" Margin="10,20,0,0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Email}" Margin="10,20,0,0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Country}" Margin="10,20,0,0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o aplikacji" Margin="0,20,0,0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left"  FontSize="24" Text="Nazwa aplikacji: Linguonator" Margin="10,20,0,0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left"  FontSize="24" Text="Wersja: 0.3" Margin="10,20,0,0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left" FontSize="24" Text="Autor: Kacper Celary, grupa 4ID15B" Margin="10,20,0,0"></TextBox>
+        </StackPanel>
     </Grid>
 </UserControl>
