@@ -12,17 +12,12 @@ namespace ApkaJezykowa.Commands
   internal class FrenchExerciseMenuUpdateViewCommand : BaseViewModel, ICommand 
   {
     private FrenchExerciseMenuViewModel viewModel;
-    private ExerciseLevelModel _level;
-
-    public ExerciseLevelModel Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); } }
 
     public FrenchExerciseMenuUpdateViewCommand(FrenchExerciseMenuViewModel viewModel)
     {
       this.viewModel = viewModel;
-      Level = new ExerciseLevelModel();
     }
-    
-
+   
 
     public event EventHandler CanExecuteChanged;
 
@@ -35,16 +30,16 @@ namespace ApkaJezykowa.Commands
       Console.WriteLine("Clicked!");
       if (parameter.ToString() == "ArticlesExercise")
       {
-        Level.Level = 1;
-        viewModel.SelectedViewModel = new FrenchExerciseViewModel(Level.Level);
-        Console.WriteLine(Level.Level.ToString());
+        ExerciseLevelModel.Instance.Level = 1;
+        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+        Console.WriteLine(ExerciseLevelModel.Instance.Level.ToString());
         Console.WriteLine("Pierwszy Parametr");
       }
       if (parameter.ToString() == "BasicSentencesExercise")
       {
-        Level.Level = 2;
-        viewModel.SelectedViewModel = new FrenchExerciseViewModel(Level.Level);
-        Console.WriteLine(Level.Level.ToString());
+        ExerciseLevelModel.Instance.Level = 2;
+        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+        Console.WriteLine(ExerciseLevelModel.Instance.Level.ToString());
         Console.WriteLine("Drugi Parametr");
       }
       /*if (parameter.ToString() == "EnglishExercise")

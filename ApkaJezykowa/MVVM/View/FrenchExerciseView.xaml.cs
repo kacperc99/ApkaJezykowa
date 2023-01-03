@@ -24,8 +24,6 @@ namespace ApkaJezykowa.MVVM.View
     public FrenchExerciseView()
     {
       InitializeComponent();
-      //int level = 
-      //DataContext = new FrenchExerciseViewModel(level);
     }
   }
 }

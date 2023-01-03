@@ -9,21 +9,19 @@ namespace ApkaJezykowa.MVVM.ViewModel
 {
   internal class FrenchExerciseViewModel : BaseViewModel
   {
-    private ExerciseLevelModel _level;
     string _test;
 
-    public ExerciseLevelModel Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); } }
     public string Test { get { return _test; } set { _test = value; OnPropertyChanged(nameof(Test)); } }
-    public FrenchExerciseViewModel(int Level)
+    public FrenchExerciseViewModel()
     {
-      LoadCurrentCourseLevel(Level);
+      LoadCurrentCourseLevel();
     }
 
-    private void LoadCurrentCourseLevel(int Level)
+    private void LoadCurrentCourseLevel()
     {
-      Console.WriteLine(Level.ToString() );
+      Console.WriteLine(ExerciseLevelModel.Instance.Level.ToString());
       Console.WriteLine("Trzeci Paramentr");
-      Test =Level
+      Test = ExerciseLevelModel.Instance.Level
         .ToString();
     }
   }
