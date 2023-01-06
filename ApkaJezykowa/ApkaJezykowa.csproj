@@ -79,7 +79,10 @@
     </Compile>
     <Compile Include="MVVM\Model\ExerciseLevelModel.cs" />
     <Compile Include="MVVM\Model\ExerciseModel.cs" />
+    <Compile Include="MVVM\Model\IExerciseRepository.cs" />
     <Compile Include="MVVM\Model\ISessionContext.cs" />
+    <Compile Include="MVVM\Model\IUser_CourseRepository.cs" />
+    <Compile Include="MVVM\Model\User_CourseModel.cs" />
     <Compile Include="MVVM\ViewModel\FrenchExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\FrenchLesson2ViewModel.cs" />
     <Compile Include="MVVM\ViewModel\FrenchLesson3ViewModel.cs" />
@@ -144,7 +147,9 @@
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\ExerciseRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\User_CourseRepository.cs" />
     <Compile Include="System\Web\HttpUtility.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>

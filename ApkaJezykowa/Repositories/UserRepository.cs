@@ -45,7 +45,6 @@ namespace ApkaJezykowa.Repositories
           cmd.CommandType= CommandType.Text;
           cmd.ExecuteNonQuery();
         }
-        //sql = "insert into [User_Course] values(2,1),(2,2),(2";
       }
     }
 
