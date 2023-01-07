@@ -31,6 +31,7 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "ArticlesExercise")
       {
         ExerciseLevelModel.Instance.Level = 1;
+        ExerciseLevelModel.Instance.Language = "Francuski";
         viewModel.SelectedViewModel = new FrenchExerciseViewModel();
         Console.WriteLine(ExerciseLevelModel.Instance.Level.ToString());
         Console.WriteLine("Pierwszy Parametr");
@@ -38,6 +39,7 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "BasicSentencesExercise")
       {
         ExerciseLevelModel.Instance.Level = 2;
+        ExerciseLevelModel.Instance.Language = "Francuski";
         viewModel.SelectedViewModel = new FrenchExerciseViewModel();
         Console.WriteLine(ExerciseLevelModel.Instance.Level.ToString());
         Console.WriteLine("Drugi Parametr");

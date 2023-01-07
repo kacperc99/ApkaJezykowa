@@ -14,28 +14,37 @@
         <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="64" Text="{Binding Test}"></TextBox>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Height="688" Width="944">
             <StackPanel Margin="0,90,0,0">
-                <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBlock Text="{Binding Exercise[0]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBlock Text="{Binding Exercise[1]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBlock Text="{Binding Exercise[2]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBlock Text="{Binding Exercise[3]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBlock Text="{Binding Exercise[4]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBlock Text="{Binding Exercise[5]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="Zadanie" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBlock Text="{Binding Exercise[6]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
                 <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <Button x:Name="Login" Background="Red" FontSize="16" FontWeight="Bold" Content="Sprawdź" Width="150" Height="50" HorizontalAlignment="Right" Margin="0,20,40,0">
+                <TextBlock Text="{Binding Exercise[7]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBlock Text="{Binding Exercise[8]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBlock Text="{Binding Exercise[9]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <Button x:Name="Check" Background="Red" FontSize="16" FontWeight="Bold" Content="Sprawdź" Width="150" Height="50" HorizontalAlignment="Right" Margin="0,20,40,0">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="IndianRed"/>

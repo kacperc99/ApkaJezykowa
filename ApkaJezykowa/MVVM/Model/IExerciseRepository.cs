@@ -8,5 +8,6 @@ namespace ApkaJezykowa.MVVM.Model
 {
   internal interface IExerciseRepository
   {
+    void Display(int Level, string Language);
   }
 }
