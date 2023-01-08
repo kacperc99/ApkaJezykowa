@@ -11,52 +11,53 @@
         <viewModel:FrenchExerciseViewModel/>
     </UserControl.DataContext>
     <Grid Background="Black">
-        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="64" Text="{Binding Test}"></TextBox>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="688" Width="944">
-            <StackPanel Margin="0,90,0,0">
+        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" Text="{Binding Test}"></TextBox>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" Height="500" Width="944">
+            <StackPanel>
                 <TextBlock Text="{Binding Exercise[0]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[0], UpdateSourceTrigger=PropertyChanged}"  Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[0]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16" TextWrapping="Wrap"/>
                 <TextBlock Text="{Binding Exercise[1]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[1], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[1]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
                 <TextBlock Text="{Binding Exercise[2]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[2], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[2]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
                 <TextBlock Text="{Binding Exercise[3]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[3], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[3]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
                 <TextBlock Text="{Binding Exercise[4]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[4], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[4]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
                 <TextBlock Text="{Binding Exercise[5]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[5], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[5]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
                 <TextBlock Text="{Binding Exercise[6]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[6], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[6]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
                 <TextBlock Text="{Binding Exercise[7]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBox Text="{Binding Answer[7], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[7]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
                 <TextBlock Text="{Binding Exercise[8]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[9]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="Porada" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <Button x:Name="Check" Background="Red" FontSize="16" FontWeight="Bold" Content="Sprawdź" Width="150" Height="50" HorizontalAlignment="Right" Margin="0,20,40,0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="IndianRed"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Red"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                <TextBox Text="{Binding Answer[8], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[8]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
+                <TextBlock  Text="{Binding Exercise[9]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                <TextBox Text="{Binding Answer[9], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="Black" BorderThickness="0,0,0,2" BorderBrush="Red" Foreground="Red" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock Text="{Binding Tip[9]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
             </StackPanel>
         </ScrollViewer>
+        <Button x:Name="Check" Background="Red" FontSize="16" FontWeight="Bold" Content="Sprawdź" Width="150" Height="50" HorizontalAlignment="Right" Margin="0,612,40,26" Command="{Binding CheckAnswers}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="IndianRed"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Red"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
     </Grid>
 </UserControl>
