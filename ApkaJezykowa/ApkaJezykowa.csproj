@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\EnglishUpdateViewCommand.cs" />
     <Compile Include="Commands\FrenchExerciseMenuUpdateViewCommand.cs" />
+    <Compile Include="Commands\FrenchExerciseUpdateViewCommand.cs" />
     <Compile Include="Commands\FrenchLessonUpdateViewCommand.cs" />
     <Compile Include="Commands\FrenchUpdateViewCommand.cs" />
     <Compile Include="Commands\GermanUpdateViewCommand.cs" />

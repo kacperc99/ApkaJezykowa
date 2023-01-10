@@ -11,7 +11,7 @@
         <viewModel:FrenchExerciseViewModel/>
     </UserControl.DataContext>
     <Grid Background="Black">
-        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" Text="{Binding Test}" BorderThickness="0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" Text="{Binding Test}" BorderThickness="0"></TextBox>
         <ScrollViewer VerticalScrollBarVisibility="Hidden" Height="500" Width="944">
             <StackPanel>
                 <TextBlock Text="{Binding Exercise[0]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
@@ -58,17 +58,8 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="Leave" Background="Red" FontSize="16" FontWeight="Bold" Content="Powrót" Width="150" Height="50" HorizontalAlignment="Left" Margin="40,612,0,26" Command="{Binding CheckAnswers}">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="IndianRed"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Red"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
+        <Button x:Name="Leave" Background="Red" FontSize="16" FontWeight="Bold" Content="Powrót" Width="150" Height="50" HorizontalAlignment="Left" Margin="40,612,0,26" Command="{Binding FrenchExerciseUpdateViewCommand}" CommandParameter="ReturnToMenu">
+            
         </Button>
         <TextBlock Text="{Binding Result}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,621,0,0" FontSize="24" TextWrapping="Wrap"/>
 

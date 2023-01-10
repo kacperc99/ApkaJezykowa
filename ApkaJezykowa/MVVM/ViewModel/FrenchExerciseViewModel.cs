@@ -1,4 +1,5 @@
-﻿using ApkaJezykowa.Main;
+﻿using ApkaJezykowa.Commands;
+using ApkaJezykowa.Main;
 using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.Repositories;
 using System;
@@ -29,15 +30,17 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string _tmp10;
     public string _result;
 
+    private BaseViewModel _selectedViewModel;
+
     private IExerciseRepository exerciseRepository;
 
     public string Test { get { return _test; } set { _test = value; OnPropertyChanged(nameof(Test)); } }
     public List<string> Exercise { get { return _exercise; } }
     public List<string> Answer { get { return _answer; } }
     public List<string> Tiptmp { get { return _tiptmp; } }
-    public List<string> Tip { get { return _tip; } set { _tip = value; OnPropertyChanged(nameof(Tip)); }}
+    public List<string> Tip { get { return _tip; } set { _tip = value; OnPropertyChanged(nameof(Tip)); } }
     public string Tmp1 { get { return _tmp1; } set { _tmp1 = value; OnPropertyChanged(nameof(Tmp1)); } }
-    public string Tmp2 { get { return _tmp2; } set { _tmp2 = value; OnPropertyChanged(nameof(Tmp2)); }}
+    public string Tmp2 { get { return _tmp2; } set { _tmp2 = value; OnPropertyChanged(nameof(Tmp2)); } }
     public string Tmp3 { get { return _tmp3; } set { _tmp3 = value; OnPropertyChanged(nameof(Tmp3)); } }
     public string Tmp4 { get { return _tmp4; } set { _tmp4 = value; OnPropertyChanged(nameof(Tmp4)); } }
     public string Tmp5 { get { return _tmp5; } set { _tmp5 = value; OnPropertyChanged(nameof(Tmp5)); } }
@@ -48,12 +51,18 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string Tmp9 { get { return _tmp9; } set { _tmp9 = value; OnPropertyChanged(nameof(Tmp9)); } }
     public string Tmp10 { get { return _tmp10; } set { _tmp10 = value; OnPropertyChanged(nameof(Tmp10)); } }
     public string Result { get { return _result; } set { _result = value; OnPropertyChanged(nameof(Result)); } }
-
+    public BaseViewModel SelectedViewModel 
+    { 
+      get { return _selectedViewModel; }
+      set { _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel)); }
+    }
     public ICommand CheckAnswers { get; }
+    public ICommand FrenchExerciseUpdateViewCommand { get; set; }
     public FrenchExerciseViewModel()
     {
       exerciseRepository = new ExerciseRepository();
       CheckAnswers = new RelayCommand(ExecuteCheckAnswers, CanExecuteCheckAnswers);
+      FrenchExerciseUpdateViewCommand = new FrenchExerciseUpdateViewCommand(this);
       LoadCurrentCourseLevel();
     }
 

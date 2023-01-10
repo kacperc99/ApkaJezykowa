@@ -44,10 +44,10 @@ namespace ApkaJezykowa.Commands
         Console.WriteLine(ExerciseLevelModel.Instance.Level.ToString());
         Console.WriteLine("Drugi Parametr");
       }
-      /*if (parameter.ToString() == "EnglishExercise")
+      if (parameter.ToString() == "ReturnToMenu")
       {
-        viewModel.SelectedViewModel = new EnglishExerciseViewModel();
-      }*/
+        viewModel.SelectedViewModel = new FrenchViewModel();
+      }
     }
   }
 }
