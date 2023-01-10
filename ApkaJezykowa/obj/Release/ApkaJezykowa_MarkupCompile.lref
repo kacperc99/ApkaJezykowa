@@ -1,6 +1,19 @@
-﻿C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\GeneratedInternalTypeHelper.g.cs
+﻿
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\App.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\CustomControls\BindablePasswordBox.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\FrenchExerciseMenuView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\LoginView.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MainWindow.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\DictionaryView.xaml;;
-FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\LessonsView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\EnglishExerciseView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\EnglishLessonView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\EnglishView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\FrenchExerciseView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\FrenchLessonView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\FrenchView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\GermanExerciseView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\GermanLessonView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\GermanView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\InfoView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\SettingsView.xaml;;
 
