@@ -56,3 +56,7 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.c
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.csproj.CopyComplete
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.exe
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.pdb
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Release\ApkaJezykowa.exe.manifest
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Release\ApkaJezykowa.application
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.exe.manifest
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.application
