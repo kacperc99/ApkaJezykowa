@@ -54,9 +54,5 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\CustomControls\B
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\FrenchLesson2View.g.cs
-C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\FrenchLesson3View.g.cs
-C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\FrenchLesson2View.baml
-C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\FrenchLesson3View.baml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\FrenchExerciseMenuView.g.cs
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\FrenchExerciseMenuView.baml

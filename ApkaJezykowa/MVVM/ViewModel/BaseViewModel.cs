@@ -15,5 +15,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
+    public bool _isViewVisibleLogin;
+    public bool _isViewVisibleMain;
+    public bool IsViewVisibleLogin { get { return _isViewVisibleLogin; } set { value = _isViewVisibleLogin; OnPropertyChanged(nameof(IsViewVisibleLogin)); } }
+    public bool IsViewVisibleMain { get { return _isViewVisibleMain; } set { value = _isViewVisibleMain; OnPropertyChanged(nameof(IsViewVisibleMain)); } }
+  }
 }

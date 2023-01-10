@@ -11,55 +11,12 @@
         <viewModel:FrenchLessonViewModel/>
     </UserControl.DataContext>
     <Grid Background="Black">
-        
-        <TextBlock Text="Wstęp i pierwsze kroki" Foreground="Red" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="Black"></TextBlock>
-        <ScrollViewer Height="600" Width="880" Margin="0,60,0,0" VerticalScrollBarVisibility="Hidden">
-        <TextBlock Width="880" Height="1600" FontSize="24" Foreground="Red" TextWrapping="Wrap" Background="Black">
-            <Run Text="        A więc zdecydowałeś się uczyć francuskiego? Fantastycznie, bo choć ustąpił on w powszechnym użyciu angielskiemu
-to jednak jest to wciąż bardzo popularny język poza samą Francją. Użyjesz go między innymi w:"/><LineBreak />
-            <Run Text="- Włoszech, konkretnie na północy kraju,"/><LineBreak />
-            <Run Text="- Austrii,"/><LineBreak />
-            <Run Text="- Belgii, gdzie język ten występuje na równi z urzędowym niderlandzkim,"/><LineBreak />
-            <LineBreak />
-            <Run Text="        Sam język francuski stanowi bardzo interesującą mieszankę języka angielskiego, który zapożyczył od naszego obiektu zainteresowania sporo zwrotów i słów, dodatkowo zachodzi bardzo dużo podobieństw gramatycznych między oboma językami,
-co zdecydowanie ułatwia naukę. Ku zaskoczeniu użytkowników polskojęzycznych nasz język ojczysty współdzieli sporo zwrotów z językiem francuskim, co również ułatwia naukę."/><LineBreak />
-            <LineBreak />
-            <Run Text="Największą bolączką języka francuskiego, która będzie towarzyszyć nam przez cały proces nauki, są różnice między językiem mówionym i pisanym, w szczególności wymowa. Dlatego też, bez zbędnych ogródek, przejdziemy do omówienia alfabetu i zgłosek francuskich:"/><LineBreak />
-            <LineBreak />
-            <Run Text="     a     b     c     d     e     f     g     h     i     j     k     l     m     n     o     p     q     r     s"/><LineBreak />
-            <LineBreak /> 
-            <Run Text="    [a]   [b]   [c]  [d]   [e]   [f]   [g]  [...]   [i]   [ż]  [k]   [l]   [m]  [n]"/><Run Text="[ściesnione o]" FontSize="12"/><Run Text="[p]  [k] [chr] [s]"/><LineBreak />
-            <LineBreak />
-            <Run Text="    (a)  (by) (cy) (dy) (y)   (ef) (że)(asz)  (i)  (żi) (ka) (el) (em)(en) (ou)  (py)(kii) (er) (es)"/><LineBreak />
-            <LineBreak />
-            <Run Text="     t       u       v       w       x       y       z"/><LineBreak />
-            <LineBreak />
-            <Run Text="    [t]    [eu]   [w]    [w,ł]   [ks]    [i]     [z]"/><LineBreak />
-            <LineBreak />
-            <Run Text="   [ty]   [ui]   [wy]  "/><Run Text="[dublewy]" FontSize="14"/><Run Text="  [iks][igrek][zed]"/><LineBreak />
-            <LineBreak />
-            <Run Text="Podstawowy alfabet składa się z 26 znaków. Pierwsza linia to rzeczone znaki, druga to wymowa w słowach, a trzecia to wymowa pojedynczych zgłosek. Tu jednak nie kończą się zawiłości, bowiem francuski dysponuje również bogatą gamą znaków specjalnych:"/><LineBreak />
-            <LineBreak />
-            <Run Text="    à     â     ç     é     è     ê     ë     î     ï     ô     û     ù     ü     ÿ"/><LineBreak />
-            <LineBreak />
-            <Run Text="   [a]   [a]   [s]   [e]  [e]   [e]   [e]   [i]  [i]   [o]   [u]   [u]   [u]  [y]"/><LineBreak />
-            <LineBreak />
-            <Run Text="Tu na szczęście sprawa jest prosta i wymowa jest bardzo prosta. Na deser pozostają jednak zgłoski i inne kobminacje liter:"/><LineBreak />
-            <LineBreak />
-            <Run Text="   gn     ph     ent     um     oi     oy     ch     th     ille     eill/eil      aill/ail"/><LineBreak />
-            <LineBreak />
-            <Run Text="  [ńj]     [f]      [ą]     [om]   [ła]   [łaj]   [sz]    [t]     [ij]       [ej]           [aj]"/><LineBreak />
-            <LineBreak />
-            <Run Text="  ai     ais     ait     aî     ay     ant     au     ou     on     om     an     am     en     em"></Run><LineBreak />
-            <LineBreak />
-            <Run Text=""/><LineBreak />
-            <LineBreak />
-            <Run Text=""/><LineBreak />
-            <LineBreak />
-            <Run Text=""/><LineBreak />
-            <LineBreak />
-            <Run Text=""/>
-        </TextBlock>
+
+        <TextBlock Text="{Binding LessonTitle}" Foreground="Red" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="Black"></TextBlock>
+        <ScrollViewer Height="600" Width="880" Margin="0,60,0,0" VerticalScrollBarVisibility="Hidden" Background="Black">
+            <TextBlock Width="880" FontSize="24" Foreground="Red" TextWrapping="Wrap">
+            <Run Text="{Binding LessonText}"/>
+            </TextBlock>
         </ScrollViewer>
         <Grid x:Name="nav_pnl"
               HorizontalAlignment="Right"

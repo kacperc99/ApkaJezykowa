@@ -26,10 +26,9 @@ namespace ApkaJezykowa
           mainView.Show();
           loginView.Close();
         }
-        else
+        if (mainView.IsVisible == false && mainView.IsLoaded)
         {
           loginView.Show();
-          mainView.Close();
         }
       };
       }

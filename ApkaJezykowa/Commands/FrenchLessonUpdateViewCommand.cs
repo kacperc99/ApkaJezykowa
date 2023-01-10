@@ -1,4 +1,5 @@
-﻿using ApkaJezykowa.MVVM.ViewModel;
+﻿using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,15 +31,21 @@ namespace ApkaJezykowa.Commands
       Console.WriteLine("Clicked!");
       if(parameter.ToString() == "French1")
       {
+        ExerciseLevelModel.Instance.Level = 1;
+        ExerciseLevelModel.Instance.Language = "Francuski";
         viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
       if (parameter.ToString() == "French2")
       {
-        viewModel.SelectedViewModel = new FrenchLesson2ViewModel();
+        ExerciseLevelModel.Instance.Level = 2;
+        ExerciseLevelModel.Instance.Language = "Francuski";
+        viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
       if (parameter.ToString() == "French3")
       {
-        viewModel.SelectedViewModel = new FrenchLesson3ViewModel();
+        ExerciseLevelModel.Instance.Level = 3;
+        ExerciseLevelModel.Instance.Language = "Francuski";
+        viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
     }
   }

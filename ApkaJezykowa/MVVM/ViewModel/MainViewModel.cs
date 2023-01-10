@@ -17,7 +17,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         private BaseViewModel _selectedViewModel;
         private UserAccountModel _currentUserAccount;
         string _welcomeMessage;
-        //bool _isViewVisible = true;
+        bool _isViewVisible = true;
 
     private IUserRepository userRepository;
 
@@ -36,7 +36,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
             }
         }
     public string WelcomeMessage { get { return _welcomeMessage; } set { _welcomeMessage = value; OnPropertyChanged(nameof(WelcomeMessage)); } }
-    //public bool IsViewVisible { get { return _isViewVisible; } set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
+    public bool IsViewVisible { get { return _isViewVisible; } set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
     public ICommand UpdateViewCommand { get; set; }
        public ICommand LogoutCommand { get; }
         public MainViewModel()
@@ -55,12 +55,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
     private void ExecuteLogoutCommand(object obj)
     {
-      //IsViewVisible = false;
-      
+      IsViewVisible = false;
+      IsViewVisible = true;
     }
 
     private void LoadCurrentUserData()
         {
+            IsViewVisible = true;
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if(user!=null)
             {

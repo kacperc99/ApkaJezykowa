@@ -63,6 +63,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
       }
     }
+
     public ICommand LoginUpdateViewCommand { get; set; }
     public LoginViewModel()
     {
@@ -126,7 +127,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       {
         Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
         IsViewVisible = false;
-        
       }
       else
       {

@@ -1,4 +1,6 @@
 ﻿using ApkaJezykowa.Commands;
+using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
   {
 
     private BaseViewModel _selectedViewModel;
+    public string _lessonTitle;
+    public string _lessonText;
+    private ILessonRepository lessonRepository;
+
+    public string LessonTitle { get { return _lessonTitle; } set { _lessonTitle = value; OnPropertyChanged(nameof(LessonTitle)); } }
+    public string LessonText { get { return _lessonText; } set { _lessonText = value; OnPropertyChanged(nameof(LessonText)); } }
 
   public BaseViewModel SelectedViewModel
   {
@@ -26,7 +34,16 @@ namespace ApkaJezykowa.MVVM.ViewModel
   public ICommand FrenchLessonUpdateViewCommand { get; set; }
   public FrenchLessonViewModel()
   {
-    FrenchLessonUpdateViewCommand = new FrenchLessonUpdateViewCommand(this);
+      lessonRepository = new LessonRepository();
+      FrenchLessonUpdateViewCommand = new FrenchLessonUpdateViewCommand(this);
+      LoadLesson();
   }
-}
+
+    private void LoadLesson()
+    {
+      var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, ExerciseLevelModel.Instance.Language);
+      LessonTitle = lesson.Lesson_Title;
+      LessonText = lesson.Lesson_Text;
+    }
+  }
 }
