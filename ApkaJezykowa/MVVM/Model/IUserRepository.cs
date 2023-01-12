@@ -16,7 +16,7 @@ namespace ApkaJezykowa.MVVM.Model
     void Edit(UserModel userModel);
     void Remove(int id);
     UserModel GetById(int id);
-    UserModel GetByUsername(string username);
+    void GetByUsername(string username);
     IEnumerable<UserModel> GetByAll();
   }
 }

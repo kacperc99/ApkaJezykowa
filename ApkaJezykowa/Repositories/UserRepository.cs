@@ -79,9 +79,8 @@ namespace ApkaJezykowa.Repositories
       throw new NotImplementedException();
     }
 
-    public UserModel GetByUsername(string username)
+    public void GetByUsername(string username)
     {
-      UserModel user = null;
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
       {
@@ -93,19 +92,15 @@ namespace ApkaJezykowa.Repositories
         {
           if(reader.Read())
           {
-            user = new UserModel()
-            {
-              Id = reader[0].ToString(),
-              Username = reader[1].ToString(),
-              Password = String.Empty,
-              Email = reader[3].ToString(),
-              Country = reader[4].ToString(),
-              Userstatus = reader[5].ToString(),
-            };
+            UserModel.Instance.Id = reader[0].ToString();
+            UserModel.Instance.Username = reader[1].ToString();
+            UserModel.Instance.Password = String.Empty;
+            UserModel.Instance.Email = reader[3].ToString();
+            UserModel.Instance.Country = reader[4].ToString();
+            UserModel.Instance.Userstatus = reader[5].ToString();
           }
         }
       }
-      return user;
     }
 
     public void Remove(int id)
