@@ -20,7 +20,7 @@
                     <Grid.Background>
 
                         <ImageBrush x:Name="img_bg"
-                                    ImageSource="\Images\duo.png" 
+                                    ImageSource="pack://application:,,,/Images/duo.png" 
                                     Stretch="Uniform" 
                                     Opacity="0.2"/>
 
@@ -55,7 +55,7 @@
                                               Margin="10,0,0,0"
                                               Style="{StaticResource tb_style}" Unchecked="tg_btn_Unchecked" Checked="tg_btn_Checked">
                                 <ToggleButton.Background>
-                                    <ImageBrush ImageSource="\Images\menu.png" Stretch="Uniform"/>
+                                    <ImageBrush ImageSource="pack://application:,,,/Images/menu.png" Stretch="Uniform"/>
                                 </ToggleButton.Background>
                                 <ToggleButton.Triggers>
                                     <EventTrigger RoutedEvent="ToggleButton.Unchecked">
@@ -97,7 +97,7 @@
                                             BorderThickness="0"
                                             Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Home">
-                                        <Image Source="\Images\mainpage.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                        <Image Source="pack://application:,,,/Images/mainpage.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Home2"
                                             Style="{StaticResource NoMouseOver}"
@@ -133,7 +133,7 @@
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Lessons">
-                                        <Image Source="\Images\lekcje2.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                        <Image Source="pack://application:,,,/Images/lekcje2.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Lessons2"
                                             Style="{StaticResource NoMouseOver}"
@@ -169,7 +169,7 @@
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Dictionary">
-                                        <Image Source="\Images\slownik.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                        <Image Source="pack://application:,,,/Images/slownik.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Dictionary2"
                                             Style="{StaticResource NoMouseOver}"
@@ -205,7 +205,7 @@
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Info">
-                                        <Image Source="\Images\info.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                        <Image Source="pack://application:,,,/Images/info.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Information2"
                                             Style="{StaticResource NoMouseOver}"
@@ -241,7 +241,7 @@
                                             BorderThickness="0"
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Settings">
-                                        <Image Source="\Images\settings.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                        <Image Source="pack://application:,,,/Images/settings.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Settings2"
                                             Style="{StaticResource NoMouseOver}"
@@ -277,7 +277,7 @@
                                             BorderThickness="0"
                                             Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Logout" Click="Logout_Click">
-                                        <Image Source="\Images\logout.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                        <Image Source="pack://application:,,,/Images/logout.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Logout2"
                                             Style="{StaticResource NoMouseOver}"
@@ -312,7 +312,7 @@
                                             Width="80"
                                             HorizontalAlignment="Left" Click="Exit_Click"
                                             BorderThickness="0">
-                                        <Image Source="\Images\exit.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                        <Image Source="pack://application:,,,/Images/exit.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
                                     <Button x:Name="Exit2"
                                             Style="{StaticResource NoMouseOver}"

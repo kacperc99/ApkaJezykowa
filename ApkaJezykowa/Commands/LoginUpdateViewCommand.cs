@@ -37,7 +37,7 @@ namespace ApkaJezykowa.Commands
       }
       if (parameter.ToString() == "Test")
       {
-        viewModel.SelectedViewModel = new MainViewModel();
+        viewModel.SelectedViewModel = new SettingsViewModel();
       }
 
     }
