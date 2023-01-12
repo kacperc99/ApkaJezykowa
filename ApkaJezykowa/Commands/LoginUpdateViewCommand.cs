@@ -31,14 +31,11 @@ namespace ApkaJezykowa.Commands
     public void Execute(object parameter)
     {
       Console.WriteLine("Clicked!");
-      if (VisibilityModel.Instance.IsViewVisibleLogin == false && parameter.ToString()!="Test")
+      if (VisibilityModel.Instance.IsViewVisibleLogin == false)
       {
         viewModel.SelectedViewModel = new MainViewModel();
       }
-      if(parameter.ToString()=="Test")
-      {
-        viewModel.SelectedViewModel= new SettingsViewModel();
-      }
+      
     }
   }
 }

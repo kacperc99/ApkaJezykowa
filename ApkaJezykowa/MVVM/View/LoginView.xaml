@@ -71,7 +71,7 @@
                                 <GradientStop Color="DarkRed" Offset="0.5"/>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Button x:Name="FindPassword" Background="Transparent" FontSize="10" FontWeight="Bold" Command="{Binding LoginUpdateViewCommand}" CommandParameter="Test">Zapominałem Hasła</Button>
+                        <Button x:Name="FindPassword" Background="Transparent" FontSize="10" FontWeight="Bold">Zapominałem Hasła</Button>
                     </Border>
                 </StackPanel>
             </StackPanel>

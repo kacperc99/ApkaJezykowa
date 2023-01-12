@@ -4,8 +4,7 @@
              xmlns:local="clr-namespace:ApkaJezykowa"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
              xmlns:view="clr-namespace:ApkaJezykowa.MVVM.View"
-             StartupUri="MainWindow.xaml"
-             DispatcherUnhandledException="Application_DispatcherUnhandledException">
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
