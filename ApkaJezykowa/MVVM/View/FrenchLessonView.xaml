@@ -5,16 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
-             mc:Ignorable="d" 
-             d:DesignHeight="688" d:DesignWidth="944">
+             mc:Ignorable="d" >
     <UserControl.DataContext>
         <viewModel:FrenchLessonViewModel/>
     </UserControl.DataContext>
     <Grid Background="Black">
 
         <TextBlock Text="{Binding LessonTitle}" Foreground="Red" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="Black"></TextBlock>
-        <ScrollViewer Height="600" Width="880" Margin="0,60,0,0" VerticalScrollBarVisibility="Hidden" Background="Black">
-            <TextBlock Width="880" FontSize="24" Foreground="Red" TextWrapping="Wrap">
+        <ScrollViewer Height="Auto" Width="Auto" Margin="20,60,20,0" VerticalScrollBarVisibility="Hidden" Background="Black">
+            <TextBlock Width="Auto" FontSize="24" Foreground="Red" TextWrapping="Wrap">
             <Run Text="{Binding LessonText}"/>
             </TextBlock>
         </ScrollViewer>

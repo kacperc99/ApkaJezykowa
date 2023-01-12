@@ -95,7 +95,7 @@
                                             Width="80"
                                             HorizontalAlignment="Left"
                                             BorderThickness="0"
-                                            Command="{Binding UpdateViewCommand}"
+                                            Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Home">
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\mainpage.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
@@ -107,7 +107,7 @@
                                             HorizontalAlignment="Left"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
-                                            Command="{Binding UpdateViewCommand}"
+                                            Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Home">
                                         <TextBlock Text="Strona Główna"
                                            Margin="0,0,80,0"
@@ -275,7 +275,7 @@
                                             Width="80"
                                             HorizontalAlignment="Left"
                                             BorderThickness="0"
-                                            Command="{Binding UpdateViewCommand}"
+                                            Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Logout" Click="Logout_Click">
                                         <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\logout.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
                                     </Button>
@@ -288,7 +288,7 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             Click="Logout_Click"
-                                            Command="{Binding UpdateViewCommand}"
+                                            Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Logout">
                                         <TextBlock Text="Wyloguj się"
                                            Margin="0,0,80,0"
@@ -376,12 +376,13 @@
                 </Grid>
             </Grid>
             <Grid Margin="80,0,0,0">
+            <Grid Margin="80,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="1">
-                    <ContentControl Content="{Binding SelectedViewModel}"/>
+                    
                 </StackPanel>
 
                 <StackPanel Grid.Row="0">
@@ -394,8 +395,11 @@
                            TextWrapping="Wrap"
                            />
                 </StackPanel>
-
+                
             </Grid>
+                <ContentControl Content="{Binding SelectedViewModel}"/>
+            </Grid>
+            <ContentControl Content="{Binding MainView}"/>
         </Grid>
     </Border>
 

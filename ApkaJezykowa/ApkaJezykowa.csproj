@@ -101,6 +101,7 @@
     <Compile Include="Commands\GermanUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonUpdateViewComand.cs" />
     <Compile Include="Commands\LoginUpdateViewCommand.cs" />
+    <Compile Include="Commands\UpdateMainViewCommand.cs" />
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
@@ -116,9 +117,6 @@
     <Compile Include="MVVM\ViewModel\FrenchExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\View\FrenchExerciseMenuView.xaml.cs">
       <DependentUpon>FrenchExerciseMenuView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\LoginView.xaml.cs">
-      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Model\IUserRepository.cs" />
     <Compile Include="MVVM\Model\UserAccountModel.cs" />
@@ -165,8 +163,11 @@
     <Compile Include="MVVM\View\InfoView.xaml.cs">
       <DependentUpon>InfoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="MVVM\View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -182,10 +183,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\FrenchExerciseMenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,7 +247,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\MainWindow.xaml">
+    <Page Include="MVVM\View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
-             mc:Ignorable="d" 
-             d:DesignHeight="688" d:DesignWidth="944">
+             mc:Ignorable="d">
     <UserControl.DataContext>
         <viewModel:FrenchExerciseMenuViewModel/>
     </UserControl.DataContext>

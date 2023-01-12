@@ -36,10 +36,6 @@ namespace ApkaJezykowa.Commands
             {
                 viewModel.SelectedViewModel = new DictionaryViewModel();
             }
-            if (parameter.ToString() == "Home")
-            {
-                viewModel.SelectedViewModel = new MainViewModel();
-            }
             if (parameter.ToString() == "Info")
             {
               viewModel.SelectedViewModel = new InfoViewModel();
@@ -47,12 +43,6 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "Settings")
       {
         viewModel.SelectedViewModel = new SettingsViewModel();
-      }
-      if (parameter.ToString() == "Logout")
-      {
-        Console.WriteLine("Halo?");
-        Thread.CurrentPrincipal = null;
-        viewModel.SelectedViewModel = new LoginViewModel();
       }
       if (parameter.ToString() == "Close")
       {

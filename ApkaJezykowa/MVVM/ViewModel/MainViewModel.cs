@@ -15,6 +15,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     class MainViewModel : BaseViewModel
     {
         private BaseViewModel _selectedViewModel;
+        private BaseViewModel _mainView;
         private UserAccountModel _currentUserAccount;
         string _welcomeMessage;
         bool _isViewVisible = true;
@@ -35,12 +36,24 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
             }
         }
+    public BaseViewModel MainView
+    {
+      get { return _mainView; }
+      set
+      {
+        _mainView = value;
+        OnPropertyChanged(nameof(MainView));
+
+      }
+    }
     public string WelcomeMessage { get { return _welcomeMessage; } set { _welcomeMessage = value; OnPropertyChanged(nameof(WelcomeMessage)); } }
     public bool IsViewVisible { get { return _isViewVisible; } set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
     public ICommand UpdateViewCommand { get; set; }
+    public ICommand UpdateMainViewCommand { get; set; }
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
+            UpdateMainViewCommand = new UpdateMainViewCommand(this);
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
             LoadCurrentUserData();

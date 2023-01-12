@@ -2,7 +2,6 @@
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\App.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\CustomControls\BindablePasswordBox.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\FrenchExerciseMenuView.xaml;;
-FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\LoginView.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MainWindow.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\DictionaryView.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\EnglishExerciseView.xaml;;
@@ -15,6 +14,7 @@ FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\GermanExerciseV
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\GermanLessonView.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\GermanView.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\InfoView.xaml;;
-FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\MainWindow.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\LoginView.xaml;;
+FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\MainView.xaml;;
 FC:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\MVVM\View\SettingsView.xaml;;
 

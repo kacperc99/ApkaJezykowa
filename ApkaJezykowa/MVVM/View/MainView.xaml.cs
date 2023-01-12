@@ -71,10 +71,7 @@ namespace ApkaJezykowa.MVVM.View
     }
     private void Logout_Click(object sender, RoutedEventArgs e)
     {
-      var window = Window.GetWindow(this);
-      LoginView login = new LoginView();
-      login.Show();
-      window.Close();
+      
     }
 
     private void Exit_Click(object sender, RoutedEventArgs e)
