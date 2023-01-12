@@ -135,7 +135,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
       var isValidUser = userRepository.AuthenticateUser(new System.Net.NetworkCredential(Username, Password));
       if (isValidUser)
       {
-        var user = userRepository.GetByUsername(Username);
+        Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
+        var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
         if (user != null)
         {
           UserModel.Instance.Username = user.Username;

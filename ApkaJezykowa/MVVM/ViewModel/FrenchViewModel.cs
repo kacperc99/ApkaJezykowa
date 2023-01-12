@@ -38,8 +38,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
     private void SetCourseLevel()
     {
-      if (user_CourseRepository.IsUserSignedIn(UserModel.Instance.Username, "Francuski") == false)
-        user_CourseRepository.Add(UserModel.Instance.Username, "Francuski");
+      if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, "Francuski") == false)
+        user_CourseRepository.Add(Thread.CurrentPrincipal.Identity.Name, "Francuski");
     }
   }
 }

@@ -64,7 +64,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         {
             IsViewVisible = true;
 
-            var user = userRepository.GetByUsername(UserModel.Instance.Username);
+            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if(user!=null)
             {
                   CurrentUserAccount.Username = user.Username;
