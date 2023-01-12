@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <ImageBrush x:Key="tb_mouse_over" ImageSource="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\menu2.png" Stretch="Uniform"/>
+    <ImageBrush x:Key="tb_mouse_over" ImageSource="\Images\menu2.png" Stretch="Uniform"/>
     <Style x:Key="Font_Style" TargetType="TextBlock">
         <Setter Property="FontFamily"
-                    Value="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Fonts\Montserrat-VariableFont_wght.ttf #Montserrat"/>
+                    Value="\Fonts\Montserrat-VariableFont_wght.ttf #Montserrat"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Foreground" Value="White"/>

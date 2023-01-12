@@ -59,3 +59,4 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\x64\Release\ApkaJezyko
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\x64\Release\ApkaJezykowa.application
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\x64\Release\ApkaJezykowa.csproj.CopyComplete
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\x64\Release\ApkaJezykowa.exe
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\x64\Release\ApkaJezykowa.csproj.AssemblyReference.cache

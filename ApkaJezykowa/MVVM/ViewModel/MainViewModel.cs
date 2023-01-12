@@ -68,15 +68,11 @@ namespace ApkaJezykowa.MVVM.ViewModel
                   CurrentUserAccount.Username = UserModel.Instance.Username;
                   CurrentUserAccount.DisplayName = $"Witaj, {UserModel.Instance.Username}";
         WelcomeMessage = $"Witaj, {UserModel.Instance.Username}";
-        Console.WriteLine("Działa?");
 
       }
             else
             {
-          CurrentUserAccount.Username = UserModel.Instance.Username;
-          CurrentUserAccount.DisplayName = $"Witaj, {UserModel.Instance.Username}";
-          WelcomeMessage = $"Witaj, {UserModel.Instance.Username}";
-          Console.WriteLine("Nie działa :(");
+          Console.WriteLine(":(");
 
       }
     }
