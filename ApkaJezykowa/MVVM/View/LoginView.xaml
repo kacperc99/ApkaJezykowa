@@ -56,8 +56,8 @@
                             </Button.Style>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding LoginCommand}" CommandParameter="Login"/>
-                                    <i:InvokeCommandAction Command="{Binding LoginUpdateViewCommand}"/>
+                                    <i:InvokeCommandAction Command="{Binding LoginCommand}"/>
+                                    <i:InvokeCommandAction Command="{Binding LoginUpdateViewCommand}" CommandParameter="Login"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>
