@@ -13,24 +13,28 @@ namespace ApkaJezykowa
     /// Logika interakcji dla klasy App.xaml
     /// </summary>
     public partial class App : Application
+  {
+    private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
     {
+
+    }
     /*protected void Login(object sender, StartupEventArgs e)
-    {
-      var loginView = new LoginView();
-      loginView.Show();
-    loginView.IsVisibleChanged += (s, ev) =>
-    {
-      var mainView = new MainWindow();
-      if (loginView.IsVisible == false && loginView.IsLoaded)
-      {
-        mainView.Show();
-        loginView.Close();
-      }
-      if (mainView.IsVisible == false && mainView.IsLoaded)
-      {
-        loginView.Show();
-      }
-    };
-    }*/
+{
+ var loginView = new LoginView();
+ loginView.Show();
+loginView.IsVisibleChanged += (s, ev) =>
+{
+ var mainView = new MainWindow();
+ if (loginView.IsVisible == false && loginView.IsLoaded)
+ {
+   mainView.Show();
+   loginView.Close();
+ }
+ if (mainView.IsVisible == false && mainView.IsLoaded)
+ {
+   loginView.Show();
+ }
+};
+}*/
   }
 }
