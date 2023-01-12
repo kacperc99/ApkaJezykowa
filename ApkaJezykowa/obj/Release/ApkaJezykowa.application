@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="ApkaJezykowa.exe.manifest" size="4899">
+    <dependentAssembly dependencyType="install" codebase="ApkaJezykowa.exe.manifest" size="4900">
       <assemblyIdentity name="ApkaJezykowa.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FxgiCPlNuvGDPY6tjADR7tdSgZSz01s1y4uxEk3NMgY=</dsig:DigestValue>
+        <dsig:DigestValue>ComD2iNujCequzuY7UHmy9y5R7/15OEJaD3082ZF/Ks=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
