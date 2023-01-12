@@ -18,7 +18,7 @@
         <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o aplikacji" Margin="0,20,0,0"></TextBox>
         <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left"  FontSize="24" Text="Nazwa aplikacji: Linguonator" Margin="10,20,0,0"></TextBox>
         <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left"  FontSize="24" Text="Wersja: 0.3" Margin="10,20,0,0"></TextBox>
-        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left" FontSize="24" Text="Autor: Kc, grupa 4ID15B" Margin="10,20,0,0"></TextBox>
+        <TextBox Foreground="Red" Background="Black" BorderThickness="0,0,0,0" HorizontalAlignment="Left" FontSize="24" Text="Autor: Kc, grupa 15B" Margin="10,20,0,0"></TextBox>
         </StackPanel>
     </Grid>
 </UserControl>

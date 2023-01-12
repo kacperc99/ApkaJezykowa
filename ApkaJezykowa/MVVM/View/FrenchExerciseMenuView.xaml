@@ -39,7 +39,7 @@
                        
                        HorizontalAlignment="Center">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\fr_flag.png" 
+                        <Image Source="\Images\fr_flag.png" 
                                Height="80"  Margin="0,20,0,0" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -72,7 +72,7 @@
                        FontStyle="Italic" 
                        HorizontalAlignment="Center">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\fr_flag.png" 
+                        <Image Source="\Images\fr_flag.png" 
                                Height="80" VerticalAlignment="Center" Margin="0,25,0,0" />
                     </StackPanel>
                 </Button>
@@ -105,7 +105,7 @@
                        FontStyle="Italic" 
                        HorizontalAlignment="Center">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\fr_flag.png" 
+                        <Image Source="\Images\fr_flag.png" 
                                Height="80" VerticalAlignment="Center" Margin="0,20,0,0" />
                     </StackPanel>
                 </Button>
@@ -139,7 +139,7 @@
                        FontStyle="Italic" 
                        HorizontalAlignment="Center">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\fr_flag.png" 
+                        <Image Source="\Images\fr_flag.png" 
                                Height="80" VerticalAlignment="Center" Margin="0,20,0,0" />
                     </StackPanel>
                 </Button>
@@ -164,7 +164,7 @@
                         Command="{Binding FrenchExerciseMenuUpdateViewCommand}"
                         CommandParameter="ReturnToMenu" Margin="0,10,0,-10">
                     <StackPanel>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\arrow.png" 
+                        <Image Source="\Images\arrow.png" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>

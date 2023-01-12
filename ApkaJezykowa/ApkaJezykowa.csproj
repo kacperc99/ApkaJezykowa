@@ -310,7 +310,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -323,6 +322,29 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\336-3364653_x-button-exit-icon-symbol-sign-cross-botao.jpg" />
+    <Resource Include="Images\arrow.png" />
+    <Resource Include="Images\arrowchevron.png" />
+    <Resource Include="Images\bg.jpg" />
+    <Resource Include="Images\bg.png" />
+    <Resource Include="Images\book.png" />
+    <Resource Include="Images\duo.png" />
+    <Resource Include="Images\eng_flag.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\fr_flag.png" />
+    <Resource Include="Images\ger_flag.png" />
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\lekcje.png" />
+    <Resource Include="Images\lekcje2.png" />
+    <Resource Include="Images\logout.png" />
+    <Resource Include="Images\mainpage.png" />
+    <Resource Include="Images\menu.png" />
+    <Resource Include="Images\menu2.png" />
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\slownik.jpg" />
+    <Resource Include="Images\slownik.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,7 +36,7 @@
                        Width="185"
                        Height="50">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\eng_flag.png" 
+                        <Image Source="\Images\eng_flag.png" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
@@ -71,7 +71,7 @@
                        Width="200"
                        Height="50">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\ger_flag.png" 
+                        <Image Source="\Images\ger_flag.png" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
@@ -106,7 +106,7 @@
                        Width="200"
                        Height="50">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\fr_flag.png" 
+                        <Image Source="\Images\fr_flag.png" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
@@ -139,7 +139,7 @@
                        Width="200"
                        Height="50">
                         </TextBlock>
-                        <Image Source="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\book.png" 
+                        <Image Source="\Images\book.png" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
