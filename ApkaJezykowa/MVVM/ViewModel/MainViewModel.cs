@@ -63,16 +63,20 @@ namespace ApkaJezykowa.MVVM.ViewModel
     private void LoadCurrentUserData()
         {
             IsViewVisible = true;
-            if(UserModel.Instance.Username!= null)
+            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+            if(user!= null)
             {
-                  CurrentUserAccount.Username = UserModel.Instance.Username;
-                  CurrentUserAccount.DisplayName = $"Witaj, {UserModel.Instance.Username}";
-        WelcomeMessage = $"Witaj, {UserModel.Instance.Username}";
+                  CurrentUserAccount.Username = user.Username;
+                  CurrentUserAccount.DisplayName = $"Witaj, {user.Username}";
+        WelcomeMessage = $"Witaj, {user.Username}";
 
-      }
+            }
             else
             {
-          Console.WriteLine(":(");
+        CurrentUserAccount.Username = UserModel.Instance.Username;
+        CurrentUserAccount.DisplayName = $"Witaj, {UserModel.Instance.Username}";
+        WelcomeMessage = $"Witaj, {UserModel.Instance.Username}";
+        Console.WriteLine(":(");
 
       }
     }
