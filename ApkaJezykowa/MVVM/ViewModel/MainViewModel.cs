@@ -38,30 +38,19 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string WelcomeMessage { get { return _welcomeMessage; } set { _welcomeMessage = value; OnPropertyChanged(nameof(WelcomeMessage)); } }
     public bool IsViewVisible { get { return _isViewVisible; } set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
     public ICommand UpdateViewCommand { get; set; }
-       public ICommand LogoutCommand { get; }
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
             LoadCurrentUserData();
-      LogoutCommand = new RelayCommand(ExecuteLogoutCommand, CanExecuteLogoutCommand);
         }
 
-    private bool CanExecuteLogoutCommand(object arg)
-    {
-      return true;
-    }
-
-    private void ExecuteLogoutCommand(object obj)
-    {
-      IsViewVisible = false;
-      IsViewVisible = true;
-    }
 
     private void LoadCurrentUserData()
         {
             IsViewVisible = true;
+
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if(user!=null)
             {
@@ -69,11 +58,16 @@ namespace ApkaJezykowa.MVVM.ViewModel
                   CurrentUserAccount.DisplayName = $"Witaj, {user.Username}";
         WelcomeMessage = $"Witaj, {user.Username}";
         Console.WriteLine("Działa?");
+
       }
             else
             {
-        Console.WriteLine("Nie działa :(");
+          CurrentUserAccount.Username = UserModel.Instance.Username;
+          CurrentUserAccount.DisplayName = $"Witaj, {UserModel.Instance.Username}";
+          WelcomeMessage = $"Witaj, {UserModel.Instance.Username}";
+          Console.WriteLine("Nie działa :(");
+
       }
-        }
+    }
   }
 }

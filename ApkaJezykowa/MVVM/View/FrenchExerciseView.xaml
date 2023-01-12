@@ -62,6 +62,6 @@
             
         </Button>
         <TextBlock Text="{Binding Result}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,621,0,0" FontSize="24" TextWrapping="Wrap"/>
-
+        <ContentControl Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>

@@ -72,7 +72,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
       RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPassCommand("", ""));
       LoginUpdateViewCommand = new LoginUpdateViewCommand(this);
-      LoadBool();
     }
 
     private bool CanExecuteRegisterCommand(object obj)
@@ -107,11 +106,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
     }
 
-    private void LoadBool()
-    {
-      IsViewVisible = true;
-    }
-
     private bool CanExecuteLoginCommand(object obj)
     {
       bool validData;
@@ -126,7 +120,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
       if (isValidUser)
       {
         Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
-        IsViewVisible = false;
+        var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+        if (user != null)
+        {
+          UserModel.Instance.Username = user.Username;
+        }
+        VisibilityModel.Instance.IsViewVisibleLogin = false;
       }
       else
       {

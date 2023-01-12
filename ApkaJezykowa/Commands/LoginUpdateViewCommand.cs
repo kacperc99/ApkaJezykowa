@@ -1,4 +1,5 @@
-﻿using ApkaJezykowa.MVVM.ViewModel;
+﻿using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Windows.Input;
 
 namespace ApkaJezykowa.Commands
 {
-  internal class LoginUpdateViewCommand : /*LoginViewModel,*/ ICommand
+  internal class LoginUpdateViewCommand : ICommand
   {
     private LoginViewModel viewModel;
 
@@ -22,22 +23,18 @@ namespace ApkaJezykowa.Commands
 
     public bool CanExecute(object parameter)
     {
-      /*if(Check)
-        return false;
-      else*/
+      if(VisibilityModel.Instance.IsViewVisibleLogin==false)
         return true;
+      else
+        return false;
     }
     public void Execute(object parameter)
     {
       Console.WriteLine("Clicked!");
-      //if (parameter.ToString() == "German")
-      //{
-        //viewModel.SelectedViewModel = new GermanViewModel();
-      //}
-      //if(IsViewVisible==false)
-      //{
+      if (VisibilityModel.Instance.IsViewVisibleLogin == false)
+      {
         viewModel.SelectedViewModel = new MainViewModel();
-      //}
+      }
       
     }
   }

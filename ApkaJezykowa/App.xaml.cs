@@ -14,23 +14,23 @@ namespace ApkaJezykowa
     /// </summary>
     public partial class App : Application
     {
-      protected void Login(object sender, StartupEventArgs e)
+    /*protected void Login(object sender, StartupEventArgs e)
+    {
+      var loginView = new LoginView();
+      loginView.Show();
+    loginView.IsVisibleChanged += (s, ev) =>
+    {
+      var mainView = new MainWindow();
+      if (loginView.IsVisible == false && loginView.IsLoaded)
       {
-        var loginView = new LoginView();
-        loginView.Show();
-      loginView.IsVisibleChanged += (s, ev) =>
-      {
-        var mainView = new MainWindow();
-        if (loginView.IsVisible == false && loginView.IsLoaded)
-        {
-          mainView.Show();
-          loginView.Close();
-        }
-        if (mainView.IsVisible == false && mainView.IsLoaded)
-        {
-          loginView.Show();
-        }
-      };
+        mainView.Show();
+        loginView.Close();
       }
-    }
+      if (mainView.IsVisible == false && mainView.IsLoaded)
+      {
+        loginView.Show();
+      }
+    };
+    }*/
+  }
 }

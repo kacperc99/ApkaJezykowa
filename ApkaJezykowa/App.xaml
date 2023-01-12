@@ -4,13 +4,16 @@
              xmlns:local="clr-namespace:ApkaJezykowa"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
              xmlns:view="clr-namespace:ApkaJezykowa.MVVM.View"
-             Startup="Login">
+             StartupUri="MVVM/View/LoginView.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/ToolTip.xaml"/>
                 <ResourceDictionary Source="Themes/ListViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:MainViewModel}">
+                <view:MainWindow/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:LessonsViewModel}">
                 <view:LessonsView/>
             </DataTemplate>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ApkaJezykowa.MVVM.ViewModel;
@@ -39,16 +40,18 @@ namespace ApkaJezykowa.Commands
             {
                 viewModel.SelectedViewModel = new MainViewModel();
             }
-      if (parameter.ToString() == "Info")
-      {
-        viewModel.SelectedViewModel = new InfoViewModel();
-      }
+            if (parameter.ToString() == "Info")
+            {
+              viewModel.SelectedViewModel = new InfoViewModel();
+            }
       if (parameter.ToString() == "Settings")
       {
         viewModel.SelectedViewModel = new SettingsViewModel();
       }
-      if (parameter.ToString() == "Login")
+      if (parameter.ToString() == "Logout")
       {
+        Console.WriteLine("Halo?");
+        Thread.CurrentPrincipal = null;
         viewModel.SelectedViewModel = new LoginViewModel();
       }
       if (parameter.ToString() == "Close")
