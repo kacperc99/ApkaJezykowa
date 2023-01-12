@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Security;
 using System.Security.Principal;
 using System.Text;
@@ -85,6 +86,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
     private void ExecuteRegisterCommand(object obj)
     {
+      if(Email.Contains("@gmail.com") || Email.Contains("@wp.pl") || Email.Contains("@onet.pl") || Email.Contains("@vp.pl") || Email.Contains("@interia.pl"))
+      { 
       var isNewUser = userRepository.FindUser(new System.Net.NetworkCredential(RUsername, Email));
       if (isNewUser)
       {
@@ -92,17 +95,30 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       else
       {
-       // if(RPassword==RPasswordRepeat)
-       // {
+        string RPasswort = new NetworkCredential("", RPassword).Password;
+        string RPasswortRepeat = new NetworkCredential("", RPasswordRepeat).Password;
+        if (RPasswort==RPasswortRepeat)
+       {
+          Console.WriteLine(RPasswort);
+          Console.WriteLine(RPasswortRepeat);
+          Console.WriteLine("Pykło");
           userRepository.Add(RUsername,RPassword,Email,Country);
           RegisterMessage = "* Konto zostało założone!";
-        /*}
-        if(RPasswordRepeat!=RPassword)
+        }
+        if(RPasswortRepeat!=RPasswort)
         {
+          Console.WriteLine(RPasswort);
+          Console.WriteLine(RPasswortRepeat);
+          Console.WriteLine("A tu nie pykło");
           RegisterMessage = "* Hasła nie są identyczne";
-          Console.WriteLine(value:RPassword);
-          Console.WriteLine(value:RPasswordRepeat);
-        }*/
+          Console.WriteLine(value:RPasswort);
+          Console.WriteLine(value:RPasswortRepeat);
+        }
+      }
+      }
+      else
+      {
+        RegisterMessage = "* nieprawidłowa nazwa Emaila";
       }
     }
 

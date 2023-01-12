@@ -60,3 +60,5 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Release\ApkaJezykowa.e
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Release\ApkaJezykowa.application
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.exe.manifest
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\ApkaJezykowa.application
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\MVVM\View\MainView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Release\MVVM\View\MainView.baml

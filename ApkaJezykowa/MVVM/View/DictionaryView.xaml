@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              mc:Ignorable="d">
     <Grid Background="Black">
+        <Grid Width="928" Height="720">
         <Label x:Name="label" Content="Przetłumacz Tekst" Foreground="Red" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Height="49" FontSize="32"/>
         <TextBox x:Name="TextToTranslate" Height="400" Width="300" Text="Tekst do przetłumaczenia" Margin="100,143,544,145" TextWrapping="Wrap" FontSize="16" TabIndex="3"/>
         <Label x:Name="toLabel" Content="Przetłumacz na:" Foreground="Red" HorizontalAlignment="Left" Margin="547,58,0,0" VerticalAlignment="Top" FontSize="14"/>
@@ -24,6 +25,7 @@
             Margin="100,94,0,0"
             VerticalAlignment="Top"
             Width="175" FontSize="14" TabIndex="1"/>
-        <TextBox x:Name="TranslatedTextLabel" Width="300" Height="400" Text="Przetłumaczony tekst" FontSize="16" Margin="544,143,100,145"/>
+            <TextBox x:Name="TranslatedTextLabel" Width="300" Height="400" Text="Przetłumaczony tekst" FontSize="16" Margin="544,143,100,145"/>
+    </Grid>
     </Grid>
 </UserControl>
