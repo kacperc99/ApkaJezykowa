@@ -28,12 +28,11 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     private void LoadCurrentUserData()
     {
-      var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
-      if (user != null)
+      if (UserModel.Instance.Username != null)
       {
-        CurrentUserAccount.Username = $"Nazwa użytkownika: {user.Username}";
-        CurrentUserAccount.Email = $"E-Mail: {user.Email}";
-        CurrentUserAccount.Country = $"Kraj: {user.Country}";
+        CurrentUserAccount.Username = $"Nazwa użytkownika: {UserModel.Instance.Username}";
+        CurrentUserAccount.Email = $"E-Mail: {UserModel.Instance.Email}";
+        CurrentUserAccount.Country = $"Kraj: {UserModel.Instance.Country}";
         Console.WriteLine("Działa?");
       }
       else
