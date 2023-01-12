@@ -24,6 +24,7 @@
                                 Width="200"
                                 Background="Transparent"
                         BorderThickness="0"
+                        Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                         Command="{Binding LessonUpdateViewCommand}"
                         CommandParameter="English">
@@ -93,7 +94,6 @@
                                 Width="200"
                                 Background="Transparent"
                         BorderThickness="0"
-                        Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                         Command="{Binding LessonUpdateViewCommand}"
                         CommandParameter="French">
@@ -107,7 +107,7 @@
                        Height="50">
                         </TextBlock>
                         <Image Source="\Images\fr_flag.png" 
-                               Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
+                               Height="80" VerticalAlignment="Bottom" Margin="0,0,0,60" />
                     </StackPanel>
                 </Button>
             </Border>

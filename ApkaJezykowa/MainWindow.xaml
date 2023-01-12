@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Linguonator" Height="1024" Width="1280"
         ResizeMode="CanResize"
-        Background="transparent">
+        Background="transparent" SizeChanged="Window_SizeChanged">
 
     <Border Background="#323232"
             CornerRadius="30">

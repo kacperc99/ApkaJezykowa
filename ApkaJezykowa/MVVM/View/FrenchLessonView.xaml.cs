@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApkaJezykowa.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace ApkaJezykowa.MVVM.View
     public FrenchLessonView()
     {
       InitializeComponent();
+    }
+
+    private void LV_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        LV.Height = HeightModel.Instance.Height;
     }
   }
 }

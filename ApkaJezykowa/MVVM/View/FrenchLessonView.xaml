@@ -22,7 +22,7 @@
               Width="20"
               Background="Black">
             
-            <StackPanel x:Name="st_pnl">
+            <StackPanel x:Name="st_pnl" Height="Auto">
                 <Grid Height="80"
                       Width="20"
                       HorizontalAlignment="Right"
@@ -33,7 +33,7 @@
                                   Height="80"
                                   Width="20">
                         <ToggleButton.Background>
-                            <ImageBrush ImageSource="C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\Images\arrowchevron.png"/>
+                            <ImageBrush ImageSource="\Images\arrowchevron.png"/>
                         </ToggleButton.Background>
                         <ToggleButton.Triggers>
                             <EventTrigger RoutedEvent="ToggleButton.Unchecked">
@@ -65,11 +65,12 @@
                         </ToggleButton.Triggers>
                     </ToggleButton>
                 </Grid>
+
                 <ListView x:Name="LV"
                           Background="Black"
                           BorderBrush="Transparent"
-                              Height="608"
-                          ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          VerticalAlignment="Stretch" SizeChanged="LV_SizeChanged">
 
                     <ListViewItem HorizontalAlignment="Right"
                                       Margin="0,0,0,0">
@@ -543,7 +544,7 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French20">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="Koniec"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"

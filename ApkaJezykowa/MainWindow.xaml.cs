@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.MVVM.ViewModel;
 
 namespace ApkaJezykowa
@@ -31,5 +32,9 @@ namespace ApkaJezykowa
             DataContext = new LoginViewModel();
         }
 
+    private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+      HeightModel.Instance.Height = e.NewSize.Height;
     }
+  }
 }

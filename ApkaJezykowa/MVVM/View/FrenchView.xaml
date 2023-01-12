@@ -30,7 +30,7 @@
                         Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchSomething">
                     <StackPanel>
-                        <TextBlock Text="Coś tam"
+                        <TextBlock Text="Dyktanda"
                        FontSize="24" 
                        Margin="50,0,0,0"
                        Style="{StaticResource Font_Style}" 
@@ -61,7 +61,6 @@
                                 Width="200"
                                 Background="Transparent"
                         BorderThickness="0"
-                        Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                         Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchExercise">
@@ -96,7 +95,6 @@
                                 Width="200"
                                 Background="Transparent"
                         BorderThickness="0"
-                        Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                         Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchLesson">

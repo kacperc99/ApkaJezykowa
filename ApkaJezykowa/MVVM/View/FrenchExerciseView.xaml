@@ -61,7 +61,7 @@
         <Button x:Name="Leave" Background="Red" FontSize="16" FontWeight="Bold" Content="Powrót" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40,612,0,26" Command="{Binding FrenchExerciseUpdateViewCommand}" CommandParameter="ReturnToMenu">
             
         </Button>
-        <TextBlock Text="{Binding Result}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,621,0,0" FontSize="24" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding Result}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,621,0,26" FontSize="24" TextWrapping="Wrap"/>
         <ContentControl Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>

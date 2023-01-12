@@ -94,6 +94,7 @@
                                 Width="200"
                                 Background="Transparent"
                         BorderThickness="0"
+                        Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                         Command="{Binding FrenchExerciseMenuUpdateViewCommand}"
                         CommandParameter="Exercise3">
@@ -127,7 +128,7 @@
                                 Width="200"
                                 
                         BorderThickness="0"
-
+                        Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                     Command="{Binding FrenchExerciseMenuUpdateViewCommand}"
                         CommandParameter="Exercise4">
