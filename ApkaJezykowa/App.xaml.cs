@@ -16,7 +16,7 @@ namespace ApkaJezykowa
   {
     private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
     {
-
+      e.Handled = true;
     }
     /*protected void Login(object sender, StartupEventArgs e)
 {
