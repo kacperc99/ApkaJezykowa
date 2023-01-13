@@ -391,7 +391,6 @@
                            Foreground="White"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Margin="0,8,0,0"
                            TextWrapping="Wrap"
                            />
                 </StackPanel>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -33,6 +34,7 @@ namespace ApkaJezykowa.Commands
       }
       if (parameter.ToString() == "Logout")
       {
+        Thread.CurrentPrincipal = null;
         viewModel.MainView = new LoginViewModel();
       }
     }

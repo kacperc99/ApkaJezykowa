@@ -73,6 +73,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
       LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
       RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPassCommand("", ""));
       LoginUpdateViewCommand = new LoginUpdateViewCommand(this);
+      LoadBool();
+    }
+
+    private void LoadBool()
+    {
+      VisibilityModel.Instance.IsViewVisibleLogin = true;
     }
 
     private bool CanExecuteRegisterCommand(object obj)

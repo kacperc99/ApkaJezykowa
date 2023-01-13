@@ -57,7 +57,7 @@
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
                                     <i:InvokeCommandAction Command="{Binding LoginCommand}"/>
-                                    <i:InvokeCommandAction Command="{Binding LoginUpdateViewCommand}" CommandParameter="Login"/>
+                                    <i:InvokeCommandAction Command="{Binding LoginUpdateViewCommand}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>
@@ -67,11 +67,11 @@
                     <Border Height="50" Width="100" CornerRadius="30">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
-                                <GradientStop Color="Red" Offset="-0.1"/>
-                                <GradientStop Color="DarkRed" Offset="0.5"/>
+                                <GradientStop Color="Gray" Offset="-0.1"/>
+                                <GradientStop Color="DarkGray" Offset="0.5"/>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Button x:Name="FindPassword" Background="Transparent" FontSize="10" FontWeight="Bold" Command="{Binding LoginUpdateViewCommand}" CommandParameter="Test">Zapomniałem Hasła</Button>
+                        <Button x:Name="FindPassword" Background="Transparent" Style="{StaticResource NoMouseOver}">Zapomniałem Hasła</Button>
                     </Border>
                 </StackPanel>
             </StackPanel>
