@@ -11,7 +11,7 @@
         <viewModel:FrenchExerciseViewModel/>
     </UserControl.DataContext>
     <Grid Background="Black">
-        <TextBox Foreground="Red" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" Text="{Binding Test}" BorderThickness="0"></TextBox>
+        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" Text="{Binding Test}"></TextBlock>
         <ScrollViewer VerticalScrollBarVisibility="Hidden" Height="Auto" Width="Auto" Margin="40,80,40,100">
             <StackPanel>
                 <TextBlock Text="{Binding Exercise[0]}" Foreground="Red" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
