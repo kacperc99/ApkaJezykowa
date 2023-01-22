@@ -9,18 +9,18 @@
     <UserControl.DataContext>
         <viewModel:FrenchLessonViewModel/>
     </UserControl.DataContext>
-    <Grid Background="Black">
+    <Grid Background="DimGray">
 
-        <TextBlock Text="{Binding LessonTitle}" Foreground="Red" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="Black"></TextBlock>
-        <ScrollViewer Height="Auto" Width="Auto" Margin="20,60,20,0" VerticalScrollBarVisibility="Hidden" Background="Black">
-            <TextBlock Width="Auto" FontSize="24" Foreground="Red" TextWrapping="Wrap">
+        <TextBlock Text="{Binding LessonTitle}" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="DimGray"></TextBlock>
+        <ScrollViewer Height="Auto" Width="Auto" Margin="20,60,20,0" VerticalScrollBarVisibility="Hidden" Background="DimGray">
+            <TextBlock Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap">
             <Run Text="{Binding LessonText}"/>
             </TextBlock>
         </ScrollViewer>
         <Grid x:Name="nav_pnl"
               HorizontalAlignment="Right"
               Width="20"
-              Background="Black">
+              Background="DimGray">
             
             <StackPanel x:Name="st_pnl" Height="Auto">
                 <Grid Height="80"
@@ -67,7 +67,7 @@
                 </Grid>
 
                 <ListView x:Name="LV"
-                          Background="Black"
+                          Background="#484848"
                           BorderBrush="Transparent"
                           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           VerticalAlignment="Stretch" SizeChanged="LV_SizeChanged">
@@ -91,7 +91,8 @@
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
+                                           VerticalAlignment="Center"
+                                           Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -116,7 +117,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -141,7 +142,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -160,12 +161,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French4">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="3.Czasowniki"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -184,12 +185,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French5">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="4.Rzeczowniki"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -208,12 +209,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French6">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="5.Przymiotniki"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -232,12 +233,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French7">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="6. Przysłówki"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -256,12 +257,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French8">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="7. Przyimki"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -280,12 +281,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French9">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="8.Spójniki"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -304,12 +305,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French10">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="9. Imprafait"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -328,12 +329,12 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             CommandParameter="French11">
-                                <TextBlock Text="Podstawy"
+                                <TextBlock Text="10. Czas przeszły złożony"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -357,7 +358,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -381,7 +382,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -405,7 +406,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -429,7 +430,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -453,7 +454,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -477,7 +478,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -501,7 +502,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -525,7 +526,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 
@@ -549,7 +550,7 @@
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
-                                               Foreground="Red"/>
+                                               Foreground="Black"/>
                             </Button>
                         </StackPanel>
 

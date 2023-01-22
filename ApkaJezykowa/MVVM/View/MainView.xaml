@@ -7,20 +7,20 @@
         xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
         mc:Ignorable="d"
              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-        Background="Black">
+        Background="DimGray">
     <UserControl.DataContext>
         <viewModel:MainViewModel/>
     </UserControl.DataContext>
     <Border Background="#323232"
             CornerRadius="30">
         <Grid>
-            <Grid Background="Black">
+            <Grid Background="DimGray">
                 <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
 
                     <Grid.Background>
 
                         <ImageBrush x:Name="img_bg"
-                                    ImageSource="pack://application:,,,/ApkaJezykowa;component/Images/duo.png" 
+                                    ImageSource="pack://application:,,,/ApkaJezykowa;component/Images/bg.png" 
                                     Stretch="Uniform" 
                                     Opacity="0.2"/>
 
@@ -110,8 +110,9 @@
                                             Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Home">
                                         <TextBlock Text="Strona Główna"
-                                           Margin="0,0,80,0"
+                                           Margin="0,0,0,0"
                                            VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
                                            Style="{StaticResource Font_Style}"
                                            />
                                     </Button>
@@ -146,8 +147,9 @@
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Lessons">
                                         <TextBlock Text="Lekcje języka obcego"
-                                           Margin="0,0,80,0"
+                                           Margin="0,0,0,0"
                                            VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
                                            Style="{StaticResource Font_Style}"
                                            />
                                     </Button>
@@ -182,8 +184,8 @@
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Dictionary">
                                         <TextBlock Text="Słownik"
-                                           Margin="0,0,80,0"
                                            VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
                                            Style="{StaticResource Font_Style}"
                                            />
                                     </Button>
@@ -218,8 +220,8 @@
                                             Command="{Binding UpdateViewCommand}"
                                             CommandParameter="Info">
                                         <TextBlock Text="Informacje"
-                                           Margin="0,0,80,0"
                                            VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
                                            Style="{StaticResource Font_Style}"
                                            />
                                     </Button>
@@ -230,42 +232,7 @@
                                          Style="{StaticResource tt_style}"/>
                                 </ListViewItem.ToolTip>
                             </ListViewItem>
-                            <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-                                <StackPanel Orientation="Horizontal" Width="250">
-                                    <Button x:Name="Settings"
-                                            Style="{StaticResource NoMouseOver}"
-                                            Background="Transparent"
-                                            Height="80"
-                                            Width="80"
-                                            HorizontalAlignment="Left"
-                                            BorderThickness="0"
-                                            Command="{Binding UpdateViewCommand}"
-                                            CommandParameter="Settings">
-                                        <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/settings.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
-                                    </Button>
-                                    <Button x:Name="Settings2"
-                                            Style="{StaticResource NoMouseOver}"
-                                            Background="Transparent"
-                                            Height="80"
-                                            Width="170"
-                                            HorizontalAlignment="Left"
-                                            BorderThickness="0"
-                                            Margin="0,0,0,0"
-                                            Command="{Binding UpdateViewCommand}"
-                                            CommandParameter="Settings">
-                                        <TextBlock Text="Ustawienia"
-                                           Margin="0,0,80,0"
-                                           VerticalAlignment="Center"
-                                           Style="{StaticResource Font_Style}"
-                                           />
-                                    </Button>
-                                </StackPanel>
-                                <ListViewItem.ToolTip>
-                                    <ToolTip x:Name="tt_settings"
-                                         Content="Ustawienia"
-                                         Style="{StaticResource tt_style}"/>
-                                </ListViewItem.ToolTip>
-                            </ListViewItem>
+                            
                             <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                                 <StackPanel Orientation="Horizontal" Width="250">
                                     <Button x:Name="Logout"
@@ -291,8 +258,8 @@
                                             Command="{Binding UpdateMainViewCommand}"
                                             CommandParameter="Logout">
                                         <TextBlock Text="Wyloguj się"
-                                           Margin="0,0,80,0"
                                            VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
                                            Style="{StaticResource Font_Style}"
                                            />
                                     </Button>
@@ -323,8 +290,8 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0">
                                         <TextBlock Text="Zakończ"
-                                           Margin="0,0,80,0"
                                            VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
                                            Style="{StaticResource Font_Style}"
                                            />
                                     </Button>
@@ -388,7 +355,7 @@
                 <StackPanel Grid.Row="0">
                     <TextBlock Text="{Binding WelcomeMessage}"
                            FontSize="48"
-                           Foreground="White"
+                           Foreground="Black"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            TextWrapping="Wrap"

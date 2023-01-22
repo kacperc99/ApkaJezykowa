@@ -5,10 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              mc:Ignorable="d">
-    <Grid Background="Black">
+    <Grid Background="DimGray">
         <TextBlock Text="Wybierz kategorię" HorizontalAlignment="Center" VerticalAlignment="Top"
-                   Height="80" Width="500" FontSize="48" Foreground="#FFF70505" 
-                   Margin="120,0,0,0"></TextBlock>
+                   Height="80" FontSize="48" Foreground="Black" ></TextBlock>
 
         <StackPanel Margin="684,243,60,244">
             <Border Height="200"
@@ -16,7 +15,7 @@
                     CornerRadius="30">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="Blue" Offset="0.0"/>
+                        <GradientStop Color="Black" Offset="0.0"/>
                         <GradientStop Color="LightBlue" Offset="0.6"/>
                     </LinearGradientBrush>
                 </Border.Background>
@@ -52,7 +51,7 @@
                     CornerRadius="30">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="Blue" Offset="0.0"/>
+                        <GradientStop Color="Black" Offset="0.0"/>
                         <GradientStop Color="LightBlue" Offset="0.6"/>
                     </LinearGradientBrush>
                 </Border.Background>
@@ -87,7 +86,7 @@
                     CornerRadius="30">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="Blue" Offset="0.0"/>
+                        <GradientStop Color="Black" Offset="0.0"/>
                         <GradientStop Color="LightBlue" Offset="0.6"/>
                     </LinearGradientBrush>
                 </Border.Background>
@@ -121,7 +120,7 @@
                     CornerRadius="30">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="Blue" Offset="0.0"/>
+                        <GradientStop Color="Black" Offset="0.0"/>
                         <GradientStop Color="LightBlue" Offset="0.6"/>
                     </LinearGradientBrush>
                 </Border.Background>

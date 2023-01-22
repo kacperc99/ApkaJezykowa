@@ -9,16 +9,16 @@
     <UserControl.DataContext>
         <viewModel:InfoViewModel/>
     </UserControl.DataContext>
-    <Grid Background="Black">
-        <StackPanel Background="Black">
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o użytkowniku"></TextBlock>
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Username}" Margin="10,20,0,0"></TextBlock>
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Email}" Margin="10,20,0,0"></TextBlock>
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Country}" Margin="10,20,0,0"></TextBlock>
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o aplikacji" Margin="0,20,0,0"></TextBlock>
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Left"  FontSize="24" Text="Nazwa aplikacji: Linguonator" Margin="10,20,0,0"></TextBlock>
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Left"  FontSize="24" Text="Wersja: 0.3" Margin="10,20,0,0"></TextBlock>
-        <TextBlock Foreground="Red" Background="Black" HorizontalAlignment="Left" FontSize="24" Text="Autor: Kc, grupa 15B" Margin="10,20,0,0"></TextBlock>
+    <Grid Background="DimGray">
+        <StackPanel Background="DimGray">
+        <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o użytkowniku"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Username}" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Email}" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Country}" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o aplikacji" Margin="0,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="Nazwa aplikacji: Linguonator" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="Wersja: 0.3" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left" FontSize="24" Text="Autor: Kc, grupa 15B" Margin="10,20,0,0"></TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>
