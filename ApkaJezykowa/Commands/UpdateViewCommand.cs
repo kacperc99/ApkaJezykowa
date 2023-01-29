@@ -40,14 +40,6 @@ namespace ApkaJezykowa.Commands
             {
               viewModel.SelectedViewModel = new InfoViewModel();
             }
-      if (parameter.ToString() == "Settings")
-      {
-        viewModel.SelectedViewModel = new SettingsViewModel();
-      }
-      if (parameter.ToString() == "Close")
-      {
-        
-      }
-    }
+        }
     }
 }

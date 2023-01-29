@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
-  internal class FrenchExerciseViewModel : BaseViewModel
+  public class FrenchExerciseViewModel : BaseViewModel
   {
     string _test;
     public List<string> _exercise = new List<string>();
@@ -82,6 +82,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Console.WriteLine(Answer[i]);
           Console.WriteLine(Tip[i]);
           points++;
+          Console.WriteLine(points);
+
         }
         else
         {
@@ -98,7 +100,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Tmp6 = Tip[5];
       Tmp7 = Tip[6];
       Tmp8 = Tip[7];
-      Tmp9 = Tip[9];
+      Tmp9 = Tip[8];
       Tmp10 = Tip[9];
 
       if(points < 8)

@@ -90,7 +90,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       return validData;
     }
 
-    private void ExecuteRegisterCommand(object obj)
+    public void ExecuteRegisterCommand(object obj)
     {
       if(Email.Contains("@gmail.com") || Email.Contains("@wp.pl") || Email.Contains("@onet.pl") || Email.Contains("@vp.pl") || Email.Contains("@interia.pl"))
       { 

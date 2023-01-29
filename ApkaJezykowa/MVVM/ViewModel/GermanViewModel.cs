@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,13 +13,17 @@ using ApkaJezykowa.Repositories;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
-    internal class GermanViewModel : BaseViewModel
+    public class GermanViewModel : BaseViewModel
       {
 
         private BaseViewModel _selectedViewModel;
     private IUser_CourseRepository user_CourseRepository;
 
-        public BaseViewModel SelectedViewModel
+    public bool _check;
+
+    public bool Check { get; set; }
+
+    public BaseViewModel SelectedViewModel
         {
            get { return _selectedViewModel; }
            set
@@ -38,8 +43,14 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
     private void SetCourseLevel()
     {
-      if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, "Niemiecki") == false)
+      AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
+      if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, "Niemiecki") == false && Thread.CurrentPrincipal.Identity.Name != "")
+      {
+        AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
         user_CourseRepository.Add(Thread.CurrentPrincipal.Identity.Name, "Niemiecki");
+      }
+      else
+        Check = true;
     }
   }
 }

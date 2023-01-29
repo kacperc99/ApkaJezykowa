@@ -4,13 +4,15 @@ using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
-  internal class FrenchLessonViewModel : BaseViewModel
+  public class FrenchLessonViewModel : BaseViewModel
   {
 
     private BaseViewModel _selectedViewModel;
@@ -39,11 +41,14 @@ namespace ApkaJezykowa.MVVM.ViewModel
       LoadLesson();
   }
 
-    private void LoadLesson()
+    public void LoadLesson()
     {
-      var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, ExerciseLevelModel.Instance.Language);
-      LessonTitle = lesson.Lesson_Title;
-      LessonText = lesson.Lesson_Text;
+      if (ExerciseLevelModel.Instance.Level != 0 && ExerciseLevelModel.Instance.Language != null)
+      {
+        var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, ExerciseLevelModel.Instance.Language);
+        LessonTitle = lesson.Lesson_Title;
+        LessonText = lesson.Lesson_Text;
+      }
     }
   }
 }

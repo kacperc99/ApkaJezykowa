@@ -3,13 +3,14 @@ using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
-  internal class InfoViewModel : BaseViewModel
+  public class InfoViewModel : BaseViewModel
   {
     private UserAccountModel _currentUserAccount;
 
@@ -26,8 +27,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
       CurrentUserAccount = new UserAccountModel();
       LoadCurrentUserData();
     }
-    private void LoadCurrentUserData()
+    public void LoadCurrentUserData()
     {
+      AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
       var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
       if (user != null)
       {

@@ -35,11 +35,6 @@ namespace ApkaJezykowa.Commands
       {
         viewModel.SelectedViewModel = new MainViewModel();
       }
-      /*if (parameter.ToString() == "Test")
-      {
-        //viewModel.SelectedViewModel = new SettingsViewModel();
-      }*/
-
     }
   }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApkaJezykowa.MVVM.Model
 {
-  internal class UserModel
+  public class UserModel
   {
     public string Id { get; set; }
     public string Username { get; set; }

@@ -38,7 +38,7 @@ namespace ApkaJezykowa.Repositories
         command.Connection = connection;
         command.CommandText = "select Id from [User] where [Username]=@username";
         command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
-        UserID = (int)command.ExecuteScalar();
+        UserID = System.Convert.ToInt32(command.ExecuteScalar());
         Console.WriteLine("Eins!");
       }
       using (var connection = GetConnection())

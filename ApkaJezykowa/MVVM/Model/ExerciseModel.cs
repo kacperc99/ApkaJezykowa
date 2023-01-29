@@ -16,7 +16,6 @@ namespace ApkaJezykowa.MVVM.Model
     public List<string> Answer { get; set; }
     public List<string> Tip { get; set; }
     public string Id_Course { get; set; }
-    //List<Exercise> Exercises { get; set; } = new List<Exercise>();
     private ExerciseModel() { }
     public static readonly ExerciseModel Instance = new ExerciseModel();
   }
