@@ -21,7 +21,7 @@ namespace ApkaJezykowa.MVVM.View
 {
     public partial class DictionaryView : UserControl
     {
-        const string COGNITIVE_SERVICES_KEY = "bb25e6d32f3d41d89ed859e019bf4f44";
+        const string COGNITIVE_SERVICES_KEY = "f5bce6599a6b46cd8f4664db1f39373b";
         public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
         const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
         private string[] languageCodes;
@@ -181,7 +181,7 @@ namespace ApkaJezykowa.MVVM.View
                 request.RequestUri = new Uri(uri);
                 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
                 request.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
-                request.Headers.Add("Ocp-Apim-Subscription-Region", "northeurope");
+                request.Headers.Add("Ocp-Apim-Subscription-Region", "germanywestcentral");
                 request.Headers.Add("X-ClientTraceId", Guid.NewGuid().ToString());
 
                 var response = await client.SendAsync(request);

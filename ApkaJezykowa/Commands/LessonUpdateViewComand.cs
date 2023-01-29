@@ -29,7 +29,7 @@ namespace ApkaJezykowa.Commands
                 Console.WriteLine("Clicked!");
                 if (parameter.ToString() == "German")
                 {
-                    viewModel.SelectedViewModel = new GermanViewModel();
+                   // viewModel.SelectedViewModel = new GermanViewModel();
                 }
       if (parameter.ToString() == "French")
       {
@@ -37,7 +37,7 @@ namespace ApkaJezykowa.Commands
       }
       if (parameter.ToString() == "English")
       {
-        viewModel.SelectedViewModel = new EnglishViewModel();
+        //viewModel.SelectedViewModel = new EnglishViewModel();
       }
     }
     }

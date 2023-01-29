@@ -63,17 +63,7 @@
                         </Button>
                     </Border>
                 </StackPanel>
-                <StackPanel Margin="0,30,0,0" Width="100" Height="50">
-                    <Border Height="50" Width="100" CornerRadius="30">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
-                                <GradientStop Color="Gray" Offset="-0.1"/>
-                                <GradientStop Color="DarkGray" Offset="0.5"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <Button x:Name="FindPassword" Background="Transparent" Style="{StaticResource NoMouseOver}" Content="Zapomniałem hasła" FontSize="10" TextBlock.TextAlignment="Center"></Button>
-                    </Border>
-                </StackPanel>
+              
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="1">
                 <TextBlock Text="Nazwa Użytwkonika" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,100,0"/>
