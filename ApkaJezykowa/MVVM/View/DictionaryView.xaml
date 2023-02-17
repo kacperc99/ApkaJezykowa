@@ -25,7 +25,7 @@
             Margin="100,94,0,0"
             VerticalAlignment="Top"
             Width="175" FontSize="14" TabIndex="1"/>
-            <TextBox x:Name="TranslatedTextLabel" Width="300" Height="400" Text="Przetłumaczony tekst" FontSize="16" Margin="544,143,100,145"/>
+            <TextBox x:Name="TranslatedTextLabel" Width="300" Height="400" Text="Przetłumaczony tekst" TextWrapping="Wrap" FontSize="16" Margin="544,143,100,145"/>
     </Grid>
     </Grid>
 </UserControl>

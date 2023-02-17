@@ -13,7 +13,7 @@ namespace ApkaJezykowa.Repositories
     public BaseRepository()
     {
       //_connectionString = @"Server=DESKTOP-TJ02NPR\LINGUONATOR2; Database=userDB; Integrated Security=true";
-      _connectionString = @"Data Source=SQL8004.site4now.net;Initial Catalog=db_a92e16_linguonator;User Id=db_a92e16_linguonator_admin;Password=sexsiman4";
+      _connectionString = @"Data Source=SQL8004.site4now.net;Initial Catalog=db_a92e16_linguonator;User Id=db_a92e16_linguonator_admin;Password=ppppppp1";
       //_connectionString = @"Server=DESKTOP-LFET3QL\LINGUONATOR2; Database=userDB; Integrated Security=true";
     }
     protected SqlConnection GetConnection()
