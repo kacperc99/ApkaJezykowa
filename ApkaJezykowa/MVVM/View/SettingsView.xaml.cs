@@ -46,9 +46,15 @@ namespace ApkaJezykowa.MVVM.View
 
       if (openFileDialog1.ShowDialog()==true)
       {
+        ImageDisplay.Source = new BitmapImage(new Uri(openFileDialog1.FileName));
         Properties.Settings.Default.FilePath = openFileDialog1.FileName;
         Properties.Settings.Default.Save();
       }
+    }
+
+    private void Apply_Click(object sender, RoutedEventArgs e)
+    {
+
     }
   }
 }

@@ -18,6 +18,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         private BaseViewModel _selectedViewModel;
         private BaseViewModel _mainView;
         private UserAccountModel _currentUserAccount;
+        string _filePath;
         string _welcomeMessage;
 
     private IUserRepository userRepository;
@@ -47,6 +48,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
     }
     public string WelcomeMessage { get { return _welcomeMessage; } set { _welcomeMessage = value; OnPropertyChanged(nameof(WelcomeMessage)); } }
+    public string FilePath { get { return _filePath; } set { _filePath = value; OnPropertyChanged(nameof(FilePath));} }
     public ICommand UpdateViewCommand { get; set; }
     public ICommand UpdateMainViewCommand { get; set; }
         public MainViewModel()
@@ -77,7 +79,14 @@ namespace ApkaJezykowa.MVVM.ViewModel
       WelcomeMessage = $"Witaj, {UserModel.Instance.Username}";
         Console.WriteLine(":(");
       }
-      
+      if(Properties.Settings.Default.FilePath!=null && System.IO.File.Exists(Properties.Settings.Default.FilePath)==true)
+      {
+        FilePath = Properties.Settings.Default.FilePath;
+      }
+      else
+      {
+        FilePath = @"pack://application:,,,/ApkaJezykowa;component/Images/bg.png";
+      }
     }
   }
 }

@@ -20,7 +20,7 @@
                     <Grid.Background>
 
                         <ImageBrush x:Name="img_bg"
-                                    ImageSource="pack://application:,,,/ApkaJezykowa;component/Images/bg.png" 
+                                    ImageSource="{Binding FilePath}" 
                                     Stretch="Uniform" 
                                     Opacity="0.2"/>
 
