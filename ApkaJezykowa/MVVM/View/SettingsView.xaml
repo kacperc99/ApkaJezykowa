@@ -4,8 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
-             mc:Ignorable="d">
-    <Grid Background="Black">
-        <TextBox Foreground="Red" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Text="Work in Progress"></TextBox>
+             mc:Ignorable="d"
+             Height="1000" Width="1000">
+    <Grid Background="DimGray">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBox Foreground="Black" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60" Text="Ustawienia"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <TextBox Foreground="Black" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="40" Text="Wybierz tło w menu głównym" Margin="20,0,0,0"></TextBox>
+                <Button x:Name="ChooseBackground" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="200" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,-50,200,0" Content="Wybierz obraz z dysku" Click="ChooseBackground_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Image x:Name="ImageDisplay" Source="{Binding Properties.Settings.Default.FilePath}"></Image>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

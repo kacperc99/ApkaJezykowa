@@ -232,7 +232,42 @@
                                          Style="{StaticResource tt_style}"/>
                                 </ListViewItem.ToolTip>
                             </ListViewItem>
-                            
+                            <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                                <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="Settings"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left"
+                                            BorderThickness="0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Settings">
+                                        <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/settings.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="Settings2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            Command="{Binding UpdateViewCommand}"
+                                            CommandParameter="Info">
+                                        <TextBlock Text="Informacje"
+                                           VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                                <ListViewItem.ToolTip>
+                                    <ToolTip x:Name="tt_settings"
+                                         Content="Informacja"
+                                         Style="{StaticResource tt_style}"/>
+                                </ListViewItem.ToolTip>
+                            </ListViewItem>
                             <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                                 <StackPanel Orientation="Horizontal" Width="250">
                                     <Button x:Name="Logout"

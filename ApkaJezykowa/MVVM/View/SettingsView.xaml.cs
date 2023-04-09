@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,31 @@ namespace ApkaJezykowa.MVVM.View
     public SettingsView()
     {
       InitializeComponent();
+    }
+
+    private void ChooseBackground_Click(object sender, RoutedEventArgs e)
+    {
+      OpenFileDialog openFileDialog1 = new OpenFileDialog
+      {
+        InitialDirectory = @"D:\",
+        Title = "Wybierz obraz",
+
+        CheckFileExists = true,
+        CheckPathExists = true,
+        DefaultExt = "png",
+        Filter = "Pliki obrazów (*.jpg;*.png;)|*.jpg;*.png",
+        FilterIndex = 2,
+        RestoreDirectory = true,
+          
+        ReadOnlyChecked = true,
+        ShowReadOnly = true,
+      };
+
+      if (openFileDialog1.ShowDialog()==true)
+      {
+        Properties.Settings.Default.FilePath = openFileDialog1.FileName;
+        Properties.Settings.Default.Save();
+      }
     }
   }
 }

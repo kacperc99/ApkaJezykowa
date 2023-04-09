@@ -19,7 +19,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
-                <RowDefinition/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Grid.Row="0">
                 <TextBlock Text="Zaloguj się" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Margin="0,10,0,0"/>
