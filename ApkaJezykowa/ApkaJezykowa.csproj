@@ -120,6 +120,7 @@
     <Compile Include="MVVM\Model\ILessonRepository.cs" />
     <Compile Include="MVVM\Model\ISessionContext.cs" />
     <Compile Include="MVVM\Model\IUser_CourseRepository.cs" />
+    <Compile Include="MVVM\Model\LessonListModel.cs" />
     <Compile Include="MVVM\Model\LessonModel.cs" />
     <Compile Include="MVVM\Model\User_CourseModel.cs" />
     <Compile Include="MVVM\Model\VisibilityModel.cs" />

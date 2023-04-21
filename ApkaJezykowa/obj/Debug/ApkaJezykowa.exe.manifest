@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ApkaJezykowa.exe" size="6655968">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ApkaJezykowa.exe" size="6648800">
       <assemblyIdentity name="ApkaJezykowa" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wMt3wPDzs01F1iZ85VYrjvW2m7sqrzckHNKAZS9zuCk=</dsig:DigestValue>
+        <dsig:DigestValue>4cpNpl5i4XE9r5q8YFFZdG0M/BcfxTadeTp70RW9e2g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
