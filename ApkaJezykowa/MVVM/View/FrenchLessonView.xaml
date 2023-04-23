@@ -72,16 +72,13 @@
                           ItemsSource="{Binding LessonsList}"
                           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           VerticalAlignment="Stretch" SizeChanged="LV_SizeChanged">
-                    <ListView.View>
-                        <GridView>
-                            <GridView.Columns>
-                                <GridViewColumn>
-                                    <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal"
+                    <ListView.ItemTemplate>
+                        
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal"
                                         Width="230"
                                         Height="40">
-                                            <Button
+                                                <Button
                                             Background="Transparent"
                                             Height="40"
                                             Width="230"
@@ -90,20 +87,17 @@
                                             Margin="0,0,0,0"
                                             Command="{Binding FrenchLessonUpdateViewCommand}"
                                             CommandParameter="{Binding Lesson_Parameter}">
-                                                <TextBlock Text="{Binding Lesson_Title}"
+                                                    <TextBlock Text="{Binding Lesson_Title}"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            Foreground="Black"/>
-                                            </Button>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView.Columns>
-                        </GridView>
-                    </ListView.View>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    
+                    </ListView.ItemTemplate>
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="Template">

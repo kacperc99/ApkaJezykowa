@@ -38,9 +38,8 @@ namespace ApkaJezykowa.Repositories
       }
       return lesson;
     }
-    public List<LessonListModel> Obtain_Lesson_List(string Language)
+    public void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language)
     {
-      List<LessonListModel> LessonLista = new List<LessonListModel>();
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
       {
@@ -52,12 +51,10 @@ namespace ApkaJezykowa.Repositories
         {
           while (reader.Read())
           {
-            LessonLista.Add(new LessonListModel(reader["Lesson_Title"].ToString(), reader["Lesson_Parameter"].ToString()));
+            LessonsList.Add(new LessonListModel(reader["Lesson_Title"].ToString(), reader["Lesson_Parameter"].ToString()));
           }
           reader.NextResult();
-          LessonLista.ForEach(x => Console.WriteLine("{0}\t", x.ToString()));
         }
-        return LessonLista;
       }
     }
   }

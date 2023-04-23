@@ -14,7 +14,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
 {
   public class FrenchLessonViewModel : BaseViewModel
   {
-    public List<LessonListModel> lessonsList;
+    public List<LessonListModel> lessonsList = new List<LessonListModel>();
     private BaseViewModel _selectedViewModel;
     public string _lessonTitle;
     public string _lessonText;
@@ -50,7 +50,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
       {
         var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, ExerciseLevelModel.Instance.Language);
         LessonTitle = lesson.Lesson_Title;
-        LessonsList = lessonRepository.Obtain_Lesson_List(ExerciseLevelModel.Instance.Language);
+        lessonRepository.Obtain_Lesson_List(LessonsList, ExerciseLevelModel.Instance.Language);
+        foreach (LessonListModel p in LessonsList) { Console.WriteLine(p.Lesson_Title, p.Lesson_Parameter); }
       }
     }
   }

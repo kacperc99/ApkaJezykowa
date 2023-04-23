@@ -9,6 +9,6 @@ namespace ApkaJezykowa.MVVM.Model
   internal interface ILessonRepository
   {
     LessonModel Display(int Level, string Language);
-    List<LessonListModel> Obtain_Lesson_List(string Language);
+    void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language);
   }
 }
