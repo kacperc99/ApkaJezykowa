@@ -79,6 +79,7 @@
                                         Width="230"
                                         Height="40">
                                                 <Button
+                                                    Style="{StaticResource NoMouseOver}"
                                             Background="Transparent"
                                             Height="40"
                                             Width="230"

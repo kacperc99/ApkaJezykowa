@@ -55,6 +55,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
+        //zastanawia mnie czy nie lepiej byłoby przerobić tą funkcję na List<LessonListmModel> Obtain_Lesson_List
       }
     }
   }
