@@ -10,5 +10,7 @@ namespace ApkaJezykowa.MVVM.Model
   {
     LessonModel Display(int Level, string Language);
     void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language);
+    void Obtain_Pars(List<string> pars, string Language);
+    void Obtain_Lessons(List<LessonContentModel> Lessons, int Id);
   }
 }

@@ -58,5 +58,46 @@ namespace ApkaJezykowa.Repositories
         //zastanawia mnie czy nie lepiej byłoby przerobić tą funkcję na List<LessonListmModel> Obtain_Lesson_List
       }
     }
+    public void Obtain_Pars(List<string> pars, string Language)
+    {
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Lesson_Parameter from [Lesson] where Id_Course in (Select Id from [Course] where [Course_Name] = @language)";
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+        using (var reader = command.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            pars.Add(reader["Lesson_Parameter"].ToString());
+          }
+          reader.NextResult();
+        }
+      }
+    }
+    public void Obtain_Lessons(List<LessonContentModel> Lessons, int Id)
+    {
+      using(var connection = GetConnection())
+      using(var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection= connection;
+        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson = (SELECT Id FROM LESSON WHERE Id=@Id)";
+        command.Parameters.Add("@Id", SqlDbType.Int).Value=Id;
+        using (var reader = command.ExecuteReader())
+        {
+          while(reader.Read())
+          {
+            LessonContentModel model = new LessonContentModel();
+            model.LessonText = reader["Lesson_Text"].ToString();
+            model.LessonImage = (byte[])reader["Lesson_Image"];
+            Lessons.Add(model);
+          }
+          reader.NextResult();
+        }
+      }
+    }
   }
 }
