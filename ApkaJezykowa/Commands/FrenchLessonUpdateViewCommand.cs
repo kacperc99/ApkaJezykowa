@@ -1,5 +1,6 @@
 ﻿using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.MVVM.ViewModel;
+using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace ApkaJezykowa.Commands
   {
     private FrenchLessonViewModel viewModel;
     public List<string> par = new List<string>();
+    private ILessonRepository lessonRepository;
 
     public FrenchLessonUpdateViewCommand(FrenchLessonViewModel viewModel)
     {
       this.viewModel = viewModel;
+      lessonRepository = new LessonRepository();
     }
 
 
@@ -28,23 +31,40 @@ namespace ApkaJezykowa.Commands
     }
     public void Execute(object parameter)
     {
-      
+      lessonRepository.Obtain_Pars(par, ExerciseLevelModel.Instance.Language);
       Console.WriteLine("Clicked!");
-      if(parameter.ToString() == "French1")
+      int i = 1;
+      foreach (string s in par)
+      {
+        if (parameter.ToString() == s)
+        {
+          ExerciseLevelModel.Instance.Level = i;
+          viewModel.SelectedViewModel = new FrenchLessonViewModel();
+        }
+        else
+          i++;
+      }
+      
+      /*if(parameter.ToString() == "french1")
       {
         ExerciseLevelModel.Instance.Level = 1;
         viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
-      if (parameter.ToString() == "French2")
+      if (parameter.ToString() == "french2")
       {
         ExerciseLevelModel.Instance.Level = 2;
         viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
-      if (parameter.ToString() == "French3")
+      if (parameter.ToString() == "french3")
       {
         ExerciseLevelModel.Instance.Level = 3;
         viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
+      if (parameter.ToString() == "french4")
+      {
+        ExerciseLevelModel.Instance.Level = 4;
+        viewModel.SelectedViewModel = new FrenchLessonViewModel();
+      }*/
     }
   }
 }

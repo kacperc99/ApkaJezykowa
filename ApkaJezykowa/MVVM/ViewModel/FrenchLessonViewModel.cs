@@ -31,7 +31,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
       _selectedViewModel = value;
       OnPropertyChanged(nameof(SelectedViewModel));
-
     }
   }
   public ICommand FrenchLessonUpdateViewCommand { get; set; }

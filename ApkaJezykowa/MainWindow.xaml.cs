@@ -35,6 +35,7 @@ namespace ApkaJezykowa
     private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
     {
       HeightModel.Instance.Height = e.NewSize.Height;
+      HeightModel.Instance.Width = e.NewSize.Width;
     }
   }
 }

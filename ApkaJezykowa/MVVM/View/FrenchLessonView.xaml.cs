@@ -1,4 +1,6 @@
 ﻿using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.MVVM.ViewModel;
+using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,7 @@ namespace ApkaJezykowa.MVVM.View
   /// </summary>
   public partial class FrenchLessonView : UserControl
   {
+
     public FrenchLessonView()
     {
       InitializeComponent();
@@ -29,6 +32,17 @@ namespace ApkaJezykowa.MVVM.View
     private void LV_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         LV.Height = HeightModel.Instance.Height;
+    }
+
+    private void LV2_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        LV2.Height = HeightModel.Instance.Height;
+    }
+
+    private void SV_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+      SV.Height = HeightModel.Instance.Height - 100;
+      SV.Width = HeightModel.Instance.Width - 120;
     }
   }
 }

@@ -9,6 +9,7 @@ namespace ApkaJezykowa.MVVM.Model
   internal class HeightModel
   {
     public double Height { get; set; }
+    public double Width { get; set; }
     private HeightModel() { }
     public static readonly HeightModel Instance = new HeightModel();
   }

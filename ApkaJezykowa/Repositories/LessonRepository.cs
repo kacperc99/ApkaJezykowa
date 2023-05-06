@@ -92,7 +92,10 @@ namespace ApkaJezykowa.Repositories
           {
             LessonContentModel model = new LessonContentModel();
             model.LessonText = reader["Lesson_Text"].ToString();
-            model.LessonImage = (byte[])reader["Lesson_Image"];
+            if(reader["Lesson_Image"]!=System.DBNull.Value)
+              model.LessonImage = (byte[])reader["Lesson_Image"];
+            else
+              model.LessonImage = null;
             Lessons.Add(model);
           }
           reader.NextResult();
