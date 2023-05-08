@@ -11,9 +11,16 @@ using System.Windows.Input;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
+  public class Ex
+  {
+    public string Task { get; set; }
+    public string Answer { get; set; }
+    public string Tip { get; set; }
+  }
   public class FrenchExerciseViewModel : BaseViewModel
   {
     string _test;
+    public List<ExerciseModel> exercises = new List<ExerciseModel>();
     public List<string> _exercise = new List<string>();
     public List<string> _answer = new List<string>(new string[10]);
     public List<string> _tiptmp = new List<string>();
@@ -29,12 +36,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string _tmp9;
     public string _tmp10;
     public string _result;
-
+    //to wszystko leci do wymiany, ten kod jest odrażający
     private BaseViewModel _selectedViewModel;
 
     private IExerciseRepository exerciseRepository;
 
     public string Test { get { return _test; } set { _test = value; OnPropertyChanged(nameof(Test)); } }
+    public List<ExerciseModel> Exercises { get { return exercises; } set { exercises = value; OnPropertyChanged(nameof(Exercises)); } }
     public List<string> Exercise { get { return _exercise; } }
     public List<string> Answer { get { return _answer; } }
     public List<string> Tiptmp { get { return _tiptmp; } }
@@ -74,7 +82,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
     private void ExecuteCheckAnswers(object obj)
     {
       int points = 0;
-      for(int i = 0; i < 10; i++)
+      int i = 0;
+      foreach(var p in Exercises)
       {
         if(Answer[i]==ExerciseModel.Instance.Answer[i])
         {

@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace ApkaJezykowa.MVVM.Model
 {
-  internal class ExerciseModel
+  public class ExerciseModel
   {
-    public string Id { get; set; }
-    public decimal ExerciseLevel { get; set; }
-    public string TaskText { get; set; }
-    public List<string> Exercise { get; set; }
-    public List<string> Answer { get; set; }
-    public List<string> Tip { get; set; }
-    public string Id_Course { get; set; }
-    private ExerciseModel() { }
-    public static readonly ExerciseModel Instance = new ExerciseModel();
+    public int Id { get; set; }
+    public string Task { get; set; }
+    public string Answer { get; set; }
+    public string Answer2 { get; set; }
+    public string Answer3 { get; set; }
+    public string Tip { get; set; }
+    public int Id_Exercise { get; set; }
   }
 }

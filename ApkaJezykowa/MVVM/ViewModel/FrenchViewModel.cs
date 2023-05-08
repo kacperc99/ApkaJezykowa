@@ -44,7 +44,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
       if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, "Francuski") == false && Thread.CurrentPrincipal.Identity.Name != "")
       {
-
         AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
         user_CourseRepository.Add(Thread.CurrentPrincipal.Identity.Name, "Francuski");
       }

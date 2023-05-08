@@ -1,4 +1,5 @@
-﻿using ApkaJezykowa.MVVM.Model;
+﻿using ApkaJezykowa.Commands;
+using ApkaJezykowa.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,35 +12,74 @@ namespace ApkaJezykowa.Repositories
 {
   internal class ExerciseRepository : BaseRepository, IExerciseRepository
   {
-    public void Display(int Level, string Language)
+    public void Display(List<ExerciseModel> TaskList, int Id)
     {
-      List<string> Tasktmp = new List<string>();
-      List<string> Answertmp = new List<string>();
-      List<string> Tiptmp = new List<string>();
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select top 10 * from [Exercise] where Exercise_Level=@level and Id_Course =(Select Id from [Course] where [Course_Name] = @language and Course_Level = @level) order by NEWID()";
-        command.Parameters.Add("@level",SqlDbType.Decimal).Value = Level;
+        command.CommandText = "select top 10 * from [Exercise_Content] where Id_Exercise = @id order by NEWID()";
+        command.Parameters.Add("@id", SqlDbType.Int).Value = Id;
+        using (var reader = command.ExecuteReader())
+        {
+          while(reader.Read())
+          {
+            ExerciseModel model = new ExerciseModel();
+            model.Id = (int)reader["Id"];
+            model.Task = reader["Task"].ToString();
+            model.Answer = reader["Answer"].ToString();
+            model.Answer2 = reader["Answer2"].ToString();
+            model.Answer3 = reader["Answer3"].ToString();
+            model.Tip = reader["Tip"].ToString();
+            model.Id_Exercise = (int)reader["Id_Exercise"];
+          }
+          reader.NextResult();
+        }
+      }
+    }
+    public void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language)
+    {
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Exercise_Level, Exercise_Title, Exercise_Parameter, Task_text from [Exercise] where Id_Course in(Select Id from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
           while(reader.Read())
           {
-              ExerciseModel.Instance.Id = reader["Id"].ToString();
-              ExerciseModel.Instance.ExerciseLevel = (decimal)reader["Exercise_Level"];
-              ExerciseModel.Instance.TaskText = reader["Task_Text"].ToString();
-              Tasktmp.Add(reader["Task"].ToString());
-              Answertmp.Add(reader["Answer"].ToString());
-              Tiptmp.Add(reader["Tip"].ToString());
-              ExerciseModel.Instance.Id_Course = reader["Id_Course"].ToString();
+            ExerciseListModel list = new ExerciseListModel();
+            list.Exercise_Level = (decimal)reader["Exercise_Level"];
+            list.Exercise_Title = reader["Exercise_Title"].ToString();
+            list.Exercise_Parameter = reader["Exercise_Parameter"].ToString();
+            list.Task_Text = reader["Task_text"].ToString();
+            ExerciseList.Add(list);
           }
           reader.NextResult();
-          ExerciseModel.Instance.Exercise = Tasktmp;
-          ExerciseModel.Instance.Answer = Answertmp;
-          ExerciseModel.Instance.Tip = Tiptmp;
+        }
+      }
+    }
+    public void Obtain_Pars(List<Pars> pars, string Language)
+    {
+      using(var connection = GetConnection())
+      using(var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Exercise_Parameter, Id from [Exercise] where Id_Course in(Select Id from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
+        using (var reader = command.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            Pars par = new Pars();
+            par.par = reader["Exercise_Parameter"].ToString();
+            par.id = (int)reader["Id"];
+            pars.Add(par);
+          }
+          reader.NextResult();
         }
       }
     }

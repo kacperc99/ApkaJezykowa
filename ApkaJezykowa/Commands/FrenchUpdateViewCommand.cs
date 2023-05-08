@@ -40,6 +40,7 @@ namespace ApkaJezykowa.Commands
       }
       if (parameter.ToString() == "FrenchExercise")
       {
+        ExerciseLevelModel.Instance.Language = "Francuski";
         viewModel.SelectedViewModel = new FrenchExerciseMenuViewModel();
       }
     }

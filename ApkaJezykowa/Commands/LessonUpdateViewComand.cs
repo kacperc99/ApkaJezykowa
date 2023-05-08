@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ApkaJezykowa.MVVM.ViewModel;
+using ApkaJezykowa.MVVM.Model;
 
 namespace ApkaJezykowa.Commands
 {
@@ -24,20 +25,23 @@ namespace ApkaJezykowa.Commands
             {
                 return true;
             }
-            public void Execute(object parameter)
-            {
-                Console.WriteLine("Clicked!");
-                if (parameter.ToString() == "German")
-                {
-                   // viewModel.SelectedViewModel = new GermanViewModel();
-                }
+    public void Execute(object parameter)
+    {
+      Console.WriteLine("Clicked!");
+      if (parameter.ToString() == "German")
+      {
+        // viewModel.SelectedViewModel = new GermanViewModel();
+        // ExerciseLevelModel.Instance.Language = "Niemiecki";
+      }
       if (parameter.ToString() == "French")
       {
         viewModel.SelectedViewModel = new FrenchViewModel();
+        ExerciseLevelModel.Instance.Language = "Francuski";
       }
       if (parameter.ToString() == "English")
       {
-        //viewModel.SelectedViewModel = new EnglishViewModel();
+        // viewModel.SelectedViewModel = new EnglishViewModel();
+        // ExerciseLevelModel.Instance.Language = "Angielski";
       }
     }
     }

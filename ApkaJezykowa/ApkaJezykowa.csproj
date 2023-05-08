@@ -114,6 +114,7 @@
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Model\ExerciseLevelModel.cs" />
+    <Compile Include="MVVM\Model\ExerciseListModel.cs" />
     <Compile Include="MVVM\Model\ExerciseModel.cs" />
     <Compile Include="MVVM\Model\HeightModel.cs" />
     <Compile Include="MVVM\Model\IExerciseRepository.cs" />
