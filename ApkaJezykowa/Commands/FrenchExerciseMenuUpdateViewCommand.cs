@@ -14,6 +14,7 @@ namespace ApkaJezykowa.Commands
   {
     public string par { get; set; }
     public int id { get; set; }
+    public string text { get; set; }
   }
 
   internal class FrenchExerciseMenuUpdateViewCommand : BaseViewModel, ICommand 
@@ -43,6 +44,7 @@ namespace ApkaJezykowa.Commands
         if (parameter.ToString() == s.par)
         {
           ExerciseLevelModel.Instance.id = s.id;
+          ExerciseLevelModel.Instance.Task_text = s.text;
           viewModel.SelectedViewModel = new FrenchExerciseViewModel();
         }
       }

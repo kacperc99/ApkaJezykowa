@@ -5,47 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
-             mc:Ignorable="d"
-             Height="1000" Width="1000">
+             mc:Ignorable="d">
     <UserControl.DataContext>
         <viewModel:FrenchExerciseViewModel/>
     </UserControl.DataContext>
     <Grid Background="DimGray">
+        <StackPanel>
         <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" Text="{Binding Test}"></TextBlock>
-        <ScrollViewer VerticalScrollBarVisibility="Hidden" Height="Auto" Width="Auto" Margin="40,80,40,100">
-            <StackPanel>
-                <TextBlock Text="{Binding Exercise[0]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[0], UpdateSourceTrigger=PropertyChanged}"  Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp1}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16" TextWrapping="Wrap"/>
-                <TextBlock Text="{Binding Exercise[1]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[1], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp2}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[2]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[2], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp3}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[3]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[3], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp4}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[4]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[4], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp5}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[5]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[5], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp6}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[6]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[6], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp7}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[7]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[7], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp8}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock Text="{Binding Exercise[8]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[8], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp9}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-                <TextBlock  Text="{Binding Exercise[9]}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
-                <TextBox Text="{Binding Answer[9], UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock Text="{Binding Tmp10}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16"/>
-            </StackPanel>
-        </ScrollViewer>
+            <Grid Height="800" Margin="0,0,0,0">
+            <ListBox x:Name="LV"
+                          Background="DimGray"
+                          BorderBrush="Transparent"
+                          ItemsSource="{Binding Exs}"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          VerticalAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Task}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                                <TextBox Text="{Binding Answer, UpdateSourceTrigger=PropertyChanged}"  Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="40,20,0,0" HorizontalAlignment="Left" FontSize="24"/>
+                                <TextBlock Text="{Binding Tip, UpdateSourceTrigger=PropertyChanged}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16" TextWrapping="Wrap"/>
+                        </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+         </Grid>
+        </StackPanel>
         <Button x:Name="Check" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Sprawdź" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,612,40,26" Command="{Binding CheckAnswers}">
             <Button.Style>
                 <Style TargetType="Button">

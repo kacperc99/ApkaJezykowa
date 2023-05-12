@@ -12,7 +12,7 @@ namespace ApkaJezykowa.Repositories
 {
   internal class ExerciseRepository : BaseRepository, IExerciseRepository
   {
-    public void Display(List<ExerciseModel> TaskList, int Id)
+    public void Display(List<ExerciseModel> Exercises, int Id)
     {
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
@@ -33,6 +33,7 @@ namespace ApkaJezykowa.Repositories
             model.Answer3 = reader["Answer3"].ToString();
             model.Tip = reader["Tip"].ToString();
             model.Id_Exercise = (int)reader["Id_Exercise"];
+            Exercises.Add(model);
           }
           reader.NextResult();
         }
@@ -69,7 +70,8 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Exercise_Parameter, Id from [Exercise] where Id_Course in(Select Id from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
+        command.CommandText = "select Exercise_Parameter, Id, Task_text from [Exercise] where Id_Course in(Select Id from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
@@ -77,6 +79,7 @@ namespace ApkaJezykowa.Repositories
             Pars par = new Pars();
             par.par = reader["Exercise_Parameter"].ToString();
             par.id = (int)reader["Id"];
+            par.text = reader["Task_text"].ToString();
             pars.Add(par);
           }
           reader.NextResult();
