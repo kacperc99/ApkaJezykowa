@@ -19,7 +19,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Id, Lesson_Level, Lesson_Title, Id_Course from [Lesson] where Lesson_Level=@level and Id_Course =(Select Id from [Course] where [Course_Name] = @language and Course_Level = @level)";
+        command.CommandText = "select Id_Lesson, Lesson_Level, Lesson_Title, Id_Course from [Lesson] where Lesson_Level=@level and Id_Course =(Select Id_Course from [Course] where [Course_Name] = @language and Course_Level = @level)";
         command.Parameters.Add("@level", SqlDbType.Int).Value = Level;
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
@@ -45,7 +45,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Title, Lesson_Parameter from [Lesson] where Id_Course in (Select Id from [Course] where [Course_Name] = @language)";
+        command.CommandText = "select Lesson_Title, Lesson_Parameter from [Lesson] where Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language)";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
@@ -65,7 +65,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Parameter from [Lesson] where Id_Course in (Select Id from [Course] where [Course_Name] = @language)";
+        command.CommandText = "select Lesson_Parameter from [Lesson] where Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language)";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
@@ -84,7 +84,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection= connection;
-        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson = (SELECT Id FROM LESSON WHERE Id=@Id)";
+        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson = (SELECT Id_Lesson FROM [Lesson] WHERE Id_Lesson=@Id)";
         command.Parameters.Add("@Id", SqlDbType.Int).Value=Id;
         using (var reader = command.ExecuteReader())
         {

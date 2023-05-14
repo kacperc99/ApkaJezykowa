@@ -59,6 +59,9 @@
             <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
                 <view:LoginView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:TestInfoViewModel}">
+                <view:TestInfoView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

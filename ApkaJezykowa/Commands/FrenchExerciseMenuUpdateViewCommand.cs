@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -43,9 +44,17 @@ namespace ApkaJezykowa.Commands
       {
         if (parameter.ToString() == s.par)
         {
-          ExerciseLevelModel.Instance.id = s.id;
-          ExerciseLevelModel.Instance.Task_text = s.text;
-          viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+          if (s.par.Contains("Test"))
+          {
+            ExerciseLevelModel.Instance.id = s.id;
+            viewModel.SelectedViewModel = new TestInfoViewModel();
+          }
+          else
+          {
+            ExerciseLevelModel.Instance.id = s.id;
+            ExerciseLevelModel.Instance.Task_text = s.text;
+            viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+          }
         }
       }
       /*

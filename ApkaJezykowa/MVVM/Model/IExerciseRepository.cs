@@ -12,5 +12,6 @@ namespace ApkaJezykowa.MVVM.Model
     void Display(List<ExerciseModel> Exercises, int Id);
     void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language);
     void Obtain_Pars(List<Pars> pars, string Language);
+    void Enter_Test_Mode(int Id, string Language);
   }
 }

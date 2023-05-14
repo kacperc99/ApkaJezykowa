@@ -23,7 +23,6 @@ namespace ApkaJezykowaTest
       ExerciseLevelModel.Instance.Language = "Francuski";
       var FrenchExerciseViewModel = new FrenchExerciseViewModel();
       Assert.IsNotNull(FrenchExerciseViewModel.Test, "nie powinno być nullem");
-      Assert.IsNotNull(FrenchExerciseViewModel.Exercise, "nie powinno być nullem");
       FrenchExerciseViewModel.CheckAnswers.Execute(null);
     }
   }

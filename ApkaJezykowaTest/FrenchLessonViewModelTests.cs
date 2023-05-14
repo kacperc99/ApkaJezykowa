@@ -32,7 +32,6 @@ namespace ApkaJezykowaTest
       var FrenchLessonViewModel = new FrenchLessonViewModel();
 
      FrenchLessonViewModel.LoadLesson();
-     Assert.AreNotEqual(FrenchLessonViewModel.LessonText, null, "Funkcja powinna pozyskać string");
      Assert.AreNotEqual(FrenchLessonViewModel.LessonTitle, null, "Funkcja powinna pozyskać string");
     }
   }

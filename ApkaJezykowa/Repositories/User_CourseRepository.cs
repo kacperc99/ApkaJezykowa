@@ -19,7 +19,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select uc.Id_Course from [User_Course] uc where uc.Id_User=(select u.Id from [User] u where u.[Username]=@username) and uc.Id_Course in (select c.Id from [Course] c where c.Course_Name=@country)";
+        command.CommandText = "select uc.Id_Course from [User_Course] uc where uc.Id_User=(select u.Id_User from [User] u where u.[Username]=@username) and uc.Id_Course in (select c.Id_Course from [Course] c where c.Course_Name=@country)";
         command.Parameters.AddWithValue("@username", SqlDbType.NVarChar).Value = username;
         command.Parameters.AddWithValue("@country", SqlDbType.NVarChar).Value = country;
         IsUserSigned = command.ExecuteScalar() == null ? false : true;
@@ -36,7 +36,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Id from [User] where [Username]=@username";
+        command.CommandText = "select Id_User from [User] where [Username]=@username";
         command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
         UserID = System.Convert.ToInt32(command.ExecuteScalar());
         Console.WriteLine("Eins!");
@@ -46,7 +46,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Id from [Course] where [Course_Name]=@country and Course_Level=1";
+        command.CommandText = "select Id_Course from [Course] where [Course_Name]=@country and Course_Level=1";
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = country;
         CourseID = (int)command.ExecuteScalar();
         Console.WriteLine("Zwei!");

@@ -109,6 +109,7 @@
     <Compile Include="Commands\GermanUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonUpdateViewComand.cs" />
     <Compile Include="Commands\LoginUpdateViewCommand.cs" />
+    <Compile Include="Commands\TestInfoUpdateViewCommand.cs" />
     <Compile Include="Commands\UpdateMainViewCommand.cs" />
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
@@ -124,9 +125,11 @@
     <Compile Include="MVVM\Model\LessonContentModel.cs" />
     <Compile Include="MVVM\Model\LessonListModel.cs" />
     <Compile Include="MVVM\Model\LessonModel.cs" />
+    <Compile Include="MVVM\Model\TestModel.cs" />
     <Compile Include="MVVM\Model\User_CourseModel.cs" />
     <Compile Include="MVVM\Model\VisibilityModel.cs" />
     <Compile Include="MVVM\ViewModel\FrenchExerciseMenuViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TestInfoViewModel.cs" />
     <Compile Include="MVVM\View\FrenchExerciseMenuView.xaml.cs">
       <DependentUpon>FrenchExerciseMenuView.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,9 @@
     </Compile>
     <Compile Include="MVVM\View\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TestInfoView.xaml.cs">
+      <DependentUpon>TestInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ExerciseRepository.cs" />
@@ -268,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TestInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
-﻿using ApkaJezykowa.MVVM.ViewModel;
+﻿using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,15 @@ namespace ApkaJezykowa.Commands
     public void Execute(object parameter)
     {
       Console.WriteLine("Clicked!");
+      if(parameter.ToString() == "NextTask" && TestModel.instance.TestMode==true)
+      {
+        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+      }
       if (parameter.ToString() == "ReturnToMenu")
       {
         Console.WriteLine("Że to niby działa?");
+        if (TestModel.instance.TestMode)
+          TestModel.instance.TestMode = false;
         viewModel.SelectedViewModel = new FrenchExerciseMenuViewModel();
       }
     }

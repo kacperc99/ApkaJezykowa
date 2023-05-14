@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\App.xaml
-20-713919958
+21-132480832
 
-74-334661965
+78-196510446
 17-1020543019
-CustomControls\BindablePasswordBox.xaml;MVVM\View\FrenchExerciseMenuView.xaml;MainWindow.xaml;MVVM\View\DictionaryView.xaml;MVVM\View\EnglishExerciseView.xaml;MVVM\View\EnglishLessonView.xaml;MVVM\View\EnglishView.xaml;MVVM\View\FrenchExerciseView.xaml;MVVM\View\FrenchLessonView.xaml;MVVM\View\FrenchView.xaml;MVVM\View\GermanExerciseView.xaml;MVVM\View\GermanLessonView.xaml;MVVM\View\GermanView.xaml;MVVM\View\InfoView.xaml;MVVM\View\LessonsView.xaml;MVVM\View\LoginView.xaml;MVVM\View\MainView.xaml;MVVM\View\SettingsView.xaml;Themes\ListViewStyles.xaml;Themes\ToolTip.xaml;
+CustomControls\BindablePasswordBox.xaml;MVVM\View\FrenchExerciseMenuView.xaml;MainWindow.xaml;MVVM\View\DictionaryView.xaml;MVVM\View\EnglishExerciseView.xaml;MVVM\View\EnglishLessonView.xaml;MVVM\View\EnglishView.xaml;MVVM\View\FrenchExerciseView.xaml;MVVM\View\FrenchLessonView.xaml;MVVM\View\FrenchView.xaml;MVVM\View\GermanExerciseView.xaml;MVVM\View\GermanLessonView.xaml;MVVM\View\GermanView.xaml;MVVM\View\InfoView.xaml;MVVM\View\LessonsView.xaml;MVVM\View\LoginView.xaml;MVVM\View\MainView.xaml;MVVM\View\SettingsView.xaml;MVVM\View\TestInfoView.xaml;Themes\ListViewStyles.xaml;Themes\ToolTip.xaml;
 
-True
+False
 

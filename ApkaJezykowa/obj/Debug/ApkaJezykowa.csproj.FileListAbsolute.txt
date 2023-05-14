@@ -62,3 +62,5 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\ApkaJezykowa.exe
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\ApkaJezykowa.application
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\MainView.g.cs
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\MainView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\TestInfoView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\TestInfoView.baml
