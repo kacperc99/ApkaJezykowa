@@ -39,12 +39,12 @@ namespace ApkaJezykowa.MVVM.View
         Filter = "Pliki obrazów (*.jpg;*.png;)|*.jpg;*.png",
         FilterIndex = 2,
         RestoreDirectory = true,
-          
+
         ReadOnlyChecked = true,
         ShowReadOnly = true,
       };
 
-      if (openFileDialog1.ShowDialog()==true)
+      if (openFileDialog1.ShowDialog() == true)
       {
         ImageDisplay.Source = new BitmapImage(new Uri(openFileDialog1.FileName));
         Properties.Settings.Default.FilePath = openFileDialog1.FileName;

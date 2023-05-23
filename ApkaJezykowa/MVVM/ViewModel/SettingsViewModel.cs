@@ -21,7 +21,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
     void test()
     {
-      var SettingsView = new SettingsView();
+      //var SettingsView = new SettingsView();
       //Filename = new Uri((BitmapImage)SettingsView.ImageDisplay.Source);
     }
   }
