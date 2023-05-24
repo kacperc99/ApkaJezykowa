@@ -11,14 +11,14 @@
     </UserControl.DataContext>
     <Grid Background="DimGray">
         <StackPanel Background="DimGray">
-        <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o użytkowniku"></TextBlock>
+        <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="48" Text="User data"></TextBlock>
             <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Username}" Margin="10,20,0,0"></TextBlock>
             <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Email}" Margin="10,20,0,0"></TextBlock>
             <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="{Binding CurrentUserAccount.Country}" Margin="10,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="48" Text="Informacje o aplikacji" Margin="0,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="Nazwa aplikacji: Linguonator" Margin="10,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="Wersja: 1.0 alpha" Margin="10,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left" FontSize="24" Text="Autor: Kacper Celary, grupa 4ID15B" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="48" Text="About application" Margin="0,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="Application name: Linguonator" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="24" Text="Version: 1.0 alpha" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left" FontSize="24" Text="Author: Kacper Celary, grupa 4ID15B" Margin="10,20,0,0"></TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -68,15 +68,15 @@ namespace ApkaJezykowa.MVVM.ViewModel
       if (user != null)
       {
         CurrentUserAccount.Username = user.Username;
-        CurrentUserAccount.DisplayName = $"Witaj, {user.Username}";
-        WelcomeMessage = $"Witaj, {user.Username}";
+        CurrentUserAccount.DisplayName = $"Hello, {user.Username}";
+        WelcomeMessage = $"Hello, {user.Username}";
         Console.WriteLine("Działa?");
       }
       else
       { 
       CurrentUserAccount.Username = UserModel.Instance.Username;
-      CurrentUserAccount.DisplayName = $"Witaj, {UserModel.Instance.Username}";
-      WelcomeMessage = $"Witaj, {UserModel.Instance.Username}";
+      CurrentUserAccount.DisplayName = $"Hello, {UserModel.Instance.Username}";
+      WelcomeMessage = $"Hello, {UserModel.Instance.Username}";
         Console.WriteLine(":(");
       }
       if(Properties.Settings.Default.FilePath!=null && System.IO.File.Exists(Properties.Settings.Default.FilePath)==true)

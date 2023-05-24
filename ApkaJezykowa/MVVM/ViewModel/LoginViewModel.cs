@@ -97,7 +97,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       var isNewUser = userRepository.FindUser(new System.Net.NetworkCredential(RUsername, Email));
       if (isNewUser)
       {
-        RegisterMessage = "* Login lub email już istnieją w bazie danych";
+        RegisterMessage = "* Login or e-mail already exist in a database";
       }
       else
       {
@@ -109,14 +109,14 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Console.WriteLine(RPasswortRepeat);
           Console.WriteLine("Pykło");
           userRepository.Add(RUsername,RPassword,Email,Country);
-          RegisterMessage = "* Konto zostało założone!";
+          RegisterMessage = "* Account created!";
         }
         if(RPasswortRepeat!=RPasswort)
         {
           Console.WriteLine(RPasswort);
           Console.WriteLine(RPasswortRepeat);
           Console.WriteLine("A tu nie pykło");
-          RegisterMessage = "* Hasła nie są identyczne";
+          RegisterMessage = "* Passwords are not identical";
           Console.WriteLine(value:RPasswort);
           Console.WriteLine(value:RPasswortRepeat);
         }
@@ -124,7 +124,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       else
       {
-        RegisterMessage = "* nieprawidłowa nazwa Emaila";
+        RegisterMessage = "* Incorrect e-mail";
       }
     }
 
@@ -151,7 +151,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       else
       {
-        ErrorMessage = "* Błędny Login lub Hasło";
+        ErrorMessage = "* Incorrect login or password";
       }
     }
 

@@ -8,17 +8,17 @@
              d:DesignHeight="1000" d:DesignWidth="1000">
     <Grid Background="DimGray">
         <StackPanel Background="DimGray">
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="56" Text="Informacje o teście"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- Test będzie trwał 5 minut" Margin="10,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- Test składa się z trzech losowych zadań" Margin="10,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- Wymaganie jest zebranie przynajmniej 24 punktów, by zaliczyć test" Margin="10,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- Test odblokowuje zarówno dalsze lekcje, jak i ćwiczenia" Margin="10,20,0,0"></TextBlock>
-            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="32" Text="By rozpocząć test, wciśnij przycisk 'rozpocznij'. " Margin="10,200,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="56" Text="Test info"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- You have 5 minutes to complete the test (not implemented)" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- Test consists of 3 or less random tasks" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- It is required to score 4/5 of points to pass" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- Test unlocks next exercises and lessons (not implemented)" Margin="10,20,0,0"></TextBlock>
+            <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="32" Text="In order to begin test, press 'begin'. " Margin="10,200,0,0"></TextBlock>
         </StackPanel>
-        <Button x:Name="Continue" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Powrót" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,612,40,26" Command="{Binding TestInfoUpdateViewCommand}" CommandParameter="Continue">
+        <Button x:Name="Continue" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Beign" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,612,40,26" Command="{Binding TestInfoUpdateViewCommand}" CommandParameter="Continue">
 
         </Button>
-        <Button x:Name="Leave" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Powrót" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40,612,0,26" Command="{Binding TestInfoUpdateViewCommand}" CommandParameter="ReturnToMenu">
+        <Button x:Name="Leave" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Return" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40,612,0,26" Command="{Binding TestInfoUpdateViewCommand}" CommandParameter="ReturnToMenu">
 
         </Button>
         <TextBlock Text="{Binding Result}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,621,0,26" FontSize="24" TextWrapping="Wrap"/>

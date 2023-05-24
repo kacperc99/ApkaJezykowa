@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              mc:Ignorable="d" >
     <Grid Background="DimGray">
-        <TextBlock Text="Wybierz kategorię" HorizontalAlignment="Center" VerticalAlignment="Top"
+        <TextBlock Text="Choose category" HorizontalAlignment="Center" VerticalAlignment="Top"
                    Height="80" FontSize="48" Foreground="Black" ></TextBlock>
 
         <StackPanel Margin="684,243,60,244">
@@ -29,14 +29,14 @@
                         Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchSomething">
                     <StackPanel>
-                        <TextBlock Text="Dyktanda"
+                        <TextBlock Text="Not done yet"
                        FontSize="24" 
-                       Margin="50,0,0,0"
+                       Margin="0,0,0,0"
                        Style="{StaticResource Font_Style}" 
                        FontStyle="Italic" 
                        Width="200"
                        Height="50"
-                           >
+                       HorizontalAlignment="Center">
                         </TextBlock>
                         <Image Source="\Images\fr_flag.png" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
@@ -64,7 +64,7 @@
                         Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchExercise">
                     <StackPanel>
-                        <TextBlock Text="Ćwiczenia"
+                        <TextBlock Text="Exercises"
                        FontSize="24" 
                        Margin="40,10,0,0"
                        Style="{StaticResource Font_Style}" 
@@ -98,7 +98,7 @@
                         Command="{Binding FrenchUpdateViewCommand}"
                         CommandParameter="FrenchLesson">
                     <StackPanel>
-                        <TextBlock Text="Lekcje"
+                        <TextBlock Text="Lessons"
                        FontSize="24" 
                        Margin="50,10,0,0"
                        Style="{StaticResource Font_Style}" 

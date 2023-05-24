@@ -6,7 +6,7 @@
              mc:Ignorable="d">
 
     <Grid Background="DimGray">
-        <TextBlock Text="Wybierz język" HorizontalAlignment="Center" VerticalAlignment="Top"
+        <TextBlock Text="Choose language" HorizontalAlignment="Center" VerticalAlignment="Top"
                    Height="80" FontSize="48" Foreground="Black" 
                    ></TextBlock>
         <StackPanel Margin="165,144,579,344">
@@ -29,9 +29,9 @@
                         Command="{Binding LessonUpdateViewCommand}"
                         CommandParameter="English">
                     <StackPanel>
-                        <TextBlock Text="Język Angielski"
+                        <TextBlock Text="English"
                        FontSize="24" 
-                       Margin="8,10,0,0"
+                       Margin="50,10,0,0"
                        Style="{StaticResource Font_Style}" 
                        FontStyle="Italic" 
                        Width="185"
@@ -64,9 +64,9 @@
                         Command="{Binding LessonUpdateViewCommand}"
                         CommandParameter="German">
                     <StackPanel>
-                        <TextBlock Text="Język Niemiecki"
+                        <TextBlock Text="German"
                        FontSize="24" 
-                       Margin="0,10,0,0"
+                       Margin="50,10,0,0"
                        Style="{StaticResource Font_Style}" 
                        FontStyle="Italic" 
                        Width="200"
@@ -98,9 +98,9 @@
                         Command="{Binding LessonUpdateViewCommand}"
                         CommandParameter="French">
                     <StackPanel>
-                        <TextBlock Text="Język Francuski"
+                        <TextBlock Text="French"
                        FontSize="22" 
-                       Margin="12,10,0,0"
+                       Margin="50,10,0,0"
                        Style="{StaticResource Font_Style}" 
                        FontStyle="Italic" 
                        Width="200"
@@ -131,7 +131,7 @@
                         Opacity="0.5"
                         Style="{StaticResource NoMouseOver}">
                     <StackPanel>
-                        <TextBlock Text="Historia języków"
+                        <TextBlock Text="History of languages"
                        FontSize="24" 
                        Margin="0,10,0,0"
                        Style="{StaticResource Font_Style}" 

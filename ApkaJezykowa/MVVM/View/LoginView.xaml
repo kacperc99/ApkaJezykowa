@@ -22,15 +22,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Grid.Row="0">
-                <TextBlock Text="Zaloguj się" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Margin="0,10,0,0"/>
+                <TextBlock Text="Log in" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Margin="0,10,0,0"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="0">
-                <TextBlock Text="Zarejestruj się" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Margin="0,10,0,0"/>
+                <TextBlock Text="Register" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Margin="0,10,0,0"/>
             </StackPanel>
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <TextBlock Text="Nazwa Użytkownika" Foreground="Black" HorizontalAlignment="Center" Margin="0,100,100,0"/>
+                <TextBlock Text="Username" Foreground="Black" HorizontalAlignment="Center" Margin="0,100,100,0"/>
                 <TextBox x:Name="txtusername" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="Black" Margin="0,20,0,0"/>
-                <TextBlock Text="Hasło" Foreground="Black" HorizontalAlignment="Center" Margin="0,60,170,0"/>
+                <TextBlock Text="Password" Foreground="Black" HorizontalAlignment="Center" Margin="0,60,170,0"/>
                 <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Black" Background="DimGray" Foreground="Black" Height="20" Width="200" Margin="0,20,0,0">
 
                 </customcontrols:BindablePasswordBox>
@@ -43,7 +43,7 @@
                                 <GradientStop Color="Black" Offset="0.5"/>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" Content="Zaloguj">
+                        <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" Content="Log in">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="LightGray"/>
@@ -66,15 +66,15 @@
               
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="1">
-                <TextBlock Text="Nazwa Użytwkonika" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,100,0"/>
+                <TextBlock Text="Username" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,100,0"/>
                 <TextBox x:Name="Registerusername" Text="{Binding RUsername, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="0,20,0,0" Foreground="Black"/>
-                <TextBlock Text="Hasło" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,170,0"/>
+                <TextBlock Text="Password" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,170,0"/>
                 <customcontrols:BindablePasswordBox Password="{Binding RPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="20" Width="200" Margin="0,20,0,0"></customcontrols:BindablePasswordBox>
                 <TextBlock Text="E-Mail" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,170,0"/>
                 <TextBox x:Name="Registermail" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="0,20,0,0" Foreground="Black"/>
-                <TextBlock Text="Powtórz Hasło" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,125,0"/>
+                <TextBlock Text="Repeat password" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,125,0"/>
                 <customcontrols:BindablePasswordBox Password="{Binding RPasswordRepeat, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="20" Width="200" Margin="0,20,0,0"></customcontrols:BindablePasswordBox>
-                <TextBlock Text="Kraj" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,180,0"/>
+                <TextBlock Text="Country" Foreground="Black" HorizontalAlignment="Center" Margin="0,40,180,0"/>
                 <ComboBox x:Name="registercountry" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="0,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True">
                     <ComboBoxItem IsSelected="True">Poland</ComboBoxItem>
                     <ComboBoxItem>Germany</ComboBoxItem>
@@ -90,7 +90,7 @@
                                 <GradientStop Color="Black" Offset="0.5"/>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Button x:Name="Register" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Zarejestruj" Command="{Binding RegisterCommand}">
+                        <Button x:Name="Register" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Register" Command="{Binding RegisterCommand}">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="LightGray"/>

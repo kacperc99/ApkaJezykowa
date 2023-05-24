@@ -11,7 +11,7 @@
     </UserControl.DataContext>
     <Grid Background="DimGray">
         <StackPanel>
-        <TextBlock Text="Wybierz ćwiczenie" HorizontalAlignment="Center" VerticalAlignment="Top"
+        <TextBlock Text="Choose exercise" HorizontalAlignment="Center" VerticalAlignment="Top"
                     FontSize="48" Foreground="Black"></TextBlock>
         <Grid>
         <ListView x:Name="LV_ExerciseMenu"
@@ -30,7 +30,7 @@
                                            HorizontalAlignment="Left"
                                            Foreground="Black"/>
                                 <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
-                                        Width="200" Height="50" Content="Rozpocznij" HorizontalAlignment="Right"
+                                        Width="200" Height="50" Content="Begin" HorizontalAlignment="Right"
                                         Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchExerciseMenuUpdateViewCommand}"
                                         CommandParameter="{Binding Exercise_Parameter}">
                                     <Button.Style>
