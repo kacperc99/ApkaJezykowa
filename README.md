@@ -13,6 +13,8 @@ eventually use admin/admin credentials,
 - Exercise and lesson window are visually poorly implemented due to me still learning XAML and focusing on backend usability
 - settings are still yet to be implemented, for now only background image can be changed
 
+In order to launch app go to ApkaJezykowa->bin->Debug->ApkaJezykowa.exe
+
 Current roadmap:
 - built-in content editor
 - security improvements
