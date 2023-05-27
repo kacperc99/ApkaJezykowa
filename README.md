@@ -25,3 +25,5 @@ Current roadmap:
 - improved visuals
 - an alternative for current azure cognitive services translator
 - additional interactions between users
+
+PS. If the project doesn't work, that most likely means the database is currently undergoing a maintenance and the the application itself hasn't been updated yet.
