@@ -42,10 +42,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public void SetCourseLevel()
     {
       AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
-      if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, "Francuski") == false && Thread.CurrentPrincipal.Identity.Name != "")
+      if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, "French") == false && Thread.CurrentPrincipal.Identity.Name != "")
       {
         AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
-        user_CourseRepository.Add(Thread.CurrentPrincipal.Identity.Name, "Francuski");
+        user_CourseRepository.Add(Thread.CurrentPrincipal.Identity.Name, "French");
       }
       else
         Check = true;

@@ -36,7 +36,7 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "French")
       {
         viewModel.SelectedViewModel = new FrenchViewModel();
-        ExerciseLevelModel.Instance.Language = "Francuski";
+        ExerciseLevelModel.Instance.Language = "French";
       }
       if (parameter.ToString() == "English")
       {

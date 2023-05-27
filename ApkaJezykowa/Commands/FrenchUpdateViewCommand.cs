@@ -31,7 +31,7 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "FrenchLesson")
       {
         ExerciseLevelModel.Instance.Level = 1;
-        ExerciseLevelModel.Instance.Language = "Francuski";
+        ExerciseLevelModel.Instance.Language = "French";
         viewModel.SelectedViewModel = new FrenchLessonViewModel();
       }
       if (parameter.ToString() == "FrenchReturn")
@@ -40,7 +40,7 @@ namespace ApkaJezykowa.Commands
       }
       if (parameter.ToString() == "FrenchExercise")
       {
-        ExerciseLevelModel.Instance.Language = "Francuski";
+        ExerciseLevelModel.Instance.Language = "French";
         viewModel.SelectedViewModel = new FrenchExerciseMenuViewModel();
       }
     }
