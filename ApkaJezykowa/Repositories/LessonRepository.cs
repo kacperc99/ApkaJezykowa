@@ -19,7 +19,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Id_Lesson, Lesson_Level, Lesson_Title, Id_Course from [Lesson] where Lesson_Level=@level and Id_Course =(Select Id_Course from [Course] where [Course_Name] = @language and Course_Level = @level)";
+        command.CommandText = "select L.Id_Lesson, L.Lesson_Level, LT.Lesson_Title, L.Id_Course from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson = L.Id_Lesson where Lesson_Level=@level and Id_Course =(Select Id_Course from [Course] where [Course_Name] = @language and Course_Level = @level)";
         command.Parameters.Add("@level", SqlDbType.Int).Value = Level;
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
@@ -45,7 +45,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Title, Lesson_Parameter from [Lesson] where Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language)";
+        command.CommandText = "select LT.Lesson_Title, L.Lesson_Parameter from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson=L.Id_Lesson where L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language)";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
@@ -84,7 +84,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection= connection;
-        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson = (SELECT Id_Lesson FROM [Lesson] WHERE Id_Lesson=@Id)";
+        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson FROM [Lesson_Title] WHERE Id_Lesson = (SELECT Id_Lesson FROM [Lesson] WHERE Id_Lesson=@Id))";
         command.Parameters.Add("@Id", SqlDbType.Int).Value=Id;
         using (var reader = command.ExecuteReader())
         {
