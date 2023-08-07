@@ -20,13 +20,43 @@
             <Button Content="Work in progress" Foreground="DimGray" FontSize="24" Width="200" Height="50" HorizontalAlignment="Right" Background="Black" IsEnabled="False"/>
             <Button Content="Work in progress" Foreground="DimGray" FontSize="24" Width="200" Height="50" HorizontalAlignment="Right" Background="Black" IsEnabled="False"/>
         </StackPanel>
-        <StackPanel Grid.Row="1">
+        <WrapPanel Grid.Row="1" Orientation="Horizontal" Height="200" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
             <TextBlock Text="Language" FontSize="18" Width="80" HorizontalAlignment="Left" Margin="20,20,0,0"/>
             <ComboBox x:Name="registercountry" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
                 <ComboBoxItem IsSelected="True">French</ComboBoxItem>
                 <ComboBoxItem>German</ComboBoxItem>
                 <ComboBoxItem>English</ComboBoxItem>
             </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Lesson Language" FontSize="18" Width="140" HorizontalAlignment="Left" Margin="20,20,0,0"/>
+                <ComboBox x:Name="registerlanguage" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                    <ComboBoxItem IsSelected="True">French</ComboBoxItem>
+                    <ComboBoxItem>German</ComboBoxItem>
+                    <ComboBoxItem>English</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Lesson Number" FontSize="18" Width="140" HorizontalAlignment="Left" Margin="20,20,0,0"/>
+                <TextBox x:Name="registerlessonId" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock Text="Lesson Title" FontSize="18" Width="140" HorizontalAlignment="Left" Margin="20,20,0,0"/>
+                <TextBox x:Name="registerlessonname" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock Text="Lesson Parameter" FontSize="18" Width="140" HorizontalAlignment="Left" Margin="20,20,0,0"/>
+                <TextBox x:Name="registerlessonparam" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                </TextBox>
+            </StackPanel>
+        </WrapPanel>
+        <StackPanel Grid.Row="2">
+            <ListView Background="Transparent">
+                
+            </ListView>
         </StackPanel>
     </Grid>
 </UserControl>
