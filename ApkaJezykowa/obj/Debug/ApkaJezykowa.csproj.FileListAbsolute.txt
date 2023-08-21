@@ -66,3 +66,6 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\TestIn
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\TestInfoView.baml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\LessonEditorView.g.cs
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\LessonEditorView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Syncfusion.Licensing.dll
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Syncfusion.Shared.WPF.dll
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\Syncfusion.Shared.WPF.xml
