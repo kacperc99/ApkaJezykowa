@@ -18,7 +18,7 @@
             <Button Foreground="Black" FontSize="24" Width="200" Height="50" HorizontalAlignment="Left" Background="DimGray" Style="{StaticResource NoMouseOver}">
                 <TextBlock Text="Lessons" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Button>
-            <Button Content="Exercises" Foreground="White" FontSize="24" Width="200" Height="50" HorizontalAlignment="Left" Background="Black"/>
+            <Button Content="Exercises" Command="{Binding LessonEditorUpdateViewCommand}" CommandParameter="Exercise" Foreground="White" FontSize="24" Width="200" Height="50" HorizontalAlignment="Left" Background="Black"/>
             <Button Content="Work in progress" Foreground="DimGray" FontSize="24" Width="200" Height="50" HorizontalAlignment="Right" Background="Black" IsEnabled="False"/>
             <Button Content="Work in progress" Foreground="DimGray" FontSize="24" Width="200" Height="50" HorizontalAlignment="Right" Background="Black" IsEnabled="False"/>
         </StackPanel>
@@ -40,35 +40,79 @@
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Lesson to edit (optional)" FontSize="18" Width="200" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-                <ComboBox x:Name="chooselesson" Text="{Binding Lesson, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Lessons}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                <ComboBox x:Name="chooselesson" Text="{Binding Lesson, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=LessonNames}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
                     <ComboBoxItem IsSelected="True">None</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Lesson Title" FontSize="18" Width="140" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-                <TextBox x:Name="registerlessonname" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                <TextBox x:Name="registerlessonname" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Lesson Level" FontSize="18" Width="100" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-                <syncfusion:UpDown x:Name="registerlessonlevel" Value="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="50" MinValue="1" Step="1" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left" NumberDecimalDigits="0"/>
+                <syncfusion:UpDown x:Name="registerlessonlevel" Value="{Binding Level, UpdateSourceTrigger=PropertyChanged}" Width="50" MinValue="1" Step="1" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left" NumberDecimalDigits="0"/>
             </StackPanel>
         </WrapPanel>
         <StackPanel Grid.Row="2">
-            <WrapPanel Orientation="Horizontal" Width="Auto">
-            <TextBox Width="550" Height="400" HorizontalAlignment="Left" Margin="50,0,0,0"></TextBox>
-            <Image Width="Auto" Height="auto" Margin="700,0,0,0" Source="pack://application:,,,/ApkaJezykowa;component/Images/menu.png"/>
+            <WrapPanel Orientation="Vertical" Width="600" Height="850" HorizontalAlignment="Left">
+                <TextBox x:Name="Content" Text="Write lesson content here" FontSize="18" Width="600" Height="400" HorizontalAlignment="Left" GotFocus="TextBox_GotFocus"></TextBox>
+                <Image x:Name="LessonImage" Width="auto" Height="auto" MaxHeight="400" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding LessonImage}"/>
+                <WrapPanel Orientation="Horizontal" Width="600" Height="50">
+                <Button x:Name="ChooseImage" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Content="Add image from drive" Click="ChooseBackground_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="AddContent" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Content="Add content to lesson" Click="ChooseBackground_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                    <Button x:Name="AddLesson" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Content="Add lesson" Click="ChooseBackground_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="LightGray"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Black"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </WrapPanel>
             </WrapPanel>
-            <ListBox Background="Transparent">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock></TextBlock>
-                            <Image/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <WrapPanel>
+                <ListBox Background="Transparent" Width="Auto" Height="Auto" HorizontalAlignment="Right" ScrollViewer.CanContentScroll="true" ItemsSource="{Binding NewLesson, UpdateSourceTrigger=PropertyChanged}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <Button x:Name="ChooseContent">
+                                    <WrapPanel>
+                                         <TextBlock Text="{Binding NewLEssonText, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                         <Image Source="{Binding NewLessonImage, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="auto" MaxWidth="400"/>
+                                    </WrapPanel>
+                                </Button>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </WrapPanel>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -113,6 +113,7 @@
     <Compile Include="Commands\FrenchLessonUpdateViewCommand.cs" />
     <Compile Include="Commands\FrenchUpdateViewCommand.cs" />
     <Compile Include="Commands\GermanUpdateViewCommand.cs" />
+    <Compile Include="Commands\LessonEditorUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonUpdateViewComand.cs" />
     <Compile Include="Commands\LoginUpdateViewCommand.cs" />
     <Compile Include="Commands\TestInfoUpdateViewCommand.cs" />

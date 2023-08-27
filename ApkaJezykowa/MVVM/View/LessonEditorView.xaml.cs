@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,37 @@ namespace ApkaJezykowa.MVVM.View
     public LessonEditorView()
     {
       InitializeComponent();
+    }
+    private void ChooseImage_Click(object sender, RoutedEventArgs e)
+    {
+      OpenFileDialog openFileDialog1 = new OpenFileDialog
+      {
+        InitialDirectory = @"D:\",
+        Title = "Wybierz obraz",
+
+        CheckFileExists = true,
+        CheckPathExists = true,
+        DefaultExt = "png",
+        Filter = "Pliki obrazów (*.jpg;*.png;)|*.jpg;*.png",
+        FilterIndex = 2,
+        RestoreDirectory = true,
+
+        ReadOnlyChecked = true,
+        ShowReadOnly = true,
+      };
+
+      if (openFileDialog1.ShowDialog() == true)
+      {
+        LessonImage.Source = new BitmapImage(new Uri(openFileDialog1.FileName));
+        Properties.Settings.Default.FilePath = openFileDialog1.FileName;
+        Properties.Settings.Default.Save();
+      }
+    }
+
+    private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+    {
+      if (Content.IsFocused && Content.Text == "Write lesson content here")
+        Content.Clear();
     }
   }
 }
