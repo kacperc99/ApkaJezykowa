@@ -228,7 +228,7 @@
                                 </StackPanel>
                                 <ListViewItem.ToolTip>
                                     <ToolTip x:Name="tt_editor"
-                                         Content="Słownik"
+                                         Content="Content Editor"
                                          Style="{StaticResource tt_style}"/>
                                 </ListViewItem.ToolTip>
                             </ListViewItem>

@@ -53,6 +53,9 @@
             <DataTemplate DataType="{x:Type viewModel:InfoViewModel}">
                 <view:InfoView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:LessonEditorViewModel}">
+                <view:LessonEditorView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
                 <view:SettingsView/>
             </DataTemplate>
@@ -62,6 +65,7 @@
             <DataTemplate DataType="{x:Type viewModel:TestInfoViewModel}">
                 <view:TestInfoView/>
             </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

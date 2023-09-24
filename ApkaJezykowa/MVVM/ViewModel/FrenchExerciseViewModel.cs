@@ -157,7 +157,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Exs.Add(p);
         }
         Console.WriteLine(Test);
-        foreach (Ex p in Exs) { Console.WriteLine(p.Task); }
+        foreach (Ex p in Exs) { Console.WriteLine(p.Task, p.Answer, p.Tip); }
       }
     }
   }

@@ -44,6 +44,10 @@ namespace ApkaJezykowa.Commands
             {
               viewModel.SelectedViewModel = new SettingsViewModel();
             }
-    }
+            if(parameter.ToString() == "Editor")
+            {
+              viewModel.SelectedViewModel = new LessonEditorViewModel();
+            }
+        }
     }
 }

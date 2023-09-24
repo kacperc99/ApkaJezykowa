@@ -51,6 +51,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         lessonRepository.Obtain_Lesson_List(LessonsList, ExerciseLevelModel.Instance.Language);
         foreach (LessonListModel p in LessonsList) { Console.WriteLine(p.Lesson_Title, p.Lesson_Parameter); }
         lessonRepository.Obtain_Lessons(Lessons, lesson.Id);
+        foreach (LessonContentModel p in Lessons) { Console.WriteLine(p.LessonText, p.LessonImage); }
       }
     }
   }

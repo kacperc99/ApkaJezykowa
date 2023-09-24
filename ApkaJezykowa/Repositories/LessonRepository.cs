@@ -1,4 +1,5 @@
 ﻿using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -102,5 +103,65 @@ namespace ApkaJezykowa.Repositories
         }
       }
     }
+    public List<string> Obtain_Lesson_Names(string Country, string Language, decimal Level)
+    {
+      if (Country == "None")
+        Country = null;
+      if (Language == "None")
+        Language = null;
+      Nullable<decimal> DecimalLevel = Level;
+      if (DecimalLevel == 0)
+        DecimalLevel = null;
+      List<string> ts = new List<string>();
+      ts.Add("None");
+      using(var connection = GetConnection())
+      using(var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson in (select Id_Lesson from Lesson where Lesson_Level = Coalesce(@level,Lesson_Level) and Id_Course in (select Id_Course from [Course] where [Course_Name] = Coalesce(@country,[Course_Name]) and Course_Level = Coalesce(@level,Course_Level))) and Lesson_Language = Coalesce(@language,Lesson_Language)";
+        command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country ?? (object)DBNull.Value;
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language ?? (object)DBNull.Value;
+        command.Parameters.Add("@level", SqlDbType.Decimal).Value = DecimalLevel ?? (object)DBNull.Value;
+        using (var reader = command.ExecuteReader())
+        {
+          while(reader.Read())
+          {
+            ts.Add(reader["Lesson_Title"].ToString());
+          }
+        }
+      }
+      return ts;
+    }
+    public List<LessonData> Obtain_Lesson_Content(string Lesson)
+    {
+      List<LessonData> lc = new List<LessonData>();
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "SELECT Id_Lesson_Content, Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson FROM [Lesson_Title] WHERE Lesson_Title = @title)";
+        command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Lesson;
+        using (var reader = command.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            LessonData model = new LessonData();
+            model.LessonID = (int)reader["Id_Lesson_Content"];
+            model.LessonText = reader["Lesson_Text"].ToString();
+            if (reader["Lesson_Image"] != System.DBNull.Value)
+              model.LessonImage = (byte[])reader["Lesson_Image"];
+            else
+              model.LessonImage = null;
+            lc.Add(model);
+          }
+          reader.NextResult();
+        }
+        ///foreach (LessonData p in lc) { Console.WriteLine(p.LessonID, p.LessonText, p.LessonImage); }
+        return lc;
+      }
+    }
+
   }
 }
