@@ -1,6 +1,8 @@
-﻿using Microsoft.Win32;
+﻿using ApkaJezykowa.MVVM.ViewModel;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +47,13 @@ namespace ApkaJezykowa.MVVM.View
 
       if (openFileDialog1.ShowDialog() == true)
       {
-        LessonImage.Source = new BitmapImage(new Uri(openFileDialog1.FileName));
+        BitmapImage img = new BitmapImage(new Uri(openFileDialog1.FileName));
+        MemoryStream memStream = new MemoryStream();
+        PngBitmapEncoder encoder = new PngBitmapEncoder();
+        encoder.Frames.Add(BitmapFrame.Create(img));
+        encoder.Save(memStream);
+        byte[] bytes = memStream.ToArray();
+        (this.DataContext as LessonEditorViewModel)?.SetPath(bytes);
       }
     }
 

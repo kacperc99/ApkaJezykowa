@@ -2,6 +2,7 @@
 using ApkaJezykowa.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -133,9 +134,53 @@ namespace ApkaJezykowa.Repositories
       }
       return ts;
     }
-    public List<LessonData> Obtain_Lesson_Content(string Lesson)
+    public ParamModel Obtain_Lesson_Parameters(string LName)
     {
-      List<LessonData> lc = new List<LessonData>();
+      ParamModel result = null;
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "Select C.[Course_Name], L.Lesson_Level, LT.Lesson_Language, LT.Lesson_Title From[Course] C Join[Lesson] L on C.Id_Course = L.Id_Course Join[Lesson_Title] LT on L.Id_Lesson = LT.Id_Lesson Where LT.Lesson_Title=@title";
+        command.Parameters.Add("@title", SqlDbType.NVarChar).Value = LName;
+        using(var reader = command.ExecuteReader())
+        {
+          if(reader.Read())
+          {
+            result = new ParamModel()
+            {
+              country = reader["Course_Name"].ToString(),
+              language = reader["Lesson_Language"].ToString(),
+              title = reader["Lesson_Title"].ToString(),
+              level = (decimal)reader["Lesson_Level"]
+            };
+          }
+        }
+      }
+      return result;
+    }
+    public ObservableCollection<LessonData> Obtain_Lesson_Content(string Lesson)
+    {
+      /*using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "Select C.[Course_Name], L.Lesson_Level, LT.Lesson_Language, LT.Lesson_Title From[Course] C Join[Lesson] L on C.Id_Course = L.Id_Course Join[Lesson_Title] LT on L.Id_Lesson = LT.Id_Lesson Where LT.Lesson_Title=@title";
+        command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Lesson;
+        using (var reader = command.ExecuteReader())
+        {
+          if (reader.Read())
+          {
+            ParamModel.Instance.country = reader["Course_Name"].ToString();
+            ParamModel.Instance.language = reader["Lesson_Language"].ToString();
+            ParamModel.Instance.title = reader["Lesson_Title"].ToString();
+            ParamModel.Instance.level = (decimal)reader["Lesson_Level"];
+          }
+        }
+      }*/
+      ObservableCollection<LessonData> lc = new ObservableCollection<LessonData>();
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
       {
