@@ -207,6 +207,13 @@ namespace ApkaJezykowa.Repositories
         return lc;
       }
     }
+    public void AddLesson(string Country, string Language, ObservableCollection<LessonData>EditedLessons, string Title, decimal Level)
+    {
 
+    }
+    public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level)
+    {
+
+    }
   }
 }

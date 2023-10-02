@@ -118,6 +118,7 @@
                                 </Style>
                             </Button.Style>
                         </Button>
+                        <TextBlock x:Name="ErrorMessage" FontSize="16" Margin="10,0,0,0" FontWeight="Bold" Text="{Binding ErrorMessage}" Background="Transparent" Foreground="Black"/>
                     </WrapPanel>
                     <Image x:Name="LessonImage" Width="auto" Height="auto" MaxHeight="300" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding EditedImage}"/>
                 </WrapPanel>

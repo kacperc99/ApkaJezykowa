@@ -46,6 +46,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public byte[] _editedImage;
     public bool IsLessonBeingEdited = false;
     public int ModifiedContentId = 0;
+    public string _errorMessage;
     private ILessonRepository lessonRepository;
 
     public List<string> LessonNames { get { return lessonNames; } set { lessonNames = value; OnPropertyChanged(nameof(LessonNames)); } }
@@ -64,6 +65,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         }
         else
         {
+          //this can be also solved by using ref/out
           EditedLessons = lessonRepository.Obtain_Lesson_Content(Lesson);
           var param = lessonRepository.Obtain_Lesson_Parameters(Lesson);
           IsLessonBeingEdited = true;
@@ -78,6 +80,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public decimal Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); if (!IsLessonBeingEdited) LoadData(); } }
     public string EditedContent { get { return _editedContent; } set { _editedContent = value; OnPropertyChanged(nameof(EditedContent)); } }
     public byte[] EditedImage { get { return _editedImage; } set { _editedImage = value; OnPropertyChanged(nameof(EditedImage)); } }
+    public string ErrorMessage { get { return _errorMessage; } set { _errorMessage = value;OnPropertyChanged(nameof(ErrorMessage)); } } 
     public ICommand ChooseCommand { get; }
     public ICommand ClearCommand { get; }
     public ICommand AddContentCommand { get; set; }
@@ -139,6 +142,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         return true;
       }
       else
+        ErrorMessage = "Przekroczono maksymalną ilość znaków/brak treści";
         return false;
     }
     public void ExecuteAddContentCommand(object obj)
@@ -155,14 +159,24 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     private bool CanExecuteAddLessonCommand(object obj)
     {
-      if ((EditedLessons.Count() > 0 && Country !="None" && Language!="None" && Title!=null && Level>0) || Lesson!="None")
+      if ((EditedLessons.Count() > 0 && Country != "None" && Language != "None" && Title != null && Level > 0) || Lesson != "None")
         return true;
       else
+        ErrorMessage = "Nie podano brakujących informacji";
         return false;
     }
     public void ExecuteAddLessonCommand(object obj)
     {
-
+      if(IsLessonBeingEdited)
+      {
+        lessonRepository.AddLesson(Country, Language, EditedLessons, Title, Level);
+        ErrorMessage = "Zaktualizowano podaną lekcję!";
+      }
+      else
+      {
+        lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level);
+        ErrorMessage = "Dodano podaną lekcję!";
+      }
     }
 
   }

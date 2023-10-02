@@ -17,5 +17,7 @@ namespace ApkaJezykowa.MVVM.Model
     List<string> Obtain_Lesson_Names(string Country, string Language, decimal Level);
     ParamModel Obtain_Lesson_Parameters(string LNameguage);
     ObservableCollection<LessonData> Obtain_Lesson_Content(string Lesson);
+    void AddLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level);
+    void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level);
   }
 }
