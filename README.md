@@ -1,3 +1,5 @@
+IMPORTANT: DATABASE FOR THIS APPLICATION IS CURRENTLY DOWN, I AM CURRENTLY IN A PROCESS OF MIGRATING IT TO A DIFFERENT HOST
+
 Well, welcome to the project of my application.
 
 To keep this short, I work on this app in my free time and I wanted to make it an alternative to Duolingo and to
