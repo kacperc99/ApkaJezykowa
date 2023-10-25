@@ -209,7 +209,42 @@ namespace ApkaJezykowa.Repositories
     }
     public void AddLesson(string Country, string Language, ObservableCollection<LessonData>EditedLessons, string Title, decimal Level)
     {
-
+      decimal levl = Level;
+      
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        while (true)
+        {
+          int id = 0;
+          command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Language=@level";
+          command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl;
+          using(var reader = command.ExecuteReader())
+          {
+            while(reader.Read())
+              id = (int)reader["Id_Lesson"];
+          }
+          if (id!=0)
+          {
+            command.CommandText = "";
+            levl++;
+          }
+          if (id==0)
+          {
+            command.CommandText = "";
+            break;
+          }
+        }
+      }
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "";
+      }
     }
     public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level)
     {

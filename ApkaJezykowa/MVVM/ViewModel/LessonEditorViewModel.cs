@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Input;
 
 namespace ApkaJezykowa.MVVM.ViewModel
@@ -45,6 +46,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string _editedContent;
     public byte[] _editedImage;
     public bool IsLessonBeingEdited = false;
+    public bool IsContentBeingEdited = false;
     public int ModifiedContentId = 0;
     public string _errorMessage;
     private ILessonRepository lessonRepository;
@@ -123,6 +125,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       EditedContent = value.LessonText;
       EditedImage = value.LessonImage;
       ModifiedContentId = value.LessonID;
+      IsContentBeingEdited = true;
     }
     public void ExecuteDeleteCommand(object parameter)
     {
@@ -147,15 +150,31 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public void ExecuteAddContentCommand(object obj)
     {
-      LessonData lsn = new LessonData();
-      lsn.LessonID = EditedLessons.Count() + 1;
-      lsn.LessonText = EditedContent;
-      if (EditedImage != null)
-        lsn.LessonImage = EditedImage;
-      else
-        lsn.LessonImage = null;
-      EditedLessons.Add(lsn);
-      foreach (LessonData p in EditedLessons) { Console.WriteLine(p.LessonText, p.LessonImage, p.LessonID); }
+      if (!IsContentBeingEdited)
+      {
+        LessonData lsn = new LessonData();
+        lsn.LessonID = EditedLessons.Count() + 1;
+        lsn.LessonText = EditedContent;
+        if (EditedImage != null)
+          lsn.LessonImage = EditedImage;
+        else
+          lsn.LessonImage = null;
+        EditedLessons.Add(lsn);
+        EditedContent = null;
+        EditedImage = null;
+        foreach (LessonData p in EditedLessons) { Console.WriteLine(p.LessonText, p.LessonImage, p.LessonID); }
+      }  
+      if(IsContentBeingEdited)
+      {
+        var value = EditedLessons.First(x => x.LessonID == ModifiedContentId);
+        int i = EditedLessons.IndexOf(value);
+        EditedLessons[i].LessonText = EditedContent;
+        EditedLessons[i].LessonImage = EditedImage;
+        EditedContent = null;
+        EditedImage = null;
+        ModifiedContentId = 0;
+        IsContentBeingEdited = false;
+      }
     }
     private bool CanExecuteAddLessonCommand(object obj)
     {
@@ -172,7 +191,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         lessonRepository.AddLesson(Country, Language, EditedLessons, Title, Level);
         ErrorMessage = "Zaktualizowano podaną lekcję!";
       }
-      else
+      if(!IsLessonBeingEdited)
       {
         lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level);
         ErrorMessage = "Dodano podaną lekcję!";
