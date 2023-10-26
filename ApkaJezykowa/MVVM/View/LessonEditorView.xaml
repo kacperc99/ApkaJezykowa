@@ -53,7 +53,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBlock Text="Lesson Title" FontSize="18" Width="140" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-                <TextBox x:Name="registerlessonname" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                <TextBox x:Name="registerlessonname" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" HorizontalAlignment="Left">
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
@@ -94,7 +94,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                    <Button x:Name="AddLesson" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Content="Add lesson">
+                    <Button x:Name="AddLesson" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Content="Add lesson" Command="{Binding AddLessonCommand}">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="LightGray"/>

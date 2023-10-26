@@ -86,7 +86,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public ICommand ChooseCommand { get; }
     public ICommand ClearCommand { get; }
     public ICommand AddContentCommand { get; set; }
-    public ICommand AddLessonCommand { get; }
+    public ICommand AddLessonCommand { get; set; }
     public ICommand DeleteCommand { get; }
     public BaseViewModel SelectedViewModel
     {
@@ -186,12 +186,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public void ExecuteAddLessonCommand(object obj)
     {
-      if(IsLessonBeingEdited)
+      if(!IsLessonBeingEdited)
       {
         lessonRepository.AddLesson(Country, Language, EditedLessons, Title, Level);
         ErrorMessage = "Zaktualizowano podaną lekcję!";
       }
-      if(!IsLessonBeingEdited)
+      if(IsLessonBeingEdited)
       {
         lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level);
         ErrorMessage = "Dodano podaną lekcję!";
