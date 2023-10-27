@@ -47,7 +47,10 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select LT.Lesson_Title, L.Lesson_Parameter from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson=L.Id_Lesson where L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language)";
+        command.CommandText = "select LT.Lesson_Title, L.Lesson_Parameter from [Lesson_Title] LT " +
+          "join [Lesson] L on LT.Id_Lesson=L.Id_Lesson" +
+          " where L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) " +
+          "order by L.Lesson_Parameter";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
@@ -67,7 +70,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Parameter from [Lesson] where Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language)";
+        command.CommandText = "select Lesson_Parameter from [Lesson] where Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) order by Lesson_Parameter";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
@@ -79,15 +82,15 @@ namespace ApkaJezykowa.Repositories
         }
       }
     }
-    public void Obtain_Lessons(List<LessonContentModel> Lessons, int Id)
+    public void Obtain_Lessons(List<LessonContentModel> Lessons, string Title)
     {
       using(var connection = GetConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
         command.Connection= connection;
-        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson FROM [Lesson_Title] WHERE Id_Lesson = (SELECT Id_Lesson FROM [Lesson] WHERE Id_Lesson=@Id))";
-        command.Parameters.Add("@Id", SqlDbType.Int).Value=Id;
+        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson_Title FROM [Lesson_Title] WHERE Lesson_Title = @title)";
+        command.Parameters.Add("@title", SqlDbType.NVarChar).Value=Title;
         using (var reader = command.ExecuteReader())
         {
           while(reader.Read())
@@ -256,7 +259,7 @@ namespace ApkaJezykowa.Repositories
               command.CommandText = "select MAX(Lesson_Level) from [Lesson]";
               using (var reader = command.ExecuteReader())
                 if (reader.Read())
-                  levl = (decimal)reader["Lesson_Level"];
+                  levl = (decimal)reader[0];
             }
             using (var connection = GetConnection())
             using (var command = new SqlCommand())
@@ -281,14 +284,14 @@ namespace ApkaJezykowa.Repositories
                 command.ExecuteNonQuery();
               }
               }
-              while (levl != Level)
+              while (levl >= Level)
               {
               using (var connection = GetConnection())
               using (var command = new SqlCommand())
               {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "update [Lesson] set Lesson_Level=@levelup, Lesson_Parameter=@param, Id_Course = (select Id_Course from [Course] where Course_Level=@levelup and [Course_Name]=@country) where Lesson_Language=@level and Id_Course=(select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country)";
+                command.CommandText = "update [Lesson] set Lesson_Level=@levelup, Lesson_Parameter=@param, Id_Course = (select Id_Course from [Course] where Course_Level=@levelup and [Course_Name]=@country) where Lesson_Level=@level and Id_Course=(select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country)";
                 command.Parameters.Add("@levelup", SqlDbType.Decimal).Value = levl + 1;
                 command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + (levl + 1).ToString();
                 command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl;

@@ -13,7 +13,7 @@ namespace ApkaJezykowa.MVVM.Model
     LessonModel Display(int Level, string Language);
     void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language);
     void Obtain_Pars(List<string> pars, string Language);
-    void Obtain_Lessons(List<LessonContentModel> Lessons, int Id);
+    void Obtain_Lessons(List<LessonContentModel> Lessons, string Title);
     List<string> Obtain_Lesson_Names(string Country, string Language, decimal Level);
     ParamModel Obtain_Lesson_Parameters(string LNameguage);
     ObservableCollection<LessonData> Obtain_Lesson_Content(string Lesson);
