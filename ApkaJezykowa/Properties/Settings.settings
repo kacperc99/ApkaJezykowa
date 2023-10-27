@@ -5,5 +5,11 @@
     <Setting Name="FilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Not Set</Value>
     </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Image" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

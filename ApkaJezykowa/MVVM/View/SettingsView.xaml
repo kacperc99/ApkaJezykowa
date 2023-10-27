@@ -52,9 +52,24 @@
                 </Button>
             </DockPanel>
             <TextBox Foreground="Black" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="40" Text="Application language (work in progress)" Margin="20,20,0,0"></TextBox>
-            <ComboBox Foreground="Black" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,20,0,0" Width="300" Height="40" FontSize="24" IsEnabled="False">
-                <ComboBoxItem IsSelected="True">Not working</ComboBoxItem>
-            </ComboBox>
+            <DockPanel Margin="20,20,0,0" Width="500" Height="50" HorizontalAlignment="Left">
+                <ComboBox Foreground="Black" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Language}" Margin="20,20,0,0" Width="300" Height="40" FontSize="24" IsEnabled="True" IsReadOnly="True">
+                    <ComboBoxItem IsSelected="True">Polish</ComboBoxItem>
+                    <ComboBoxItem>English</ComboBoxItem>
+                </ComboBox>
+                <Button x:Name="applylanguage" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="150" Height="50" HorizontalAlignment="Right" Content="Apply" Command="{Binding LanguageCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </DockPanel>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -13,7 +13,7 @@ namespace ApkaJezykowa.Repositories
 {
   internal class LessonRepository : BaseRepository, ILessonRepository
   {
-    public LessonModel Display(int Level, string Language)
+    public LessonModel Display(int Level, string Language, string Lesson_Language)
     {
       LessonModel lesson = null;
       using (var connection = GetConnection())
@@ -21,8 +21,9 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select L.Id_Lesson, L.Lesson_Level, LT.Lesson_Title, L.Id_Course from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson = L.Id_Lesson where Lesson_Level=@level and Id_Course =(Select Id_Course from [Course] where [Course_Name] = @language and Course_Level = @level)";
+        command.CommandText = "select L.Id_Lesson, L.Lesson_Level, LT.Lesson_Title, L.Id_Course from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson = L.Id_Lesson where Lesson_Level=@level and Lesson_Language=@lessonlang and Id_Course =(Select Id_Course from [Course] where [Course_Name] = @language and Course_Level = @level)";
         command.Parameters.Add("@level", SqlDbType.Int).Value = Level;
+        command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
@@ -40,18 +41,16 @@ namespace ApkaJezykowa.Repositories
       }
       return lesson;
     }
-    public void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language)
+    public void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language, string Lesson_Language)
     {
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select LT.Lesson_Title, L.Lesson_Parameter from [Lesson_Title] LT " +
-          "join [Lesson] L on LT.Id_Lesson=L.Id_Lesson" +
-          " where L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) " +
-          "order by L.Lesson_Parameter";
+        command.CommandText = "select LT.Lesson_Title, L.Lesson_Parameter from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson=L.Id_Lesson where LT.Lesson_Language = @lessonlang and L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) order by L.Lesson_Parameter";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+        command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
@@ -82,15 +81,16 @@ namespace ApkaJezykowa.Repositories
         }
       }
     }
-    public void Obtain_Lessons(List<LessonContentModel> Lessons, string Title)
+    public void Obtain_Lessons(List<LessonContentModel> Lessons, string Title, string Lesson_Language)
     {
       using(var connection = GetConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
         command.Connection= connection;
-        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson_Title FROM [Lesson_Title] WHERE Lesson_Title = @title)";
+        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson_Title FROM [Lesson_Title] WHERE Lesson_Title = @title and Lesson_Language = @lessonlang)";
         command.Parameters.Add("@title", SqlDbType.NVarChar).Value=Title;
+        command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         using (var reader = command.ExecuteReader())
         {
           while(reader.Read())
@@ -328,7 +328,8 @@ namespace ApkaJezykowa.Repositories
             {
               connection.Open();
               command.Connection = connection;
-              command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=(select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country))";
+              command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=(select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country))";
+              command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
               command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
               command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
               Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
@@ -366,7 +367,8 @@ namespace ApkaJezykowa.Repositories
             {
               connection.Open();
               command.Connection = connection;
-              command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Id_Lesson = @id";
+              command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = @id";
+              command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
               command.Parameters.Add("@id", SqlDbType.Int).Value = LessonID;
               Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
             }
@@ -415,7 +417,8 @@ namespace ApkaJezykowa.Repositories
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=@id)";
+            command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=@id)";
+            command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
             command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
             Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
           }
@@ -484,7 +487,8 @@ namespace ApkaJezykowa.Repositories
         {
           connection.Open();
           command.Connection = connection;
-          command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=@id)";
+          command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=@id)";
+          command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
           command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
           Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
         }

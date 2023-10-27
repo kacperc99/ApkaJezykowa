@@ -46,11 +46,11 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
       if (ExerciseLevelModel.Instance.Level != 0 && ExerciseLevelModel.Instance.Language != null)
       {
-        var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, ExerciseLevelModel.Instance.Language);
+        var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, ExerciseLevelModel.Instance.Language, Properties.Settings.Default.Language);
         LessonTitle = lesson.Lesson_Title;
-        lessonRepository.Obtain_Lesson_List(LessonsList, ExerciseLevelModel.Instance.Language);
+        lessonRepository.Obtain_Lesson_List(LessonsList, ExerciseLevelModel.Instance.Language, Properties.Settings.Default.Language);
         foreach (LessonListModel p in LessonsList) { Console.WriteLine(p.Lesson_Title, p.Lesson_Parameter); }
-        lessonRepository.Obtain_Lessons(Lessons, lesson.Lesson_Title);
+        lessonRepository.Obtain_Lessons(Lessons, lesson.Lesson_Title, Properties.Settings.Default.Language);
         foreach (LessonContentModel p in Lessons) { Console.WriteLine(p.LessonText, p.LessonImage); }
       }
     }

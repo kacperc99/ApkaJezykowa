@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ApkaJezykowa.exe" size="6692320">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ApkaJezykowa.exe" size="6693856">
       <assemblyIdentity name="ApkaJezykowa" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BunTUN5D3+xZMCX2T5W56ONjlCmbfOue9/M1B1/RW7I=</dsig:DigestValue>
+        <dsig:DigestValue>nTG93Gdo8lrqHoCs3dpKGAH5ut+v383VmFZ9vI/XZRw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -497,13 +497,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ApkaJezykowa.exe.config" size="2794">
+  <file name="ApkaJezykowa.exe.config" size="3020">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>4NU7q4s+Fw8o4HZ0PZ1q+eRqCXUxw/9EMKhsFDAigZI=</dsig:DigestValue>
+      <dsig:DigestValue>ddueKskDwUHpdY8KmQAT8rjUOilhouKVPZB7HAVPZP0=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
