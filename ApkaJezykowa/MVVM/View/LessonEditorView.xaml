@@ -31,7 +31,7 @@
         <WrapPanel Grid.Row="1" Orientation="Horizontal" Height="200" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
             <TextBlock Text="Language" FontSize="18" Width="80" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-            <ComboBox x:Name="registercountry" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+            <ComboBox x:Name="registercountry" Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" IsEnabled="{Binding Enabler}" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsReadOnly="True" HorizontalAlignment="Left">
                     <ComboBoxItem IsSelected="True">None</ComboBoxItem>
                     <ComboBoxItem>French</ComboBoxItem>
                     <ComboBoxItem>German</ComboBoxItem>
@@ -40,7 +40,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Lesson Language" FontSize="18" Width="140" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-                <ComboBox x:Name="registerlanguage" Text="{Binding Language, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="True" IsReadOnly="True" HorizontalAlignment="Left">
+                <ComboBox x:Name="registerlanguage" Text="{Binding Language, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="DimGray" BorderThickness="0,0,0,2" BorderBrush="Black" Margin="20,20,0,0" Foreground="Black" IsEnabled="{Binding Enabler}" IsReadOnly="True" HorizontalAlignment="Left">
                     <ComboBoxItem IsSelected="True">None</ComboBoxItem>
                     <ComboBoxItem>Polish</ComboBoxItem>
                     <ComboBoxItem>English</ComboBoxItem>

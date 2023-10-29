@@ -25,6 +25,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
   }
   public class ParamModel
   {
+    public int Id {  get; set; }
+    public int TitleId {  get; set; }
     public string country { get; set; }
     public string language { get; set; }
     public string title { get; set; }
@@ -48,7 +50,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public bool IsLessonBeingEdited = false;
     public bool IsContentBeingEdited = false;
     public int ModifiedContentId = 0;
+    public int ModifiedTitleID = 0;
+    public int ModifiedLessonId = 0;
     public string _errorMessage;
+    public bool _enabler;
     private ILessonRepository lessonRepository;
 
     public List<string> LessonNames { get { return lessonNames; } set { lessonNames = value; OnPropertyChanged(nameof(LessonNames)); } }
@@ -64,6 +69,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Title = null;
           Level = 0;
           IsLessonBeingEdited = false;
+          Enabler = true;
         }
         else
         {
@@ -75,7 +81,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Language = param.language;
           Title = param.title;
           Level = param.level;
-          
+          ModifiedLessonId = param.Id;
+          ModifiedTitleID = param.TitleId;
+          Enabler = false;
         }
       } }
     public string Title { get { return _title; } set { _title = value; OnPropertyChanged(nameof(Title)); } }
@@ -83,6 +91,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string EditedContent { get { return _editedContent; } set { _editedContent = value; OnPropertyChanged(nameof(EditedContent)); } }
     public byte[] EditedImage { get { return _editedImage; } set { _editedImage = value; OnPropertyChanged(nameof(EditedImage)); } }
     public string ErrorMessage { get { return _errorMessage; } set { _errorMessage = value;OnPropertyChanged(nameof(ErrorMessage)); } } 
+    public bool Enabler { get { return _enabler; } set { _enabler = value; OnPropertyChanged(nameof(Enabler)); } }
     public ICommand ChooseCommand { get; }
     public ICommand ClearCommand { get; }
     public ICommand AddContentCommand { get; set; }
@@ -109,11 +118,15 @@ namespace ApkaJezykowa.MVVM.ViewModel
       AddContentCommand = new RelayCommand(ExecuteAddContentCommand, CanExecuteAddContentCommand);
       AddLessonCommand = new RelayCommand(ExecuteAddLessonCommand, CanExecuteAddLessonCommand);
       LoadData();
+      LoadComm();
     }
     public void LoadData()
     {
-      EditedContent = "Write lesson content here";
       LessonNames = lessonRepository.Obtain_Lesson_Names(Country, Language, Level);
+    }
+    public void LoadComm() 
+    {
+      EditedContent = "Write lesson content here";
     }
     public void SetPath(byte[] filePath)
     {
@@ -189,11 +202,29 @@ namespace ApkaJezykowa.MVVM.ViewModel
       if(!IsLessonBeingEdited)
       {
         lessonRepository.AddLesson(Country, Language, EditedLessons, Title, Level);
+        EditedLessons.Clear();
+        Country = "None";
+        Language = "None";
+        Title = null;
+        Level = 0;
+        EditedContent = null;
+        EditedImage = null;
+        ModifiedContentId = 0;
         ErrorMessage = "Zaktualizowano podaną lekcję!";
       }
       if(IsLessonBeingEdited)
       {
-        lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level);
+        lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level, ModifiedLessonId, ModifiedTitleID);
+        EditedLessons.Clear();
+        Country = "None";
+        Language = "None";
+        Title = null;
+        Level = 0;
+        EditedContent = null;
+        EditedImage = null;
+        ModifiedContentId = 0;
+        IsLessonBeingEdited = false;
+        Enabler = true;
         ErrorMessage = "Dodano podaną lekcję!";
       }
     }
