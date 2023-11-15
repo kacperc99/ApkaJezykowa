@@ -6,9 +6,7 @@
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
              mc:Ignorable="d">
-    <UserControl.DataContext>
-        <viewModel:FrenchLessonViewModel/>
-    </UserControl.DataContext>
+    
     <Grid Background="DimGray">
         <StackPanel>
             <TextBlock Text="{Binding LessonTitle}" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="DimGray"></TextBlock>

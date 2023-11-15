@@ -116,3 +116,5 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\System.Text.Enco
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\System.Text.Json.xml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\bin\Debug\System.ValueTuple.xml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\LessonListView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\LessonListView.baml

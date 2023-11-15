@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="ApkaJezykowa.MVVM.View.LessonListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             mc:Ignorable="d">
+    <Grid Background="DimGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Choose lesson" HorizontalAlignment="Center" VerticalAlignment="Top"
+           Height="80" FontSize="48" Foreground="Black" ></TextBlock>
+        <ListView Grid.Row="1" x:Name="LV_ExerciseMenu"
+                  Background="DimGray"
+                  BorderBrush="Transparent"
+                  ItemsSource="{Binding ExerciseList}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  VerticalAlignment="Stretch"
+          Margin="0,40,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Exercise_Title}"
+                                   Margin="0,0,0,0"
+                                   Style="{StaticResource Font_Style}"
+                                   HorizontalAlignment="Left"
+                                   Foreground="Black"/>
+                        <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
+                                Width="200" Height="50" Content="Begin" HorizontalAlignment="Right"
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchExerciseMenuUpdateViewCommand}"
+                                CommandParameter="{Binding Exercise_Parameter}">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Black"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border x:Name="Bd"
+                                            Height="80"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Background="{TemplateBinding Background}"
+                                            Padding="{TemplateBinding Padding}"
+                                            SnapsToDevicePixels="True">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                          VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background"
+                                                    TargetName="Bd"
+                                                    Value="#646464"/>
+                                        <Setter Property="BorderBrush"
+                                                    TargetName="Bd"
+                                                    Value="#646464"/>
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</UserControl>

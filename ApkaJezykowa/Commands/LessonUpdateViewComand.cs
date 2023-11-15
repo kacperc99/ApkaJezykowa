@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using ApkaJezykowa.MVVM.ViewModel;
 using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.Repositories;
 
 namespace ApkaJezykowa.Commands
 {
     internal class LessonUpdateViewComand : ICommand
     {
+    private ILessonRepository lessonRepository;
             private LessonsViewModel viewModel;
 
             public LessonUpdateViewComand(LessonsViewModel viewModel)
             {
+      lessonRepository = new LessonRepository();
                 this.viewModel = viewModel;
             }
 
@@ -27,22 +30,9 @@ namespace ApkaJezykowa.Commands
             }
     public void Execute(object parameter)
     {
-      Console.WriteLine("Clicked!");
-      if (parameter.ToString() == "German")
-      {
-        // viewModel.SelectedViewModel = new GermanViewModel();
-        // ExerciseLevelModel.Instance.Language = "Niemiecki";
-      }
-      if (parameter.ToString() == "French")
-      {
-        viewModel.SelectedViewModel = new FrenchViewModel();
-        ExerciseLevelModel.Instance.Language = "French";
-      }
-      if (parameter.ToString() == "English")
-      {
-        // viewModel.SelectedViewModel = new EnglishViewModel();
-        // ExerciseLevelModel.Instance.Language = "Angielski";
-      }
+        string Lang = parameter.ToString();
+        viewModel.SelectedViewModel = new FrenchViewModel(Lang, lessonRepository.GetIcon(Lang));
+        //ExerciseLevelModel.Instance.Language = "French";
     }
     }
 }

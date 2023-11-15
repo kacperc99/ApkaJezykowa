@@ -196,6 +196,47 @@ namespace ApkaJezykowa.Repositories
         return lc;
       }
     }
+    public void GetButtons(ObservableCollection<Clicker> Buttons)
+    {
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Language, Image from Icon";
+        using (var reader = command.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            Clicker button = new Clicker();
+            button.Language = reader["Language"].ToString();
+            button.Icon = (byte[])reader["Image"];
+            Buttons.Add(button);
+          }
+          reader.NextResult();
+        }
+      }
+    }
+    public byte[] GetIcon(string Lang)
+    {
+      byte[] Icon=null;
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Image from Icon where Language = @lang";
+        command.Parameters.Add("@lang",SqlDbType.NVarChar).Value = Lang;
+        using (var reader = command.ExecuteReader())
+        {
+          if (reader.Read())
+          {
+            Icon = (byte[])reader["Image"];
+          }
+        }
+        return Icon;
+      }
+    }
     public void AddLesson(string Country, string Language, ObservableCollection<LessonData>EditedLessons, string Title, decimal Level)
     {
       int? CourseID, LessonID, Lesson_TitleID;
@@ -264,7 +305,7 @@ namespace ApkaJezykowa.Repositories
               {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "insert into [Course] values(@country, @level)";
+                command.CommandText = "insert into [Course] values(@country, @level, (select Id_Icon from Icon where [Language]=@country))";
                 command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
                 command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
                 command.ExecuteNonQuery();
@@ -431,7 +472,7 @@ namespace ApkaJezykowa.Repositories
         {
           connection.Open();
           command.Connection = connection;
-          command.CommandText = "insert into [Course] values(@country, @level)";
+          command.CommandText = "insert into [Course] values(@country, @level, (select Id_Icon from Icon where [Language]=@country))";
           command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
           command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
           command.ExecuteNonQuery();

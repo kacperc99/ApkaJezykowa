@@ -12,12 +12,14 @@ namespace ApkaJezykowa.Commands
 {
   internal class FrenchLessonUpdateViewCommand : ICommand
   {
+    private string Lang;
     private FrenchLessonViewModel viewModel;
     public List<string> par = new List<string>();
     private ILessonRepository lessonRepository;
 
-    public FrenchLessonUpdateViewCommand(FrenchLessonViewModel viewModel)
+    public FrenchLessonUpdateViewCommand(FrenchLessonViewModel viewModel, string Lang)
     {
+      this.Lang = Lang;
       this.viewModel = viewModel;
       lessonRepository = new LessonRepository();
     }
@@ -39,7 +41,7 @@ namespace ApkaJezykowa.Commands
         if (parameter.ToString() == s)
         {
           ExerciseLevelModel.Instance.Level = i;
-          viewModel.SelectedViewModel = new FrenchLessonViewModel();
+          viewModel.SelectedViewModel = new FrenchLessonViewModel(Lang);
         }
         else
           i++;

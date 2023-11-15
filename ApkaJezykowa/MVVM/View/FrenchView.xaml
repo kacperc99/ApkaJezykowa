@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View" xmlns:viewmodel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FrenchViewModel}"
              mc:Ignorable="d" >
     <Grid Background="DimGray">
         <TextBlock Text="Choose category" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -38,7 +38,7 @@
                        Height="50"
                        HorizontalAlignment="Center">
                         </TextBlock>
-                        <Image Source="\Images\fr_flag.png" 
+                        <Image Source="{Binding Icon}" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
@@ -72,7 +72,7 @@
                        Width="200"
                        Height="50">
                         </TextBlock>
-                        <Image Source="\Images\fr_flag.png" 
+                        <Image Source="{Binding Icon}" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
@@ -106,7 +106,7 @@
                        Width="200"
                        Height="50">
                         </TextBlock>
-                        <Image Source="\Images\fr_flag.png" 
+                        <Image Source="{Binding Icon}" 
                                Height="80" VerticalAlignment="Bottom" Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>

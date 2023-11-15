@@ -201,6 +201,7 @@
     <Compile Include="MVVM\Model\VisibilityModel.cs" />
     <Compile Include="MVVM\ViewModel\FrenchExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonEditorViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\LessonListViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestInfoViewModel.cs" />
     <Compile Include="MVVM\View\FrenchExerciseMenuView.xaml.cs">
       <DependentUpon>FrenchExerciseMenuView.xaml</DependentUpon>
@@ -252,6 +253,9 @@
     </Compile>
     <Compile Include="MVVM\View\LessonEditorView.xaml.cs">
       <DependentUpon>LessonEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\LessonListView.xaml.cs">
+      <DependentUpon>LessonListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -337,6 +341,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\LessonEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\LessonListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

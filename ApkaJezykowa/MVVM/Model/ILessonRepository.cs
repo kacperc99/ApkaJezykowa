@@ -19,5 +19,7 @@ namespace ApkaJezykowa.MVVM.Model
     ObservableCollection<LessonData> Obtain_Lesson_Content(string Lesson);
     void AddLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level);
     void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level, int Lesson_Id, int Lesson_Title_Id);
+    void GetButtons(ObservableCollection<Clicker> Buttons);
+    byte[] GetIcon(string Lang);
   }
 }

@@ -14,6 +14,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
 {
   public class FrenchLessonViewModel : BaseViewModel
   {
+    public string Lang;
     public List<LessonListModel> lessonsList = new List<LessonListModel>();
     public List<LessonContentModel> lessons = new List<LessonContentModel>();
     private BaseViewModel _selectedViewModel;
@@ -34,21 +35,21 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
   }
   public ICommand FrenchLessonUpdateViewCommand { get; set; }
-  public FrenchLessonViewModel()
+  public FrenchLessonViewModel(string Lang)
   {
-
+      this.Lang = Lang;
       lessonRepository = new LessonRepository();
-      FrenchLessonUpdateViewCommand = new FrenchLessonUpdateViewCommand(this);
+      FrenchLessonUpdateViewCommand = new FrenchLessonUpdateViewCommand(this, Lang);
       LoadLesson();
   }
 
     public void LoadLesson()
     {
-      if (ExerciseLevelModel.Instance.Level != 0 && ExerciseLevelModel.Instance.Language != null)
+      if (ExerciseLevelModel.Instance.Level != 0 && Lang != null)
       {
-        var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, ExerciseLevelModel.Instance.Language, Properties.Settings.Default.Language);
+        var lesson = lessonRepository.Display(ExerciseLevelModel.Instance.Level, Lang, Properties.Settings.Default.Language);
         LessonTitle = lesson.Lesson_Title;
-        lessonRepository.Obtain_Lesson_List(LessonsList, ExerciseLevelModel.Instance.Language, Properties.Settings.Default.Language);
+        lessonRepository.Obtain_Lesson_List(LessonsList, Lang, Properties.Settings.Default.Language);
         foreach (LessonListModel p in LessonsList) { Console.WriteLine(p.Lesson_Title, p.Lesson_Parameter); }
         lessonRepository.Obtain_Lessons(Lessons, lesson.Lesson_Title, Properties.Settings.Default.Language);
         foreach (LessonContentModel p in Lessons) { Console.WriteLine(p.LessonText, p.LessonImage); }
