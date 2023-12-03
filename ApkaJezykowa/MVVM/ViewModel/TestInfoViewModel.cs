@@ -11,6 +11,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
 {
   internal class TestInfoViewModel : BaseViewModel
   {
+    public int id;
+    public string Lang;
     private BaseViewModel _selectedViewModel;
 
     public BaseViewModel SelectedViewModel
@@ -19,9 +21,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
       set { _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel)); }
     }
     public ICommand TestInfoUpdateViewCommand { get; set; }
-    public TestInfoViewModel()
+    public TestInfoViewModel(string Lang, int id)
     {
-      TestInfoUpdateViewCommand = new TestInfoUpdateViewCommand(this);
+      this.Lang = Lang;
+      this.id = id;
+      TestInfoUpdateViewCommand = new TestInfoUpdateViewCommand(this, Lang, id);
+      
     }
   }
 }

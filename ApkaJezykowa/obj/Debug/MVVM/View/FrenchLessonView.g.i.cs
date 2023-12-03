@@ -38,9 +38,9 @@ namespace ApkaJezykowa.MVVM.View {
     
     
     /// <summary>
-    /// FrenchLessonView
+    /// LessonView
     /// </summary>
-    public partial class FrenchLessonView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
+    public partial class LessonView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         
         #line 15 "..\..\..\..\MVVM\View\FrenchLessonView.xaml"

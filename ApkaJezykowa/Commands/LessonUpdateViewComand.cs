@@ -31,7 +31,7 @@ namespace ApkaJezykowa.Commands
     public void Execute(object parameter)
     {
         string Lang = parameter.ToString();
-        viewModel.SelectedViewModel = new FrenchViewModel(Lang, lessonRepository.GetIcon(Lang));
+        viewModel.SelectedViewModel = new ModuleMenuViewModel(Lang, lessonRepository.GetIcon(Lang));
         //ExerciseLevelModel.Instance.Language = "French";
     }
     }

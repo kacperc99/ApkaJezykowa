@@ -1,0 +1,161 @@
+﻿<UserControl x:Class="ApkaJezykowa.MVVM.View.LessonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
+             mc:Ignorable="d">
+    
+    <Grid Background="DimGray">
+        <StackPanel>
+            <TextBlock Text="{Binding LessonTitle}" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="DimGray"></TextBlock>
+
+            <Grid Height="Auto">
+                <ScrollViewer x:Name="SV" VerticalScrollBarVisibility="Visible" SizeChanged="SV_SizeChanged">
+                    <ListView x:Name="LV2" Background="DimGray"
+                          BorderBrush="Transparent"
+                          ItemsSource="{Binding Lessons}"
+                          Width="Auto" Height="Auto"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Height="Auto">
+                                    <TextBlock Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap">
+                                        <Run Text="{Binding LessonText}"/>
+                                    </TextBlock>
+                                    <Image Source="{Binding LessonImage}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+
+        </StackPanel>
+
+
+        <Grid x:Name="nav_pnl"
+              HorizontalAlignment="Right"
+              Width="20"
+              Background="DimGray">
+            
+            <StackPanel x:Name="st_pnl" Height="Auto">
+                <Grid Height="80"
+                      Width="20"
+                      HorizontalAlignment="Right"
+                      Background="DarkGray">
+                    <ToggleButton x:Name="Tg_btn"
+                     VerticalAlignment="Center"
+                                  Grid.Column="0"
+                                  Height="80"
+                                  Width="20">
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="\Images\arrowchevron.png"/>
+                        </ToggleButton.Background>
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="HideStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                         Storyboard.TargetProperty="Width"
+                                                         BeginTime="0:0:0"
+                                                         From="230" To="20"
+                                                         Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="ShowStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                         Storyboard.TargetProperty="Width"
+                                                         BeginTime="0:0:0"
+                                                         From="20" To="230"
+                                                         Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
+                </Grid>
+
+                <ListView x:Name="LV"
+                          Background="#484848"
+                          BorderBrush="Transparent"
+                          ItemsSource="{Binding LessonsList}"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          VerticalAlignment="Stretch" SizeChanged="LV_SizeChanged">
+                    <ListView.ItemTemplate>
+                        
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal"
+                                        Width="230"
+                                        Height="40">
+                                                <Button
+                                                    Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="40"
+                                            Width="230"
+                                            HorizontalAlignment="Right"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchLessonUpdateViewCommand}"
+                                            CommandParameter="{Binding Lesson_Parameter}">
+                                                    <TextBlock Text="{Binding Lesson_Title}"
+                                           Margin="0,0,0,0"
+                                           Style="{StaticResource Font_Style}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="Black"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <Border x:Name="Bd"
+                                                    Height="80"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}"
+                                                    SnapsToDevicePixels="True">
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <MultiTrigger>
+                                                <MultiTrigger.Conditions>
+                                                    <Condition Property="IsMouseOver" Value="True"/>
+                                                </MultiTrigger.Conditions>
+                                                <Setter Property="Background"
+                                                            TargetName="Bd"
+                                                            Value="#646464"/>
+                                                <Setter Property="BorderBrush"
+                                                            TargetName="Bd"
+                                                            Value="#646464"/>
+                                            </MultiTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </StackPanel>
+            
+        </Grid>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
+    </Grid>
+</UserControl>

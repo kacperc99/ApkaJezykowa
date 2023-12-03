@@ -177,6 +177,7 @@
     <Compile Include="Commands\FrenchUpdateViewCommand.cs" />
     <Compile Include="Commands\GermanUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonEditorUpdateViewCommand.cs" />
+    <Compile Include="Commands\LessonListUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonUpdateViewComand.cs" />
     <Compile Include="Commands\LoginUpdateViewCommand.cs" />
     <Compile Include="Commands\TestInfoUpdateViewCommand.cs" />
@@ -185,7 +186,6 @@
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main\UploadImage.cs" />
-    <Compile Include="MVVM\Model\ExerciseLevelModel.cs" />
     <Compile Include="MVVM\Model\ExerciseListModel.cs" />
     <Compile Include="MVVM\Model\ExerciseModel.cs" />
     <Compile Include="MVVM\Model\HeightModel.cs" />
@@ -196,57 +196,32 @@
     <Compile Include="MVVM\Model\LessonContentModel.cs" />
     <Compile Include="MVVM\Model\LessonListModel.cs" />
     <Compile Include="MVVM\Model\LessonModel.cs" />
-    <Compile Include="MVVM\Model\TestModel.cs" />
     <Compile Include="MVVM\Model\User_CourseModel.cs" />
     <Compile Include="MVVM\Model\VisibilityModel.cs" />
-    <Compile Include="MVVM\ViewModel\FrenchExerciseMenuViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonEditorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonListViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestInfoViewModel.cs" />
-    <Compile Include="MVVM\View\FrenchExerciseMenuView.xaml.cs">
-      <DependentUpon>FrenchExerciseMenuView.xaml</DependentUpon>
+    <Compile Include="MVVM\View\ExerciseMenuView.xaml.cs">
+      <DependentUpon>ExerciseMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Model\IUserRepository.cs" />
     <Compile Include="MVVM\Model\UserAccountModel.cs" />
     <Compile Include="MVVM\Model\UserModel.cs" />
-    <Compile Include="MVVM\ViewModel\EnglishExerciseViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\EnglishLessonViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\EnglishViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\FrenchExerciseViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\FrenchLessonViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\FrenchViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\GermanExerciseViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\GermanLessonViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\GermanViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ExerciseViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\LessonViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ModuleMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\InfoViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SettingsViewModel.cs" />
-    <Compile Include="MVVM\View\EnglishExerciseView.xaml.cs">
-      <DependentUpon>EnglishExerciseView.xaml</DependentUpon>
+    <Compile Include="MVVM\View\ExerciseView.xaml.cs">
+      <DependentUpon>ExerciseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\EnglishLessonView.xaml.cs">
-      <DependentUpon>EnglishLessonView.xaml</DependentUpon>
+    <Compile Include="MVVM\View\LessonView.xaml.cs">
+      <DependentUpon>LessonView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\EnglishView.xaml.cs">
-      <DependentUpon>EnglishView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\FrenchExerciseView.xaml.cs">
-      <DependentUpon>FrenchExerciseView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\FrenchLessonView.xaml.cs">
-      <DependentUpon>FrenchLessonView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\FrenchView.xaml.cs">
-      <DependentUpon>FrenchView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\GermanExerciseView.xaml.cs">
-      <DependentUpon>GermanExerciseView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\GermanLessonView.xaml.cs">
-      <DependentUpon>GermanLessonView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\GermanView.xaml.cs">
-      <DependentUpon>GermanView.xaml</DependentUpon>
+    <Compile Include="MVVM\View\ModuleMenuView.xaml.cs">
+      <DependentUpon>ModuleMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\InfoView.xaml.cs">
       <DependentUpon>InfoView.xaml</DependentUpon>
@@ -279,7 +254,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\FrenchExerciseMenuView.xaml">
+    <Page Include="MVVM\View\ExerciseMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,39 +275,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\EnglishExerciseView.xaml">
+    <Page Include="MVVM\View\ExerciseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\EnglishLessonView.xaml">
+    <Page Include="MVVM\View\LessonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\EnglishView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\FrenchExerciseView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\FrenchLessonView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\FrenchView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\GermanExerciseView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\GermanLessonView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\GermanView.xaml">
+    <Page Include="MVVM\View\ModuleMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

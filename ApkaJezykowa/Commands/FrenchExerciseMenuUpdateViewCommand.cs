@@ -20,11 +20,13 @@ namespace ApkaJezykowa.Commands
 
   internal class FrenchExerciseMenuUpdateViewCommand : BaseViewModel, ICommand 
   {
-    private FrenchExerciseMenuViewModel viewModel;
+    public string Lang;
+    private ExerciseMenuViewModel viewModel;
     public List<Pars> pars = new List<Pars>();
     private IExerciseRepository exerciseRepository;
-    public FrenchExerciseMenuUpdateViewCommand(FrenchExerciseMenuViewModel viewModel)
+    public FrenchExerciseMenuUpdateViewCommand(ExerciseMenuViewModel viewModel, string Lang)
     {
+      this.Lang=Lang;
       this.viewModel = viewModel;
       exerciseRepository = new ExerciseRepository();
     }
@@ -38,7 +40,7 @@ namespace ApkaJezykowa.Commands
     }
     public void Execute(object parameter)
     {
-      exerciseRepository.Obtain_Pars(pars, ExerciseLevelModel.Instance.Language);
+      exerciseRepository.Obtain_Pars(pars, Lang);
       Console.WriteLine("Clicked!");
       foreach(var s in pars)
       {
@@ -46,14 +48,14 @@ namespace ApkaJezykowa.Commands
         {
           if (s.par.Contains("Test"))
           {
-            ExerciseLevelModel.Instance.id = s.id;
-            viewModel.SelectedViewModel = new TestInfoViewModel();
+            int id = s.id;
+            viewModel.SelectedViewModel = new TestInfoViewModel(Lang, id);
           }
           else
           {
-            ExerciseLevelModel.Instance.id = s.id;
-            ExerciseLevelModel.Instance.Task_text = s.text;
-            viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+            int id = s.id;
+            string Task_text = s.text;
+            viewModel.SelectedViewModel = new ExerciseViewModel(Lang, id, Task_text);
           }
         }
       }
@@ -61,16 +63,16 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "ArticlesExercise")
       {
         ExerciseLevelModel.Instance.Level = 1;
-        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+        viewModel.SelectedViewModel = new ExerciseViewModel();
       }
       if (parameter.ToString() == "BasicSentencesExercise")
       {
         ExerciseLevelModel.Instance.Level = 2;
-        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+        viewModel.SelectedViewModel = new ExerciseViewModel();
       }
       if (parameter.ToString() == "ReturnToMenu")
       {
-        viewModel.SelectedViewModel = new FrenchViewModel();
+        viewModel.SelectedViewModel = new ModuleMenuViewModel();
       }
       */
     }

@@ -12,12 +12,12 @@ namespace ApkaJezykowa.Commands
 {
   internal class FrenchLessonUpdateViewCommand : ICommand
   {
-    private string Lang;
-    private FrenchLessonViewModel viewModel;
+    public string Lang;
+    private LessonViewModel viewModel;
     public List<string> par = new List<string>();
     private ILessonRepository lessonRepository;
 
-    public FrenchLessonUpdateViewCommand(FrenchLessonViewModel viewModel, string Lang)
+    public FrenchLessonUpdateViewCommand(LessonViewModel viewModel, string Lang)
     {
       this.Lang = Lang;
       this.viewModel = viewModel;
@@ -33,15 +33,15 @@ namespace ApkaJezykowa.Commands
     }
     public void Execute(object parameter)
     {
-      lessonRepository.Obtain_Pars(par, ExerciseLevelModel.Instance.Language);
+      lessonRepository.Obtain_Pars(par, Lang);
       Console.WriteLine("Clicked!");
       int i = 1;
       foreach (string s in par)
       {
         if (parameter.ToString() == s)
         {
-          ExerciseLevelModel.Instance.Level = i;
-          viewModel.SelectedViewModel = new FrenchLessonViewModel(Lang);
+          int LessonLevel = i;
+          viewModel.SelectedViewModel = new LessonViewModel(Lang, LessonLevel);
         }
         else
           i++;
@@ -50,22 +50,22 @@ namespace ApkaJezykowa.Commands
       /*if(parameter.ToString() == "french1")
       {
         ExerciseLevelModel.Instance.Level = 1;
-        viewModel.SelectedViewModel = new FrenchLessonViewModel();
+        viewModel.SelectedViewModel = new LessonViewModel();
       }
       if (parameter.ToString() == "french2")
       {
         ExerciseLevelModel.Instance.Level = 2;
-        viewModel.SelectedViewModel = new FrenchLessonViewModel();
+        viewModel.SelectedViewModel = new LessonViewModel();
       }
       if (parameter.ToString() == "french3")
       {
         ExerciseLevelModel.Instance.Level = 3;
-        viewModel.SelectedViewModel = new FrenchLessonViewModel();
+        viewModel.SelectedViewModel = new LessonViewModel();
       }
       if (parameter.ToString() == "french4")
       {
         ExerciseLevelModel.Instance.Level = 4;
-        viewModel.SelectedViewModel = new FrenchLessonViewModel();
+        viewModel.SelectedViewModel = new LessonViewModel();
       }*/
     }
   }

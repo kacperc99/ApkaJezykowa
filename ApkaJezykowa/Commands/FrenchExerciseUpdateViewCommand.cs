@@ -2,6 +2,7 @@
 using ApkaJezykowa.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +12,25 @@ namespace ApkaJezykowa.Commands
 {
   internal class FrenchExerciseUpdateViewCommand : ICommand
   {
-    private FrenchExerciseViewModel viewModel;
+    public int Points;
+    public bool IsTesting;
+    public string Lang;
+    public ObservableCollection<TestData> TestingData = new ObservableCollection<TestData>();
+    private ExerciseViewModel viewModel;
 
-    public FrenchExerciseUpdateViewCommand(FrenchExerciseViewModel viewModel)
+    public FrenchExerciseUpdateViewCommand(ExerciseViewModel viewModel, bool IsTesting, string Lang)
     {
+      this.IsTesting = IsTesting;
       this.viewModel = viewModel;
+      this.Lang = Lang;
+    }
+    public FrenchExerciseUpdateViewCommand(ExerciseViewModel viewModel, int Points, bool IsTesting, ObservableCollection<TestData> TestingData, string Lang)
+    {
+      this.Points = Points;
+      this.IsTesting = IsTesting;
+      this.viewModel = viewModel;
+      this.TestingData = TestingData;
+      this.Lang = Lang;
     }
 
 
@@ -28,16 +43,16 @@ namespace ApkaJezykowa.Commands
     public void Execute(object parameter)
     {
       Console.WriteLine("Clicked!");
-      if(parameter.ToString() == "NextTask" && TestModel.instance.TestMode==true)
+      if(parameter.ToString() == "NextTask" && IsTesting==true)
       {
-        viewModel.SelectedViewModel = new FrenchExerciseViewModel();
+        //viewModel.SelectedViewModel = new ExerciseViewModel(TestingData, Lang, Points);
       }
       if (parameter.ToString() == "ReturnToMenu")
       {
         Console.WriteLine("Że to niby działa?");
-        if (TestModel.instance.TestMode)
-          TestModel.instance.TestMode = false;
-        viewModel.SelectedViewModel = new FrenchExerciseMenuViewModel();
+        if (IsTesting)
+          IsTesting = false;
+        viewModel.SelectedViewModel = new ExerciseMenuViewModel(Lang);
       }
     }
   }

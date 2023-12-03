@@ -27,7 +27,7 @@ namespace ApkaJezykowaTest
       string Username = "admin";
       Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
       var FrenchViewModel = new FrenchViewModel();
-      Assert.IsTrue(FrenchViewModel.Check, "Użytkownik nie powinien mieć przypisanego poziomu");
+      Assert.IsTrue((bool)FrenchViewModel.Check, "Użytkownik nie powinien mieć przypisanego poziomu");
     }
     [Test]
     public void EnglishConditionTest()

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View" 
+             xmlns:viewmodel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:LessonListViewModel}"
              mc:Ignorable="d">
     <Grid Background="DimGray">
         <Grid.RowDefinitions>
@@ -15,22 +17,22 @@
         <ListView Grid.Row="1" x:Name="LV_ExerciseMenu"
                   Background="DimGray"
                   BorderBrush="Transparent"
-                  ItemsSource="{Binding ExerciseList}"
+                  ItemsSource="{Binding LessonsList}"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   VerticalAlignment="Stretch"
           Margin="0,40,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Exercise_Title}"
+                        <TextBlock Text="{Binding Lesson_Title}"
                                    Margin="0,0,0,0"
                                    Style="{StaticResource Font_Style}"
                                    HorizontalAlignment="Left"
                                    Foreground="Black"/>
                         <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
-                                Width="200" Height="50" Content="Begin" HorizontalAlignment="Right"
-                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchExerciseMenuUpdateViewCommand}"
-                                CommandParameter="{Binding Exercise_Parameter}">
+                                Width="200" Height="50" Content="Choose" HorizontalAlignment="Right"
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LessonListUpdateViewCommand}"
+                                CommandParameter="{Binding Lesson_Parameter}">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="LightGray"/>
@@ -81,5 +83,6 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
+        <ContentControl Grid.RowSpan="2" Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>

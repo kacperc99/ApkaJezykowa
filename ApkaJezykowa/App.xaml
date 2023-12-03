@@ -20,35 +20,17 @@
             <DataTemplate DataType="{x:Type viewModel:DictionaryViewModel}">
                 <view:DictionaryView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:GermanViewModel}">
-                <view:GermanView/>
+            <DataTemplate DataType="{x:Type viewModel:ModuleMenuViewModel}">
+                <view:ModuleMenuView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:GermanLessonViewModel}">
-                <view:GermanLessonView/>
+            <DataTemplate DataType="{x:Type viewModel:LessonViewModel}">
+                <view:LessonView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:GermanExerciseViewModel}">
-                <view:GermanExerciseView/>
+            <DataTemplate DataType="{x:Type viewModel:ExerciseMenuViewModel}">
+                <view:ExerciseMenuView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:EnglishViewModel}">
-                <view:EnglishView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:EnglishLessonViewModel}">
-                <view:EnglishLessonView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:EnglishExerciseViewModel}">
-                <view:EnglishExerciseView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:FrenchViewModel}">
-                <view:FrenchView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:FrenchLessonViewModel}">
-                <view:FrenchLessonView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:FrenchExerciseMenuViewModel}">
-                <view:FrenchExerciseMenuView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:FrenchExerciseViewModel}">
-                <view:FrenchExerciseView/>
+            <DataTemplate DataType="{x:Type viewModel:ExerciseViewModel}">
+                <view:ExerciseView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:InfoViewModel}">
                 <view:InfoView/>
@@ -65,7 +47,9 @@
             <DataTemplate DataType="{x:Type viewModel:TestInfoViewModel}">
                 <view:TestInfoView/>
             </DataTemplate>
-            
+            <DataTemplate DataType="{x:Type viewModel:LessonListViewModel}">
+                <view:LessonListView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

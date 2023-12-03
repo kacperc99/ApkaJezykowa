@@ -2,6 +2,7 @@
 using ApkaJezykowa.MVVM.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace ApkaJezykowa.Repositories
 {
   internal class ExerciseRepository : BaseRepository, IExerciseRepository
   {
-    public void Display(List<ExerciseModel> Exercises, int Id)
+    public void Display(ObservableCollection<ExerciseModel> Exercises, int Id)
     {
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
@@ -39,15 +40,16 @@ namespace ApkaJezykowa.Repositories
         }
       }
     }
-    public void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language)
+    public void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language, string Country)
     {
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Exercise_Level, Exercise_Title, Exercise_Parameter, Task_text from [Exercise] where Id_Course in(Select Id_Course from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
+        command.CommandText = "select Exercise_Level, Exercise_Title, Exercise_Parameter, Task_text from [Exercise] where Exercise_Language=@country and Id_Course in(Select Id_Course from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+        command.Parameters.Add("@country",SqlDbType.NVarChar).Value = Country;
         using (var reader = command.ExecuteReader())
         {
           while(reader.Read())
@@ -86,11 +88,11 @@ namespace ApkaJezykowa.Repositories
         }
       }
     }
-    public void Enter_Test_Mode(int Id, string Language)
+    public void Enter_Test_Mode(int Id, string Language, ObservableCollection<TestData> TestingData)
     {
-      List<int> ids = new List<int>();
-      List<string> tasks = new List<string>();
-      List<bool> check = new List<bool>();
+      //List<int> ids = new List<int>();
+      //List<string> tasks = new List<string>();
+      //List<bool> check = new List<bool>();
       using (var connection = GetConnection())
       using (var command = new SqlCommand())
       {
@@ -103,14 +105,16 @@ namespace ApkaJezykowa.Repositories
         {
           while(reader.Read())
           {
-              ids.Add((int)reader["Id_Exercise"]);
-              tasks.Add(reader["Task_text"].ToString());
-              check.Add(false);
+            TestData data = new TestData();
+            data.TestId = (int)reader["Id_Exercise"];
+            data.TestTasks = reader["Task_text"].ToString();
+            data.TestDone = false;
+            TestingData.Add(data);
           }
           reader.NextResult();
-          TestModel.instance.TestId = ids;
-          TestModel.instance.TestTasks = tasks;
-          TestModel.instance.Test_Done = check;
+          //TestModel.instance.TestId = ids;
+          //TestModel.instance.TestTasks = tasks;
+          //TestModel.instance.Test_Done = check;
         }
       }
     }
