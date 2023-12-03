@@ -54,7 +54,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.taskText = taskText;
       exerciseRepository = new ExerciseRepository();
       CheckAnswers = new RelayCommand(ExecuteCheckAnswers, CanExecuteCheckAnswers);
-      FrenchExerciseUpdateViewCommand = new FrenchExerciseUpdateViewCommand(this, IsTesting, Lang);
+      FrenchExerciseUpdateViewCommand = new ExerciseUpdateViewCommand(this, IsTesting, Lang);
       LoadCurrentCourseLevel();
     }
     public ExerciseViewModel(ObservableCollection<TestData> TestingData, string Lang)
@@ -63,7 +63,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       IsTesting = true;
       exerciseRepository = new ExerciseRepository();
       CheckAnswers = new RelayCommand(ExecuteCheckAnswers, CanExecuteCheckAnswers);
-      FrenchExerciseUpdateViewCommand = new FrenchExerciseUpdateViewCommand(this, Points, IsTesting, TestingData, Lang);
+      FrenchExerciseUpdateViewCommand = new ExerciseUpdateViewCommand(this, Points, IsTesting, TestingData, Lang);
       LoadCurrentCourseLevelTest();
     }
     /*public ExerciseViewModel(List<TestData> TestingData, string Lang, int Points)
@@ -73,7 +73,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       IsTesting = true;
       exerciseRepository = new ExerciseRepository();
       CheckAnswers = new RelayCommand(ExecuteCheckAnswers, CanExecuteCheckAnswers);
-      FrenchExerciseUpdateViewCommand = new FrenchExerciseUpdateViewCommand(this, Points, IsTesting, TestingData, Lang);
+      ExerciseUpdateViewCommand = new ExerciseUpdateViewCommand(this, Points, IsTesting, TestingData, Lang);
       LoadCurrentCourseLevelTest();
     }*/
     private bool CanExecuteCheckAnswers(object arg)

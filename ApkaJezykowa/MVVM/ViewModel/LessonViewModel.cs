@@ -41,7 +41,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Lang = Lang;
       this.LessonLevel = LessonLevel;
       lessonRepository = new LessonRepository();
-      FrenchLessonUpdateViewCommand = new FrenchLessonUpdateViewCommand(this, Lang);
+      FrenchLessonUpdateViewCommand = new LessonUpdateViewCommand(this, Lang);
       LoadLesson();
   }
 

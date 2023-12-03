@@ -36,7 +36,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public ModuleMenuViewModel(string Lang, byte[] Icon)
     {
       this.Icon = Icon;
-      FrenchUpdateViewCommand = new FrenchUpdateViewCommand(this, Lang);
+      FrenchUpdateViewCommand = new ModuleMenuUpdateViewCommand(this, Lang);
       user_CourseRepository = new User_CourseRepository();
       SetCourseLevel(Lang);
     }

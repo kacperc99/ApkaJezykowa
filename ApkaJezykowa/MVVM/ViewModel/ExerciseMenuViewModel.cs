@@ -31,7 +31,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public ExerciseMenuViewModel(string Lang)
     {
       this.Lang = Lang;
-      FrenchExerciseMenuUpdateViewCommand = new FrenchExerciseMenuUpdateViewCommand(this, Lang);
+      FrenchExerciseMenuUpdateViewCommand = new ExerciseMenuUpdateViewCommand(this, Lang);
       exerciseRepository = new ExerciseRepository();
       LoadList();
     }
