@@ -13,7 +13,6 @@ namespace ApkaJezykowa.MVVM.Model
     public string Password { get; set; }
     public string Email { get; set; }
     public string Country { get; set; }
-    public string Userstatus { get; set; }
     public UserModel() { }
     public static readonly UserModel Instance = new UserModel();
 

@@ -17,11 +17,12 @@ namespace ApkaJezykowa.Commands
     public ModuleMenuUpdateViewCommand(ModuleMenuViewModel viewModel, string Lang)
     {
       this.viewModel = viewModel;
-      this.Lang = Lang;
-    }
+            this.Lang = Lang;
+            //comment
+        }
 
 
-    public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged;
 
     public bool CanExecute(object parameter)
     {

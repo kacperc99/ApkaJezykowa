@@ -10,6 +10,7 @@ using System.Net;
 using System.Security;
 using System.Security.Principal;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -92,7 +93,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
     public void ExecuteRegisterCommand(object obj)
     {
-      if(Email.Contains("@gmail.com") || Email.Contains("@wp.pl") || Email.Contains("@onet.pl") || Email.Contains("@vp.pl") || Email.Contains("@interia.pl"))
+      if(Regex.IsMatch(Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
       { 
       var isNewUser = userRepository.FindUser(new System.Net.NetworkCredential(RUsername, Email));
       if (isNewUser)

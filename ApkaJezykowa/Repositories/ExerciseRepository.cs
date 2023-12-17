@@ -15,7 +15,7 @@ namespace ApkaJezykowa.Repositories
   {
     public void Display(ObservableCollection<ExerciseModel> Exercises, int Id)
     {
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -42,7 +42,7 @@ namespace ApkaJezykowa.Repositories
     }
     public void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language, string Country)
     {
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -67,7 +67,7 @@ namespace ApkaJezykowa.Repositories
     }
     public void Obtain_Pars(List<Pars> pars, string Language)
     {
-      using(var connection = GetConnection())
+      using(var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -93,7 +93,7 @@ namespace ApkaJezykowa.Repositories
       //List<int> ids = new List<int>();
       //List<string> tasks = new List<string>();
       //List<bool> check = new List<bool>();
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();

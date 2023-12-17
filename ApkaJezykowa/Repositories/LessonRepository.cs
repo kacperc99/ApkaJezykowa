@@ -9,7 +9,9 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 using System.Windows.Input;
+using static ApkaJezykowa.MVVM.ViewModel.LessonImagesData;
 
 namespace ApkaJezykowa.Repositories
 {
@@ -18,12 +20,12 @@ namespace ApkaJezykowa.Repositories
     public LessonModel Display(int Level, string Language, string Lesson_Language)
     {
       LessonModel lesson = null;
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select L.Id_Lesson, L.Lesson_Level, LT.Lesson_Title, L.Id_Course from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson = L.Id_Lesson where Lesson_Level=@level and Lesson_Language=@lessonlang and Id_Course =(Select Id_Course from [Course] where [Course_Name] = @language and Course_Level = @level)";
+        command.CommandText = "select L.Id_Lesson, L.Lesson_Level, LT.Lesson_Title, L.Id_Course from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson = L.Id_Lesson where Lesson_Level=@level and Lesson_Language=@lessonlang and Id_Course =(Select Id_Course from [Course] where [Course_Name] = @language)";
         command.Parameters.Add("@level", SqlDbType.Int).Value = Level;
         command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
@@ -45,7 +47,7 @@ namespace ApkaJezykowa.Repositories
     }
     public void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language, string Lesson_Language)
     {
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -66,7 +68,7 @@ namespace ApkaJezykowa.Repositories
     }
     public void Obtain_Pars(List<string> pars, string Language)
     {
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -85,12 +87,12 @@ namespace ApkaJezykowa.Repositories
     }
     public void Obtain_Lessons(List<LessonContentModel> Lessons, string Title, string Lesson_Language)
     {
-      using(var connection = GetConnection())
+      using(var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
         command.Connection= connection;
-        command.CommandText = "SELECT Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson_Title FROM [Lesson_Title] WHERE Lesson_Title = @title and Lesson_Language = @lessonlang)";
+        command.CommandText = "SELECT Id_Lesson_Content, Lesson_Text, Lesson_Image FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson_Title FROM [Lesson_Title] WHERE Lesson_Title = @title and Lesson_Language = @lessonlang)";
         command.Parameters.Add("@title", SqlDbType.NVarChar).Value=Title;
         command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         using (var reader = command.ExecuteReader())
@@ -98,11 +100,31 @@ namespace ApkaJezykowa.Repositories
           while(reader.Read())
           {
             LessonContentModel model = new LessonContentModel();
+            int Id = (int)reader["Id_Lesson_Content"];
             model.LessonText = reader["Lesson_Text"].ToString();
-            if(reader["Lesson_Image"]!=System.DBNull.Value)
+            /*if(reader["Lesson_Image"]!=System.DBNull.Value)
               model.LessonImage = (byte[])reader["Lesson_Image"];
             else
-              model.LessonImage = null;
+              model.LessonImage = null;*/
+            List<LessonImageModel> Images = new List<LessonImageModel>();
+            using (var command2 = new SqlCommand())
+            {
+              command2.Connection = connection;
+              command2.CommandText = "SELECT Lesson_Image, Image_Desc from Lesson_Images where Id_Lesson_Images = @id";
+              command2.Parameters.Add("@id", SqlDbType.Int).Value = Id;
+              using(var reader2 = command2.ExecuteReader())
+              {
+                
+                while (reader2.Read())
+                {   
+                  LessonImageModel image = new LessonImageModel();
+                  image.Image = (byte[])reader["Lesson_Image"];
+                  image.Description = reader["Image_Desc"].ToString();
+                  Images.Add(image);
+                }
+              }
+            }
+            model.LessonImages = Images;
             Lessons.Add(model);
           }
           reader.NextResult();
@@ -120,12 +142,12 @@ namespace ApkaJezykowa.Repositories
         DecimalLevel = null;
       List<string> ts = new List<string>();
       ts.Add("None");
-      using(var connection = GetConnection())
+      using(var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson in (select Id_Lesson from Lesson where Lesson_Level = Coalesce(@level,Lesson_Level) and Id_Course in (select Id_Course from [Course] where [Course_Name] = Coalesce(@country,[Course_Name]) and Course_Level = Coalesce(@level,Course_Level))) and Lesson_Language = Coalesce(@language,Lesson_Language)";
+        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson in (select Id_Lesson from Lesson where Lesson_Level = Coalesce(@level,Lesson_Level) and Id_Course in (select Id_Course from [Course] where [Course_Name] = Coalesce(@country,[Course_Name]))) and Lesson_Language = Coalesce(@language,Lesson_Language)";
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country ?? (object)DBNull.Value;
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language ?? (object)DBNull.Value;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = DecimalLevel ?? (object)DBNull.Value;
@@ -142,7 +164,7 @@ namespace ApkaJezykowa.Repositories
     public ParamModel Obtain_Lesson_Parameters(string LName)
     {
       ParamModel result = null;
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -170,7 +192,7 @@ namespace ApkaJezykowa.Repositories
     public ObservableCollection<LessonData> Obtain_Lesson_Content(string Lesson)
     {
       ObservableCollection<LessonData> lc = new ObservableCollection<LessonData>();
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -184,10 +206,30 @@ namespace ApkaJezykowa.Repositories
             LessonData model = new LessonData();
             model.LessonID = (int)reader["Id_Lesson_Content"];
             model.LessonText = reader["Lesson_Text"].ToString();
-            if (reader["Lesson_Image"] != System.DBNull.Value)
+            /*if (reader["Lesson_Image"] != System.DBNull.Value)
               model.LessonImage = (byte[])reader["Lesson_Image"];
             else
-              model.LessonImage = null;
+              model.LessonImage = null;*/
+            ObservableCollection<LessonImagesData> Images = new ObservableCollection<LessonImagesData>();
+            using (var command2 = new SqlCommand())
+            {
+              command2.Connection = connection;
+              command2.CommandText = "SELECT Id_Lesson_Images, Lesson_Image, Image_Desc from Lesson_Images where Id_Lesson_Images = @id";
+              command2.Parameters.Add("@id", SqlDbType.Int).Value = model.LessonID;
+              
+              using (var reader2 = command2.ExecuteReader())
+              {
+                while (reader2.Read())
+                {
+                  LessonImagesData image = new LessonImagesData();
+                  image.ImageID = (int)reader["Id_Lesson_Images"];
+                  image.Image = (byte[])reader["Lesson_Image"];
+                  image.Description = reader["Image_Desc"].ToString();
+                  Images.Add(image);
+                }
+              }
+            }
+            model.LessonImage = Images;
             lc.Add(model);
           }
           reader.NextResult();
@@ -198,18 +240,18 @@ namespace ApkaJezykowa.Repositories
     }
     public void GetButtons(ObservableCollection<Clicker> Buttons)
     {
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Language, Image from Icon";
+        command.CommandText = "select [Course_Name], [Image] from [Course]";
         using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
           {
             Clicker button = new Clicker();
-            button.Language = reader["Language"].ToString();
+            button.Language = reader["Course_Name"].ToString();
             button.Icon = (byte[])reader["Image"];
             Buttons.Add(button);
           }
@@ -220,12 +262,12 @@ namespace ApkaJezykowa.Repositories
     public byte[] GetIcon(string Lang)
     {
       byte[] Icon=null;
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Image from Icon where Language = @lang";
+        command.CommandText = "select [Image] from [Course] where [Course_Name] = @lang";
         command.Parameters.Add("@lang",SqlDbType.NVarChar).Value = Lang;
         using (var reader = command.ExecuteReader())
         {
@@ -241,183 +283,92 @@ namespace ApkaJezykowa.Repositories
     {
       int? CourseID, LessonID, Lesson_TitleID;
       bool DoesLessonExist, DoesCourseExist;
-      using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
+        //znajdowanie ID kursu
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country";
+        command.CommandText = "select Id_Course from [Course] where [Course_Name]=@country";
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
         CourseID = System.Convert.ToInt32(command.ExecuteScalar());
       }
-        if(CourseID != 0)
-        {
-        using (var connection = GetConnection())
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Level=@level and Id_Course=@id";
+        command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+        command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
+        LessonID = System.Convert.ToInt32(command.ExecuteScalar());
+      }
+      if (LessonID != 0)
+      {
+        using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
           connection.Open();
           command.Connection = connection;
-          command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Level=@level and Id_Course=@id";
-          command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-          command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
-          LessonID = System.Convert.ToInt32(command.ExecuteScalar());
+          command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@Language and Id_Lesson=@id";
+          command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+          command.Parameters.Add("@id", SqlDbType.Int).Value = LessonID;
+          DoesLessonExist = command.ExecuteScalar() == null ? false : true;
         }
-          if (LessonID !=0)
-          {
-          using (var connection = GetConnection())
+        if (DoesLessonExist)
+        {
+          decimal levl = 0;
+          using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@Language and Id_Lesson=@id";
-            command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-            command.Parameters.Add("@id", SqlDbType.Int).Value = LessonID;
-            DoesLessonExist = command.ExecuteScalar() == null ? false : true;
+            command.CommandText = "select MAX(Lesson_Level) from [Lesson]";
+            using (var reader = command.ExecuteReader())
+              if (reader.Read())
+                levl = (decimal)reader[0];
           }
-            if (DoesLessonExist)
-            {
-              decimal levl = 0;
-            using (var connection = GetConnection())
-            using (var command = new SqlCommand())
-            {
-              connection.Open();
-              command.Connection = connection;
-              command.CommandText = "select MAX(Lesson_Level) from [Lesson]";
-              using (var reader = command.ExecuteReader())
-                if (reader.Read())
-                  levl = (decimal)reader[0];
-            }
-            using (var connection = GetConnection())
-            using (var command = new SqlCommand())
-            {
-              connection.Open();
-              command.Connection = connection;
-              command.CommandText = "select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country";
-              command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
-              command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-              DoesCourseExist = command.ExecuteScalar() == null ? false : true;
-            }
-              if (!DoesCourseExist)
-              {
-              using (var connection = GetConnection())
-              using (var command = new SqlCommand())
-              {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "insert into [Course] values(@country, @level, (select Id_Icon from Icon where [Language]=@country))";
-                command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-                command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
-                command.ExecuteNonQuery();
-              }
-              }
-              while (levl >= Level)
-              {
-              using (var connection = GetConnection())
-              using (var command = new SqlCommand())
-              {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "update [Lesson] set Lesson_Level=@levelup, Lesson_Parameter=@param, Id_Course = (select Id_Course from [Course] where Course_Level=@levelup and [Course_Name]=@country) where Lesson_Level=@level and Id_Course=(select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country)";
-                command.Parameters.Add("@levelup", SqlDbType.Decimal).Value = levl + 1;
-                command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + (levl + 1).ToString();
-                command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl;
-                command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-                command.ExecuteNonQuery();
-              }
-                levl--;
-              }
-            using (var connection = GetConnection())
-            using (var command = new SqlCommand())
-            {
-              connection.Open();
-              command.Connection = connection;
-              command.CommandText = "insert into [Lesson] (Lesson_Level, Lesson_Parameter, Id_Course) select @level, @param, Course.Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country";
-              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + Level.ToString();
-              command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-              command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-              command.ExecuteNonQuery();
-            }
-            using (var connection = GetConnection())
-            using (var command = new SqlCommand())
-            {
-              connection.Open();
-              command.Connection = connection;
-              command.CommandText = "insert into [Lesson_Title] (Lesson_Language, Lesson_Title, Id_Lesson) select @language, @title, Lesson.Id_Lesson from [Lesson] where Id_Course=(select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country)";
-              command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-              command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
-              command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-              command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-              command.ExecuteNonQuery();
-            }
-            using (var connection = GetConnection())
-            using (var command = new SqlCommand())
-            {
-              connection.Open();
-              command.Connection = connection;
-              command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=(select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country))";
-              command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-              command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-              command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-              Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
-            }
-              foreach (var x in EditedLessons)
-              {
-              using (var connection = GetConnection())
-              using (var command = new SqlCommand())
-              {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "insert into [Lesson_Content] values (@text, @id, @image)";
-                command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
-                command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
-                command.Parameters.Add("@image", SqlDbType.VarBinary).Value = x.LessonImage;
-                command.ExecuteNonQuery();
-              }
-              }
-            }
-            if (!DoesLessonExist)
-            {
-            using (var connection = GetConnection())
-            using (var command = new SqlCommand())
-            {
-              connection.Open();
-              command.Connection = connection;
-              command.CommandText = "insert into [Lesson_Title] (Lesson_Language, Lesson_Title, Id_Lesson) select @language, @title, @id";
-              command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-              command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
-              command.Parameters.Add("@id", SqlDbType.Int).Value = LessonID;
-              command.ExecuteNonQuery();
-            }
-            using (var connection = GetConnection())
-            using (var command = new SqlCommand())
-            {
-              connection.Open();
-              command.Connection = connection;
-              command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = @id";
-              command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-              command.Parameters.Add("@id", SqlDbType.Int).Value = LessonID;
-              Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
-            }
-              foreach (var x in EditedLessons)
-              {
-              using (var connection = GetConnection())
-              using (var command = new SqlCommand())
-              {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "insert into [Lesson_Content] values (@text, @id, @image)";
-                command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
-                command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
-                command.Parameters.Add("@image", SqlDbType.VarBinary).Value = x.LessonImage;
-                command.ExecuteNonQuery();
-              }
-              }
-            }
-          }
-          if (LessonID==0)
+          /*using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
           {
-          using (var connection = GetConnection())
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country";
+            command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
+            command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+            DoesCourseExist = command.ExecuteScalar() == null ? false : true;
+          }
+            if (!DoesCourseExist)
+            {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "insert into [Course] values(@country, @level, (select Id_Icon from Icon where [Language]=@country))";
+              command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+              command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
+              command.ExecuteNonQuery();
+            }
+            }*/
+          while (levl >= Level)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "update [Lesson] set Lesson_Level=@levelup, Lesson_Parameter=@param where Lesson_Level=@level and Id_Course=@id";
+              command.Parameters.Add("@levelup", SqlDbType.Decimal).Value = levl + 1;
+              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + (levl + 1).ToString();
+              command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl;
+              command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+              command.ExecuteNonQuery();
+            }
+            levl--;
+          }
+          using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
@@ -428,66 +379,134 @@ namespace ApkaJezykowa.Repositories
             command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
             command.ExecuteNonQuery();
           }
-          using (var connection = GetConnection())
+          using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "insert into [Lesson_Title] (Lesson_Language, Lesson_Title, Id_Lesson) select @language, @title, Lesson.Id_Lesson from [Lesson] where Id_Course=@id";
+            command.CommandText = "insert into [Lesson_Title] (Lesson_Language, Lesson_Title, Id_Lesson) select @language, @title, Lesson.Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course=@id";
             command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
             command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
+            command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
             command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
             command.ExecuteNonQuery();
           }
-          using (var connection = GetConnection())
+          using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=@id)";
+            command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course=@id)";
             command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-            command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+            command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+            command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
             Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
           }
-            foreach (var x in EditedLessons)
-            {
-            using (var connection = GetConnection())
+          foreach (var x in EditedLessons)
+          {
+            using (var connection = GetCourseConnection())
             using (var command = new SqlCommand())
             {
               connection.Open();
               command.Connection = connection;
-              command.CommandText = "insert into [Lesson_Content] values (@text, @id, @image)";
+              command.CommandText = "insert into [Lesson_Content] values (@text, @id)";
               command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
               command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
-              command.Parameters.Add("@image", SqlDbType.VarBinary).Value = x.LessonImage;
               command.ExecuteNonQuery();
             }
+            int LessonContentId = 0;
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "select Id_Lesson_Content from [Lesson_Content] where Lesson_Text = @text and Id_Lesson_Title = @id";
+              command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
+              command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
+              LessonContentId = System.Convert.ToInt32(command.ExecuteScalar());
+            }
+            foreach (var y in x.LessonImage)
+            {
+              using (var connection = GetCourseConnection())
+              using (var command = new SqlCommand())
+              {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "insert into [Lesson_Images] values (@id, @desc, @image)";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = LessonContentId;
+                command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = y.Description;
+                command.Parameters.Add("@image", SqlDbType.VarBinary).Value = y.Image;
+                command.ExecuteNonQuery();
+              }
             }
           }
         }
-        if(CourseID==0)
+        if (!DoesLessonExist)
         {
-        using (var connection = GetConnection())
-        using (var command = new SqlCommand())
-        {
-          connection.Open();
-          command.Connection = connection;
-          command.CommandText = "insert into [Course] values(@country, @level, (select Id_Icon from Icon where [Language]=@country))";
-          command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-          command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-          command.ExecuteNonQuery();
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "insert into [Lesson_Title] (Lesson_Language, Lesson_Title, Id_Lesson) select @language, @title, @id";
+            command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+            command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = LessonID;
+            command.ExecuteNonQuery();
+          }
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = @id";
+            command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = LessonID;
+            Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
+          }
+          foreach (var x in EditedLessons)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "insert into [Lesson_Content] values (@text, @id)";
+              command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
+              command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
+              command.ExecuteNonQuery();
+            }
+            int LessonContentId = 0;
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "select Id_Lesson_Content from [Lesson_Content] where Lesson_Text = @text and Id_Lesson_Title = @id";
+              command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
+              command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
+              LessonContentId = System.Convert.ToInt32(command.ExecuteScalar());
+            }
+            foreach (var y in x.LessonImage)
+            {
+              using (var connection = GetCourseConnection())
+              using (var command = new SqlCommand())
+              {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "insert into [Lesson_Images] values (@id, @desc, @image)";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = LessonContentId;
+                command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = y.Description;
+                command.Parameters.Add("@image", SqlDbType.VarBinary).Value = y.Image;
+                command.ExecuteNonQuery();
+              }
+            }
+          }
         }
-        using (var connection = GetConnection())
-        using (var command = new SqlCommand())
-        {
-          connection.Open();
-          command.Connection = connection;
-          command.CommandText = "select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country";
-          command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-          command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-          CourseID = System.Convert.ToInt32(command.ExecuteScalar());
-        }
-        using (var connection = GetConnection())
+      }
+      if (LessonID == 0)
+      {
+        using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
           connection.Open();
@@ -498,7 +517,7 @@ namespace ApkaJezykowa.Repositories
           command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
           command.ExecuteNonQuery();
         }
-        using (var connection = GetConnection())
+        using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
           connection.Open();
@@ -509,7 +528,7 @@ namespace ApkaJezykowa.Repositories
           command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
           command.ExecuteNonQuery();
         }
-        using (var connection = GetConnection())
+        using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
           connection.Open();
@@ -519,23 +538,115 @@ namespace ApkaJezykowa.Repositories
           command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
           Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
         }
-          foreach (var x in EditedLessons)
-          {
-          using (var connection = GetConnection())
+        foreach (var x in EditedLessons)
+        {
+          using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "insert into [Lesson_Content] values (@text, @id, @image)";
+            command.CommandText = "insert into [Lesson_Content] values (@text, @id)";
             command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
             command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
-            command.Parameters.Add("@image", SqlDbType.VarBinary).Value = x.LessonImage;
             command.ExecuteNonQuery();
           }
+          int LessonContentId = 0;
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "select Id_Lesson_Content from [Lesson_Content] where Lesson_Text = @text and Id_Lesson_Title = @id";
+            command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
+            LessonContentId = System.Convert.ToInt32(command.ExecuteScalar());
+          }
+          foreach (var y in x.LessonImage)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "insert into [Lesson_Images] values (@id, @desc, @image)";
+              command.Parameters.Add("@id", SqlDbType.Int).Value = LessonContentId;
+              command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = y.Description;
+              command.Parameters.Add("@image", SqlDbType.VarBinary).Value = y.Image;
+              command.ExecuteNonQuery();
+            }
           }
         }
+      }
+      /*if(CourseID==0)
+      {
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "insert into [Course] values(@country, @level, (select Id_Icon from Icon where [Language]=@country))";
+        command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+        command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+        command.ExecuteNonQuery();
+      }
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Id_Course from [Course] where Course_Level=@level and [Course_Name]=@country";
+        command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+        command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+        CourseID = System.Convert.ToInt32(command.ExecuteScalar());
+      }
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "insert into [Lesson] (Lesson_Level, Lesson_Parameter, Id_Course) select @level, @param, @id";
+        command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + Level.ToString();
+        command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+        command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+        command.ExecuteNonQuery();
+      }
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "insert into [Lesson_Title] (Lesson_Language, Lesson_Title, Id_Lesson) select @language, @title, Lesson.Id_Lesson from [Lesson] where Id_Course=@id";
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+        command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
+        command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+        command.ExecuteNonQuery();
+      }
+      using (var connection = GetConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language=@language and Id_Lesson = (select Id_Lesson from [Lesson] where Id_Course=@id)";
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+        command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+        Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
+      }
+        foreach (var x in EditedLessons)
+        {
+        using (var connection = GetConnection())
+        using (var command = new SqlCommand())
+        {
+          connection.Open();
+          command.Connection = connection;
+          command.CommandText = "insert into [Lesson_Content] values (@text, @id, @image)";
+          command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
+          command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
+          command.Parameters.Add("@image", SqlDbType.VarBinary).Value = x.LessonImage;
+          command.ExecuteNonQuery();
+        }
+        }*/
     }
-    public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level, int Lesson_Id, int Lesson_Title_Id)
+    /*public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level, int Lesson_Id, int Lesson_Title_Id)
     {
       decimal levl = 0;
       string currenttitle = null;
@@ -732,6 +843,320 @@ namespace ApkaJezykowa.Repositories
             connection.Open();
             command.Connection = connection;
             command.CommandText = "delete from Lesson_Content where Id_Lesson_Content = @id";
+            command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonID;
+            command.ExecuteNonQuery();
+          }
+        }
+      }
+    }*/
+    public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level, int Lesson_Id, int Lesson_Title_Id)
+    {
+      decimal levl = 0;
+      string currenttitle = null;
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Lesson_Level from [Lesson] where Id_Lesson = @id";
+        command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_Id;
+        using (var reader = command.ExecuteReader())
+          if (reader.Read())
+            levl = (decimal)reader[0];
+      }
+      if (levl != Level)
+      {
+
+        if (Level > levl)
+        {
+          while (levl < Level)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "update [Lesson] set Lesson_Level = @leveldown, Lesson_Parameter = @param where Lesson_Level = @level and Id_Course = (select Id_Course from[Course] where [Course_Name] = @country)";
+              command.Parameters.Add("@leveldown", SqlDbType.Decimal).Value = levl;
+              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + (levl).ToString();
+              command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
+              command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+              command.ExecuteNonQuery();
+            }
+            levl++;
+          }
+        }
+        else if (Level < levl)
+        {
+          while (levl > Level)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "update [Lesson] set Lesson_Level = @levelup, Lesson_Parameter = @param where Lesson_Level = @level and Id_Course = (select Id_Course from[Course] where [Course_Name] = @country)";
+              command.Parameters.Add("@levelup", SqlDbType.Decimal).Value = levl;
+              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + (levl).ToString();
+              command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl - 1;
+              command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+              command.ExecuteNonQuery();
+            }
+            levl--;
+          }
+        }
+        using (var connection = GetCourseConnection())
+        using (var command = new SqlCommand())
+        {
+          connection.Open();
+          command.Connection = connection;
+
+          command.CommandText = "update [Lesson] set Lesson_Level = @level, Lesson_Parameter = @param where Id_Lesson = @Id";
+          command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+          command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country.ToLower() + (Level).ToString();
+          command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_Id;
+          command.ExecuteNonQuery();
+        }
+      }
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson_Title=@IdTitle";
+        command.Parameters.Add("@IdTitle", SqlDbType.Int).Value = Lesson_Title_Id;
+        var reader = command.ExecuteReader();
+        if (reader.Read())
+          currenttitle = reader[0].ToString();
+      }
+      if (currenttitle != Title)
+      {
+        using (var connection = GetCourseConnection())
+        using (var command = new SqlCommand())
+        {
+          connection.Open();
+          command.Connection = connection;
+          command.CommandText = "update [Lesson_Title] set Lesson_Title = @title where Lesson_Title=@oldtitle";
+          command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
+          command.Parameters.Add("@oldtitle", SqlDbType.NVarChar).Value = currenttitle;
+          command.ExecuteNonQuery();
+        }
+;
+      }
+      ObservableCollection<LessonData> data = new ObservableCollection<LessonData>();
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Id_Lesson_Content, Lesson_Text from Lesson_Content where Id_Lesson_Title = @id";
+        command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_Title_Id;
+        using (var reader = command.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            LessonData content = new LessonData();
+            content.LessonID = (int)reader["Id_Lesson_Content"];
+            content.LessonText = reader["Lesson_Text"].ToString();
+            ObservableCollection<LessonImagesData> Images = new ObservableCollection<LessonImagesData>();
+            using (var command2 = new SqlCommand())
+            {
+              command2.Connection = connection;
+              command2.CommandText = "SELECT Id_Lesson_Images, Lesson_Image, Image_Desc from Lesson_Images where Id_Lesson_Images = @id";
+              command2.Parameters.Add("@id", SqlDbType.Int).Value = content.LessonID;
+
+              using (var reader2 = command2.ExecuteReader())
+              {
+                while (reader2.Read())
+                {
+                  LessonImagesData image = new LessonImagesData();
+                  image.ImageID = (int)reader["Id_Lesson_Images"];
+                  image.Image = (byte[])reader["Lesson_Image"];
+                  image.Description = reader["Image_Desc"].ToString();
+                  Images.Add(image);
+                }
+              }
+            }
+            content.LessonImage = Images;
+            /*if (reader["Lesson_Image"] != System.DBNull.Value)
+              content.LessonImage = (byte[])reader["Lesson_Image"];
+            else
+              content.LessonImage = null;*/
+            data.Add(content);
+          }
+          reader.NextResult();
+        }
+      }
+      int counter;
+      if (EditedLessons.Count() > data.Count())
+        counter = data.Count();
+      else
+        counter = EditedLessons.Count();
+      for (int i = 0; i < counter; i++)
+      {
+        if (EditedLessons[i].LessonText != data[i].LessonText)
+        {
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "update Lesson_Content set Lesson_Text = @text where Lesson_Text=@oldtext and Id_Lesson_Content=@id";
+            command.Parameters.Add("@text", SqlDbType.NVarChar).Value = EditedLessons[i].LessonText;
+            command.Parameters.Add("@oldtext", SqlDbType.NVarChar).Value = data[i].LessonText;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonID;
+            command.ExecuteNonQuery();
+          }
+        }
+        int imageCounter;
+        if (EditedLessons[i].LessonImage.Count() > data[i].LessonImage.Count())
+          imageCounter = EditedLessons[i].LessonImage.Count();
+        else
+          imageCounter = data[i].LessonImage.Count();
+
+        for (int j = 0; j < counter; j++)
+        {
+          if (EditedLessons[i].LessonImage[j].Description != data[i].LessonImage[j].Description && EditedLessons[i].LessonImage[j].Image != data[i].LessonImage[j].Image)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "update Lesson_Images set Image_Desc = @desc, Lesson_Image = @image where Image_Desc = @olddesc, Lesson_Image=@oldimage and Id_Lesson_Images=@id";
+    
+        command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = EditedLessons[i].LessonImage[j].Description;
+              command.Parameters.Add("@image", SqlDbType.VarBinary).Value = EditedLessons[i].LessonImage[j].Image;
+              command.Parameters.Add("@olddesc", SqlDbType.NVarChar).Value = data[i].LessonImage[j].Description;
+              command.Parameters.Add("@oldimage", SqlDbType.VarBinary).Value = data[i].LessonImage[j].Image;
+              command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonImage[j].ImageID;
+              command.ExecuteNonQuery();
+            }
+          }
+          else if (EditedLessons[i].LessonImage[j].Description != data[i].LessonImage[j].Description)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "update Lesson_Images set Image_Desc = @desc where Image_Desc = @olddesc and Id_Lesson_Images=@id";
+    
+        command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = EditedLessons[i].LessonImage[j].Description;
+              command.Parameters.Add("@olddesc", SqlDbType.NVarChar).Value = data[i].LessonImage[j].Description;
+              command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonImage[j].ImageID;
+              command.ExecuteNonQuery();
+            }
+          }
+          else if (EditedLessons[i].LessonImage[j].Image != data[i].LessonImage[j].Image)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "update Lesson_Images set Lesson_Image=@image where Lesson_Image=@oldimage and Id_Lesson_Images=@id";
+    
+        command.Parameters.Add("@image", SqlDbType.VarBinary).Value = EditedLessons[i].LessonImage[j].Image;
+              command.Parameters.Add("@oldimage", SqlDbType.VarBinary).Value = data[i].LessonImage[j].Image;
+              command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonImage[j].ImageID;
+              command.ExecuteNonQuery();
+            }
+          }
+        }
+        if (EditedLessons[i].LessonImage.Count() > data[i].LessonImage.Count())
+        {
+          for (int j = imageCounter; j < EditedLessons[i].LessonImage.Count(); j++)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "insert into Lesson_Images values (@id, @desc, @image)";
+              command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonID;
+              command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = EditedLessons[i].LessonImage[j].Description;
+              command.Parameters.Add("@image", SqlDbType.VarBinary).Value = EditedLessons[i].LessonImage[j].Image;
+              command.ExecuteNonQuery();
+            }
+          }
+        }
+        else if (EditedLessons[i].LessonImage.Count() < data[i].LessonImage.Count())
+        {
+          for (int j = imageCounter; j < data[i].LessonImage.Count(); j++)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "delete from Lesson_Images where Id_Lesson_Images=@id";
+              command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonImage[j].ImageID;
+              command.ExecuteNonQuery();
+            }
+          }
+        }
+      }
+      if (EditedLessons.Count() > data.Count())
+      {
+        for (int i = counter; i < EditedLessons.Count(); i++)
+        {
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "insert into [Lesson_Content] (Lesson_Text, Id_Lesson_Title) select @text, @titleid";
+            command.Parameters.Add("@text", SqlDbType.NVarChar).Value = EditedLessons[i].LessonText;
+            command.Parameters.Add("@titleid", SqlDbType.Int).Value = Lesson_Title_Id;
+            command.ExecuteNonQuery();
+          }
+          int LessonContentId = 0;
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "select Id_Lesson_Content from [Lesson_Content] where Lesson_Text = @text and Id_Lesson_Title = @id";
+            command.Parameters.Add("@text", SqlDbType.NVarChar).Value = EditedLessons[i].LessonText;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_Title_Id;
+            LessonContentId = System.Convert.ToInt32(command.ExecuteScalar());
+          }
+          foreach (var y in EditedLessons[i].LessonImage)
+          {
+            using (var connection = GetCourseConnection())
+            using (var command = new SqlCommand())
+            {
+              connection.Open();
+              command.Connection = connection;
+              command.CommandText = "insert into [Lesson_Images] values (@id, @desc, @image)";
+              command.Parameters.Add("@id", SqlDbType.Int).Value = LessonContentId;
+              command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = y.Description;
+              command.Parameters.Add("@image", SqlDbType.VarBinary).Value = y.Image;
+              command.ExecuteNonQuery();
+            }
+          }
+        }
+      }
+      else if (EditedLessons.Count() < data.Count())
+      {
+        for (int i = counter; i < data.Count(); i++)
+        {
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "delete from Lesson_Content where Id_Lesson_Content = @id";
+            command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonID;
+            command.ExecuteNonQuery();
+          }
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "delete from Lesson_Images where Id_Lesson_Content = @id";
             command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonID;
             command.ExecuteNonQuery();
           }

@@ -8,7 +8,8 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
              xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib" 
-             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
+             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewModel:LessonEditorViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1000">
     <UserControl.DataContext>
@@ -120,7 +121,21 @@
                         </Button>
                         <TextBlock x:Name="ErrorMessage" FontSize="16" Margin="10,0,0,0" FontWeight="Bold" Text="{Binding ErrorMessage}" Background="Transparent" Foreground="Black"/>
                     </WrapPanel>
-                    <Image x:Name="LessonImage" Width="auto" Height="auto" MaxHeight="300" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding EditedImage}"/>
+                    <!--this has to be replaced with a listbox with LessonImagesData as an itemssource-->
+                    <ListBox x:Name="LV3" Background="DimGray"
+                        BorderBrush="Transparent"
+                        ItemsSource="{Binding EditedImages}"
+                        Width="Auto" Height="Auto"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Height="Auto">
+                                    <Image Source="{Binding Image}"></Image>
+                                    <TextBox Text="{Binding Description}" Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </WrapPanel>
             </StackPanel>
                 <WrapPanel Grid.Column="1" MaxWidth="680" Width="auto">
@@ -173,8 +188,21 @@
                                             </Button.Style>
                                         </Button>
                                 </TextBlock>
-                                    <Image Source="{Binding LessonImage}" HorizontalAlignment="Center" Width="auto" MaxWidth="400"/>
-                                </StackPanel>
+                                <ListBox x:Name="LV3" Background="DimGray"
+                                    BorderBrush="Transparent"
+                                    ItemsSource="{Binding LessonImage}"
+                                    Width="Auto" Height="Auto"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Height="Auto">
+                                                <Image Source="{Binding Image}"></Image>
+                                                <TextBlock Text="{Binding Description}" Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

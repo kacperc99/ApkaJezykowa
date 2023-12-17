@@ -26,7 +26,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Lang = Lang;
       this.id = id;
       TestInfoUpdateViewCommand = new TestInfoUpdateViewCommand(this, Lang, id);
-      
     }
   }
 }

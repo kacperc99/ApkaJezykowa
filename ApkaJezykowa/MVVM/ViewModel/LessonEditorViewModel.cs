@@ -13,15 +13,25 @@ using System.Windows.Input;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
+  public class LessonImagesData : BaseViewModel
+  {
+    public int _imageID;
+    public byte[] _image;
+    public string _description;
+
+    public int ImageID { get { return _imageID; } set { _imageID = value; OnPropertyChanged(nameof(ImageID)); } }
+    public byte[] Image { get { return _image; } set { _image = value; OnPropertyChanged(nameof(Image)); } }
+    public string Description { get { return _description; } set { _description = value; OnPropertyChanged(nameof(Description)); } }
+  }
   public class LessonData : BaseViewModel
   {
     public int _lessonID;
     public string _lessonText;
-    public byte[] _lessonImage;
+    public ObservableCollection<LessonImagesData> _lessonImage;
 
     public int LessonID { get { return _lessonID; } set { _lessonID = value; OnPropertyChanged(nameof(LessonID)); } }
     public string LessonText { get { return _lessonText; } set { _lessonText = value; OnPropertyChanged(nameof(LessonText)); } }
-    public byte[] LessonImage { get { return _lessonImage; } set { _lessonImage = value; OnPropertyChanged(nameof(LessonImage)); } }
+    public ObservableCollection<LessonImagesData> LessonImage { get { return _lessonImage; } set { _lessonImage = value; OnPropertyChanged(nameof(LessonImage)); } }
   }
   public class ParamModel
   {
@@ -46,12 +56,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string _title;
     public decimal _level;
     public string _editedContent;
-    public byte[] _editedImage;
+    public ObservableCollection<LessonImagesData> _editedImages;
     public bool IsLessonBeingEdited = false;
     public bool IsContentBeingEdited = false;
     public int ModifiedContentId = 0;
     public int ModifiedTitleID = 0;
     public int ModifiedLessonId = 0;
+    public int ModifiedImageId = 1;
     public string _errorMessage;
     public bool _enabler;
     private ILessonRepository lessonRepository;
@@ -89,7 +100,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string Title { get { return _title; } set { _title = value; OnPropertyChanged(nameof(Title)); } }
     public decimal Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); if (!IsLessonBeingEdited) LoadData(); } }
     public string EditedContent { get { return _editedContent; } set { _editedContent = value; OnPropertyChanged(nameof(EditedContent)); } }
-    public byte[] EditedImage { get { return _editedImage; } set { _editedImage = value; OnPropertyChanged(nameof(EditedImage)); } }
+    public ObservableCollection<LessonImagesData> EditedImages { get { return _editedImages; } set { _editedImages = value; OnPropertyChanged(nameof(EditedImages)); } }
     public string ErrorMessage { get { return _errorMessage; } set { _errorMessage = value;OnPropertyChanged(nameof(ErrorMessage)); } } 
     public bool Enabler { get { return _enabler; } set { _enabler = value; OnPropertyChanged(nameof(Enabler)); } }
     public ICommand ChooseCommand { get; }
@@ -130,13 +141,17 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public void SetPath(byte[] filePath)
     {
-      EditedImage = filePath;
+      LessonImagesData data = new LessonImagesData();
+      data.ImageID = ModifiedImageId;
+      data.Image = filePath;
+      data.Description = "";
+      EditedImages.Add(data);
     }
     public void ExecuteChooseCommand(object parameter)
     {
       var value = EditedLessons.First(x => x.LessonID == (int)parameter);
       EditedContent = value.LessonText;
-      EditedImage = value.LessonImage;
+      EditedImages = value.LessonImage;
       ModifiedContentId = value.LessonID;
       IsContentBeingEdited = true;
     }
@@ -148,7 +163,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public void ExecuteClearCommand(object obj)
     {
       EditedContent = null;
-      EditedImage = null;
+      EditedImages.Clear();
       ModifiedContentId = 0;
     }
     private bool CanExecuteAddContentCommand(object obj)
@@ -168,13 +183,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
         LessonData lsn = new LessonData();
         lsn.LessonID = EditedLessons.Count() + 1;
         lsn.LessonText = EditedContent;
-        if (EditedImage != null)
-          lsn.LessonImage = EditedImage;
+        if (EditedImages != null)
+          lsn.LessonImage = EditedImages;
         else
           lsn.LessonImage = null;
         EditedLessons.Add(lsn);
         EditedContent = null;
-        EditedImage = null;
+        EditedImages.Clear();
         foreach (LessonData p in EditedLessons) { Console.WriteLine(p.LessonText, p.LessonImage, p.LessonID); }
       }  
       if(IsContentBeingEdited)
@@ -182,9 +197,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
         var value = EditedLessons.First(x => x.LessonID == ModifiedContentId);
         int i = EditedLessons.IndexOf(value);
         EditedLessons[i].LessonText = EditedContent;
-        EditedLessons[i].LessonImage = EditedImage;
+        EditedLessons[i].LessonImage = EditedImages;
         EditedContent = null;
-        EditedImage = null;
+        EditedImages.Clear();
         ModifiedContentId = 0;
         IsContentBeingEdited = false;
       }
@@ -208,7 +223,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         Title = null;
         Level = 0;
         EditedContent = null;
-        EditedImage = null;
+        EditedImages.Clear();
         ModifiedContentId = 0;
         ErrorMessage = "Zaktualizowano podaną lekcję!";
       }
@@ -221,7 +236,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         Title = null;
         Level = 0;
         EditedContent = null;
-        EditedImage = null;
+        EditedImages.Clear();
         ModifiedContentId = 0;
         IsLessonBeingEdited = false;
         Enabler = true;

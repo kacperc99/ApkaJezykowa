@@ -17,7 +17,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
   {
 
     private BaseViewModel _selectedViewModel;
-    private IUser_CourseRepository user_CourseRepository;
+    private IProgressCardRepository user_CourseRepository;
     public bool _check;
     public byte[] _icon;
     public bool Check { get ; set; }
@@ -37,17 +37,17 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
       this.Icon = Icon;
       FrenchUpdateViewCommand = new ModuleMenuUpdateViewCommand(this, Lang);
-      user_CourseRepository = new User_CourseRepository();
+      user_CourseRepository = new ProgressCardRepository();
       SetCourseLevel(Lang);
     }
 
     public void SetCourseLevel(string Lang)
     {
       AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
-      if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, Lang) == false && Thread.CurrentPrincipal.Identity.Name != "")
+      if (user_CourseRepository.IsUserSignedIn(Thread.CurrentPrincipal.Identity.Name, Properties.Settings.Default.Language, Lang) == false && Thread.CurrentPrincipal.Identity.Name != "")
       {
         AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
-        user_CourseRepository.Add(Thread.CurrentPrincipal.Identity.Name, Lang);
+        user_CourseRepository.Add(Thread.CurrentPrincipal.Identity.Name, Properties.Settings.Default.Language, Lang);
       }
       else
         Check = true;

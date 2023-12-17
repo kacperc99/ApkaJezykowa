@@ -190,8 +190,9 @@
     <Compile Include="MVVM\Model\IExerciseRepository.cs" />
     <Compile Include="MVVM\Model\ILessonRepository.cs" />
     <Compile Include="MVVM\Model\ISessionContext.cs" />
-    <Compile Include="MVVM\Model\IUser_CourseRepository.cs" />
+    <Compile Include="MVVM\Model\IProgressCardRepository.cs" />
     <Compile Include="MVVM\Model\LessonContentModel.cs" />
+    <Compile Include="MVVM\Model\LessonImageModel.cs" />
     <Compile Include="MVVM\Model\LessonListModel.cs" />
     <Compile Include="MVVM\Model\LessonModel.cs" />
     <Compile Include="MVVM\Model\User_CourseModel.cs" />
@@ -246,7 +247,7 @@
     <Compile Include="Repositories\ExerciseRepository.cs" />
     <Compile Include="Repositories\LessonRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Repositories\User_CourseRepository.cs" />
+    <Compile Include="Repositories\ProgressCardRepository.cs" />
     <Compile Include="System\Web\HttpUtility.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>

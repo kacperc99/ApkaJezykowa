@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApkaJezykowa.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace ApkaJezykowa.MVVM.Model
 {
   public class LessonContentModel
   {
+    public int Id {  get; set; }
    public string LessonText { get; set; }
-   public byte[] LessonImage { get; set; }
+   //public List<byte[]> LessonImage { get; set; }
+   public List<LessonImageModel> LessonImages { get; set; }
   }
 }

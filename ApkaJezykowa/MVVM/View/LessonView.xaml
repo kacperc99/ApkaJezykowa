@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
-             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel"
+             xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewModel:LessonViewModel}"
              mc:Ignorable="d">
     
     <Grid Background="DimGray">
@@ -24,7 +25,20 @@
                                     <TextBlock Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap">
                                         <Run Text="{Binding LessonText}"/>
                                     </TextBlock>
-                                    <Image Source="{Binding LessonImage}"/>
+                                    <ListBox x:Name="LV3" Background="DimGray"
+                                        BorderBrush="Transparent"
+                                        ItemsSource="{Binding LessonImages}"
+                                        Width="Auto" Height="Auto"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Height="Auto">
+                                                    <Image Source="{Binding Image}"></Image>
+                                                    <TextBlock Text="{Binding Description}" Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
