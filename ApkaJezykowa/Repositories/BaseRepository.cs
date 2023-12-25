@@ -28,5 +28,5 @@ namespace ApkaJezykowa.Repositories
     {
       return new SqlConnection(_courseConnectionString);
     }
-    }
+  }
 }

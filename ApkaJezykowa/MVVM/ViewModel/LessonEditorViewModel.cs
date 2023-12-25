@@ -35,6 +35,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
   }
   public class ParamModel
   {
+    public int CourseID { get; set; }
     public int Id {  get; set; }
     public int TitleId {  get; set; }
     public string country { get; set; }
@@ -56,13 +57,14 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string _title;
     public decimal _level;
     public string _editedContent;
-    public ObservableCollection<LessonImagesData> _editedImages;
+    public ObservableCollection<LessonImagesData> _editedImages = new ObservableCollection<LessonImagesData>();
     public bool IsLessonBeingEdited = false;
     public bool IsContentBeingEdited = false;
     public int ModifiedContentId = 0;
     public int ModifiedTitleID = 0;
     public int ModifiedLessonId = 0;
     public int ModifiedImageId = 1;
+    public int CourseID;
     public string _errorMessage;
     public bool _enabler;
     private ILessonRepository lessonRepository;
@@ -79,6 +81,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Language = "None";
           Title = null;
           Level = 0;
+          CourseID = 0;
           IsLessonBeingEdited = false;
           Enabler = true;
         }
@@ -92,6 +95,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Language = param.language;
           Title = param.title;
           Level = param.level;
+          CourseID = param.CourseID;
           ModifiedLessonId = param.Id;
           ModifiedTitleID = param.TitleId;
           Enabler = false;
@@ -146,6 +150,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
       data.Image = filePath;
       data.Description = "";
       EditedImages.Add(data);
+      ModifiedImageId++;
+      foreach(var x in EditedImages) { Console.WriteLine(x.Description, x.Image, x.ImageID); }
     }
     public void ExecuteChooseCommand(object parameter)
     {
@@ -184,13 +190,17 @@ namespace ApkaJezykowa.MVVM.ViewModel
         lsn.LessonID = EditedLessons.Count() + 1;
         lsn.LessonText = EditedContent;
         if (EditedImages != null)
-          lsn.LessonImage = EditedImages;
+        {
+            lsn.LessonImage = new ObservableCollection<LessonImagesData>(EditedImages);
+        }
         else
           lsn.LessonImage = null;
+        foreach(var x in lsn.LessonImage) 
+        { Console.WriteLine(x.Description, x.Image); }
         EditedLessons.Add(lsn);
         EditedContent = null;
         EditedImages.Clear();
-        foreach (LessonData p in EditedLessons) { Console.WriteLine(p.LessonText, p.LessonImage, p.LessonID); }
+        //foreach (LessonData p in EditedLessons) { Console.WriteLine(p.LessonText, p.LessonImage, p.LessonID); }
       }  
       if(IsContentBeingEdited)
       {
@@ -229,7 +239,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       if(IsLessonBeingEdited)
       {
-        lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level, ModifiedLessonId, ModifiedTitleID);
+        lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level, CourseID, ModifiedLessonId, ModifiedTitleID);
         EditedLessons.Clear();
         Country = "None";
         Language = "None";

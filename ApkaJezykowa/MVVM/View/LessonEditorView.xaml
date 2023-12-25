@@ -69,7 +69,7 @@
             </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <WrapPanel Orientation="Vertical" Width="600" Height="850" HorizontalAlignment="Left">
-                    <TextBox x:Name="Content" Text="{Binding EditedContent}" FontSize="18" Width="600" Height="400" HorizontalAlignment="Left" GotFocus="TextBox_GotFocus"></TextBox>
+                    <TextBox x:Name="Content" Text="{Binding EditedContent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontSize="18" Width="600" Height="400" HorizontalAlignment="Left" GotFocus="TextBox_GotFocus"></TextBox>
                     <WrapPanel Orientation="Horizontal" Width="600" Height="100">
                 <Button x:Name="ChooseImage" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Content="Add image from drive" Click="ChooseImage_Click">
                     <Button.Style>
@@ -122,16 +122,17 @@
                         <TextBlock x:Name="ErrorMessage" FontSize="16" Margin="10,0,0,0" FontWeight="Bold" Text="{Binding ErrorMessage}" Background="Transparent" Foreground="Black"/>
                     </WrapPanel>
                     <!--this has to be replaced with a listbox with LessonImagesData as an itemssource-->
+
                     <ListBox x:Name="LV3" Background="DimGray"
                         BorderBrush="Transparent"
-                        ItemsSource="{Binding EditedImages}"
-                        Width="Auto" Height="Auto"
+                        ItemsSource="{Binding EditedImages, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        Width="200" Height="350"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Height="Auto">
-                                    <Image Source="{Binding Image}"></Image>
-                                    <TextBox Text="{Binding Description}" Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                    <Image Source="{Binding Path=Image}"></Image>
+                                    <TextBox Text="{Binding Path=Description}" Width="Auto" Background="Transparent" IsEnabled="True" FontSize="24" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -190,14 +191,14 @@
                                 </TextBlock>
                                 <ListBox x:Name="LV3" Background="DimGray"
                                     BorderBrush="Transparent"
-                                    ItemsSource="{Binding LessonImage}"
-                                    Width="Auto" Height="Auto"
+                                    ItemsSource="{Binding LessonImage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Width="200" Height="350"
                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Height="Auto">
-                                                <Image Source="{Binding Image}"></Image>
-                                                <TextBlock Text="{Binding Description}" Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                                                <Image Source="{Binding Path=Image}"></Image>
+                                                <TextBlock Text="{Binding Path=Description}" Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>

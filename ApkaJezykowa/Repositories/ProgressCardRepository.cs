@@ -20,7 +20,7 @@ namespace ApkaJezykowa.Repositories
         connection.Open();
         command.Connection = connection;
         //command.CommandText = "select uc.Id_Course from [User_Course] uc where uc.Id_User=(select u.Id_User from [User] u where u.[Username]=@username) and uc.Id_Course in (select c.Id_Course from [Course] c where c.Course_Name=@country)";
-        command.CommandText = "select Id_Progress_Card from [Progress_Card] where Lang_Course=@country, Lang=@language, Id_User = (select Id_User from [User] where [Username] =@username)";
+        command.CommandText = "select Id_Progress_Card from [Progress_Card] where Lang_Course=@country and Lang=@language and Id_User = (select Id_User from [User] where [Username] = @username)";
         command.Parameters.AddWithValue("@country", SqlDbType.NVarChar).Value = country;
         command.Parameters.AddWithValue("@language", SqlDbType.NVarChar).Value = language;
         command.Parameters.AddWithValue("@username", SqlDbType.NVarChar).Value = username;
