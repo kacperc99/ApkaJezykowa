@@ -67,6 +67,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public int CourseID;
     public string _errorMessage;
     public bool _enabler;
+    public string OldTitle;
     private ILessonRepository lessonRepository;
 
     public List<string> LessonNames { get { return lessonNames; } set { lessonNames = value; OnPropertyChanged(nameof(LessonNames)); } }
@@ -94,6 +95,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Country = param.country;
           Language = param.language;
           Title = param.title;
+          OldTitle = param.title;
           Level = param.level;
           CourseID = param.CourseID;
           ModifiedLessonId = param.Id;
@@ -157,7 +159,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
       var value = EditedLessons.First(x => x.LessonID == (int)parameter);
       EditedContent = value.LessonText;
-      EditedImages = value.LessonImage;
+      if (value.LessonImage != null)
+      {
+        EditedImages = new ObservableCollection<LessonImagesData>(value.LessonImage);
+      }
+      else
+        EditedImages = null;
+      //EditedImages = value.LessonImage;
       ModifiedContentId = value.LessonID;
       IsContentBeingEdited = true;
     }
@@ -207,7 +215,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
         var value = EditedLessons.First(x => x.LessonID == ModifiedContentId);
         int i = EditedLessons.IndexOf(value);
         EditedLessons[i].LessonText = EditedContent;
-        EditedLessons[i].LessonImage = EditedImages;
+        if (EditedImages != null)
+        {
+          EditedLessons[i].LessonImage = new ObservableCollection<LessonImagesData>(EditedImages);
+        }
+        else
+          EditedLessons[i].LessonImage = null;
+        //EditedLessons[i].LessonImage = EditedImages;
         EditedContent = null;
         EditedImages.Clear();
         ModifiedContentId = 0;
@@ -239,7 +253,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       if(IsLessonBeingEdited)
       {
-        lessonRepository.UpdateLesson(Country, Language, EditedLessons, Title, Level, CourseID, ModifiedLessonId, ModifiedTitleID);
+        lessonRepository.UpdateLesson(Country, Language, EditedLessons, OldTitle, Title, Level, CourseID, ModifiedLessonId, ModifiedTitleID);
         EditedLessons.Clear();
         Country = "None";
         Language = "None";

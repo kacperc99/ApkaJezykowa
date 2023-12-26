@@ -102,10 +102,6 @@ namespace ApkaJezykowa.Repositories
             LessonContentModel model = new LessonContentModel();
             int Id = (int)reader["Id_Lesson_Content"];
             model.LessonText = reader["Lesson_Text"].ToString();
-            /*if(reader["Lesson_Image"]!=System.DBNull.Value)
-              model.LessonImage = (byte[])reader["Lesson_Image"];
-            else
-              model.LessonImage = null;*/
             List<LessonImageModel> Images = new List<LessonImageModel>();
             using (var command2 = new SqlCommand())
             {
@@ -149,7 +145,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson in (select Id_Lesson from Lesson where Lesson_Level = Coalesce(@level,Lesson_Level) and Id_Course in (select Id_Course from [Course] where [Course_Name] = Coalesce(@country,[Course_Name]))) and Lesson_Language = Coalesce(@language,Lesson_Language)";
+        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson in (select Id_Lesson from Lesson where Lesson_Level = Coalesce(@level,Lesson_Level) and Id_Course in (select Id_Course from [Course] where [Course_Name] = Coalesce(@country,[Course_Name]))) and Lesson_Language = Coalesce(@language,Lesson_Language) order by Id_Lesson";
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country ?? (object)DBNull.Value;
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language ?? (object)DBNull.Value;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = DecimalLevel ?? (object)DBNull.Value;
@@ -209,10 +205,6 @@ namespace ApkaJezykowa.Repositories
             LessonData model = new LessonData();
             model.LessonID = (int)reader["Id_Lesson_Content"];
             model.LessonText = reader["Lesson_Text"].ToString();
-            /*if (reader["Lesson_Image"] != System.DBNull.Value)
-              model.LessonImage = (byte[])reader["Lesson_Image"];
-            else
-              model.LessonImage = null;*/
             ObservableCollection<LessonImagesData> Images = new ObservableCollection<LessonImagesData>();
             using (var command2 = new SqlCommand())
             {
@@ -226,7 +218,10 @@ namespace ApkaJezykowa.Repositories
                 {
                   LessonImagesData image = new LessonImagesData();
                   image.ImageID = (int)reader2["Id_Lesson_Images"];
-                  image.Image = (byte[])reader2["Lesson_Image"];
+                  if (reader2["Lesson_Image"] != System.DBNull.Value)
+                    image.Image = (byte[])reader2["Lesson_Image"];
+                  else
+                    image.Image = null;
                   image.Description = reader2["Image_Desc"].ToString();
                   Images.Add(image);
                 }
@@ -417,7 +412,7 @@ namespace ApkaJezykowa.Repositories
       }
     }
       
-    public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level, int CourseID, int Lesson_Id, int Lesson_Title_Id)
+    public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string OldTitle, string Title, decimal Level, int CourseID, int Lesson_Id, int Lesson_Title_Id)
     {
       decimal levl = 0;
       string currenttitle = null;
@@ -487,8 +482,7 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
-        //daj albo warunek, albo pobierz ten element z poprzedniej funkcji
-        command.Parameters.Add("@oldtitle", SqlDbType.NVarChar).Value = currenttitle;
+        command.Parameters.Add("@oldtitle", SqlDbType.NVarChar).Value = OldTitle;
         command.Parameters.Add("@oldlevel", SqlDbType.Decimal).Value = supportlevl;
         command.ExecuteNonQuery();
       }
@@ -511,7 +505,7 @@ namespace ApkaJezykowa.Repositories
             using (var command2 = new SqlCommand())
             {
               command2.Connection = connection;
-              command2.CommandText = "SELECT Id_Lesson_Images, Lesson_Image, Image_Desc from Lesson_Images where Id_Lesson_Images = @id";
+              command2.CommandText = "SELECT Id_Lesson_Images, Lesson_Image, Image_Desc from Lesson_Images where Id_Lesson_Content = @id";
               command2.Parameters.Add("@id", SqlDbType.Int).Value = content.LessonID;
 
               using (var reader2 = command2.ExecuteReader())
@@ -527,9 +521,13 @@ namespace ApkaJezykowa.Repositories
                   image.Description = reader2["Image_Desc"].ToString();
                   Images.Add(image);
                 }
+                reader2.NextResult();
               }
             }
-            content.LessonImage = Images;
+            if(Images!=null)
+              content.LessonImage = Images;
+            else 
+              content.LessonImage = null;
 
             data.Add(content);
           }
@@ -558,21 +556,21 @@ namespace ApkaJezykowa.Repositories
           }
         }
         int imageCounter;
-        if (EditedLessons[i].LessonImage.Count() > data[i].LessonImage.Count())
+        if (EditedLessons[i].LessonImage.Count() < data[i].LessonImage.Count())
           imageCounter = EditedLessons[i].LessonImage.Count();
         else
           imageCounter = data[i].LessonImage.Count();
 
-        for (int j = 0; j < counter; j++)
+        for (int j = 0; j < imageCounter; j++)
         {
-          if (EditedLessons[i].LessonImage[j].Description != data[i].LessonImage[j].Description && EditedLessons[i].LessonImage[j].Image != data[i].LessonImage[j].Image)
+          if (EditedLessons[i].LessonImage[j].Description != data[i].LessonImage[j].Description && EditedLessons[i].LessonImage[j].Image.SequenceEqual(data[i].LessonImage[j].Image) == false)
           {
             using (var connection = GetCourseConnection())
             using (var command = new SqlCommand())
             {
               connection.Open();
               command.Connection = connection;
-              command.CommandText = "update Lesson_Images set Image_Desc = @desc, Lesson_Image = @image where Image_Desc = @olddesc, Lesson_Image=@oldimage and Id_Lesson_Images=@id";
+              command.CommandText = "update Lesson_Images set Image_Desc = @desc, Lesson_Image = @image where Image_Desc = @olddesc and Lesson_Image=@oldimage and Id_Lesson_Images=@id";
 
               command.Parameters.Add("@desc", SqlDbType.NVarChar).Value = EditedLessons[i].LessonImage[j].Description;
               command.Parameters.Add("@image", SqlDbType.VarBinary).Value = EditedLessons[i].LessonImage[j].Image;
@@ -597,7 +595,7 @@ namespace ApkaJezykowa.Repositories
               command.ExecuteNonQuery();
             }
           }
-          else if (EditedLessons[i].LessonImage[j].Image != data[i].LessonImage[j].Image)
+          else if (!EditedLessons[i].LessonImage[j].Image.SequenceEqual(data[i].LessonImage[j].Image))
           {
             using (var connection = GetCourseConnection())
             using (var command = new SqlCommand())
@@ -696,7 +694,7 @@ namespace ApkaJezykowa.Repositories
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "delete from Lesson_Content where Id_Lesson_Content = @id";
+            command.CommandText = "delete from Lesson_Images where Id_Lesson_Content = @id";
             command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonID;
             command.ExecuteNonQuery();
           }
@@ -705,7 +703,7 @@ namespace ApkaJezykowa.Repositories
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "delete from Lesson_Images where Id_Lesson_Content = @id";
+            command.CommandText = "delete from Lesson_Content where Id_Lesson_Content = @id";
             command.Parameters.Add("@id", SqlDbType.Int).Value = data[i].LessonID;
             command.ExecuteNonQuery();
           }
