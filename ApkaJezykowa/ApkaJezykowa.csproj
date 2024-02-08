@@ -170,6 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ExerciseEditorUpdateViewCommand.cs" />
     <Compile Include="Commands\ExerciseMenuUpdateViewCommand.cs" />
     <Compile Include="Commands\ExerciseUpdateViewCommand.cs" />
     <Compile Include="Commands\LessonUpdateViewCommand.cs" />
@@ -197,10 +198,14 @@
     <Compile Include="MVVM\Model\LessonModel.cs" />
     <Compile Include="MVVM\Model\User_CourseModel.cs" />
     <Compile Include="MVVM\Model\VisibilityModel.cs" />
+    <Compile Include="MVVM\ViewModel\ExerciseEditorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonEditorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonListViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestInfoViewModel.cs" />
+    <Compile Include="MVVM\View\ExerciseEditorView.xaml.cs">
+      <DependentUpon>ExerciseEditorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\ExerciseMenuView.xaml.cs">
       <DependentUpon>ExerciseMenuView.xaml</DependentUpon>
     </Compile>
@@ -250,6 +255,10 @@
     <Compile Include="Repositories\ProgressCardRepository.cs" />
     <Compile Include="System\Web\HttpUtility.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ExerciseEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

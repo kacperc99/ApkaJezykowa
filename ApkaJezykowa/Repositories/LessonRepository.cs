@@ -159,9 +159,9 @@ namespace ApkaJezykowa.Repositories
       }
       return ts;
     }
-    public ParamModel Obtain_Lesson_Parameters(string LName)
+    public LessonParamModel Obtain_Lesson_Parameters(string LName)
     {
-      ParamModel result = null;
+      LessonParamModel result = null;
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -173,7 +173,7 @@ namespace ApkaJezykowa.Repositories
         {
           if(reader.Read())
           {
-            result = new ParamModel()
+            result = new LessonParamModel()
             {
               CourseID = (int)reader["Id_Course"],
               country = reader["Course_Name"].ToString(),

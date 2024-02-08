@@ -1,5 +1,6 @@
 ﻿using ApkaJezykowa.Commands;
 using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -117,6 +118,93 @@ namespace ApkaJezykowa.Repositories
           //TestModel.instance.Test_Done = check;
         }
       }
+    }
+    public List<string> Obtain_Exercise_Names(string Country, string Language, decimal Level)
+    {
+      if (Country == "None")
+        Country = null;
+      if (Language == "None")
+        Language = null;
+      Nullable<decimal> DecimalLevel = Level;
+      if (DecimalLevel == 0)
+        DecimalLevel = null;
+      List<string> ex_nam = new List<string>();
+      ex_nam.Add("None");
+      using(var connection = GetCourseConnection())
+      using(var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Exercise_Title from [Exercise] where Exercise_Level = Coalesce(@level,Exercise_Level) and Exercise_Language = Coalesce(@language, Exercise_Language) and Id_Course in (select Id_Course from [Course] where [Course_Name] = Coalesce(@country, [Course_Name])) order by Id_Exercise";
+        command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country ?? (object)DBNull.Value;
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language ?? (object)DBNull.Value;
+        command.Parameters.Add("@level", SqlDbType.Decimal).Value = DecimalLevel ?? (object)DBNull.Value;
+        using (var reader = command.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            ex_nam.Add(reader["Exercise_Title"].ToString());
+          }
+        }
+      }
+      return ex_nam;
+    }
+    public ObservableCollection<ExerciseData> Obtain_Exercise_Content(string Exercise)
+    {
+      ObservableCollection<ExerciseData> ec = new ObservableCollection<ExerciseData>();
+      using(var connection = GetCourseConnection())
+      using(var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Id_Exercise_Content, Task, Answer, Answer2, Answer3, Tip from Exercise_Content where Id_Exercise = (select Id_Exercise from [Exercise] where Exercise_Title = @title)";
+        command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Exercise;
+        using(var reader = command.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            ExerciseData data = new ExerciseData();
+            data.Exercise_Content_Id = (int)reader["Id_Exercise_Content"];
+            data.Task = reader["Task"].ToString();
+            data.Answer1 = reader["Answer"].ToString();
+            data.Answer2 = reader["Answer2"].ToString();
+            data.Answer3 = reader["Answer3"].ToString();
+            data.Tip = reader["Tip"].ToString();
+            ec.Add(data);
+          }
+          reader.NextResult();
+        }
+        return ec;
+      }
+    }
+    public ExerciseParamModel Obtain_Exercise_Parameters(string Exercise)
+    {
+      ExerciseParamModel result = null;
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select C.Id_Course, C.[Course_Name], E.Exercise_Level, E.Exercise_Language, E.Id_Exercise, E.Exercise_Title, E.Task_Text From [Course] C join [Exercise] E on C.Id_Course=E.Id_Course where E.Exercise_Title=@title";
+        command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Exercise;
+        using (var reader = command.ExecuteReader())
+        {
+          if (reader.Read())
+          {
+            result = new ExerciseParamModel()
+            {
+              courseId = (int)reader["Id_Course"],
+              exerciseID = (int)reader["Id_Exercise"],
+              country = reader["Course_Name"].ToString(),
+              language = reader["Exercise_Language"].ToString(),
+              title = reader["Exercise_Title"].ToString(),
+              task_Text = reader["Task_Text"].ToString(),
+              level = (decimal)reader["Exercise_Level"]
+            };
+          }
+        }
+      }
+      return result;
     }
   }
 }

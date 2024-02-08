@@ -50,6 +50,9 @@
             <DataTemplate DataType="{x:Type viewModel:LessonListViewModel}">
                 <view:LessonListView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ExerciseEditorViewModel}">
+                <view:ExerciseEditorView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

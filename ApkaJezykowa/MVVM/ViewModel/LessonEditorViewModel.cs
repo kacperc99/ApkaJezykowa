@@ -10,7 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Input;
-
+//things to solve: 
+// - limit the level variable to current max level +1
+// - allow user to only edit lessons of the courses they finished
 namespace ApkaJezykowa.MVVM.ViewModel
 {
   public class LessonImagesData : BaseViewModel
@@ -33,7 +35,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string LessonText { get { return _lessonText; } set { _lessonText = value; OnPropertyChanged(nameof(LessonText)); } }
     public ObservableCollection<LessonImagesData> LessonImage { get { return _lessonImage; } set { _lessonImage = value; OnPropertyChanged(nameof(LessonImage)); } }
   }
-  public class ParamModel
+  public class LessonParamModel
   {
     public int CourseID { get; set; }
     public int Id {  get; set; }
@@ -42,8 +44,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string language { get; set; }
     public string title { get; set; }
     public decimal level { get; set; }
-    //private ParamModel() { }
-    //public static readonly ParamModel Instance = new ParamModel();
+    //private LessonParamModel() { }
+    //public static readonly LessonParamModel Instance = new LessonParamModel();
   }
   internal class LessonEditorViewModel : BaseViewModel
   {
@@ -113,7 +115,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public ICommand ClearCommand { get; }
     public ICommand AddContentCommand { get; set; }
     public ICommand AddLessonCommand { get; set; }
-    public ICommand DeleteCommand { get; }
+    public ICommand DeleteCommand { get; set; }
     public BaseViewModel SelectedViewModel
     {
       get { return _selectedViewModel; }
@@ -187,8 +189,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
         return true;
       }
       else
+      {
         ErrorMessage = "Przekroczono maksymalną ilość znaków/brak treści";
         return false;
+      } 
     }
     public void ExecuteAddContentCommand(object obj)
     {
@@ -233,8 +237,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
       if ((EditedLessons.Count() > 0 && Country != "None" && Language != "None" && Title != null && Level > 0) || Lesson != "None")
         return true;
       else
+      {
         ErrorMessage = "Nie podano brakujących informacji";
         return false;
+      }
     }
     public void ExecuteAddLessonCommand(object obj)
     {

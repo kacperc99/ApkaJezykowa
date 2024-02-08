@@ -29,7 +29,7 @@ namespace ApkaJezykowa.Commands
       Console.WriteLine("Clicked!");
       if (parameter.ToString() == "Exercise")
       {
-        // viewModel.SelectedViewModel = new GermanViewModel();
+        viewModel.SelectedViewModel = new ExerciseEditorViewModel();
         // ExerciseLevelModel.Instance.Language = "Niemiecki";
       }
       if (parameter.ToString() == "French")

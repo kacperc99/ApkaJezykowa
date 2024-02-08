@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\App.xaml
-17-844624842
+18-1047478197
 
-70-1051142106
+73-127459042
 43-1491839929
-CustomControls\BindablePasswordBox.xaml;MVVM\View\ExerciseMenuView.xaml;MainWindow.xaml;MVVM\View\DictionaryView.xaml;MVVM\View\ExerciseView.xaml;MVVM\View\LessonView.xaml;MVVM\View\ModuleMenuView.xaml;MVVM\View\InfoView.xaml;MVVM\View\LessonEditorView.xaml;MVVM\View\LessonListView.xaml;MVVM\View\LessonsView.xaml;MVVM\View\LoginView.xaml;MVVM\View\MainView.xaml;MVVM\View\SettingsView.xaml;MVVM\View\TestInfoView.xaml;Themes\ListViewStyles.xaml;Themes\ToolTip.xaml;
+CustomControls\BindablePasswordBox.xaml;MVVM\View\ExerciseEditorView.xaml;MVVM\View\ExerciseMenuView.xaml;MainWindow.xaml;MVVM\View\DictionaryView.xaml;MVVM\View\ExerciseView.xaml;MVVM\View\LessonView.xaml;MVVM\View\ModuleMenuView.xaml;MVVM\View\InfoView.xaml;MVVM\View\LessonEditorView.xaml;MVVM\View\LessonListView.xaml;MVVM\View\LessonsView.xaml;MVVM\View\LoginView.xaml;MVVM\View\MainView.xaml;MVVM\View\SettingsView.xaml;MVVM\View\TestInfoView.xaml;Themes\ListViewStyles.xaml;Themes\ToolTip.xaml;
 
 False
 

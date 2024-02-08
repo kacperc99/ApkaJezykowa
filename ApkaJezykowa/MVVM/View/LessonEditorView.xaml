@@ -119,7 +119,7 @@
                                 </Style>
                             </Button.Style>
                         </Button>
-                        <TextBlock x:Name="ErrorMessage" FontSize="16" Margin="10,0,0,0" FontWeight="Bold" Text="{Binding ErrorMessage}" Background="Transparent" Foreground="Black"/>
+                        <TextBlock x:Name="ErrorMessage" FontSize="16" Margin="10,0,0,0" FontWeight="Bold" Text="{Binding ErrorMessage, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" Foreground="Black"/>
                     </WrapPanel>
                     <!--this has to be replaced with a listbox with LessonImagesData as an itemssource-->
 
@@ -209,5 +209,6 @@
                     </ListBox>
                 </WrapPanel>
         </Grid>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.RowSpan="3"/>
     </Grid>
 </UserControl>
