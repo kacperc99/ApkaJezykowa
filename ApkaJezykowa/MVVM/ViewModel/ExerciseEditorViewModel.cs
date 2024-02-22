@@ -189,7 +189,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       if(!IsTaskBeingEdited)
       {
         ExerciseData ex = new ExerciseData();
-        ex.Exercise_Content_Id = EditedExercises.Count() + 1;
+        ex.Exercise_Content_Id = 0;
         ex.Task = Task;
         ex.Answer1 = Answer1;
         ex.Answer2 = Answer2;
@@ -223,7 +223,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public bool CanExecuteAddExerciseCommand(object obj)
     {
       if ((EditedExercises.Count > 0 && Country != "None" && Language != "None" && Title != null && TaskText != null && Level > 0) || Exercise != "None")
-        return true;
+        if(exerciseRepository.DoesLessonExist(Country, Language, Level))
+          return true;
+        else
+        {
+          ErrorMessage = "Nie istnieje lekcja na danym poziomie!";
+          return false;
+        }
       else
       {
         ErrorMessage = "Nie podano brakujących informacji";
@@ -232,7 +238,22 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public void ExecuteAddExerciseCommand(object obj)
     {
+      if(!IsExerciseBeingEdited)
+      {
+        exerciseRepository.AddExercise(Country, Language, EditedExercises, Title, Level, TaskText);
+        EditedExercises.Clear();
+        Country = "None";
+        Language = "None";
+        Title = null;
+        Level = 0;
+        ModifiedTaskId = 0;
+        ErrorMessage = "Dodano podane ćwiczenie!";
+      }
+      if(IsExerciseBeingEdited)
+      {
+        exerciseRepository.EditExercise(Country, Language, EditedExercises, TaskText, OldTitle, Title, Level, CourseID, ModifiedExerciseId);
 
+      }
     }
   }
 }

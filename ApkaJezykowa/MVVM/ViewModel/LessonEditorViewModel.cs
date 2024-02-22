@@ -255,7 +255,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         EditedContent = null;
         EditedImages.Clear();
         ModifiedContentId = 0;
-        ErrorMessage = "Zaktualizowano podaną lekcję!";
+        ErrorMessage = "Dodano podaną lekcję!";
       }
       if(IsLessonBeingEdited)
       {
@@ -270,7 +270,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         ModifiedContentId = 0;
         IsLessonBeingEdited = false;
         Enabler = true;
-        ErrorMessage = "Dodano podaną lekcję!";
+        ErrorMessage = "zaktualizowano podaną lekcję!";
       }
     }
 

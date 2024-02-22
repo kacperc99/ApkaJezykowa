@@ -440,12 +440,15 @@ namespace ApkaJezykowa.Repositories
             {
               connection.Open();
               command.Connection = connection;
-              command.CommandText = "update [Lesson_Title] set Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @leveldown and Id_Course = @id) where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id)";
+              command.CommandText = "update [Lesson_Title] set Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @leveldown and Id_Course = @id) " +
+                "where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id)";
               command.Parameters.Add("@leveldown", SqlDbType.Decimal).Value = levl;
               command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
               command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
               command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
               command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+              command.ExecuteNonQuery();
+              command.CommandText = "update [Exercise] set Exercise_Level = @leveldown where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
               command.ExecuteNonQuery();
             }
             levl++;
@@ -460,12 +463,15 @@ namespace ApkaJezykowa.Repositories
             {
               connection.Open();
               command.Connection = connection;
-              command.CommandText = "update [Lesson_Title] set Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @levelup and Id_Course = @id) where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id)";
+              command.CommandText = "update [Lesson_Title] set Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @levelup and Id_Course = @id) " +
+                "where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id)";
               command.Parameters.Add("@levelup", SqlDbType.Decimal).Value = levl;
               command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
               command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
               command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl - 1;
               command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
+              command.ExecuteNonQuery();
+              command.CommandText = "update [Exercise] set Exercise_Level = @levelup where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
               command.ExecuteNonQuery();
             }
             levl--;
