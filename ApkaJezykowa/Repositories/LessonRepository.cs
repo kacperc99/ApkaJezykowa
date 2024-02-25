@@ -448,7 +448,11 @@ namespace ApkaJezykowa.Repositories
               command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
               command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
               command.ExecuteNonQuery();
-              command.CommandText = "update [Exercise] set Exercise_Level = @leveldown where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
+              command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + levl.ToString() + "%";
+              int count = System.Convert.ToInt32(command.ExecuteScalar());
+              command.CommandText = "update [Exercise] set Exercise_Level = @leveldown, Exercise_Parameter = @param2 where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
+              command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + levl.ToString() + (count + 1).ToString();
               command.ExecuteNonQuery();
             }
             levl++;
@@ -471,7 +475,11 @@ namespace ApkaJezykowa.Repositories
               command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl - 1;
               command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
               command.ExecuteNonQuery();
-              command.CommandText = "update [Exercise] set Exercise_Level = @levelup where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
+              command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + levl.ToString() + "%";
+              int count = System.Convert.ToInt32(command.ExecuteScalar());
+              command.CommandText = "update [Exercise] set Exercise_Level = @levelup, Exercise_Parameter = @param2 where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
+              command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + levl.ToString() + (count + 1).ToString();
               command.ExecuteNonQuery();
             }
             levl--;
@@ -490,6 +498,13 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
         command.Parameters.Add("@oldtitle", SqlDbType.NVarChar).Value = OldTitle;
         command.Parameters.Add("@oldlevel", SqlDbType.Decimal).Value = supportlevl;
+        command.ExecuteNonQuery();
+        command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+        command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + Level.ToString() + "%";
+        int count = System.Convert.ToInt32(command.ExecuteScalar());
+        command.CommandText = "update [Exercise] set Exercise_Level = @level, Exercise_Parameter = @param2 where Exercise_Level = @oldlevel and Exercise_Language=@language and Id_Course = @id";
+        command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.ExecuteNonQuery();
       }
       ObservableCollection<LessonData> data = new ObservableCollection<LessonData>();

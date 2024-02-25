@@ -223,9 +223,10 @@ namespace ApkaJezykowa.Repositories
       }
     }
     public void AddExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string Title, decimal Level, string TaskText)
-    { 
-      using(var connection = GetCourseConnection())
-      using(var command = new SqlCommand())
+    {
+      int id;
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
@@ -236,29 +237,39 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
-        command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count +1).ToString();
+        command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
         command.Parameters.Add("@tasktext", SqlDbType.NVarChar).Value = TaskText;
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
         command.ExecuteNonQuery();
         command.CommandText = "select Id_Exercise from [Exercise] where Exercise_Parameter = @param2";
         command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
-        int id = System.Convert.ToInt32(command.ExecuteScalar());
+        id = System.Convert.ToInt32(command.ExecuteScalar());
+      }
+    
         foreach (var x in EditedExercises)
         {
-          command.CommandText = "insert into [Exercise_Content] values (@task, @answer1, @answer2, @answer3, @tip, @id)";
-          command.Parameters.Add("@task", SqlDbType.NVarChar).Value = x.Task;
-          command.Parameters.Add("@answer1", SqlDbType.NVarChar).Value = x.Answer1;
-          command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = x.Answer2;
-          command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = x.Answer3;
-          command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = x.Tip;
-          command.Parameters.Add("@id", SqlDbType.Int).Value = id;
-          command.ExecuteNonQuery();
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+           connection.Open();
+           command.Connection = connection;
+           command.CommandText = "insert into [Exercise_Content] values (@task, @answer1, @answer2, @answer3, @tip, @id)";
+           command.Parameters.Add("@task", SqlDbType.NVarChar).Value = x.Task;
+           command.Parameters.Add("@answer1", SqlDbType.NVarChar).Value = x.Answer1;
+           command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = x.Answer2 ?? (object)DBNull.Value;
+           command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = x.Answer3 ?? (object)DBNull.Value;
+           command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = x.Tip;
+           command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+           command.ExecuteNonQuery();
+          }
         }
-      }
-    }
+     }
+    
     public void EditExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string TaskText, string OldTitle, string Title, decimal Level, int CourseID, int Exercise_Id)
     {
+      ObservableCollection<ExerciseData> data = new ObservableCollection<ExerciseData>();
       //few changes and improvements will be needed, certain actions are being initiaied unecessarily
+      //everything is going to be moved to the dabase itself as a procedure
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -273,9 +284,9 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@tasktext", SqlDbType.NVarChar).Value = TaskText;
         command.Parameters.Add("@id", SqlDbType.Int).Value = Exercise_Id;
         command.ExecuteScalar();
-        ObservableCollection<ExerciseData> data = new ObservableCollection<ExerciseData>();
+        
         command.CommandText = "select Id_Exercise_Content, Task, Answer, Answer2, Answer3, Tip from [Exercise_Content] where Id_Exercise = @id";
-        using(var reader = command.ExecuteReader())
+        using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
           {
@@ -290,17 +301,23 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-        foreach(var x in data)
+      }
+      foreach (var x in data)
+      {
+        using (var connection = GetCourseConnection())
+        using (var command = new SqlCommand())
         {
-          if (EditedExercises.Any(e=>e.Exercise_Content_Id==x.Exercise_Content_Id))
+          connection.Open();
+          command.Connection = connection;
+          if (EditedExercises.Any(e => e.Exercise_Content_Id == x.Exercise_Content_Id))
           {
             if (EditedExercises.Any(e => e.Exercise_Content_Id == x.Exercise_Content_Id && (e.Answer1 != x.Answer1 || e.Answer2 != x.Answer2 || e.Answer3 != x.Answer3 || e.Task != x.Task || e.Tip != x.Tip)))
             {
               command.CommandText = "update [Exercise_Content] set Task = @task, Answer = @answer1, Answer2 = @answer2, Answer3 = @answer3, Tip = @tip where Id_Exercise_Content = @id2";
               command.Parameters.Add("@task", SqlDbType.NVarChar).Value = x.Task;
               command.Parameters.Add("@answer1", SqlDbType.NVarChar).Value = x.Answer1;
-              command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = x.Answer2;
-              command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = x.Answer3;
+              command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = x.Answer2 ?? (object)DBNull.Value;
+              command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = x.Answer3 ?? (object)DBNull.Value;
               command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = x.Tip;
               command.Parameters.Add("@id2", SqlDbType.Int).Value = x.Exercise_Content_Id;
               command.ExecuteNonQuery();
@@ -315,17 +332,25 @@ namespace ApkaJezykowa.Repositories
             command.ExecuteNonQuery();
           }
         }
+      }
         if(EditedExercises.Count > 0)
         {
           foreach(var p in EditedExercises)
           {
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
             command.CommandText = "insert into [Exercise_Content] values (@task, @answer1, @answer2,@answer3,@tip,@id)";
             command.Parameters.Add("@task", SqlDbType.NVarChar).Value = p.Task;
             command.Parameters.Add("@answer1", SqlDbType.NVarChar).Value = p.Answer1;
-            command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = p.Answer2;
-            command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = p.Answer3;
+            command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = p.Answer2 ?? (object)DBNull.Value;
+            command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = p.Answer3 ?? (object)DBNull.Value;
             command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = p.Tip;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = Exercise_Id;
             command.ExecuteNonQuery();
+          
           }
         }
       }

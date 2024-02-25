@@ -146,18 +146,61 @@
                 </Button>
             </Grid>
         </WrapPanel>
-        <WrapPanel Grid.Row="3" Width="auto">
-            <ListBox Background="Transparent" ItemsSource="{Binding EditedExercises}">
+        <WrapPanel Grid.Row="3">
+            <TextBlock Text="{Binding ErrorMessage}" Margin="0,20,0,0" FontSize="14" Foreground="Black" Background="Transparent"/>
+            <ListBox Background="Transparent" ItemsSource="{Binding EditedExercises}" Margin="0,40,0,0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Task, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Width="650"/>
+                            <TextBlock Text="{Binding Task, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Width="auto"/>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Answer1, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Width="650"/>
-                                <TextBlock Text="{Binding Answer2, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Width="650"/>
-                                <TextBlock Text="{Binding Answer3, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Width="650"/>
+                                <TextBlock Text="{Binding Answer1, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="20,0,20,0" Width="auto"/>
+                                <TextBlock Text="{Binding Answer2, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="20,0,20,0" Width="auto"/>
+                                <TextBlock Text="{Binding Answer3, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="20,0,20,0" Width="auto"/>
                             </StackPanel>
-                            <TextBlock Text="{Binding Tip, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Width="650"/>
+                            <TextBlock Text="{Binding Tip, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Width="auto"/>
+                            <Button Height="30" Width="30"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.DeleteCommand}"
+                                CommandParameter="{Binding Exercise_Content_Id}">
+                                <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/exit.png" Height="30"/>
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                        <Style.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListBoxItem}},Path=IsMouseOver}"
+                                                Value="True">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button Height="30" Width="30"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.ChooseCommand}"
+                                CommandParameter="{Binding Exercise_Content_Id}">
+                                <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/settings.png" Height="30"/>
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                        <Style.Triggers>
+                                            <DataTrigger
+                                                    Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListBoxItem}},Path=IsMouseOver}"
+                                                    Value="True">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

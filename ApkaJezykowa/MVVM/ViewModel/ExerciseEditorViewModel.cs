@@ -14,13 +14,14 @@ namespace ApkaJezykowa.MVVM.ViewModel
 {
   public class ExerciseData : BaseViewModel
   {
-    public int Exercise_Content_Id;
+    public int _exercise_Content_Id;
     public string _task;
     public string _answer1;
     public string _answer2;
     public string _answer3;
     public string _tip;
 
+    public int Exercise_Content_Id { get { return _exercise_Content_Id; } set { _exercise_Content_Id = value; OnPropertyChanged(nameof(Exercise_Content_Id)); } }
     public string Task { get { return _task; } set { _task = value; OnPropertyChanged(nameof(Task)); } }
     public string Answer1 { get { return _answer1; } set { _answer1 = value; OnPropertyChanged(nameof(Answer1)); } }
     public string Answer2 { get { return _answer2; } set { _answer2 = value; OnPropertyChanged(nameof(Answer2)); } }
@@ -139,6 +140,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Answer3 = value.Answer3;
       Tip = value.Tip;
       ModifiedTaskId = value.Exercise_Content_Id;
+      IsTaskBeingEdited = true;
     }
     public void ExecuteDeleteCommand(object parameter) 
     {
