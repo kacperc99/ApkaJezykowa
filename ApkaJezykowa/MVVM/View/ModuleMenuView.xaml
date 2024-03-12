@@ -24,17 +24,15 @@
                                 Width="200"
                                 Background="Transparent"
                         BorderThickness="0"
-                        Opacity="0.5"
                         Style="{StaticResource NoMouseOver}"
                         Command="{Binding FrenchUpdateViewCommand}"
-                        CommandParameter="FrenchSomething">
+                        CommandParameter="FrenchVocabulary">
                     <StackPanel>
-                        <TextBlock Text="Not done yet"
+                        <TextBlock Text="Vocabulary"
                        FontSize="24" 
-                       Margin="0,0,0,0"
+                       Margin="0,10,0,0"
                        Style="{StaticResource Font_Style}" 
                        FontStyle="Italic" 
-                       Width="200"
                        Height="50"
                        HorizontalAlignment="Center">
                         </TextBlock>

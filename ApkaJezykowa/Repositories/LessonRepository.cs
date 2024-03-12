@@ -138,9 +138,11 @@ namespace ApkaJezykowa.Repositories
       Nullable<decimal> DecimalLevel = Level;
       if (DecimalLevel == 0)
         DecimalLevel = null;
-      List<string> ts = new List<string>();
-      ts.Add("None");
-      using(var connection = GetCourseConnection())
+      List<string> ts = new List<string>
+      {
+        "None"
+      };
+      using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();

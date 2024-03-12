@@ -192,17 +192,22 @@
     <Compile Include="MVVM\Model\ILessonRepository.cs" />
     <Compile Include="MVVM\Model\ISessionContext.cs" />
     <Compile Include="MVVM\Model\IProgressCardRepository.cs" />
+    <Compile Include="MVVM\Model\IVocabularyRepository.cs" />
     <Compile Include="MVVM\Model\LessonContentModel.cs" />
     <Compile Include="MVVM\Model\LessonImageModel.cs" />
     <Compile Include="MVVM\Model\LessonListModel.cs" />
     <Compile Include="MVVM\Model\LessonModel.cs" />
+    <Compile Include="MVVM\Model\ListeningListModel.cs" />
+    <Compile Include="MVVM\Model\ReadingListModel.cs" />
     <Compile Include="MVVM\Model\User_CourseModel.cs" />
     <Compile Include="MVVM\Model\VisibilityModel.cs" />
+    <Compile Include="MVVM\Model\VocabularyListModel.cs" />
     <Compile Include="MVVM\ViewModel\ExerciseEditorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonEditorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonListViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestInfoViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\VocabularyMenuViewModel.cs" />
     <Compile Include="MVVM\View\ExerciseEditorView.xaml.cs">
       <DependentUpon>ExerciseEditorView.xaml</DependentUpon>
     </Compile>
@@ -248,11 +253,15 @@
     <Compile Include="MVVM\View\TestInfoView.xaml.cs">
       <DependentUpon>TestInfoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\VocabularyMenuView.xaml.cs">
+      <DependentUpon>VocabularyMenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ExerciseRepository.cs" />
     <Compile Include="Repositories\LessonRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\ProgressCardRepository.cs" />
+    <Compile Include="Repositories\VocabularyRepository.cs" />
     <Compile Include="System\Web\HttpUtility.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
@@ -327,6 +336,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\VocabularyMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\ListViewStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -397,7 +410,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\reading.png" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -436,6 +451,9 @@
   <ItemGroup>
     <Resource Include="Fonts\OFL.txt" />
     <Resource Include="Fonts\README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\listening.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

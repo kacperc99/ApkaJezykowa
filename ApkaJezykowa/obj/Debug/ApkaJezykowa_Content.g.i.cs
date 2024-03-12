@@ -8,26 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/336-3364653_x-button-exit-icon-symbol-sign-cross-botao.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/arrow.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/arrowchevron.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/bg.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/bg.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/book.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/duo.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/eng_flag.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/exit.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/fr_flag.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/ger_flag.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/info.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/lekcje.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/lekcje2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/logout.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/mainpage.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/menu.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/menu2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/settings.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/slownik.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/slownik.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/listening.png")]
 
 

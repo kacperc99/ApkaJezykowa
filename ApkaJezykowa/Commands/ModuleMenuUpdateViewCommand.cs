@@ -46,6 +46,11 @@ namespace ApkaJezykowa.Commands
         //ExerciseLevelModel.Instance.Language = "French";
         viewModel.SelectedViewModel = new ExerciseMenuViewModel(Lang);
       }
+      if (parameter.ToString() == "FrenchVocabulary")
+      {
+        //ExerciseLevelModel.Instance.Language = "French";
+        viewModel.SelectedViewModel = new VocabularyMenuViewModel(Lang);
+      }
     }
   }
 }

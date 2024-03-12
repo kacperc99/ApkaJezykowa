@@ -108,3 +108,5 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\Lesson
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ModuleMenuView.baml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ExerciseEditorView.g.cs
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ExerciseEditorView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\VocabularyMenuView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\VocabularyMenuView.baml

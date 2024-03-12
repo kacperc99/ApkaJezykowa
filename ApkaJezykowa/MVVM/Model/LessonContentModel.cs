@@ -11,7 +11,6 @@ namespace ApkaJezykowa.MVVM.Model
   {
     public int Id {  get; set; }
    public string LessonText { get; set; }
-   //public List<byte[]> LessonImage { get; set; }
    public List<LessonImageModel> LessonImages { get; set; }
   }
 }
