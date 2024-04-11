@@ -110,3 +110,11 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\Exerci
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ExerciseEditorView.baml
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\VocabularyMenuView.g.cs
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\VocabularyMenuView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ChooseRightPhraseView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ComprehensionTestView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ComprehensionView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\TTSPhraseView.g.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ChooseRightPhraseView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ComprehensionTestView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\ComprehensionView.baml
+C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\obj\Debug\MVVM\View\TTSPhraseView.baml

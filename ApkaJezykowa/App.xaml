@@ -56,6 +56,18 @@
             <DataTemplate DataType="{x:Type viewModel:VocabularyMenuViewModel}">
                 <view:VocabularyMenuView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:TTSPhraseViewModel}">
+                <view:TTSPhraseView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ChooseRightPhraseViewModel}">
+                <view:ChooseRightPhraseView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ComprehensionViewModel}">
+                <view:ComprehensionView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ComprehensionTestViewModel}">
+                <view:ComprehensionTestView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

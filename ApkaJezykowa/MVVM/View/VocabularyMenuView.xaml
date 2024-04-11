@@ -36,8 +36,8 @@
                                                 <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/listening.png" Height="30" Margin="20,0,0,0"></Image>
                                                 <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
                                 Width="200" Height="50" Content="Begin" HorizontalAlignment="Right" DockPanel.Dock="Right"
-                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.VocabularyMenuUpdateViewCommand}"
-                                CommandParameter="{Binding Path = DataContext.Vocabulary_Parameter,RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}">
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.VocabularyMenuListeningUpdateViewCommand}"
+                                CommandParameter="{Binding Id_Listening}">
                                                 <Button.Style>
                                                     <Style TargetType="Button">
                                                         <Setter Property="Background" Value="LightGray"/>
@@ -65,8 +65,8 @@
                                                 <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/reading.png" Height="30" Margin="20,0,0,0"/>
                                                 <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
                                                 Width="200" Height="50" Content="Begin" HorizontalAlignment="Right"
-                                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.VocabularyMenuUpdateViewCommand}"
-                                                CommandParameter="{Binding Path = DataContext.Vocabulary_Parameter,RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}">
+                                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.VocabularyMenuReadingUpdateViewCommand}"
+                                                CommandParameter="{Binding Id_Reading}">
                                                     <Button.Style>
                                                         <Style TargetType="Button">
                                                             <Setter Property="Background" Value="LightGray"/>
@@ -91,7 +91,7 @@
                                 <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
                                 Width="200" Height="50" Content="Begin" HorizontalAlignment="Right"
                                 Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.VocabularyMenuUpdateViewCommand}"
-                                CommandParameter="{Binding Vocabulary_Parameter}">
+                                CommandParameter="{Binding Id_Vocabulary}">
                                     <Button.Style>
                                         <Style TargetType="Button">
                                             <Setter Property="Background" Value="LightGray"/>

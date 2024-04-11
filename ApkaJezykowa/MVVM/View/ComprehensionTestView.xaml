@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="ApkaJezykowa.MVVM.View.ComprehensionTestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View" xmlns:local1="clr-namespace:ApkaJezykowa.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local1:CommandParameterConverter x:Key="cpc"></local1:CommandParameterConverter>
+    </UserControl.Resources>
+    <Grid Background="DimGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition  Width="20"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Foreground="Black" Background="DimGray" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Text="{Binding Test}"></TextBlock>
+        <ListBox Grid.Row="1" Grid.Column="0" x:Name="LB"
+                          Background="DimGray"
+                          BorderBrush="Transparent"
+                          ItemsSource="{Binding TextQuestions}"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          VerticalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Question}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="24"/>
+                        <Label Background="Transparent" Margin="10,10,10,10">
+                            <RadioButton GroupName="{Binding GroupName}" Name="Answer1" Content="{Binding Answer1}" FontSize="14" Command="{Binding MarkAnswer}" IsEnabled="{Binding Enabler}">
+                                <RadioButton.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource cpc}">
+                                        <Binding Path="GroupName" />
+                                        <Binding Path="Answer1"/>
+                                    </MultiBinding>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                        </Label>
+                        <Label Background="Transparent" Margin="10,10,10,10">
+                            <RadioButton GroupName="{Binding GroupName}" Name="Answer2" Content="{Binding Answer2}" FontSize="14" Command="{Binding MarkAnswerCommand}" IsEnabled="{Binding Enabler}">
+                                <RadioButton.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource cpc}">
+                                        <Binding Path="GroupName" />
+                                        <Binding Path="Answer2"/>
+                                    </MultiBinding>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                        </Label>
+                        <Label Background="Transparent" Margin="10,10,10,10">
+                            <RadioButton GroupName="{Binding GroupName}" Name="Answer3" Content="{Binding Answer3}" FontSize="14" Command="{Binding MarkAnswerCommand}" IsEnabled="{Binding Enabler}">
+                                <RadioButton.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource cpc}">
+                                        <Binding Path="GroupName" />
+                                        <Binding Path="Answer3"/>
+                                    </MultiBinding>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                        </Label>
+                        <Label Background="Transparent" Margin="10,10,10,10">
+                            <RadioButton GroupName="{Binding GroupName}" Name="Answer4" Content="{Binding Answer4}" FontSize="14" Command="{Binding MarkAnswerCommand}" IsEnabled="{Binding Enabler}">
+                                <RadioButton.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource cpc}">
+                                        <Binding Path="GroupName" />
+                                        <Binding Path="Answer4"/>
+                                    </MultiBinding>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                        </Label>
+                        <TextBlock Text="{Binding Tip, UpdateSourceTrigger=PropertyChanged}" Foreground="Black" HorizontalAlignment="Left" Margin="40,20,100,0" FontSize="16" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="2" Grid.Column="0" x:Name="Leave" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Powrót" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Command="{Binding ChooseRightPhraseUpdateViewCommand}" CommandParameter="ReturnToMenu" Margin="10,0,0,10"></Button>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Score}" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="14" Background="DimGray"></TextBlock>
+        <Button Grid.Row="2" Grid.Column="0" x:Name="Check" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="{Binding Next_Button_Text, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Command="{Binding Check}" Margin="0,0,10,10" IsEnabled="{Binding Button_Enabler}"></Button>
+
+        <Grid Grid.RowSpan="3" Grid.Column="1" x:Name="nav_pnl"
+              HorizontalAlignment="Right"
+              Width="20"
+              Background="DimGray">
+
+            <StackPanel x:Name="st_pnl" Height="Auto">
+                <Grid Height="80"
+              Width="20"
+              HorizontalAlignment="Right"
+              Background="DarkGray">
+                    <ToggleButton x:Name="Tg_btn"
+             VerticalAlignment="Center"
+                          Grid.Column="0"
+                          Height="80"
+                          Width="20">
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="\Images\arrowchevron.png"/>
+                        </ToggleButton.Background>
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="HideStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                 Storyboard.TargetProperty="Width"
+                                                 BeginTime="0:0:0"
+                                                 From="230" To="20"
+                                                 Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="ShowStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="nav_pnl"
+                                                 Storyboard.TargetProperty="Width"
+                                                 BeginTime="0:0:0"
+                                                 From="20" To="230"
+                                                 Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
+                </Grid>
+
+                <TextBlock Grid.Row="0" Text="{Binding Text_Title}" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="DimGray"></TextBlock>
+                <TextBlock Width="Auto" FontSize="24" Foreground="Black" TextWrapping="Wrap"></TextBlock>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

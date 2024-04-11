@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1000">
+             mc:Ignorable="d" >
     <Grid Background="DimGray">
         <StackPanel Background="DimGray">
             <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="56" Text="Test info"></TextBlock>

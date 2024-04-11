@@ -121,6 +121,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Speech" />
     <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -170,6 +171,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ChooseRightPhraseUpdateViewCommand.cs" />
+    <Compile Include="Commands\ComprehensionUpdateViewCommand.cs" />
     <Compile Include="Commands\ExerciseEditorUpdateViewCommand.cs" />
     <Compile Include="Commands\ExerciseMenuUpdateViewCommand.cs" />
     <Compile Include="Commands\ExerciseUpdateViewCommand.cs" />
@@ -180,7 +183,13 @@
     <Compile Include="Commands\LessonUpdateViewComand.cs" />
     <Compile Include="Commands\LoginUpdateViewCommand.cs" />
     <Compile Include="Commands\TestInfoUpdateViewCommand.cs" />
+    <Compile Include="Commands\TTSPhraseUpdateViewCommand.cs" />
     <Compile Include="Commands\UpdateMainViewCommand.cs" />
+    <Compile Include="Commands\VocabularyMenuListeningUpdateViewCommand.cs" />
+    <Compile Include="Commands\VocabularyMenuReadingUpdateViewCommand.cs" />
+    <Compile Include="Commands\VocabularyMenuUpdateViewCommand.cs" />
+    <Compile Include="Commands\VocabularyTestModeUpdateViewCommand.cs" />
+    <Compile Include="Converters\CommandParameterConverter.cs" />
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
@@ -188,8 +197,10 @@
     <Compile Include="MVVM\Model\ExerciseListModel.cs" />
     <Compile Include="MVVM\Model\ExerciseModel.cs" />
     <Compile Include="MVVM\Model\HeightModel.cs" />
+    <Compile Include="MVVM\Model\IComprehensionRepository.cs" />
     <Compile Include="MVVM\Model\IExerciseRepository.cs" />
     <Compile Include="MVVM\Model\ILessonRepository.cs" />
+    <Compile Include="MVVM\Model\IListeningRepository.cs" />
     <Compile Include="MVVM\Model\ISessionContext.cs" />
     <Compile Include="MVVM\Model\IProgressCardRepository.cs" />
     <Compile Include="MVVM\Model\IVocabularyRepository.cs" />
@@ -199,15 +210,34 @@
     <Compile Include="MVVM\Model\LessonModel.cs" />
     <Compile Include="MVVM\Model\ListeningListModel.cs" />
     <Compile Include="MVVM\Model\ReadingListModel.cs" />
+    <Compile Include="MVVM\Model\ReadingTextModel.cs" />
+    <Compile Include="MVVM\Model\TextQuestionModel.cs" />
+    <Compile Include="MVVM\Model\TextQuestionTestModel.cs" />
+    <Compile Include="MVVM\Model\TextWordbookModel.cs" />
+    <Compile Include="MVVM\Model\TranslatedTextModel.cs" />
     <Compile Include="MVVM\Model\User_CourseModel.cs" />
     <Compile Include="MVVM\Model\VisibilityModel.cs" />
     <Compile Include="MVVM\Model\VocabularyListModel.cs" />
+    <Compile Include="MVVM\ViewModel\ChooseRightPhraseViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ComprehensionTestViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ComprehensionViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ExerciseEditorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ExerciseMenuViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonEditorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LessonListViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestInfoViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TTSPhraseViewModel.cs" />
     <Compile Include="MVVM\ViewModel\VocabularyMenuViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\VocabularyTestModeViewModel.cs" />
+    <Compile Include="MVVM\View\ChooseRightPhraseView.xaml.cs">
+      <DependentUpon>ChooseRightPhraseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ComprehensionTestView.xaml.cs">
+      <DependentUpon>ComprehensionTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ComprehensionView.xaml.cs">
+      <DependentUpon>ComprehensionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\ExerciseEditorView.xaml.cs">
       <DependentUpon>ExerciseEditorView.xaml</DependentUpon>
     </Compile>
@@ -253,17 +283,37 @@
     <Compile Include="MVVM\View\TestInfoView.xaml.cs">
       <DependentUpon>TestInfoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\TTSPhraseView.xaml.cs">
+      <DependentUpon>TTSPhraseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\VocabularyMenuView.xaml.cs">
       <DependentUpon>VocabularyMenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\VocabularyTestModeView.xaml.cs">
+      <DependentUpon>VocabularyTestModeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\ComprehensionRepository.cs" />
     <Compile Include="Repositories\ExerciseRepository.cs" />
     <Compile Include="Repositories\LessonRepository.cs" />
+    <Compile Include="Repositories\ListeningRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\ProgressCardRepository.cs" />
     <Compile Include="Repositories\VocabularyRepository.cs" />
     <Compile Include="System\Web\HttpUtility.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ChooseRightPhraseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ComprehensionTestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ComprehensionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -336,7 +386,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\TTSPhraseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\VocabularyMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\VocabularyTestModeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -454,6 +512,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\listening.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\listen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

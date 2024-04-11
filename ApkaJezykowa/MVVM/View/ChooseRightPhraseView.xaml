@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="ApkaJezykowa.MVVM.View.ChooseRightPhraseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View" 
+             xmlns:viewmodel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:ChooseRightPhraseViewModel}"
+             mc:Ignorable="d" >
+    <Grid Background="DimGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Podaj poprawną odpowiedź na pytanie" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="DimGray"></TextBlock>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="14" Background="DimGray" Visibility="{Binding Phrase_Switch}"></TextBlock>
+            <Button Height="100" Width="100" Background="Transparent"
+        BorderThickness="0" Margin="0,10,0,10" HorizontalAlignment="Center" VerticalAlignment="Center"
+        Style="{StaticResource NoMouseOver}"
+          Command="{Binding Play}">
+                <StackPanel>
+                    <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/listen.png"  VerticalAlignment="Bottom" Margin="0,0,0,0" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Background="{Binding Colour1}" Margin="10,10,10,10">
+                <RadioButton GroupName="answer" Name="Answer1" Content="{Binding Answer1, UpdateSourceTrigger=PropertyChanged}" FontSize="14" Command="{Binding MarkAnswer}" CommandParameter="Answer1" IsEnabled="{Binding Enabler}">
+                </RadioButton>
+            </Label>
+            <Label Grid.Row="0" Grid.Column="1" Background="{Binding Colour2}" Margin="10,10,10,10">
+                <RadioButton GroupName="answer" Name="Answer2" Content="{Binding Answer2, UpdateSourceTrigger=PropertyChanged}" FontSize="14" Command="{Binding MarkAnswer}" CommandParameter="Answer2" IsEnabled="{Binding Enabler}">
+                </RadioButton>
+            </Label>
+            <Label Grid.Row="1" Grid.Column="0" Background="{Binding Colour3}" Margin="10,10,10,10">
+                <RadioButton GroupName="answer" Name="Answer3" Content="{Binding Answer3, UpdateSourceTrigger=PropertyChanged}" FontSize="14" Command="{Binding MarkAnswer}" CommandParameter="Answer3" IsEnabled="{Binding Enabler}">
+                </RadioButton>
+            </Label>
+            <Label Grid.Row="1" Grid.Column="1" Background="{Binding Colour4}" Margin="10,10,10,10">
+                <RadioButton GroupName="answer" Name="Answer4" Content="{Binding Answer4, UpdateSourceTrigger=PropertyChanged}" FontSize="14" Command="{Binding MarkAnswer}" CommandParameter="Answer4" IsEnabled="{Binding Enabler}">
+                </RadioButton>
+            </Label>
+        </Grid>
+        <Button Grid.Row="3" x:Name="Leave" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Powrót" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Command="{Binding ChooseRightPhraseUpdateViewCommand}" CommandParameter="ReturnToMenu" Margin="10,0,0,10"></Button>
+        <TextBlock Grid.Row="3" Text="{Binding Score}" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="14" Background="DimGray"></TextBlock>
+        <Button Grid.Row="3" x:Name="Check" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="{Binding Next_Button_Text, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Command="{Binding Check}" Margin="0,0,10,10" IsEnabled="{Binding Button_Enabler}"></Button>
+    </Grid>
+</UserControl>

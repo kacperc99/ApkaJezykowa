@@ -1,4 +1,5 @@
-﻿using ApkaJezykowa.MVVM.Model;
+﻿using ApkaJezykowa.Commands;
+using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,16 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
     }
     public ICommand VocabularyMenuUpdateViewCommand { get; set; }
+    public ICommand VocabularyMenuReadingUpdateViewCommand { get; set; }
+    public ICommand VocabularyMenuListeningUpdateViewCommand { get; set; }
 
     public VocabularyMenuViewModel(string Lang) 
     {
       vocabularyRepository = new VocabularyRepository();
       vocabularyRepository.ObtainVocabList(VocabularyList, Lang, Properties.Settings.Default.Language);
-      //VocabularyMenuUpdateViewCommand = new VocabularyMenuUpdateViewCommand(this);
+      VocabularyMenuUpdateViewCommand = new VocabularyMenuUpdateViewCommand(Lang,this);
+      VocabularyMenuReadingUpdateViewCommand = new VocabularyMenuReadingUpdateViewCommand(Lang, this);
+      VocabularyMenuListeningUpdateViewCommand = new VocabularyMenuListeningUpdateViewCommand(Lang, this);
     }
   }
 }
