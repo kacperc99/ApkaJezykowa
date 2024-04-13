@@ -23,7 +23,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
   {
     ObservableCollection<TaskTemplate> data = new ObservableCollection<TaskTemplate>();
     int Id_Listening;
+    int Id_Vocabulary;
     string Lang;
+    bool IsTestMode = false;
     int points;
     string chosen_answer;
     public bool Enabler = true;
@@ -64,15 +66,26 @@ namespace ApkaJezykowa.MVVM.ViewModel
       set { _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel)); }
     }
     public ICommand MarkAnswer { get; set; }
-    public ICommand ChooseRightPhraseUpdateViewCommmand { get; }
+    public ICommand ChooseRightPhraseUpdateViewCommand { get; }
     public ChooseRightPhraseViewModel(int Id_Listening, string Lang, int points) 
     { 
       this.Id_Listening = Id_Listening;
       this.Lang = Lang;
       this.points = points;
-      ChooseRightPhraseUpdateViewCommmand = new ChooseRightPhraseUpdateViewCommand(this, Lang);
+      ChooseRightPhraseUpdateViewCommand = new ChooseRightPhraseUpdateViewCommand(this, Lang);
       MarkAnswer = new RelayCommand(ExecuteMarkAnswer);
       listeningRepository.GetAnswers(data, Id_Listening, Lang);
+      GetQuestion();
+    }
+    public ChooseRightPhraseViewModel(int Id_Vocabulary, string Lang, int points, bool IsTestMode)
+    {
+      this.Id_Vocabulary = Id_Vocabulary;
+      this.Lang = Lang;
+      this.points = points;
+      this.IsTestMode = IsTestMode;
+      ChooseRightPhraseUpdateViewCommand = new ChooseRightPhraseUpdateViewCommand(this, Lang, Id_Vocabulary, points);
+      MarkAnswer = new RelayCommand(ExecuteMarkAnswer);
+      listeningRepository.GetTestAnswers(data, Id_Vocabulary, Lang);
       GetQuestion();
     }
     void GetQuestion()
@@ -183,12 +196,19 @@ namespace ApkaJezykowa.MVVM.ViewModel
         }
         else
         {
-          if (points > 8)
-            Score = "Your score: " + points.ToString() + ". Congratulations!";
+          if(IsTestMode)
+          {
+            ChooseRightPhraseUpdateViewCommand.Execute("Test");
+          }
           else
-            Score = "Your score: " + points.ToString();
-          Button_Enabler = false;
-          //switch screen
+          {
+            if (points > 8)
+              Score = "Your score: " + points.ToString() + ". Congratulations!";
+            else
+              Score = "Your score: " + points.ToString();
+            Button_Enabler = false;
+            //switch screen
+          }
         }
       }
     }

@@ -18,6 +18,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     string _score;
     int points;
     bool Enabler = true;
+    bool IsTestMode = false;
     ObservableCollection<TextQuestionTestModel> textQuestions = new ObservableCollection<TextQuestionTestModel>();
     ObservableCollection<string> correctAnswers = new ObservableCollection<string>();
     string[] answers;
@@ -48,6 +49,20 @@ namespace ApkaJezykowa.MVVM.ViewModel
       MarkAnswerCommand = new RelayCommand(ExecuteMarkAnswerCommand);
       CheckAnswersCommand = new RelayCommand(ExecuteCheckAnswersCommand);
     }
+    public ComprehensionTestViewModel(ObservableCollection<TextQuestionTestModel> textQuestions, ObservableCollection<string> correctAnswers, string _translated_Text, string _tTS_Text, string _title, bool IsTestMode, int points)
+    {
+      this.Translated_Text = _translated_Text;
+      this.CorrectAnswers = correctAnswers;
+      this.TextQuestions = textQuestions;
+      this.TTS_Text = _tTS_Text;
+      this.Title = _title;
+      this.answers = new string[correctAnswers.Count()];
+      this.points = 0;
+      MarkAnswerCommand = new RelayCommand(ExecuteMarkAnswerCommand);
+      CheckAnswersCommand = new RelayCommand(ExecuteCheckAnswersCommand);
+      this.IsTestMode = IsTestMode;
+      this.points = points;
+    }
 
     public void ExecuteMarkAnswerCommand(object parameter)
     {
@@ -59,15 +74,30 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public void ExecuteCheckAnswersCommand(object parameter)
     {
       Enabler = false;
-      for (int i = 0; i < CorrectAnswers.Count; i++) 
+      if(!IsTestMode)
       {
-        if (answers[i] == CorrectAnswers[i])
-          points++;
+        for (int i = 0; i < CorrectAnswers.Count; i++)
+        {
+          if (answers[i] == CorrectAnswers[i])
+            points++;
+        }
+        if (points > 7)
+          Score = "Wynik: " + points.ToString() + ". Gratulujemy wyniku!";
+        else
+          Score = "Wynik: " + points.ToString();
       }
-      if (points > 7)
-        Score = "Wynik: " + points.ToString() + ". Gratulujemy wyniku!";
       else
-        Score = "Wynik: " + points.ToString();
+      {
+        for (int i = 0; i < CorrectAnswers.Count; i++)
+        {
+          if (answers[i] == CorrectAnswers[i])
+            points++;
+        }
+        if (points > 16)
+          Score = "Wynik: " + points.ToString() + ". Osiągnąłeś kolejny poziom nauki!";
+        else
+          Score = "Wynik: " + points.ToString();
+      }
     }
   }
 }

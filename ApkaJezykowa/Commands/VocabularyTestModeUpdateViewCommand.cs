@@ -11,10 +11,13 @@ namespace ApkaJezykowa.Commands
   internal class VocabularyTestModeUpdateViewCommand : ICommand
   {
     private VocabularyTestModeViewModel viewModel;
-
-    public VocabularyTestModeUpdateViewCommand(VocabularyTestModeViewModel viewModel)
+    public int id;
+    public string Lang;
+    public VocabularyTestModeUpdateViewCommand(VocabularyTestModeViewModel viewModel, int id, string Lang)
     {
       this.viewModel = viewModel;
+      this.id = id;
+      this.Lang = Lang;
     }
 
     public event EventHandler CanExecuteChanged;
@@ -26,7 +29,7 @@ namespace ApkaJezykowa.Commands
 
     public void Execute(object parameter)
     {
-      throw new NotImplementedException();
+      viewModel.SelectedViewModel = new TTSPhraseViewModel(id, Lang, true);
     }
   }
 }

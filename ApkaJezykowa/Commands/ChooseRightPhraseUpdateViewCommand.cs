@@ -11,11 +11,20 @@ namespace ApkaJezykowa.Commands
   internal class ChooseRightPhraseUpdateViewCommand : ICommand
   {
     public string Lang;
+    int Id_Vocabulary;
+    int points;
     private ChooseRightPhraseViewModel viewModel;
     public ChooseRightPhraseUpdateViewCommand(ChooseRightPhraseViewModel viewModel, string lang)
     {
       this.viewModel = viewModel;
       Lang = lang;
+    }
+    public ChooseRightPhraseUpdateViewCommand(ChooseRightPhraseViewModel viewModel, string lang, int id_Vocabulary, int points)
+    {
+      this.viewModel = viewModel;
+      Lang = lang;
+      Id_Vocabulary = id_Vocabulary;
+      this.points = points;
     }
     public event EventHandler CanExecuteChanged;
 
@@ -29,6 +38,10 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "ReturnToMenu")
       {
         viewModel.SelectedViewModel = new VocabularyMenuViewModel(Lang);
+      }
+      if (parameter.ToString() == "Test")
+      {
+        viewModel.SelectedViewModel = new ComprehensionViewModel(Id_Vocabulary, Lang, true, points);
       }
     }
   }

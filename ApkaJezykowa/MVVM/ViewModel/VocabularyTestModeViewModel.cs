@@ -24,7 +24,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
       this.Lang = Lang;
       this.id = id;
-      VocabularyTestModeUpdateViewCommand = new VocabularyTestModeUpdateViewCommand(this);
+      VocabularyTestModeUpdateViewCommand = new VocabularyTestModeUpdateViewCommand(this, id, Lang);
     }
   }
 }

@@ -12,5 +12,7 @@ namespace ApkaJezykowa.MVVM.Model
   {
     void GetPhrases(ObservableCollection<TTS> phrases, int id, string Language);
     void GetAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang);
+    void GetTestPhrases(ObservableCollection<TTS> phrases, int id, string Language);
+    void GetTestAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang);
   }
 }

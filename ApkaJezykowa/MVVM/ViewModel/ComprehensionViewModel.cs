@@ -17,10 +17,13 @@ namespace ApkaJezykowa.MVVM.ViewModel
   {
     string Lang;
     int Id_Comprehension;
+    int Id_Vocabulary;
     string _title;
     string _tTS_Text;
     byte[] _illustration;
     bool ButtonSwitch = false;
+    bool IsTestMode = false;
+    int points;
     ObservableCollection<TextWordbookModel> _textWordbook = new ObservableCollection<TextWordbookModel>();
     ObservableCollection<TextQuestionTestModel> textQuestions = new ObservableCollection<TextQuestionTestModel>();
     ObservableCollection<string> correctAnswers = new ObservableCollection<string>();
@@ -48,6 +51,22 @@ namespace ApkaJezykowa.MVVM.ViewModel
       comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text, TextWordBook);
       ReadText();
       Data_Obtainer(Id_Comprehension, result.Id_Reading_Text);
+
+      //a tutaj pobierz słownik i asynchronicznie w tle pobierz resztę danych
+    }
+    public ComprehensionViewModel(int Id_Vocabulary, string Lang, bool IsTestMode, int points)
+    {
+      this.Id_Vocabulary = Id_Vocabulary;
+      this.Lang = Lang;
+      this.IsTestMode = IsTestMode;
+      this.points = points;
+      ComprehensionUpdateViewCommand = new ComprehensionUpdateViewCommand(this, textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, Lang, true, points);
+      this.Id_Comprehension = comprehensionRepository.Get_Comprehension_Int(Id_Vocabulary);
+      var result = comprehensionRepository.Obtain_Test_Text(Id_Comprehension);
+      comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text, TextWordBook);
+      ReadText();
+      Data_Obtainer(Id_Comprehension, result.Id_Reading_Text);
+      
 
       //a tutaj pobierz słownik i asynchronicznie w tle pobierz resztę danych
     }

@@ -20,8 +20,41 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "Select * from [Reading_Text] where Id_Reading_Text = (select Id_Reading_Text from [Translated_Text] where Id_Comprehension = @id)";
+        command.CommandText = "Select top 1 * from [Reading_Text] where Only_Test_Mode=0 and Id_Reading_Text = (select Id_Reading_Text from [Translated_Text] where Id_Comprehension = @id)";
         command.Parameters.Add("@id",SqlDbType.Int).Value = Id_Comprehension;
+        var reader = command.ExecuteReader();
+        ReadingTextModel result = new ReadingTextModel();
+        result.Id_Reading_Text = (int)reader["Id_Reading_Text"];
+        result.Only_Test_Mode = null;
+        result.Text_Title = reader["Text_Title"].ToString();
+        result.TTS_Text = reader["TTS_Text"].ToString();
+        result.Illustration = (byte[])reader["Illustration"];
+        reader.Close();
+        return result;
+      }
+    }
+    public int Get_Comprehension_Int(int Id_Vocabulary)
+    {
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select top 1 Id_Comprehension from Comprehension where Id_Vocabulary = @id";
+        command.Parameters.Add("@id", SqlDbType.Int).Value = Id_Vocabulary;
+        var reader = command.ExecuteReader();
+        return command.ExecuteNonQuery();
+      }
+    }
+    public ReadingTextModel Obtain_Test_Text(int Id_Comprehension)
+    {
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "Select top 1 * from [Reading_Text] where Only_Test_Mode = 1 and Id_Reading_Text = (select Id_Reading_Text from [Translated_Text] where Id_Comprehension = @id)";
+        command.Parameters.Add("@id", SqlDbType.Int).Value = Id_Comprehension;
         var reader = command.ExecuteReader();
         ReadingTextModel result = new ReadingTextModel();
         result.Id_Reading_Text = (int)reader["Id_Reading_Text"];
@@ -51,7 +84,7 @@ namespace ApkaJezykowa.Repositories
             result.Word = reader["Word"].ToString();
             result.Translated_Word = reader["Translated_Word"].ToString();
             result.Id_Reading_Text = null;
-            result.Id_Comprehension = null;
+            result.Id_Comprehension = (int)reader["Id_Comprehension"];
             TextWordBook.Add(result);
           }
           reader.NextResult();

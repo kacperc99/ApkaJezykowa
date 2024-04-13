@@ -26,6 +26,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
   public class TTSPhraseViewModel : BaseViewModel
   {
     public ObservableCollection<TTS> phrases = new ObservableCollection<TTS>();
+    public bool IsTestMode = false;
     public string _task;
     public string _phrase;
     public string _answer;
@@ -39,6 +40,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public int num;
     public int counter=0;
     public int Id_Listening;
+    public int Id_Vocabulary;
     public string Lang;
     public BaseViewModel _selectedViewModel;
     private IListeningRepository listeningRepository;
@@ -69,6 +71,19 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Speak = new RelayCommand(ExecuteSpeak);
       Play = new RelayCommand(ExecutePlay);
       TTSPhraseUpdateViewCommand = new TTSPhraseUpdateViewCommand(Id_Listening, Lang, points, this);
+
+      Randomize_Task();
+    }
+    public TTSPhraseViewModel(int Id_Vocabulary, string Lang, bool IsTestMode)
+    {
+      this.Id_Vocabulary = Id_Vocabulary;
+      this.Lang = Lang;
+      this.IsTestMode = true;
+      listeningRepository.GetTestPhrases(phrases, Id_Vocabulary, Lang);
+      Check = new RelayCommand(ExecuteCheck);
+      Speak = new RelayCommand(ExecuteSpeak);
+      Play = new RelayCommand(ExecutePlay);
+      TTSPhraseUpdateViewCommand = new TTSPhraseUpdateViewCommand(Id_Vocabulary, Lang, points, this, true);
 
       Randomize_Task();
     }

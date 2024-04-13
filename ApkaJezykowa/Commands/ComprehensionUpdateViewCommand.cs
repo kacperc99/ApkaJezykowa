@@ -15,6 +15,8 @@ namespace ApkaJezykowa.Commands
     string Lang;
     string Title;
     string TTS_Text;
+    bool IsTestMode = false;
+    int points;
     public ObservableCollection<TextQuestionTestModel> textQuestions = new ObservableCollection<TextQuestionTestModel>();
     public ObservableCollection<string> correctAnswers = new ObservableCollection<string>();
     public string Translated_Text;
@@ -29,6 +31,18 @@ namespace ApkaJezykowa.Commands
       this.TTS_Text = TTS_Text;
       this.Title = Title;
     }
+    public ComprehensionUpdateViewCommand(ComprehensionViewModel viewModel, ObservableCollection<TextQuestionTestModel> textQuestions, ObservableCollection<string> correctAnswers, string Translated_Text, string TTS_Text, string Title, string lang, bool IsTestMode, int points)
+    {
+      this.textQuestions = textQuestions;
+      this.correctAnswers = correctAnswers;
+      this.Translated_Text = Translated_Text;
+      this.viewModel = viewModel;
+      this.Lang = lang;
+      this.TTS_Text = TTS_Text;
+      this.Title = Title;
+      this.IsTestMode = IsTestMode;
+      this.points = points;
+    }
     public event EventHandler CanExecuteChanged;
 
     public bool CanExecute(object parameter)
@@ -40,7 +54,10 @@ namespace ApkaJezykowa.Commands
     {
       if (parameter.ToString() == "GoToQuestions")
       {
-        viewModel.SelectedViewModel = new ComprehensionTestViewModel(textQuestions, correctAnswers, Translated_Text, TTS_Text, Title);
+        if (IsTestMode)
+          viewModel.SelectedViewModel = new ComprehensionTestViewModel(textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, true, points);
+        else
+          viewModel.SelectedViewModel = new ComprehensionTestViewModel(textQuestions, correctAnswers, Translated_Text, TTS_Text, Title);
       }
       if (parameter.ToString() == "ReturnToMenu")
       {
