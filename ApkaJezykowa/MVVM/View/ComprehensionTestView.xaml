@@ -134,6 +134,6 @@
             </StackPanel>
 
         </Grid>
-
+        <ContentControl Grid.RowSpan="3" Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>

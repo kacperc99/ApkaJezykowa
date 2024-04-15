@@ -51,5 +51,6 @@
             <Button x:Name="Next" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Next" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Command="{Binding ComprehensionUpdateViewCommand}" CommandParameter="GoToQuestions" Margin="0,0,10,10" IsVisibleChanged="{Binding ButtonSwitch}"></Button>
             </Grid>
         </StackPanel>
+        <ContentControl Grid.RowSpan="3" Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>

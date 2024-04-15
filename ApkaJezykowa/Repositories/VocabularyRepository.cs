@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,6 +78,23 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
+      }
+    }
+    public string GetAccent(string Lang)
+    {
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Accent from [Accent] where Id_Course = (select Id_Course from [Course] where Course_Name = @country)";
+        command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Lang;
+        using(var reader = command.ExecuteReader()) 
+        {
+          if(reader.Read())
+            return reader[0].ToString();
+        }
+        return null;
       }
     }
   }

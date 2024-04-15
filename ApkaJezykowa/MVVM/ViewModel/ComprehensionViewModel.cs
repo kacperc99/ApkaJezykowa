@@ -1,6 +1,7 @@
 ﻿using ApkaJezykowa.Commands;
 using ApkaJezykowa.Main;
 using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,6 +25,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     bool ButtonSwitch = false;
     bool IsTestMode = false;
     int points;
+    string Accent;
     ObservableCollection<TextWordbookModel> _textWordbook = new ObservableCollection<TextWordbookModel>();
     ObservableCollection<TextQuestionTestModel> textQuestions = new ObservableCollection<TextQuestionTestModel>();
     ObservableCollection<string> correctAnswers = new ObservableCollection<string>();
@@ -38,17 +40,24 @@ namespace ApkaJezykowa.MVVM.ViewModel
       get { return _selectedViewModel; }
       set { _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel)); }
     }
-    public IComprehensionRepository comprehensionRepository;
+    private IComprehensionRepository comprehensionRepository;
+    private IVocabularyRepository vocabularyRepository;
     public ICommand ComprehensionUpdateViewCommand { get; }
     public ComprehensionViewModel(int Id_Comprehension, string Lang)
     {
       this.Id_Comprehension = Id_Comprehension;
       this.Lang = Lang;
+      comprehensionRepository = new ComprehensionRepository();
+      vocabularyRepository = new VocabularyRepository();
       //wrzuć wszystko przez repo to var text czy coś
       ComprehensionUpdateViewCommand = new ComprehensionUpdateViewCommand(this, textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, Lang);
       var result = comprehensionRepository.Obtain_Text(Id_Comprehension);
+      this.Title = result.Text_Title;
+      this.TTS_Text = result.TTS_Text;
+      this.Illustration = result.Illustration;
       //var Translated = comprehensionRepository.Obtain_Translation(Id_Comprehension);
       comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text, TextWordBook);
+      Accent = vocabularyRepository.GetAccent(Lang);
       ReadText();
       Data_Obtainer(Id_Comprehension, result.Id_Reading_Text);
 
@@ -60,17 +69,18 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Lang = Lang;
       this.IsTestMode = IsTestMode;
       this.points = points;
+      comprehensionRepository = new ComprehensionRepository();
+      vocabularyRepository = new VocabularyRepository();
       ComprehensionUpdateViewCommand = new ComprehensionUpdateViewCommand(this, textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, Lang, true, points);
       this.Id_Comprehension = comprehensionRepository.Get_Comprehension_Int(Id_Vocabulary);
-      var result = comprehensionRepository.Obtain_Test_Text(Id_Comprehension);
+      var result = comprehensionRepository.Obtain_Test_Text(Id_Vocabulary);
       comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text, TextWordBook);
+      Accent = vocabularyRepository.GetAccent(Lang);
       ReadText();
       Data_Obtainer(Id_Comprehension, result.Id_Reading_Text);
-      
 
       //a tutaj pobierz słownik i asynchronicznie w tle pobierz resztę danych
     }
-
     async Task Data_Obtainer(int id, int reader_id)
     {
       //Translated_Text = Task.Run(()=>comprehensionRepository.Obtain_Translation(Id_Comprehension)).ToString();
@@ -90,7 +100,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     void ReadText()
     {
       SpeechSynthesizer tts = new SpeechSynthesizer();
-      tts.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult, 25, new CultureInfo("fr-FR", false));
+      tts.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult, 25, new CultureInfo(Accent, false));
       tts.Volume = 40;
       tts.Speak(TTS_Text);
     }

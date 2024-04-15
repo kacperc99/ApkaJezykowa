@@ -1,5 +1,6 @@
 ﻿using ApkaJezykowa.Main;
 using ApkaJezykowa.MVVM.Model;
+using ApkaJezykowa.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

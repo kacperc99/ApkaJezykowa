@@ -15,6 +15,8 @@ using Syncfusion.Windows.Shared.Resources;
 using System.Windows;
 using System.Speech.Synthesis;
 using ApkaJezykowa.Commands;
+using System.Security.RightsManagement;
+using ApkaJezykowa.Repositories;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
@@ -42,8 +44,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public int Id_Listening;
     public int Id_Vocabulary;
     public string Lang;
+    public string Accent;
     public BaseViewModel _selectedViewModel;
     private IListeningRepository listeningRepository;
+    private IVocabularyRepository vocabularyRepository;
     public string Task { get { return _task; } set { _task = value; OnPropertyChanged(nameof(Task)); } }
     public string Phrase { get { return _phrase; } set { _phrase = value; OnPropertyChanged(nameof(Phrase)); } }
     public string Answer { get { return _answer; } set { _answer = value; OnPropertyChanged(nameof(Answer)); } }
@@ -66,7 +70,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
       this.Id_Listening = Id_Listening;
       this.Lang = Lang;
+      listeningRepository = new ListeningRepository();
+      vocabularyRepository = new VocabularyRepository();
       listeningRepository.GetPhrases(phrases, Id_Listening, Lang);
+      Accent = vocabularyRepository.GetAccent(Lang);
       Check = new RelayCommand(ExecuteCheck);
       Speak = new RelayCommand(ExecuteSpeak);
       Play = new RelayCommand(ExecutePlay);
@@ -79,7 +86,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Id_Vocabulary = Id_Vocabulary;
       this.Lang = Lang;
       this.IsTestMode = true;
+      listeningRepository = new ListeningRepository();
+      vocabularyRepository = new VocabularyRepository();
       listeningRepository.GetTestPhrases(phrases, Id_Vocabulary, Lang);
+      Accent = vocabularyRepository.GetAccent(Lang);
       Check = new RelayCommand(ExecuteCheck);
       Speak = new RelayCommand(ExecuteSpeak);
       Play = new RelayCommand(ExecutePlay);
@@ -97,7 +107,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         case 1:
           //ListenAndWrite();
           Task = "Transcribe the sentence correctly";
-          Phrase = null;
+          Phrase = phrases[counter]._phrase;
           Colour = "Black";
           Button_Switch = true;
           Phrase_Switch = false;
@@ -130,7 +140,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         case 4:
           //TranslateSpoken();
           Task = "Transcribe and translate the sentence correctly";
-          Phrase = null;
+          Phrase = phrases[counter]._phrase;
           Colour = "Black";
           Button_Switch = true;
           Phrase_Switch = false;
@@ -159,7 +169,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       if(counter==phrases.Count()-1)
       {
-        TTSPhraseUpdateViewCommand.Execute(null);
+        TTSPhraseUpdateViewCommand.Execute("Next");
       }
       else
       {
@@ -169,7 +179,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     void ExecuteSpeak(object obj)
     {
-      SpeechRecognitionEngine p = new SpeechRecognitionEngine(new CultureInfo("fr-FR"));
+      SpeechRecognitionEngine p = new SpeechRecognitionEngine(new CultureInfo(Accent));
       Grammar word = new DictationGrammar();
       p.LoadGrammar(word);
       try
@@ -192,7 +202,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     void ExecutePlay(object obj)
     {
       SpeechSynthesizer tts = new SpeechSynthesizer();
-      tts.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult, 25,new CultureInfo("fr-FR",false));
+      tts.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult, 25,new CultureInfo(Accent,false));
       tts.Volume = 40;
       tts.Speak(Phrase);
     }

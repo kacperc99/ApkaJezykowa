@@ -35,12 +35,12 @@ namespace ApkaJezykowa.Commands
 
     public bool CanExecute(object parameter)
     {
-      throw new NotImplementedException();
+      return true;
     }
 
     public void Execute(object parameter)
     {
-      if (parameter.ToString() == null)
+      if (parameter.ToString() == "Next")
         if(IsTestMode==false)
           viewModel.SelectedViewModel = new ChooseRightPhraseViewModel(Id_Listening,Lang,points);
         else
