@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Speech.Recognition;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Globalization;
 using Syncfusion.Windows.Shared.Resources;
 using System.Windows;
+using System.Speech.Synthesis;
 using ApkaJezykowa.Commands;
 using System.Security.RightsManagement;
 using ApkaJezykowa.Repositories;
@@ -86,6 +88,11 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Speak = new RelayCommand(ExecuteSpeak);
       Play = new RelayCommand(ExecutePlay);
       TTSPhraseUpdateViewCommand = new TTSPhraseUpdateViewCommand(Id_Listening, Lang, points, this);
+      foreach (RecognizerInfo ri in SpeechRecognitionEngine.InstalledRecognizers())
+      {
+        System.Diagnostics.Debug.WriteLine(ri.Culture.Name);
+        Console.WriteLine(ri.Culture.Name);
+      }
       Randomize_Task();
     }
     public TTSPhraseViewModel(int Id_Vocabulary, string Lang, bool IsTestMode)

@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\ApkaJezykowa.props" />
-</Project>

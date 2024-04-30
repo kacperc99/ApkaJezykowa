@@ -1167,7 +1167,6 @@
       },
       "ApkaJezykowa/1.0.0": {
         "type": "project",
-        "framework": "Unsupported,Version=v0.0",
         "compile": {
           "bin/placeholder/ApkaJezykowa.dll": {}
         },
@@ -4636,15 +4635,6 @@
       "warningLevel": 1,
       "message": "Pakiet „System.Data.SqlClient” 4.8.5 ma znane wysoka luki w zabezpieczeniach o ważności, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
       "libraryId": "System.Data.SqlClient",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Projekt ApkaJezykowa nie jest zgodny z elementem net6.0 (.NETCoreApp,Version=v6.0). Projekt ApkaJezykowa obsługuje: net6.0-windows7.0 (.NETCoreApp,Version=v6.0)",
-      "libraryId": "ApkaJezykowa",
       "targetGraphs": [
         "net6.0"
       ]
