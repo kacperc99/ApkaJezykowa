@@ -42,7 +42,7 @@ namespace ApkaJezykowa.Commands
     {
       if (parameter.ToString() == "Next")
         if(IsTestMode==false)
-          viewModel.SelectedViewModel = new ChooseRightPhraseViewModel(Id_Listening,Lang,points);
+          viewModel.SelectedViewModel = new ChooseRightPhraseViewModel(Id_Listening, Lang, points);
         else
           viewModel.SelectedViewModel = new ChooseRightPhraseViewModel(Id_Vocabulary, Lang, points, true);
       if (parameter.ToString() == "ReturnToMenu")

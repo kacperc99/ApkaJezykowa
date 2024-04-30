@@ -29,7 +29,7 @@
                                 <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
                                         Width="200" Height="50" Content="Begin" HorizontalAlignment="Right"
                                         Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchExerciseMenuUpdateViewCommand}"
-                                        CommandParameter="{Binding Exercise_Parameter}">
+                                        CommandParameter="{Binding Id_Exercise}">
                                     <Button.Style>
                                         <Style TargetType="Button">
                                             <Setter Property="Background" Value="LightGray"/>

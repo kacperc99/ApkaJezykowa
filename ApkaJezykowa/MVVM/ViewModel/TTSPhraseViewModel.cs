@@ -17,6 +17,10 @@ using System.Speech.Synthesis;
 using ApkaJezykowa.Commands;
 using System.Security.RightsManagement;
 using ApkaJezykowa.Repositories;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using Microsoft.CognitiveServices.Speech.Translation;
+using ApkaJezykowa.Keys;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
@@ -45,9 +49,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public int Id_Vocabulary;
     public string Lang;
     public string Accent;
+    public string Lang_Accent;
+    public string Voice;
     public BaseViewModel _selectedViewModel;
     private IListeningRepository listeningRepository;
     private IVocabularyRepository vocabularyRepository;
+    
     public string Task { get { return _task; } set { _task = value; OnPropertyChanged(nameof(Task)); } }
     public string Phrase { get { return _phrase; } set { _phrase = value; OnPropertyChanged(nameof(Phrase)); } }
     public string Answer { get { return _answer; } set { _answer = value; OnPropertyChanged(nameof(Answer)); } }
@@ -72,13 +79,20 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Lang = Lang;
       listeningRepository = new ListeningRepository();
       vocabularyRepository = new VocabularyRepository();
-      listeningRepository.GetPhrases(phrases, Id_Listening, Lang);
-      Accent = vocabularyRepository.GetAccent(Lang);
+      phrases = listeningRepository.GetPhrases(Id_Listening, Lang);
+      var result = vocabularyRepository.GetAccent(Lang);
+      Accent = result.Accent;
+      Lang_Accent = result.Lang;
+      Voice = result.Voice;
       Check = new RelayCommand(ExecuteCheck);
       Speak = new RelayCommand(ExecuteSpeak);
       Play = new RelayCommand(ExecutePlay);
       TTSPhraseUpdateViewCommand = new TTSPhraseUpdateViewCommand(Id_Listening, Lang, points, this);
-
+      foreach (RecognizerInfo ri in SpeechRecognitionEngine.InstalledRecognizers())
+      {
+        System.Diagnostics.Debug.WriteLine(ri.Culture.Name);
+        Console.WriteLine(ri.Culture.Name);
+      }
       Randomize_Task();
     }
     public TTSPhraseViewModel(int Id_Vocabulary, string Lang, bool IsTestMode)
@@ -88,13 +102,15 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.IsTestMode = true;
       listeningRepository = new ListeningRepository();
       vocabularyRepository = new VocabularyRepository();
-      listeningRepository.GetTestPhrases(phrases, Id_Vocabulary, Lang);
-      Accent = vocabularyRepository.GetAccent(Lang);
+      phrases = listeningRepository.GetTestPhrases(Id_Vocabulary, Lang);
+      var result = vocabularyRepository.GetAccent(Lang);
+      Accent = result.Accent;
+      Lang_Accent = result.Lang;
+      Voice = result.Voice;
       Check = new RelayCommand(ExecuteCheck);
       Speak = new RelayCommand(ExecuteSpeak);
       Play = new RelayCommand(ExecutePlay);
       TTSPhraseUpdateViewCommand = new TTSPhraseUpdateViewCommand(Id_Vocabulary, Lang, points, this, true);
-
       Randomize_Task();
     }
     void Randomize_Task()
@@ -114,6 +130,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Speak_Switch = false;
           Answer_Read_Only = false;
           Next_Button_Text = "Next";
+          Answer = null;
           break;
         case 2:
           //ReadItOut();
@@ -125,6 +142,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Speak_Switch = true;
           Answer_Read_Only = true;
           Next_Button_Text = "Skip";
+          Answer = null;
           break;
         case 3:
           Task = "Translate the written phrase correctly";
@@ -135,6 +153,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Speak_Switch = false;
           Answer_Read_Only = false;
           Next_Button_Text = "Next";
+          Answer = null;
           //TranslateText();
           break;
         case 4:
@@ -147,6 +166,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Speak_Switch = false;
           Answer_Read_Only = false;
           Next_Button_Text = "Next";
+          Answer = null;
           break;
       }
     }
@@ -169,6 +189,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       if(counter==phrases.Count()-1)
       {
+        if(IsTestMode)
+          TTSPhraseUpdateViewCommand = new TTSPhraseUpdateViewCommand(Id_Vocabulary, Lang, points, this, true);
+        else
+          TTSPhraseUpdateViewCommand = new TTSPhraseUpdateViewCommand(Id_Listening, Lang, points, this);
         TTSPhraseUpdateViewCommand.Execute("Next");
       }
       else
@@ -177,9 +201,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
         Randomize_Task();
       }
     }
-    void ExecuteSpeak(object obj)
+    async void ExecuteSpeak(object obj)
     {
-      SpeechRecognitionEngine p = new SpeechRecognitionEngine(new CultureInfo(Accent));
+      /*SpeechRecognitionEngine p = new SpeechRecognitionEngine(new CultureInfo(Accent));
       Grammar word = new DictationGrammar();
       p.LoadGrammar(word);
       try
@@ -197,14 +221,38 @@ namespace ApkaJezykowa.MVVM.ViewModel
       finally
       {
         p.UnloadAllGrammars();
-      } 
+      } */
+      //SpeechServiceKey speech = new SpeechServiceKey();
+      var Key = SpeechServiceKey.Instance.Key;
+      var Region = SpeechServiceKey.Instance.Region;
+      var speechConfig = SpeechConfig.FromSubscription(Key, Region);
+
+      speechConfig.SpeechRecognitionLanguage = Accent;
+      //TranslationConfig.AddTargetLanguage(Lang_Accent);
+      using (var audioConfig = AudioConfig.FromDefaultMicrophoneInput())
+      using(var recognizer = new Microsoft.CognitiveServices.Speech.SpeechRecognizer(speechConfig, audioConfig))
+      {
+        var result = await recognizer.RecognizeOnceAsync();
+        Answer = result.Text;
+        Console.WriteLine(Answer);
+      }
     }
-    void ExecutePlay(object obj)
+    async void ExecutePlay(object obj)
     {
-      SpeechSynthesizer tts = new SpeechSynthesizer();
+      //SpeechServiceKey speech = new SpeechServiceKey();
+      var Key = SpeechServiceKey.Instance.Key;
+      var Region = SpeechServiceKey.Instance.Region;
+      var speechConfig = SpeechConfig.FromSubscription(Key, Region);
+      speechConfig.SpeechRecognitionLanguage = Accent;
+      speechConfig.SpeechSynthesisVoiceName = Voice;
+      using(var synthesizer = new Microsoft.CognitiveServices.Speech.SpeechSynthesizer(speechConfig))
+      {
+        await synthesizer.SpeakTextAsync(Phrase);
+      }
+      /*SpeechSynthesizer tts = new SpeechSynthesizer();
       tts.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult, 25,new CultureInfo(Accent,false));
       tts.Volume = 40;
-      tts.Speak(Phrase);
+      tts.Speak(Phrase);*/
     }
     void ListenAndWrite()
     {

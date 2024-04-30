@@ -32,7 +32,7 @@
                         <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
                                 Width="200" Height="50" Content="Choose" HorizontalAlignment="Right"
                                 Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LessonListUpdateViewCommand}"
-                                CommandParameter="{Binding Lesson_Parameter}">
+                                CommandParameter="{Binding Id_Lesson}">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="LightGray"/>

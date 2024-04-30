@@ -55,9 +55,9 @@ namespace ApkaJezykowa.Commands
       if (parameter.ToString() == "GoToQuestions")
       {
         if (IsTestMode)
-          viewModel.SelectedViewModel = new ComprehensionTestViewModel(textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, true, points);
+          viewModel.SelectedViewModel = new ComprehensionTestViewModel(textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, Lang, true, points);
         else
-          viewModel.SelectedViewModel = new ComprehensionTestViewModel(textQuestions, correctAnswers, Translated_Text, TTS_Text, Title);
+          viewModel.SelectedViewModel = new ComprehensionTestViewModel(textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, Lang);
       }
       if (parameter.ToString() == "ReturnToMenu")
       {

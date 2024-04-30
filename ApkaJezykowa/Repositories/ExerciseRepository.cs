@@ -48,7 +48,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Exercise_Level, Exercise_Title, Exercise_Parameter, Task_text from [Exercise] where Exercise_Language=@country and Id_Course in(Select Id_Course from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
+        command.CommandText = "select Id_Exercise, Exercise_Level, Exercise_Title, Task_text from [Exercise] where Exercise_Language=@country and Id_Course in(Select Id_Course from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@country",SqlDbType.NVarChar).Value = Country;
         using (var reader = command.ExecuteReader())
@@ -56,9 +56,9 @@ namespace ApkaJezykowa.Repositories
           while(reader.Read())
           {
             ExerciseListModel list = new ExerciseListModel();
+            list.Id_Exercise = (int)reader["Id_Exercise"];
             list.Exercise_Level = (decimal)reader["Exercise_Level"];
             list.Exercise_Title = reader["Exercise_Title"].ToString();
-            list.Exercise_Parameter = reader["Exercise_Parameter"].ToString();
             list.Task_Text = reader["Task_text"].ToString();
             ExerciseList.Add(list);
           }
@@ -73,14 +73,14 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Exercise_Parameter, Id_Exercise, Task_text from [Exercise] where Id_Course in(Select Id_Course from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
+        command.CommandText = "select Id_Exercise, Exercise_Title, Task_text from [Exercise] where Id_Course in(Select Id_Course from [Course] where [Course_Name] = @language) order by Exercise_Level ASC";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
           {
             Pars par = new Pars();
-            par.par = reader["Exercise_Parameter"].ToString();
+            par.title = reader["Exercise_Title"].ToString();
             par.id = (int)reader["Id_Exercise"];
             par.text = reader["Task_text"].ToString();
             pars.Add(par);
@@ -230,20 +230,20 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
-        command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + Level.ToString() + "%";
-        int count = System.Convert.ToInt32(command.ExecuteScalar());
-        command.CommandText = "insert into [Exercise] values (@language, @level, @title, @parameter, @tasktext, (select Id_Course from [Course] where [Course_Name] = @country))";
+        //command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+        //command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + Level.ToString() + "%";
+        //int count = System.Convert.ToInt32(command.ExecuteScalar());
+        command.CommandText = "insert into [Exercise] (Exercise_Language, Exercise_Level, Exercise_Title, Task_Text, Id_Course) output inserted.Id_Exercise values (@language, @level, @title, @tasktext, (select Id_Course from [Course] where [Course_Name] = @country))";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
-        command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
+        //command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
         command.Parameters.Add("@tasktext", SqlDbType.NVarChar).Value = TaskText;
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-        command.ExecuteNonQuery();
-        command.CommandText = "select Id_Exercise from [Exercise] where Exercise_Parameter = @param2";
-        command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
-        id = System.Convert.ToInt32(command.ExecuteScalar());
+        id = (int)command.ExecuteScalar();
+        //command.CommandText = "select Id_Exercise from [Exercise] where Exercise_Parameter = @param2";
+        //command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
+        //id = System.Convert.ToInt32(command.ExecuteScalar());
       }
     
         foreach (var x in EditedExercises)
@@ -275,12 +275,12 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
-        command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + Level.ToString() + "%";
-        int count = System.Convert.ToInt32(command.ExecuteScalar());
-        command.CommandText = "update [Exercise] set Exercise_Level = @level, Exercise_Parameter = @parameter, Task_text=@tasktext where Id_Exercise=@id";
+        //command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+        //command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + Level.ToString() + "%";
+        //int count = System.Convert.ToInt32(command.ExecuteScalar());
+        command.CommandText = "update [Exercise] set Exercise_Level = @level, Task_text=@tasktext where Id_Exercise=@id";
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-        command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
+        //command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
         command.Parameters.Add("@tasktext", SqlDbType.NVarChar).Value = TaskText;
         command.Parameters.Add("@id", SqlDbType.Int).Value = Exercise_Id;
         command.ExecuteScalar();

@@ -29,7 +29,10 @@ namespace ApkaJezykowa.Commands
 
     public void Execute(object parameter)
     {
-      viewModel.SelectedViewModel = new TTSPhraseViewModel(id, Lang, true);
+      if(parameter.ToString()=="Continue")
+        viewModel.SelectedViewModel = new TTSPhraseViewModel(id, Lang, true);
+      if(parameter.ToString()=="ReturnToMenu")
+        viewModel.SelectedViewModel = new VocabularyMenuViewModel(Lang);
     }
   }
 }

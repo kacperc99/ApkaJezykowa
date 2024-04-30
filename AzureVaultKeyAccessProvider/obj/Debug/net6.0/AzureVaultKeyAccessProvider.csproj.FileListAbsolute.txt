@@ -1,0 +1,8 @@
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.csproj.AssemblyReference.cache
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.AssemblyInfoInputs.cache
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.AssemblyInfo.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.csproj.CoreCompileInputs.cache
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0\AzureVaultKeyAccessProvider.sourcelink.json

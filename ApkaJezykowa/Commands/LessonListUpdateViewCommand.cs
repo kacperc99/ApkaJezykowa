@@ -33,40 +33,8 @@ namespace ApkaJezykowa.Commands
     }
     public void Execute(object parameter)
     {
-      lessonRepository.Obtain_Pars(par, Lang/*ExerciseLevelModel.Instance.Language*/);
-      Console.WriteLine("Clicked!");
-      int i = 1;
-      foreach (string s in par)
-      {
-        if (parameter.ToString() == s)
-        {
-          int LessonLevel = i;
-          viewModel.SelectedViewModel = new LessonViewModel(Lang, LessonLevel);
-        }
-        else
-          i++;
-      }
-
-      /*if(parameter.ToString() == "french1")
-      {
-        ExerciseLevelModel.Instance.Level = 1;
-        viewModel.SelectedViewModel = new LessonViewModel();
-      }
-      if (parameter.ToString() == "french2")
-      {
-        ExerciseLevelModel.Instance.Level = 2;
-        viewModel.SelectedViewModel = new LessonViewModel();
-      }
-      if (parameter.ToString() == "french3")
-      {
-        ExerciseLevelModel.Instance.Level = 3;
-        viewModel.SelectedViewModel = new LessonViewModel();
-      }
-      if (parameter.ToString() == "french4")
-      {
-        ExerciseLevelModel.Instance.Level = 4;
-        viewModel.SelectedViewModel = new LessonViewModel();
-      }*/
+       decimal LessonLevel = lessonRepository.Obtain_Level((int)parameter, Lang);
+       viewModel.SelectedViewModel = new LessonViewModel(Lang, LessonLevel, (int)parameter);
     }
   }
 }

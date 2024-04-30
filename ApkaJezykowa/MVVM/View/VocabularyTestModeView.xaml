@@ -14,13 +14,12 @@
             <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Left"  FontSize="32" Text="- Test unlocks next exercises and lessons (not implemented)" Margin="10,20,0,0"></TextBlock>
             <TextBlock Foreground="Black" Background="DimGray" HorizontalAlignment="Center"  FontSize="32" Text="In order to begin test, press 'begin'. " Margin="10,200,0,0"></TextBlock>
         </StackPanel>
-        <Button x:Name="Continue" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Beign" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,612,40,26" Command="{Binding TestInfoUpdateViewCommand}" CommandParameter="Continue">
+        <Button x:Name="Continue" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Beign" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,612,40,26" Command="{Binding VocabularyTestModeUpdateViewCommand}" CommandParameter="Continue">
 
         </Button>
-        <Button x:Name="Leave" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Return" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40,612,0,26" Command="{Binding TestInfoUpdateViewCommand}" CommandParameter="ReturnToMenu">
+        <Button x:Name="Leave" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold" Content="Return" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40,612,0,26" Command="{Binding VocabularyTestModeUpdateViewCommand}" CommandParameter="ReturnToMenu">
 
         </Button>
-        <TextBlock Text="{Binding Result}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,621,0,26" FontSize="24" TextWrapping="Wrap"/>
         <ContentControl Content="{Binding SelectedViewModel}"/>
     </Grid>
 </UserControl>

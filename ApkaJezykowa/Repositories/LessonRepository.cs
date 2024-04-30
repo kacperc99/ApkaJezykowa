@@ -1,5 +1,6 @@
 ﻿using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.MVVM.ViewModel;
+using Microsoft.CognitiveServices.Speech.Diagnostics.Logging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,6 +46,26 @@ namespace ApkaJezykowa.Repositories
       }
       return lesson;
     }
+    public string GetTitle(int Id, string Language)
+    {
+      using (var connection = GetCourseConnection())
+      using (var command = new SqlCommand())
+      {
+        connection.Open();
+        command.Connection = connection;
+        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson = @id and Lesson_Language = @lang";
+        command.Parameters.Add("@lang", SqlDbType.NVarChar).Value = Language;
+        command.Parameters.Add("@id", SqlDbType.NVarChar).Value = Id;
+        using (var reader = command.ExecuteReader())
+        {
+          if (reader.Read())
+          {
+            return reader["Lesson_Title"].ToString();
+          }
+        }
+      }
+      return null;
+    }
     public void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language, string Lesson_Language)
     {
       using (var connection = GetCourseConnection())
@@ -52,38 +73,39 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select LT.Lesson_Title, L.Lesson_Parameter from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson=L.Id_Lesson where LT.Lesson_Language = @lessonlang and L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) order by L.Lesson_Parameter";
+        command.CommandText = "select L.Id_Lesson, LT.Lesson_Title from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson=L.Id_Lesson where LT.Lesson_Language = @lessonlang and L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) order by L.Lesson_Level";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
           {
-            LessonsList.Add(new LessonListModel(reader["Lesson_Title"].ToString(), reader["Lesson_Parameter"].ToString()));
+            LessonsList.Add(new LessonListModel((int)reader["Id_Lesson"], reader["Lesson_Title"].ToString()));
           }
           reader.NextResult();
         }
         //zastanawia mnie czy nie lepiej byłoby przerobić tą funkcję na List<LessonListmModel> Obtain_Lesson_List
       }
     }
-    public void Obtain_Pars(List<string> pars, string Language)
+    public decimal Obtain_Level(int Id, string Language)
     {
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Parameter from [Lesson] where Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) order by Lesson_Parameter";
-        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+        command.CommandText = "select Lesson_Level from [Lesson] where Id_Lesson = @id";// in (Select Id_Course from [Course] where [Course_Name] = @language) order by Lesson_Parameter"; tu skończyłeś btw, rozważałeś sens tj, jak i następnych funkcji
+        command.Parameters.Add("@id", SqlDbType.Int).Value = Id;
         using (var reader = command.ExecuteReader())
         {
-          while (reader.Read())
+          if (reader.Read())
           {
-            pars.Add(reader["Lesson_Parameter"].ToString());
+            return (decimal)reader["Lesson_Level"];
           }
           reader.NextResult();
         }
       }
+      return 0;
     }
     public void Obtain_Lessons(List<LessonContentModel> Lessons, string Title, string Lesson_Language)
     {
@@ -312,9 +334,9 @@ namespace ApkaJezykowa.Repositories
           command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
           MaxLevelInt = System.Convert.ToInt32(command.ExecuteScalar());
           //stwórz instancję lekcji o poziomie wyższym o jeden
-          command.CommandText = "insert into [Lesson] values(@level, @parameter, @id_course)";
+          command.CommandText = "insert into [Lesson] values(@level, @id_course)";
           command.Parameters.Add("@level", SqlDbType.Decimal).Value = MaxLevelInt + 1;
-          command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country.ToLower() + (MaxLevelInt + 1).ToString();
+          //command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country.ToLower() + (MaxLevelInt + 1).ToString();
           command.Parameters.Add("@id_course", SqlDbType.Int).Value = CourseID;
           command.ExecuteScalar();
         }
@@ -360,32 +382,33 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "insert into [Lesson_Title] values (@language, @title, (select Id_Lesson from [Lesson] where Lesson_Level=@level and Id_Course=@id))";
+        command.CommandText = "insert into [Lesson_Title] (Lesson_Language, Lesson_Title, Id_Lesson) output inserted.Id_Lesson_Title values (@language, @title, (select Id_Lesson from [Lesson] where Lesson_Level=@level and Id_Course=@id))";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
-        command.ExecuteScalar();
-        command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language2 and Id_Lesson =(select Id_Lesson from [Lesson] where Lesson_Level=@level2 and Id_Course=@id2)";
+        Lesson_TitleID = (int)command.ExecuteScalar();
+        /*command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language2 and Id_Lesson =(select Id_Lesson from [Lesson] where Lesson_Level=@level2 and Id_Course=@id2)";
         command.Parameters.Add("@language2", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@level2", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@id2", SqlDbType.NVarChar).Value = CourseID;
-        Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
+        Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());*/
       }
       //dodanie kontentu do lekcji
       foreach (var x in EditedLessons)
       {
+        int LessonContentId = 0;
         using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
           connection.Open();
           command.Connection = connection;
-          command.CommandText = "insert into [Lesson_Content] values (@text, @id)";
+          command.CommandText = "insert into [Lesson_Content] (Lesson_Text, Id_Lesson_Title) output inserted.Id_Lesson_Content values (@text, @id)";
           command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
           command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
-          command.ExecuteNonQuery();
+          LessonContentId = (int)command.ExecuteNonQuery();
         }
-        int LessonContentId = 0;
+        /*int LessonContentId = 0;
         using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
@@ -395,7 +418,7 @@ namespace ApkaJezykowa.Repositories
           command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
           command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
           LessonContentId = System.Convert.ToInt32(command.ExecuteScalar());
-        }
+        }*/
         //dodanie obrazów do danej instancji kontentu
         foreach (var y in x.LessonImage)
         {
@@ -450,11 +473,11 @@ namespace ApkaJezykowa.Repositories
               command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl + 1;
               command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
               command.ExecuteNonQuery();
-              command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
-              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + levl.ToString() + "%";
-              int count = System.Convert.ToInt32(command.ExecuteScalar());
-              command.CommandText = "update [Exercise] set Exercise_Level = @leveldown, Exercise_Parameter = @param2 where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
-              command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + levl.ToString() + (count + 1).ToString();
+              //command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+              //command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + levl.ToString() + "%";
+              //int count = System.Convert.ToInt32(command.ExecuteScalar());
+              command.CommandText = "update [Exercise] set Exercise_Level = @leveldown where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
+              //command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + levl.ToString() + (count + 1).ToString();
               command.ExecuteNonQuery();
             }
             levl++;
@@ -477,11 +500,11 @@ namespace ApkaJezykowa.Repositories
               command.Parameters.Add("@level", SqlDbType.Decimal).Value = levl - 1;
               command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
               command.ExecuteNonQuery();
-              command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
-              command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + levl.ToString() + "%";
-              int count = System.Convert.ToInt32(command.ExecuteScalar());
-              command.CommandText = "update [Exercise] set Exercise_Level = @levelup, Exercise_Parameter = @param2 where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
-              command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + levl.ToString() + (count + 1).ToString();
+              //command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+              //command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + levl.ToString() + "%";
+              //int count = System.Convert.ToInt32(command.ExecuteScalar());
+              command.CommandText = "update [Exercise] set Exercise_Level = @levelup where Exercise_Language=@language and Exercise_Level=@level and Id_Course=@id";
+              //command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + levl.ToString() + (count + 1).ToString();
               command.ExecuteNonQuery();
             }
             levl--;
@@ -501,11 +524,11 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@oldtitle", SqlDbType.NVarChar).Value = OldTitle;
         command.Parameters.Add("@oldlevel", SqlDbType.Decimal).Value = supportlevl;
         command.ExecuteNonQuery();
-        command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
-        command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + Level.ToString() + "%";
-        int count = System.Convert.ToInt32(command.ExecuteScalar());
-        command.CommandText = "update [Exercise] set Exercise_Level = @level, Exercise_Parameter = @param2 where Exercise_Level = @oldlevel and Exercise_Language=@language and Id_Course = @id";
-        command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
+        //command.CommandText = "select COUNT(*) from [Exercise] where Exercise_Parameter Like (@param)";
+        //command.Parameters.Add("@param", SqlDbType.NVarChar).Value = Country + Level.ToString() + "%";
+        //int count = System.Convert.ToInt32(command.ExecuteScalar());
+        command.CommandText = "update [Exercise] set Exercise_Level = @level where Exercise_Level = @oldlevel and Exercise_Language=@language and Id_Course = @id";
+        //command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.ExecuteNonQuery();
       }

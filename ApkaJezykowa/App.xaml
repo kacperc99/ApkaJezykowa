@@ -68,6 +68,9 @@
             <DataTemplate DataType="{x:Type viewModel:ComprehensionTestViewModel}">
                 <view:ComprehensionTestView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:VocabularyTestModeViewModel}">
+                <view:VocabularyTestModeView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

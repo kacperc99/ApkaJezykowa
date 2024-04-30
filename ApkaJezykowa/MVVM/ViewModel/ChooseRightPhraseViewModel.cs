@@ -1,7 +1,9 @@
 ﻿using ApkaJezykowa.Commands;
+using ApkaJezykowa.Keys;
 using ApkaJezykowa.Main;
 using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.Repositories;
+using Microsoft.CognitiveServices.Speech;
 using Syncfusion;
 using System;
 using System.Collections.Generic;
@@ -31,10 +33,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
     bool IsTestMode = false;
     int points;
     string chosen_answer;
-    string Accent;
-    public bool Enabler = true;
+    public string Accent;
+    public string Lang_Accent;
+    public string Voice;
+    public bool _enabler;
     bool is_done=false;
-    public bool Button_Enabler=true;
+    public bool _button_Enabler;
     int count = 0;
     string _description;
     string _tTS_Phrase;
@@ -65,6 +69,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string Colour4 { get { return _colour4; } set { _colour4 = value; OnPropertyChanged(nameof(Colour4)); } }
     public string Score { get { return _score; } set { _score = value; OnPropertyChanged(nameof(Score)); } }
     public string Next_Button_Text { get { return _next_Button_Text; } set { _next_Button_Text = value; OnPropertyChanged(nameof(Next_Button_Text)); } }
+    public bool Enabler { get { return _enabler; } set { _enabler = value; OnPropertyChanged(nameof(Enabler)); } }
+    public bool Button_Enabler { get { return _button_Enabler; } set { _button_Enabler = value; OnPropertyChanged(nameof(Button_Enabler)); } }
     public BaseViewModel SelectedViewModel
     {
       get { return _selectedViewModel; }
@@ -72,17 +78,24 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public ICommand MarkAnswer { get; set; }
     public ICommand Play { get; }
-    public ICommand ChooseRightPhraseUpdateViewCommand { get; }
+    public ICommand ChooseRightPhraseUpdateViewCommand { get; set; }
+    public ICommand Check { get; set; }
     public ChooseRightPhraseViewModel(int Id_Listening, string Lang, int points) 
     { 
       this.Id_Listening = Id_Listening;
       this.Lang = Lang;
       this.points = points;
+      Button_Enabler = true;
       listeningRepository = new ListeningRepository();
       vocabularyRepository = new VocabularyRepository();
       ChooseRightPhraseUpdateViewCommand = new ChooseRightPhraseUpdateViewCommand(this, Lang);
-      Accent = vocabularyRepository.GetAccent(Lang);
+      var result = vocabularyRepository.GetAccent(Lang);
+      Accent = result.Accent;
+      Lang_Accent = result.Lang;
+      Voice = result.Voice;
       MarkAnswer = new RelayCommand(ExecuteMarkAnswer);
+      Play = new RelayCommand(ExecutePlay);
+      Check = new RelayCommand(ExecuteCheck);
       listeningRepository.GetAnswers(data, Id_Listening, Lang);
       GetQuestion();
     }
@@ -92,12 +105,17 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Lang = Lang;
       this.points = points;
       this.IsTestMode = IsTestMode;
+      Button_Enabler = true;
       listeningRepository = new ListeningRepository();
       vocabularyRepository = new VocabularyRepository();
-      ChooseRightPhraseUpdateViewCommand = new ChooseRightPhraseUpdateViewCommand(this, Lang, Id_Vocabulary, points);
-      Accent = vocabularyRepository.GetAccent(Lang);
+      //ChooseRightPhraseUpdateViewCommand = new ChooseRightPhraseUpdateViewCommand(this, Lang, Id_Vocabulary, points);
+      var result = vocabularyRepository.GetAccent(Lang);
+      Accent = result.Accent;
+      Lang_Accent = result.Lang;
+      Voice = result.Voice;
       MarkAnswer = new RelayCommand(ExecuteMarkAnswer);
       Play = new RelayCommand(ExecutePlay);
+      Check = new RelayCommand(ExecuteCheck);
       listeningRepository.GetTestAnswers(data, Id_Vocabulary, Lang);
       GetQuestion();
     }
@@ -117,12 +135,18 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Next_Button_Text = "Skip";
       Enabler = true;
     }
-    public void ExecutePlay(object obj)
+    public async void ExecutePlay(object obj)
     {
-      SpeechSynthesizer tts = new SpeechSynthesizer();
-      tts.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult, 25, new CultureInfo(Accent, false));
-      tts.Volume = 40;
-      tts.Speak(TTS_Phrase);
+      //SpeechServiceKey speech = new SpeechServiceKey();
+      var Key = SpeechServiceKey.Instance.Key;
+      var Region = SpeechServiceKey.Instance.Region;
+      var speechConfig = SpeechConfig.FromSubscription(Key, Region);
+      speechConfig.SpeechRecognitionLanguage = Accent;
+      speechConfig.SpeechSynthesisVoiceName = Voice;
+      using (var synthesizer = new Microsoft.CognitiveServices.Speech.SpeechSynthesizer(speechConfig))
+      {
+        await synthesizer.SpeakTextAsync(TTS_Phrase);
+      }
     }
     public void ExecuteMarkAnswer(object parameter)
     {
@@ -185,7 +209,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       else if (chosen_answer != Correct_Answer && is_done == false)
       {
         Enabler = false;
-        points++;
         Next_Button_Text = "Next";
         if (Correct_Answer == Answer1)
           Colour1 = "Green";
@@ -208,7 +231,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       else if (chosen_answer == null || is_done == true)
       {
-        if (count > data.Count() - 1)
+        if (count < data.Count() - 1)
         {
           is_done = false;
           count++;
@@ -218,15 +241,17 @@ namespace ApkaJezykowa.MVVM.ViewModel
         {
           if(IsTestMode)
           {
+            ChooseRightPhraseUpdateViewCommand = new ChooseRightPhraseUpdateViewCommand(this, Lang, Id_Vocabulary, points);
             ChooseRightPhraseUpdateViewCommand.Execute("Test");
           }
           else
           {
-            if (points > 8)
+            if (points > 7)
               Score = "Your score: " + points.ToString() + ". Congratulations!";
             else
               Score = "Your score: " + points.ToString();
             Button_Enabler = false;
+            Enabler = false;
             //switch screen
           }
         }

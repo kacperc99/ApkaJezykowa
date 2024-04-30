@@ -30,7 +30,7 @@ namespace ApkaJezykowa.Repositories
             VocabularyListModel VocabModel = new VocabularyListModel();
             VocabModel.Id_Vocabulary = (int)reader["Id_Vocabulary"];
             VocabModel.Vocabulary_Level = (decimal)reader["Vocabulary_Level"];
-            VocabModel.Vocabulary_Parameter = reader["Vocabulary_Parameter"].ToString();
+            //VocabModel.Vocabulary_Parameter = reader["Vocabulary_Parameter"].ToString();
             VocabModel.Id_Course = null;
             ObservableCollection<ListeningListModel> listeningListModels = new ObservableCollection<ListeningListModel>();
             using(var command_2 = new SqlCommand())
@@ -80,21 +80,26 @@ namespace ApkaJezykowa.Repositories
         }
       }
     }
-    public string GetAccent(string Lang)
+    public AccentModel GetAccent(string Lang)
     {
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Accent from [Accent] where Id_Course = (select Id_Course from [Course] where Course_Name = @country)";
+        command.CommandText = "select Accent, Lang, Voice from [Accent] where Id_Course = (select Id_Course from [Course] where Course_Name = @country)";
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Lang;
-        using(var reader = command.ExecuteReader()) 
+        AccentModel accent = new AccentModel();
+        using (var reader = command.ExecuteReader()) 
         {
           if(reader.Read())
-            return reader[0].ToString();
+          {
+            accent.Accent = reader[0].ToString();
+            accent.Lang = reader[1].ToString();
+            accent.Voice = reader[2].ToString();
+          }
         }
-        return null;
+        return accent;
       }
     }
   }

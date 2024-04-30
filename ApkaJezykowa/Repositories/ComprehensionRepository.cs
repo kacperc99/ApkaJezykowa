@@ -60,11 +60,14 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@id", SqlDbType.Int).Value = Id_Vocabulary;
         var reader = command.ExecuteReader();
         ReadingTextModel result = new ReadingTextModel();
-        result.Id_Reading_Text = (int)reader["Id_Reading_Text"];
-        result.Only_Test_Mode = null;
-        result.Text_Title = reader["Text_Title"].ToString();
-        result.TTS_Text = reader["TTS_Text"].ToString();
-        result.Illustration = (byte[])reader["Illustration"];
+        if (reader.Read())
+        {
+          result.Id_Reading_Text = (int)reader[0];
+          result.Only_Test_Mode = null;
+          result.Text_Title = reader[2].ToString();
+          result.TTS_Text = reader[3].ToString();
+          result.Illustration = (byte[])reader[4];
+        }
         reader.Close();
         return result;
       }
@@ -121,7 +124,8 @@ namespace ApkaJezykowa.Repositories
         command.Connection = connection;
         command.CommandText = "select top 10 * from [Text_Question] where Id_Reading_Text=@id";
         command.Parameters.Add("@id", SqlDbType.Int).Value = Id_Reading_Text;
-        int counter = 1;
+        int counter = 0;
+        var rnd = new Random();
         using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
@@ -137,8 +141,8 @@ namespace ApkaJezykowa.Repositories
               reader["Wrong_Answer_2"].ToString(),
               reader["Wrong_Answer_3"].ToString()
             };
-            var rnd = new Random();
-            Answers = Answers.OrderBy(item => rnd.Next()).ToList();
+            var result = Answers.OrderBy(item => rnd.Next()).ToList();
+            Answers = new List<string>(result);
             model.Answer1 = Answers[0];
             model.Answer2 = Answers[1];
             model.Answer3 = Answers[2];

@@ -119,7 +119,7 @@
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
                                             Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchLessonUpdateViewCommand}"
-                                            CommandParameter="{Binding Lesson_Parameter}">
+                                            CommandParameter="{Binding Id_Lesson}">
                                                     <TextBlock Text="{Binding Lesson_Title}"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"

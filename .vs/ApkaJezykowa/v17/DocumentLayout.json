@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2CF74845-BE7F-42F3-95EA-3A9639F2506E}|AzureVaultKeyAccessProvider\\AzureVaultKeyAccessProvider.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\azurevaultkeyaccessprovider\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2CF74845-BE7F-42F3-95EA-3A9639F2506E}|AzureVaultKeyAccessProvider\\AzureVaultKeyAccessProvider.csproj|solutionrelative:azurevaultkeyaccessprovider\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CF74845-BE7F-42F3-95EA-3A9639F2506E}|AzureVaultKeyAccessProvider\\AzureVaultKeyAccessProvider.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\azurevaultkeyaccessprovider\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CF74845-BE7F-42F3-95EA-3A9639F2506E}|AzureVaultKeyAccessProvider\\AzureVaultKeyAccessProvider.csproj|solutionrelative:azurevaultkeyaccessprovider\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 360,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\AzureVaultKeyAccessProvider\\appsettings.json",
+              "RelativeDocumentMoniker": "AzureVaultKeyAccessProvider\\appsettings.json",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\AzureVaultKeyAccessProvider\\appsettings.json",
+              "RelativeToolTip": "AzureVaultKeyAccessProvider\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-30T01:08:55.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppSettings.json",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\AppSettings.json",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\AppSettings.json",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\AppSettings.json",
+              "RelativeToolTip": "ApkaJezykowa\\AppSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-30T01:08:37.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\App.xaml.cs",
+              "RelativeToolTip": "ApkaJezykowa\\App.xaml.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABkAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T01:06:07.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\AzureVaultKeyAccessProvider\\Program.cs",
+              "RelativeDocumentMoniker": "AzureVaultKeyAccessProvider\\Program.cs",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\AzureVaultKeyAccessProvider\\Program.cs",
+              "RelativeToolTip": "AzureVaultKeyAccessProvider\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-28T01:59:08.325Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

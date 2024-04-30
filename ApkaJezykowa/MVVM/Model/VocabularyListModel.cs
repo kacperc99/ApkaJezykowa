@@ -10,7 +10,7 @@ namespace ApkaJezykowa.MVVM.Model
   public class VocabularyListModel
   {
     public int Id_Vocabulary {  get; set; }
-    public string Vocabulary_Parameter {  get; set; }
+    //public string Vocabulary_Parameter {  get; set; }
     public decimal Vocabulary_Level {  get; set; }
     public int? Id_Course { get; set; }
     public ObservableCollection<ListeningListModel> ListeningList { get; set; }

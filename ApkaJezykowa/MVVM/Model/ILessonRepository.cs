@@ -11,8 +11,9 @@ namespace ApkaJezykowa.MVVM.Model
   internal interface ILessonRepository
   {
     LessonModel Display(int Level, string Language, string Lesson_Language);
+    string GetTitle(int Id, string Language);
     void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language, string Lesson_Language);
-    void Obtain_Pars(List<string> pars, string Language);
+    decimal Obtain_Level(int Id, string Language);
     void Obtain_Lessons(List<LessonContentModel> Lessons, string Title, string Lesson_Language);
     List<string> Obtain_Lesson_Names(string Country, string Language, decimal Level);
     LessonParamModel Obtain_Lesson_Parameters(string LNameguage);

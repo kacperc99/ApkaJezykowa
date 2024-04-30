@@ -28,7 +28,6 @@ namespace ApkaJezykowa.Commands
     public void Execute(object parameter)
     {
       viewModel.SelectedViewModel = new ComprehensionViewModel((int)parameter, Lang);
-      
     }
   }
 }

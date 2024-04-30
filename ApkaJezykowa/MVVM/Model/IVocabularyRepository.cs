@@ -10,6 +10,6 @@ namespace ApkaJezykowa.MVVM.Model
   public interface IVocabularyRepository
   {
     void ObtainVocabList(ObservableCollection<VocabularyListModel> VocabularyList, string Country, string Language);
-    string GetAccent(string Lang);
+    AccentModel GetAccent(string Lang);
   }
 }

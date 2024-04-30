@@ -8,12 +8,13 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AzureVaultKeyAccessProvider;
 
 namespace ApkaJezykowa.Commands
 {
   internal class Pars
   {
-    public string par { get; set; }
+    public string title { get; set; }
     public int id { get; set; }
     public string text { get; set; }
   }
@@ -44,9 +45,9 @@ namespace ApkaJezykowa.Commands
       Console.WriteLine("Clicked!");
       foreach(var s in pars)
       {
-        if (parameter.ToString() == s.par)
+        if ((int)parameter == s.id)
         {
-          if (s.par.Contains("Test"))
+          if (s.title.Contains("Test"))
           {
             int id = s.id;
             viewModel.SelectedViewModel = new TestInfoViewModel(Lang, id);
