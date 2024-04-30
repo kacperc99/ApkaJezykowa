@@ -31,7 +31,7 @@ namespace ApkaJezykowa.MVVM.View
 
         public DictionaryView()
         {
-            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
+            /*AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
             if (COGNITIVE_SERVICES_KEY.Length != 32)
             {
@@ -139,7 +139,7 @@ namespace ApkaJezykowa.MVVM.View
             }
         }
 
-        private async void TranslateButton_Click(object sender, RoutedEventArgs e)
+        async void TranslateButton_Click(object sender, RoutedEventArgs e)
         {
             string textToTranslate = TextToTranslate.Text.Trim();
 
@@ -190,8 +190,8 @@ namespace ApkaJezykowa.MVVM.View
                 var result = JsonConvert.DeserializeObject<List<Dictionary<string, List<Dictionary<string, string>>>>>(responseBody);
                 var translation = result[0]["translations"][0]["text"];
 
-                TranslatedTextLabel.Text = translation;
-            }
+                TranslatedTextLabel.Text = translation; 
+            }*/
         }
     }
 }

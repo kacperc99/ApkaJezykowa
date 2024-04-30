@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "8QrqDl921cib6CeDZ/B5+dL/Q7PCSqjhliIrsXrJec7opMjpuhknouUlDnG0OqEGBvbbrxsyZR965kHA/Qfg7g==",
-  "success": true,
+  "dgSpecHash": "lSg1SPIeSPphJ4QYpl7peBRQ+lcAVhxfHvQRHsGvopg1SxpGvqE55mU1BWYztSZ+RuMqa+j2AgEiLFFda9xJHw==",
+  "success": false,
   "projectFilePath": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ApkaJezykowaTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ogryz\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
@@ -69,6 +69,15 @@
       "warningLevel": 1,
       "message": "Pakiet „System.Data.SqlClient” 4.8.5 ma znane wysoka luki w zabezpieczeniach o ważności, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
       "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Projekt ApkaJezykowa nie jest zgodny z elementem net6.0 (.NETCoreApp,Version=v6.0). Projekt ApkaJezykowa obsługuje: net6.0-windows7.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "ApkaJezykowa",
       "targetGraphs": [
         "net6.0"
       ]
