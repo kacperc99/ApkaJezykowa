@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NczwY7sQYunYnAuv1BoetMn8106Tn1UUQdOg9+MXByhxxHHJ64UevzXNYpSYOpsELTlzoz04SU5TyOaRJkh7mA==",
+  "dgSpecHash": "ViDD9HH3TV6Lmdvb2trK3ySaddcaPxUz5+fXLRTqFjcZWQb/DTsQgMrNAC7fLIRSHbYMRb5Y59WtGwfDF+CkWw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\AzureVaultKeyAccessProvider\\AzureVaultKeyAccessProvider.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ogryz\\.nuget\\packages\\azure.core\\1.39.0\\azure.core.1.39.0.nupkg.sha512",
+    "C:\\Users\\ogryz\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\azure.identity\\1.11.2\\azure.identity.1.11.2.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\azure.security.keyvault.secrets\\4.6.0\\azure.security.keyvault.secrets.4.6.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.azure.keyvault\\2.3.2\\microsoft.azure.keyvault.2.3.2.nupkg.sha512",
@@ -13,23 +13,16 @@
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.24\\microsoft.extensions.configuration.3.1.24.nupkg.sha512",
+    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.24\\microsoft.extensions.configuration.abstractions.3.1.24.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.configuration.azurekeyvault\\3.1.24\\microsoft.extensions.configuration.azurekeyvault.3.1.24.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.0\\microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\3.1.24\\microsoft.extensions.configuration.fileextensions.3.1.24.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.diagnostics\\8.0.0\\microsoft.extensions.diagnostics.8.0.0.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\8.0.0\\microsoft.extensions.diagnostics.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.24\\microsoft.extensions.fileproviders.abstractions.3.1.24.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.24\\microsoft.extensions.fileproviders.physical.3.1.24.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.24\\microsoft.extensions.filesystemglobbing.3.1.24.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\8.0.0\\microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.24\\microsoft.extensions.primitives.3.1.24.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.identity.client\\4.60.3\\microsoft.identity.client.4.60.3.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.60.3\\microsoft.identity.client.extensions.msal.4.60.3.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.identity.client.nativeinterop\\0.16.0\\microsoft.identity.client.nativeinterop.0.16.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.35.0\\microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.identitymodel.clients.activedirectory\\3.14.2\\microsoft.identitymodel.clients.activedirectory.3.14.2.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
@@ -37,7 +30,6 @@
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.rest.clientruntime\\2.3.8\\microsoft.rest.clientruntime.2.3.8.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.rest.clientruntime.azure\\3.3.7\\microsoft.rest.clientruntime.azure.3.3.7.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.web.webview2\\1.0.864.35\\microsoft.web.webview2.1.0.864.35.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.win32.registry\\4.3.0\\microsoft.win32.registry.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
@@ -69,7 +61,7 @@
     "C:\\Users\\ogryz\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\system.console\\4.3.0\\system.console.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
+    "C:\\Users\\ogryz\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\system.diagnostics.process\\4.3.0\\system.diagnostics.process.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
@@ -131,19 +123,7 @@
     "C:\\Users\\ogryz\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\ogryz\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\system.xml.xmlserializer\\4.0.11\\system.xml.xmlserializer.4.0.11.nupkg.sha512",
-    "C:\\Users\\ogryz\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22621.31\\microsoft.windows.sdk.net.ref.10.0.22621.31.nupkg.sha512"
+    "C:\\Users\\ogryz\\.nuget\\packages\\system.xml.xmlserializer\\4.0.11\\system.xml.xmlserializer.4.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Element AzureVaultKeyAccessProvider zależy od elementu Microsoft.Extensions.Diagnostics (>= 6.0.0), ale nie znaleziono elementu Microsoft.Extensions.Diagnostics 6.0.0. Najlepsze rozpoznane przybliżone dopasowanie to Microsoft.Extensions.Diagnostics 8.0.0.",
-      "libraryId": "Microsoft.Extensions.Diagnostics",
-      "targetGraphs": [
-        "net6.0-windows10.0.22621"
-      ]
-    }
-  ]
+  "logs": []
 }
