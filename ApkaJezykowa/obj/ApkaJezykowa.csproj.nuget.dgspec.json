@@ -1,0 +1,233 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\ApkaJezykowa.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\ApkaJezykowa.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\ApkaJezykowa.csproj",
+        "projectName": "ApkaJezykowa",
+        "projectPath": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\ApkaJezykowa.csproj",
+        "packagesPath": "C:\\Users\\ogryz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ogryz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Azure.Core": {
+              "target": "Package",
+              "version": "[1.39.0, )"
+            },
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.11.2, )"
+            },
+            "Azure.Security.KeyVault.Secrets": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.18.0, )"
+            },
+            "Azure.Storage.Common": {
+              "target": "Package",
+              "version": "[12.17.0, )"
+            },
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "Microsoft.Azure.KeyVault": {
+              "target": "Package",
+              "version": "[2.3.2, )"
+            },
+            "Microsoft.Azure.KeyVault.WebKey": {
+              "target": "Package",
+              "version": "[2.0.7, )"
+            },
+            "Microsoft.Azure.Services.AppAuthentication": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Microsoft.CognitiveServices.Speech": {
+              "target": "Package",
+              "version": "[1.37.0, )"
+            },
+            "Microsoft.Extensions.Configuration.AzureKeyVault": {
+              "target": "Package",
+              "version": "[3.1.24, )"
+            },
+            "Microsoft.Extensions.Diagnostics": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Diagnostics.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.60.3, )"
+            },
+            "Microsoft.Identity.Client.Extensions.Msal": {
+              "target": "Package",
+              "version": "[4.60.3, )"
+            },
+            "Microsoft.IdentityModel.Abstractions": {
+              "target": "Package",
+              "version": "[6.35.0, )"
+            },
+            "Microsoft.IdentityModel.Clients.ActiveDirectory": {
+              "target": "Package",
+              "version": "[3.14.2, )"
+            },
+            "Microsoft.Rest.ClientRuntime": {
+              "target": "Package",
+              "version": "[2.3.24, )"
+            },
+            "Microsoft.Rest.ClientRuntime.Azure": {
+              "target": "Package",
+              "version": "[3.3.19, )"
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.39, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Syncfusion.Licensing": {
+              "target": "Package",
+              "version": "[22.2.9, )"
+            },
+            "Syncfusion.Shared.WPF": {
+              "target": "Package",
+              "version": "[22.2.9, )"
+            },
+            "System.ClientModel": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Data.DataSetExtensions": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            },
+            "System.IO.Hashing": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "System.Memory.Data": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Security.AccessControl": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Security.Cryptography.ProtectedData": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Speech": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

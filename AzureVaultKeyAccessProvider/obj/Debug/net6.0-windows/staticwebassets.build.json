@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "knwLVlCFbDyhu0raU9mwi4izP+6e+z1AX7bBSNFhrhc=",
+  "Source": "AzureVaultKeyAccessProvider",
+  "BasePath": "_content/AzureVaultKeyAccessProvider",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

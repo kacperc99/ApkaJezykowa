@@ -21,17 +21,17 @@ namespace ApkaJezykowa.MVVM.View
 {
     public partial class DictionaryView : UserControl
     {
-        const string COGNITIVE_SERVICES_KEY = "f5bce6599a6b46cd8f4664db1f39373b";
+        /*const string COGNITIVE_SERVICES_KEY = "f5bce6599a6b46cd8f4664db1f39373b";
         public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
         const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
         private string[] languageCodes;
 
         private SortedDictionary<string, string> languageCodesAndTitles =
-            new SortedDictionary<string, string>(Comparer<string>.Create((a, b) => string.Compare(a, b, true)));
+            new SortedDictionary<string, string>(Comparer<string>.Create((a, b) => string.Compare(a, b, true)));*/
 
         public DictionaryView()
         {
-            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
+            /*AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
             if (COGNITIVE_SERVICES_KEY.Length != 32)
             {
@@ -40,15 +40,15 @@ namespace ApkaJezykowa.MVVM.View
                     "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
                 System.Windows.Application.Current.Shutdown();
             }
-            else
-            {
+            else*/
+            //{
                 InitializeComponent();
-                GetLanguagesForTranslate();
-                PopulateLanguageMenus();
-            }
+                //GetLanguagesForTranslate();
+                //PopulateLanguageMenus();
+            //}
         }
 
-        private static void HandleExceptions(object sender, UnhandledExceptionEventArgs args)
+        /*private static void HandleExceptions(object sender, UnhandledExceptionEventArgs args)
         {
             Exception e = (Exception)args.ExceptionObject;
             MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -137,11 +137,11 @@ namespace ApkaJezykowa.MVVM.View
                     languageCodesAndTitles.Add(kv.Value["name"], kv.Key);
                 }
             }
-        }
+        }*/
 
         private async void TranslateButton_Click(object sender, RoutedEventArgs e)
         {
-            string textToTranslate = TextToTranslate.Text.Trim();
+            /*string textToTranslate = TextToTranslate.Text.Trim();
 
             string fromLanguage = FromLanguageComboBox.SelectedValue.ToString();
             string fromLanguageCode;
@@ -191,7 +191,7 @@ namespace ApkaJezykowa.MVVM.View
                 var translation = result[0]["translations"][0]["text"];
 
                 TranslatedTextLabel.Text = translation;
-            }
+            }*/
         }
     }
 }
