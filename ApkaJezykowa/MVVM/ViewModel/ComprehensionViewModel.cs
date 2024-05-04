@@ -3,11 +3,14 @@ using ApkaJezykowa.Keys;
 using ApkaJezykowa.Main;
 using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.Repositories;
+//using AzureVaultKeyAccessProvider.Keys;
 using Microsoft.CognitiveServices.Speech;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.IO.Pipes;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +18,8 @@ using System.Windows.Input;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
-  public class ComprehensionViewModel : BaseViewModel
+    [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+    public class ComprehensionViewModel : BaseViewModel
   {
     string Lang;
     int Id_Comprehension;
@@ -113,7 +117,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     async void ReadText()
     {
-      //SpeechServiceKey speech = new SpeechServiceKey();
       var Key = SpeechServiceKey.Instance.Key;
       var Region = SpeechServiceKey.Instance.Region;
       var speechConfig = SpeechConfig.FromSubscription(Key, Region);

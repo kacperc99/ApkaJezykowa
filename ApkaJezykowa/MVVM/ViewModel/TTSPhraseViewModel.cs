@@ -228,11 +228,11 @@ namespace ApkaJezykowa.MVVM.ViewModel
         var result = await recognizer.RecognizeOnceAsync();
         Answer = result.Text;
         Console.WriteLine(Answer);
+        Next_Button_Text = "Next";
       }
     }
     async void ExecutePlay(object obj)
     {
-      //SpeechServiceKey speech = new SpeechServiceKey();
       var Key = SpeechServiceKey.Instance.Key;
       var Region = SpeechServiceKey.Instance.Region;
       var speechConfig = SpeechConfig.FromSubscription(Key, Region);
@@ -242,10 +242,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       {
         await synthesizer.SpeakTextAsync(Phrase);
       }
-      /*SpeechSynthesizer tts = new SpeechSynthesizer();
-      tts.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult, 25,new CultureInfo(Accent,false));
-      tts.Volume = 40;
-      tts.Speak(Phrase);*/
     }
     void ListenAndWrite()
     {

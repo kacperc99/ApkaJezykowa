@@ -136,7 +136,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public async void ExecutePlay(object obj)
     {
-      //SpeechServiceKey speech = new SpeechServiceKey();
       var Key = SpeechServiceKey.Instance.Key;
       var Region = SpeechServiceKey.Instance.Region;
       var speechConfig = SpeechConfig.FromSubscription(Key, Region);

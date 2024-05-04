@@ -1,14 +1,17 @@
-using ApkaJezykowa.Keys;
+//using ApkaJezykowa.Keys;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+//using AzureVaultKeyAccessProvider.Keys;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Azure.KeyVault;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Extensions.Configuration.AzureKeyVault;
+using System.IO.Pipes;
 
-internal class Program
+public class Program
 {
-    private static void Main(string[] args)
+    public Program() { }
+    public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
         builder.Logging.AddConsole();
@@ -26,14 +29,24 @@ internal class Program
         builder.Configuration.AddAzureKeyVault(keyVaultUrl.Value.ToString(), new DefaultKeyVaultSecretManager());
         var client = new SecretClient(new Uri(keyVaultUrl.Value.ToString()), new DefaultAzureCredential());
 
-        SpeechServiceKey.Instance.Key = client.GetSecret("speechkey").Value.Value.ToString();
-        SpeechServiceKey.Instance.Region = client.GetSecret("speechregion").Value.Value.ToString();
+        var key = client.GetSecret("speechkey").Value.Value.ToString();
+        var region = client.GetSecret("speechregion").Value.Value.ToString();
         // Configure the HTTP request pipeline.
         /*if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }*/
+        var server = new NamedPipeServerStream("DataPasser");
+        server.WaitForConnection();
+        using(var writer = new StreamWriter(server))
+        {
+            writer.AutoFlush = true;
+            writer.WriteLine(key);
+            writer.WriteLine(region);
+            server.WaitForPipeDrain();
+        }
+
 
         app.UseHttpsRedirection();
 
