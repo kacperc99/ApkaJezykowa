@@ -53,22 +53,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ApkaJezykowa.dll" size="6818304">
+  <file name="ApkaJezykowa.dll" size="6829056">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>5/fTtZv2Dj1YhWsA7qm52PqwvAP8YZP9v4PXibiv/Q4=</dsig:DigestValue>
+      <dsig:DigestValue>kxAF5riXZjmmb4xPQQj6fNZYflmvcxIcJjc6x50Q4H8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ApkaJezykowa.dll.config" size="4782">
+  <file name="ApkaJezykowa.dll.config" size="4921">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>K8zkHVwHjw/5/8qdz+gcKhTtWO2yGnGE8/vWCcS+gcE=</dsig:DigestValue>
+      <dsig:DigestValue>ew5rwvylZwvVPstcPaOoWUAflbdkZMqmn4wLrXq1FYA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ApkaJezykowa.exe" size="148992">

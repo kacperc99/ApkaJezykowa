@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\ogryz\source\repos\ApkaJezykowa\ApkaJezykowa\App.xaml
 241015007218
 
-109-1793758439
+112-86220682
 375943226519
 CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;MVVM\View\ChooseRightPhraseView.xaml;MVVM\View\ComprehensionTestView.xaml;MVVM\View\ComprehensionView.xaml;MVVM\View\DictionaryView.xaml;MVVM\View\ExerciseEditorView.xaml;MVVM\View\ExerciseMenuView.xaml;MVVM\View\ExerciseView.xaml;MVVM\View\InfoView.xaml;MVVM\View\LessonEditorView.xaml;MVVM\View\LessonListView.xaml;MVVM\View\LessonsView.xaml;MVVM\View\LessonView.xaml;MVVM\View\LoginView.xaml;MVVM\View\MainView.xaml;MVVM\View\ModuleMenuView.xaml;MVVM\View\SettingsView.xaml;MVVM\View\TestInfoView.xaml;MVVM\View\TTSPhraseView.xaml;MVVM\View\VocabularyMenuView.xaml;MVVM\View\VocabularyTestModeView.xaml;Themes\ListViewStyles.xaml;Themes\ToolTip.xaml;
 

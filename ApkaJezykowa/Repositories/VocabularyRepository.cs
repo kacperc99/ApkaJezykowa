@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -14,9 +16,22 @@ namespace ApkaJezykowa.Repositories
 {
   public class VocabularyRepository : BaseRepository, IVocabularyRepository
   {
+    private IPerformanceMeasurementRepository performanceMeasurementRepository;
+    Thread measurement;
+    Stopwatch stopwatch;
+    public VocabularyRepository()
+    {
+      performanceMeasurementRepository = new PerformanceMeasurementRepository();
+    }
     public void ObtainVocabList(ObservableCollection<VocabularyListModel> VocabularyList, string Country, string Language)
     {
-      using(var connection = GetCourseConnection())
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Vocabulary Exercises List. Start!");
+      using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -33,23 +48,23 @@ namespace ApkaJezykowa.Repositories
             //VocabModel.Vocabulary_Parameter = reader["Vocabulary_Parameter"].ToString();
             VocabModel.Id_Course = null;
             ObservableCollection<ListeningListModel> listeningListModels = new ObservableCollection<ListeningListModel>();
-            using(var command_2 = new SqlCommand())
+            using(var command_3 = new SqlCommand())
             {
-              command_2.Connection = connection;
-              command_2.CommandText = "select * from [Listening] where Id_Vocabulary = @id";
-              command_2.Parameters.Add("@id",SqlDbType.Int).Value = VocabModel.Id_Vocabulary;
-              using(var reader2 = command_2.ExecuteReader())
+              command_3.Connection = connection;
+              command_3.CommandText = "select * from [Listening] where Id_Vocabulary = @id";
+              command_3.Parameters.Add("@id",SqlDbType.Int).Value = VocabModel.Id_Vocabulary;
+              using(var reader3 = command_3.ExecuteReader())
               {
-                while (reader2.Read())
+                while (reader3.Read())
                 {
                   ListeningListModel ListeningModel = new ListeningListModel();
-                  ListeningModel.Id_Listening = (int)reader2[0];
+                  ListeningModel.Id_Listening = (int)reader3[0];
                   ListeningModel.Listening_Language = null;
-                  ListeningModel.Listening_Title = reader2[2].ToString();
+                  ListeningModel.Listening_Title = reader3[2].ToString();
                   ListeningModel.Id_Vocabulary = null;
                   listeningListModels.Add(ListeningModel);
                 }
-                reader2.NextResult();
+                reader3.NextResult();
               }
             }
             VocabModel.ListeningList = listeningListModels;
@@ -79,9 +94,18 @@ namespace ApkaJezykowa.Repositories
           reader.NextResult();
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public AccentModel GetAccent(string Lang)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Accent Data. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -99,6 +123,9 @@ namespace ApkaJezykowa.Repositories
             accent.Voice = reader[2].ToString();
           }
         }
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return accent;
       }
     }

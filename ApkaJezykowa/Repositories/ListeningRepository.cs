@@ -5,17 +5,32 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ApkaJezykowa.Repositories
 {
   public class ListeningRepository : BaseRepository, IListeningRepository
   {
+    private IPerformanceMeasurementRepository performanceMeasurementRepository;
+    Thread measurement;
+    Stopwatch stopwatch;
+    public ListeningRepository()
+    {
+      performanceMeasurementRepository = new PerformanceMeasurementRepository();
+    }
     public ObservableCollection<TTS> GetPhrases(int id, string Language)
     {
       ObservableCollection<TTS> phrases = new ObservableCollection<TTS>();
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Phrases. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -38,11 +53,20 @@ namespace ApkaJezykowa.Repositories
         var result = phrases.OrderBy(item => rnd.Next()).ToList();
         phrases = new ObservableCollection<TTS>(result);
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return phrases;
     }
     public ObservableCollection<TTS> GetTestPhrases(int id, string Language)
     {
       ObservableCollection<TTS> phrases = new ObservableCollection<TTS>();
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Test Phrases. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -65,11 +89,20 @@ namespace ApkaJezykowa.Repositories
         var result = phrases.OrderBy(item => rnd.Next()).ToList();
         phrases = new ObservableCollection<TTS>(result);
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return phrases;
     }
     public void GetAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang)
     {
       int id_choose;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Questions with Answers. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -110,10 +143,19 @@ namespace ApkaJezykowa.Repositories
           reader.NextResult();
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public void GetTestAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang)
     {
       int id_choose;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Test Questions with Answers. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -154,6 +196,9 @@ namespace ApkaJezykowa.Repositories
           reader.NextResult();
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
   }
 }

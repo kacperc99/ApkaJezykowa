@@ -8,13 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Threading;
 
 namespace ApkaJezykowa.Repositories
 {
   public class ComprehensionRepository : BaseRepository, IComprehensionRepository
   {
+    private IPerformanceMeasurementRepository performanceMeasurementRepository;
+    Thread measurement;
+    Stopwatch stopwatch;
+    public ComprehensionRepository()
+    {
+      performanceMeasurementRepository = new PerformanceMeasurementRepository();
+    }
     public ReadingTextModel Obtain_Text(int Id_Comprehension)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Random Text Data. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -33,11 +48,20 @@ namespace ApkaJezykowa.Repositories
           result.Illustration = (byte[])reader[4];
         }
         reader.Close();
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return result;
       }
     }
     public int Get_Comprehension_Int(int Id_Vocabulary)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Random Comprehension Id. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -46,11 +70,21 @@ namespace ApkaJezykowa.Repositories
         command.CommandText = "select top 1 Id_Comprehension from Comprehension where Id_Vocabulary = @id";
         command.Parameters.Add("@id", SqlDbType.Int).Value = Id_Vocabulary;
         var reader = command.ExecuteReader();
-        return command.ExecuteNonQuery();
+        int id = command.ExecuteNonQuery();
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+        return id;
       }
     }
     public ReadingTextModel Obtain_Test_Text(int Id_Vocabulary)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Random Test Text Data. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -69,11 +103,20 @@ namespace ApkaJezykowa.Repositories
           result.Illustration = (byte[])reader[4];
         }
         reader.Close();
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return result;
       }
     }
     public void Obtain_Dictionary(int Id_Reading_Text, ObservableCollection<TextWordbookModel> TextWordBook)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Dictionary for the Text. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -96,9 +139,18 @@ namespace ApkaJezykowa.Repositories
           reader.NextResult();
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public string Obtain_Translation(int Id_Comprehension)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Translation Data. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -111,12 +163,21 @@ namespace ApkaJezykowa.Repositories
         if (reader.Read())
           Text_Translated = reader["Translation"].ToString();
         reader.Close();
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return Text_Translated;
       }
     }
     public ObservableCollection<TextQuestionTestModel> Obtain_Questions(int Id_Reading_Text, ObservableCollection<string> correctAnswers)
     {
       ObservableCollection<TextQuestionTestModel> textQuestions = new ObservableCollection<TextQuestionTestModel>();
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Random Questions. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -155,6 +216,9 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return textQuestions;
       }
     }

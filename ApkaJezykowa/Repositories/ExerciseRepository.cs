@@ -6,16 +6,31 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ApkaJezykowa.Repositories
 {
   internal class ExerciseRepository : BaseRepository, IExerciseRepository
   {
+    private IPerformanceMeasurementRepository performanceMeasurementRepository;
+    Thread measurement;
+    Stopwatch stopwatch;
+    public ExerciseRepository()
+    {
+      performanceMeasurementRepository = new PerformanceMeasurementRepository();
+    }
     public void Display(ObservableCollection<ExerciseModel> Exercises, int Id)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Exercise Tasks Data. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -40,9 +55,18 @@ namespace ApkaJezykowa.Repositories
           reader.NextResult();
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language, string Country)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Exercise List. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -65,10 +89,19 @@ namespace ApkaJezykowa.Repositories
           reader.NextResult();
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public void Obtain_Pars(List<Pars> pars, string Language)
     {
-      using(var connection = GetCourseConnection())
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Exercise Ids. Start!");
+      using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -88,12 +121,21 @@ namespace ApkaJezykowa.Repositories
           reader.NextResult();
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public void Enter_Test_Mode(int Id, string Language, ObservableCollection<TestData> TestingData)
     {
       //List<int> ids = new List<int>();
       //List<string> tasks = new List<string>();
       //List<bool> check = new List<bool>();
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Three Random Exercises. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -118,6 +160,9 @@ namespace ApkaJezykowa.Repositories
           //TestModel.instance.Test_Done = check;
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public List<string> Obtain_Exercise_Names(string Country, string Language, decimal Level)
     {
@@ -130,7 +175,13 @@ namespace ApkaJezykowa.Repositories
         DecimalLevel = null;
       List<string> ex_nam = new List<string>();
       ex_nam.Add("None");
-      using(var connection = GetCourseConnection())
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Exercise Names. Start!");
+      using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -147,12 +198,21 @@ namespace ApkaJezykowa.Repositories
           }
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return ex_nam;
     }
     public ObservableCollection<ExerciseData> Obtain_Exercise_Content(string Exercise)
     {
       ObservableCollection<ExerciseData> ec = new ObservableCollection<ExerciseData>();
-      using(var connection = GetCourseConnection())
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching Exercise Content. Start!");
+      using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -174,12 +234,21 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return ec;
       }
     }
     public ExerciseParamModel Obtain_Exercise_Parameters(string Exercise)
     {
       ExerciseParamModel result = null;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Obtaining Exercise Parameters. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -204,10 +273,20 @@ namespace ApkaJezykowa.Repositories
           }
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return result;
     }
     public bool DoesLessonExist(string Country, string Language, decimal Level)
     {
+      bool p;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Finding Exercise. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -219,12 +298,22 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
-        return command.ExecuteScalar() == null ? false : true;
+        p = command.ExecuteScalar() == null ? false : true;
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      return p;
     }
     public void AddExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string Title, decimal Level, string TaskText)
     {
       int id;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Adding Exercise. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -263,13 +352,22 @@ namespace ApkaJezykowa.Repositories
            command.ExecuteNonQuery();
           }
         }
-     }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+    }
     
     public void EditExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string TaskText, string OldTitle, string Title, decimal Level, int CourseID, int Exercise_Id)
     {
       ObservableCollection<ExerciseData> data = new ObservableCollection<ExerciseData>();
       //few changes and improvements will be needed, certain actions are being initiaied unecessarily
       //everything is going to be moved to the dabase itself as a procedure
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Editing Exercise. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -354,6 +452,9 @@ namespace ApkaJezykowa.Repositories
           }
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
   }
 }

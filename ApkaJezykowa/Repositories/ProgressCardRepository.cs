@@ -3,17 +3,32 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ApkaJezykowa.Repositories
 {
   internal class ProgressCardRepository : BaseRepository, IProgressCardRepository
   {
+    private IPerformanceMeasurementRepository performanceMeasurementRepository;
+    Thread measurement;
+    Stopwatch stopwatch;
+    public ProgressCardRepository()
+    {
+      performanceMeasurementRepository = new PerformanceMeasurementRepository();
+    }
     public bool IsUserSignedIn(string username, string language, string country)
     {
       bool IsUserSigned;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Checking Level Roles. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -28,10 +43,19 @@ namespace ApkaJezykowa.Repositories
         IsUserSigned = command.ExecuteScalar() == null ? false : true;
       }
       Console.WriteLine("Chyba pykło");
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return IsUserSigned;
     }
     public void Add(string username, string language, string country)
     {
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Applying Level Roles. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -44,6 +68,9 @@ namespace ApkaJezykowa.Repositories
         command.ExecuteNonQuery();
         Console.WriteLine("p?!");
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
   }
 }

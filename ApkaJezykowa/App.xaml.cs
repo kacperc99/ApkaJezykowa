@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using ApkaJezykowa.Converters;
 using ApkaJezykowa.Keys;
+using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.MVVM.View;
+using ApkaJezykowa.Repositories;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Microsoft.Azure.KeyVault;
@@ -28,7 +34,11 @@ namespace ApkaJezykowa
   {
     /*public IServiceProvider ServiceProvider { get; private set; }
     public IConfiguration Configuration { get; private set; }*/
+    [DllImport("Kernel32")]
+    public static extern void AllocConsole();
 
+    [DllImport("Kernel32", SetLastError = true)]
+    public static extern void FreeConsole();
     protected override void OnStartup(StartupEventArgs e)
     {
       var client = new NamedPipeClientStream("DataPasser");
@@ -38,22 +48,17 @@ namespace ApkaJezykowa
         SpeechServiceKey.Instance.Key = reader.ReadLine();
         SpeechServiceKey.Instance.Region = reader.ReadLine();
       }
+      AllocConsole();
+      MeasurementModel.Instance.cpu = new("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);
+      MeasurementModel.Instance.ram = new("Process", "Working Set", Process.GetCurrentProcess().ProcessName);
+      //MeasurementModel.Instance.measurement = new Thread(new ThreadStart(MeasurementModel.Instance.CPU_Measurement));
+      //MeasurementModel.Instance.measurement.Start();
+      //MeasurementModel.Instance.stopwatch = new Stopwatch();
       /*var applicationBuilder = Host.CreateApplicationBuilder();
 
        applicationBuilder.Logging.AddConsole();
 
-       applicationBuilder.Configuration.AddJsonFile("AppSettings.json");
-
-       applicationBuilder.Environment.ApplicationName = "ApkaJezykowa";
-
-       var keyVaultUrl = applicationBuilder.Configuration.GetSection("KeyVault:KeyVaultURL");
-
-       var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(new AzureServiceTokenProvider().KeyVaultTokenCallback));
-       applicationBuilder.Configuration.AddAzureKeyVault(keyVaultUrl.Value.ToString(), new DefaultKeyVaultSecretManager());
-       var client = new SecretClient(new Uri(keyVaultUrl.Value.ToString()), new DefaultAzureCredential());
-
-       SpeechServiceKey.Instance.Key = client.GetSecret("speechkey").Value.Value.ToString();
-       SpeechServiceKey.Instance.Region = client.GetSecret("speechregion").Value.Value.ToString();*/
+      applicationBuilder.Configuration.AddJsonFile("AppSettings.json");*/
     }
   }
 }

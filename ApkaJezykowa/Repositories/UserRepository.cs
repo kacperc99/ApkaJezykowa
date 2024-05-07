@@ -3,19 +3,34 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Security;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ApkaJezykowa.Repositories
 {
   internal class UserRepository : BaseRepository, IUserRepository
   {
+    private IPerformanceMeasurementRepository performanceMeasurementRepository;
+    Thread measurement;
+    Stopwatch stopwatch;
+    public UserRepository()
+    {
+      performanceMeasurementRepository = new PerformanceMeasurementRepository();
+    }
     public bool FindUser(NetworkCredential credential)
     {
       bool newUser;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Searching for the User. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -26,12 +41,21 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@email",SqlDbType.NVarChar).Value=credential.Password;
         newUser = command.ExecuteScalar() == null ? false : true;
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return newUser;
     }
     public void Add(string Username, SecureString Password, string Email, string Country)
     {
       string Passwort = new NetworkCredential("",Password).Password;
-      using(var connection = GetUserConnection())
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Adding new User. Start!");
+      using (var connection = GetUserConnection())
       {
         connection.Open();
         string sql = "insert into [User] values (@username, @password, @email, @country)";
@@ -50,11 +74,20 @@ namespace ApkaJezykowa.Repositories
           new system is going to allow for much more precise permission assigning*/
         }
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
 
     public bool AuthenticateUser(NetworkCredential credential)
     {
       bool validUser;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Authenticating User. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -65,6 +98,9 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@password", SqlDbType.NVarChar).Value = credential.Password;
         validUser = command.ExecuteScalar() == null ? false : true;
       }
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return validUser;
     }
 
@@ -86,6 +122,12 @@ namespace ApkaJezykowa.Repositories
     public UserModel GetByUsername(string username)
     {
       UserModel user = null;
+      measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
+      stopwatch = new Stopwatch();
+      Properties.Settings.Default.ThreadManager = true;
+      measurement.Start();
+      stopwatch.Start();
+      Console.WriteLine("Fetching User Data. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -107,6 +149,9 @@ namespace ApkaJezykowa.Repositories
             };
           }
         }
+        stopwatch.Stop();
+        Properties.Settings.Default.ThreadManager = false;
+        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return user;
       }
     }
