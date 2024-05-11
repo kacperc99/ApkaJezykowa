@@ -10,6 +10,7 @@ using ApkaJezykowa.MVVM.Model;
 using System.Threading;
 using ApkaJezykowa.Repositories;
 using System.Security.Principal;
+using System.Timers;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
@@ -49,6 +50,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public string WelcomeMessage { get { return _welcomeMessage; } set { _welcomeMessage = value; OnPropertyChanged(nameof(WelcomeMessage)); } }
     public string FilePath { get { return _filePath; } set { _filePath = value; OnPropertyChanged(nameof(FilePath));} }
+    public ICommand PrintMeasurementCommand { get; }
     public ICommand UpdateViewCommand { get; set; }
     public ICommand UpdateMainViewCommand { get; set; }
         public MainViewModel()
@@ -57,6 +59,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
             UpdateMainViewCommand = new UpdateMainViewCommand(this);
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
+            PrintMeasurementCommand = new RelayCommand(ExecutePrintMeasurementCommand);
             LoadCurrentUserData();
         }
 
@@ -87,6 +90,27 @@ namespace ApkaJezykowa.MVVM.ViewModel
       {
         FilePath = @"pack://application:,,,/ApkaJezykowa;component/Images/bg.png";
       }
+    }
+    public void ExecutePrintMeasurementCommand(object obj)
+    {
+      foreach(var record in MeasurementModel.Instance.Measurement_Results)
+      {
+        Console.WriteLine("---------------------------------------------------");
+        Console.WriteLine(record.Item1.ToString());
+        foreach(var cpu_val in record.Item2)
+        {
+          Console.WriteLine("CPU Time:" + cpu_val.ToString() + "ms");
+        }
+        foreach (var ram_val in record.Item3)
+        {
+          Console.WriteLine("RAM usage:" + ram_val.ToString() + " Bytes");
+        }
+        Console.WriteLine("Elapsed time: " + record.Item4.ToString() + "ms");
+        Console.WriteLine("Average CPU Time: " + record.Item5.ToString() + "ms");
+        Console.WriteLine("Average RAM usage:" + record.Item6.ToString() + " Bytes");
+        Console.WriteLine("---------------------------------------------------");
+      }
+      MeasurementModel.Instance.Measurement_Results.Clear();
     }
   }
 }

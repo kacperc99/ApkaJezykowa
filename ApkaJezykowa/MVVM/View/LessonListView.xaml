@@ -4,9 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View" 
+             xmlns:local1="clr-namespace:ApkaJezykowa.Converters" 
              xmlns:viewmodel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" 
              d:DataContext="{d:DesignInstance Type=viewmodel:LessonListViewModel}"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <local1:CommandParameterConverter x:Key="cpc"></local1:CommandParameterConverter>
+    </UserControl.Resources>
     <Grid Background="DimGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -31,8 +35,14 @@
                                    Foreground="Black"/>
                         <Button x:Name="Login" Background="Black" FontSize="16" FontWeight="Bold" Foreground="White" 
                                 Width="200" Height="50" Content="Choose" HorizontalAlignment="Right"
-                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LessonListUpdateViewCommand}"
-                                CommandParameter="{Binding Id_Lesson}">
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LessonListUpdateViewCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource cpc}">
+                                    <Binding Path="Id_Lesson_Title" />
+                                    <Binding Path="Lesson_Title"/>
+                                    <Binding Path="Lesson_Level"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="LightGray"/>

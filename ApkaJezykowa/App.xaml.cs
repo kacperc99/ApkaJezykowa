@@ -51,6 +51,9 @@ namespace ApkaJezykowa
       AllocConsole();
       MeasurementModel.Instance.cpu = new("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);
       MeasurementModel.Instance.ram = new("Process", "Working Set", Process.GetCurrentProcess().ProcessName);
+      MeasurementModel.Instance.Measurement_Results = new List<Tuple<string, List<double>, List<float>, TimeSpan, double, float>>();
+      MeasurementModel.Instance.CPU_Vals = new List<double>();
+      MeasurementModel.Instance.RAM_Vals = new List<float>();
       //MeasurementModel.Instance.measurement = new Thread(new ThreadStart(MeasurementModel.Instance.CPU_Measurement));
       //MeasurementModel.Instance.measurement.Start();
       //MeasurementModel.Instance.stopwatch = new Stopwatch();

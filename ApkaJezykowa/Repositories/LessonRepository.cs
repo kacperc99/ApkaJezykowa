@@ -35,7 +35,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Display Data. Start!");
+      //Console.WriteLine("Fetching Display Data. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -61,10 +61,15 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Display Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return lesson;
     }
-    public string GetTitle(int Id, string Language)
+    /*public string GetTitle(int Id, string Language)
     {
       string read = null;
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
@@ -78,7 +83,7 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson = @id and Lesson_Language = @lang";
+        command.CommandText = "select Lesson_Title from [Lesson_Title] where Id_Lesson_Title = @id and Lesson_Language = @lang";
         command.Parameters.Add("@lang", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@id", SqlDbType.NVarChar).Value = Id;
         using (var reader = command.ExecuteReader())
@@ -91,9 +96,14 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Title", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return read;
-    }
+    }*/
     public void Obtain_Lesson_List(List<LessonListModel> LessonsList, string Language, string Lesson_Language)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
@@ -101,20 +111,20 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Lessons List. Start!");
+      //Console.WriteLine("Fetching Lessons List. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select L.Id_Lesson, LT.Lesson_Title from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson=L.Id_Lesson where LT.Lesson_Language = @lessonlang and L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) order by L.Lesson_Level";
+        command.CommandText = "select LT.Id_Lesson_Title, LT.Lesson_Title, L.Lesson_Level from [Lesson_Title] LT join [Lesson] L on LT.Id_Lesson=L.Id_Lesson where LT.Lesson_Language = @lessonlang and L.Id_Course in (Select Id_Course from [Course] where [Course_Name] = @language) order by L.Lesson_Level";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         using (var reader = command.ExecuteReader())
         {
           while (reader.Read())
           {
-            LessonsList.Add(new LessonListModel((int)reader["Id_Lesson"], reader["Lesson_Title"].ToString()));
+            LessonsList.Add(new LessonListModel((int)reader["Id_Lesson_Title"], reader["Lesson_Title"].ToString(), (decimal)reader["Lesson_Level"]));
           }
           reader.NextResult();
         }
@@ -122,9 +132,14 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Lessons List", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
-    public decimal Obtain_Level(int Id, string Language)
+    /*public decimal Obtain_Level(int Id, string Language)
     {
       decimal dec = 0; ;
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
@@ -151,25 +166,30 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Display Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return dec;
-    }
-    public void Obtain_Lessons(List<LessonContentModel> Lessons, string Title, string Lesson_Language)
+    }*/
+    public void Obtain_Lessons(List<LessonContentModel> Lessons, int TitleId)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Lesson Content. Start!");
+      //Console.WriteLine("Fetching Lesson Content. Start!");
       using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
         command.Connection= connection;
-        command.CommandText = "SELECT Id_Lesson_Content, Lesson_Text FROM [Lesson_Content] WHERE Id_Lesson_Title = (SELECT Id_Lesson_Title FROM [Lesson_Title] WHERE Lesson_Title = @title and Lesson_Language = @lessonlang)";
-        command.Parameters.Add("@title", SqlDbType.NVarChar).Value=Title;
-        command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
+        command.CommandText = "SELECT Id_Lesson_Content, Lesson_Text FROM [Lesson_Content] WHERE Id_Lesson_Title =@titleid"; //(SELECT Id_Lesson_Title FROM [Lesson_Title] WHERE Lesson_Title = @title and Lesson_Language = @lessonlang)";
+        command.Parameters.Add("@titleid", SqlDbType.Int).Value=TitleId;
+        //command.Parameters.Add("@lessonlang", SqlDbType.NVarChar).Value = Lesson_Language;
         using (var reader = command.ExecuteReader())
         {
           while(reader.Read())
@@ -205,7 +225,12 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Lesson Content", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public List<string> Obtain_Lesson_Names(string Country, string Language, decimal Level)
     {
@@ -225,7 +250,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Lesson Names. Start!");
+      //Console.WriteLine("Fetching Lesson Names. Start!");
       using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
@@ -245,7 +270,12 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Lesson Names", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return ts;
     }
     public LessonParamModel Obtain_Lesson_Parameters(string LName)
@@ -256,7 +286,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Lesson Parameters. Start!");
+      //Console.WriteLine("Fetching Lesson Parameters. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -283,7 +313,12 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Lesson Parameters", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
       return result;
     }
     public ObservableCollection<LessonData> Obtain_Lesson_Content(string Lesson)
@@ -294,7 +329,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Lesson Content. Start!");
+      //Console.WriteLine("Fetching Lesson Content. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -339,7 +374,12 @@ namespace ApkaJezykowa.Repositories
         ///foreach (LessonData p in lc) { Console.WriteLine(p.LessonID, p.LessonText, p.LessonImage); }
         stopwatch.Stop();
         Properties.Settings.Default.ThreadManager = false;
-        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+        MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+          ("Fetching Display Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+          stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+        MeasurementModel.Instance.CPU_Vals.Clear();
+        MeasurementModel.Instance.RAM_Vals.Clear();
+        //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return lc;
       }
     }
@@ -350,7 +390,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Languages. Start!");
+      //Console.WriteLine("Fetching Languages. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -371,7 +411,12 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Display Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
     public byte[] GetIcon(string Lang)
     {
@@ -380,7 +425,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Icons. Start!");
+      //Console.WriteLine("Fetching Icons. Start!");
       byte[] Icon=null;
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
@@ -398,7 +443,12 @@ namespace ApkaJezykowa.Repositories
         }
         stopwatch.Stop();
         Properties.Settings.Default.ThreadManager = false;
-        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+        MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+          ("Fetching Display Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+          stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+        MeasurementModel.Instance.CPU_Vals.Clear();
+        MeasurementModel.Instance.RAM_Vals.Clear();
+        //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return Icon;
       }
     }
@@ -412,7 +462,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Adding Lesson. Start!");
+      //Console.WriteLine("Adding Lesson. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -513,7 +563,7 @@ namespace ApkaJezykowa.Repositories
           command.CommandText = "insert into [Lesson_Content] (Lesson_Text, Id_Lesson_Title) output inserted.Id_Lesson_Content values (@text, @id)";
           command.Parameters.Add("@text", SqlDbType.NVarChar).Value = x.LessonText;
           command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_TitleID;
-          LessonContentId = (int)command.ExecuteNonQuery();
+          LessonContentId = (int)command.ExecuteScalar();
         }
         /*int LessonContentId = 0;
         using (var connection = GetCourseConnection())
@@ -544,9 +594,14 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Adding Lesson:", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
-      
+
     public void UpdateLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string OldTitle, string Title, decimal Level, int CourseID, int Lesson_Id, int Lesson_Title_Id)
     {
       decimal levl = 0;
@@ -556,7 +611,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Editing Lesson. Start!");
+      //Console.WriteLine("Editing Lesson. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -810,18 +865,18 @@ namespace ApkaJezykowa.Repositories
       {
         for (int i = counter; i < EditedLessons.Count(); i++)
         {
+          int LessonContentId = 0;
           using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "insert into [Lesson_Content] (Lesson_Text, Id_Lesson_Title) select @text, @titleid";
+            command.CommandText = "insert into [Lesson_Content] (Lesson_Text, Id_Lesson_Title) output inserted.Id_Lesson_Content values(@text, @titleid)";
             command.Parameters.Add("@text", SqlDbType.NVarChar).Value = EditedLessons[i].LessonText;
             command.Parameters.Add("@titleid", SqlDbType.Int).Value = Lesson_Title_Id;
-            command.ExecuteNonQuery();
+            LessonContentId = (int)command.ExecuteScalar();
           }
-          int LessonContentId = 0;
-          using (var connection = GetCourseConnection())
+          /*using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
@@ -830,7 +885,7 @@ namespace ApkaJezykowa.Repositories
             command.Parameters.Add("@text", SqlDbType.NVarChar).Value = EditedLessons[i].LessonText;
             command.Parameters.Add("@id", SqlDbType.Int).Value = Lesson_Title_Id;
             LessonContentId = System.Convert.ToInt32(command.ExecuteScalar());
-          }
+          }*/
           foreach (var y in EditedLessons[i].LessonImage)
           {
             using (var connection = GetCourseConnection())
@@ -1184,7 +1239,12 @@ namespace ApkaJezykowa.Repositories
       }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Editing Lesson", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
     }
   }
 }

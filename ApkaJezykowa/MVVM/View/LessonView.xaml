@@ -4,10 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ApkaJezykowa.MVVM.View"
+             xmlns:local1="clr-namespace:ApkaJezykowa.Converters" 
              xmlns:viewModel="clr-namespace:ApkaJezykowa.MVVM.ViewModel" 
              d:DataContext="{d:DesignInstance Type=viewModel:LessonViewModel}"
              mc:Ignorable="d">
-    
+    <UserControl.Resources>
+        <local1:CommandParameterConverter x:Key="cpc"></local1:CommandParameterConverter>
+    </UserControl.Resources>
     <Grid Background="DimGray">
         <StackPanel>
             <TextBlock Text="{Binding LessonTitle}" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" Background="DimGray"></TextBlock>
@@ -118,9 +121,15 @@
                                             HorizontalAlignment="Right"
                                             BorderThickness="0"
                                             Margin="0,0,0,0"
-                                            Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchLessonUpdateViewCommand}"
-                                            CommandParameter="{Binding Id_Lesson}">
-                                                    <TextBlock Text="{Binding Lesson_Title}"
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.FrenchLessonUpdateViewCommand}">
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource cpc}">
+                                            <Binding Path="Id_Lesson_Title" />
+                                            <Binding Path="Lesson_Title"/>
+                                            <Binding Path="Lesson_Level"/>
+                                        </MultiBinding>
+                                    </Button.CommandParameter>
+                                    <TextBlock Text="{Binding Lesson_Title}"
                                            Margin="0,0,0,0"
                                            Style="{StaticResource Font_Style}"
                                            HorizontalAlignment="Center"

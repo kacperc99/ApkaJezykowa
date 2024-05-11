@@ -30,7 +30,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Searching for the User. Start!");
+      //Console.WriteLine("Searching for the User. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -43,7 +43,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Searching for the user", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return newUser;
     }
     public void Add(string Username, SecureString Password, string Email, string Country)
@@ -54,7 +58,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Adding new User. Start!");
+      //Console.WriteLine("Adding new User. Start!");
       using (var connection = GetUserConnection())
       {
         connection.Open();
@@ -76,7 +80,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Adding new user", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
 
     public bool AuthenticateUser(NetworkCredential credential)
@@ -87,7 +95,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Authenticating User. Start!");
+      //Console.WriteLine("Authenticating User. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -100,7 +108,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Authenticating User", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return validUser;
     }
 
@@ -127,7 +139,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching User Data. Start!");
+      //Console.WriteLine("Fetching User Data. Start!");
       using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
@@ -151,7 +163,11 @@ namespace ApkaJezykowa.Repositories
         }
         stopwatch.Stop();
         Properties.Settings.Default.ThreadManager = false;
-        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+        MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+          ("Fetching User Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+          stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+        MeasurementModel.Instance.CPU_Vals.Clear();
+        MeasurementModel.Instance.RAM_Vals.Clear();
         return user;
       }
     }

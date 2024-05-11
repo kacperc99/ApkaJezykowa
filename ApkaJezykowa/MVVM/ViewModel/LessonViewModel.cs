@@ -37,11 +37,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
   }
   public ICommand FrenchLessonUpdateViewCommand { get; set; }
-  public LessonViewModel(string Lang, decimal LessonLevel, int Id)
+  public LessonViewModel(string Lang, int Id, string LessonTitle, decimal LessonLevel)
   {
       this.Lang = Lang;
       this.LessonLevel = LessonLevel;
       this.Id = Id;
+      this.LessonTitle = LessonTitle;
       lessonRepository = new LessonRepository();
       FrenchLessonUpdateViewCommand = new LessonUpdateViewCommand(this, Lang);
       LoadLesson();
@@ -51,9 +52,10 @@ namespace ApkaJezykowa.MVVM.ViewModel
     {
       if (LessonLevel != 0 && Lang != null)
       {
-        LessonTitle = lessonRepository.GetTitle((int)LessonLevel, Properties.Settings.Default.Language);
+        //level has to be replaced with title id or, even better, remove stupid title requirement
+        //LessonTitle = lessonRepository.GetTitle(Id, Properties.Settings.Default.Language);
         lessonRepository.Obtain_Lesson_List(LessonsList, Lang, Properties.Settings.Default.Language);
-        lessonRepository.Obtain_Lessons(Lessons, LessonTitle, Properties.Settings.Default.Language);
+        lessonRepository.Obtain_Lessons(Lessons, Id);
       }
     }
   }

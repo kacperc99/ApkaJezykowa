@@ -374,6 +374,40 @@
                                          Style="{StaticResource tt_style}"/>
                                 </ListViewItem.ToolTip>
                             </ListViewItem>
+                            <ListViewItem Height="80" HorizontalAlignment="Left" Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
+                                <StackPanel Orientation="Horizontal" Width="250">
+                                    <Button x:Name="MeasurementData"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="80"
+                                            HorizontalAlignment="Left"
+                                            BorderThickness="0"
+                                            Command="{Binding PrintMeasurementCommand}">
+                                        <Image Source="pack://application:,,,/ApkaJezykowa;component/Images/lifeline.png" Height="60" HorizontalAlignment="left" Margin="0,0,10,0"/>
+                                    </Button>
+                                    <Button x:Name="MeasurementData2"
+                                            Style="{StaticResource NoMouseOver}"
+                                            Background="Transparent"
+                                            Height="80"
+                                            Width="170"
+                                            HorizontalAlignment="Left"
+                                            BorderThickness="0"
+                                            Margin="0,0,0,0"
+                                            Command="{Binding PrintMeasurementCommand}">
+                                        <TextBlock Text="Measurement"
+                                           VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                           Style="{StaticResource Font_Style}"
+                                           />
+                                    </Button>
+                                </StackPanel>
+                                <ListViewItem.ToolTip>
+                                    <ToolTip x:Name="tt_measurementdata"
+                                         Content="Measurement"
+                                         Style="{StaticResource tt_style}"/>
+                                </ListViewItem.ToolTip>
+                            </ListViewItem>
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <Setter Property="Template">

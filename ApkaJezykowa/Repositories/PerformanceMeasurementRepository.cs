@@ -16,8 +16,8 @@ namespace ApkaJezykowa.Repositories
     {
       while (Properties.Settings.Default.ThreadManager)
       {
-        Console.WriteLine("CPU: " + MeasurementModel.Instance.cpu.NextValue().ToString() + "%" + " RAM: " + MeasurementModel.Instance.ram.NextValue().ToString() + "MB");
-        //Thread.Sleep(100);
+        MeasurementModel.Instance.CPU_Vals.Add(MeasurementModel.Instance.cpu.NextValue());
+        MeasurementModel.Instance.RAM_Vals.Add(MeasurementModel.Instance.ram.NextValue());
       }
     }
   }

@@ -36,8 +36,9 @@ namespace ApkaJezykowa.MVVM.View
         tt_lessons.Visibility = Visibility.Collapsed;
         tt_dictionary.Visibility = Visibility.Collapsed;
         tt_information.Visibility = Visibility.Collapsed;
-        //tt_settings.Visibility = Visibility.Collapsed;
+        tt_settings.Visibility = Visibility.Collapsed;
         tt_logout.Visibility = Visibility.Collapsed;
+        tt_measurementdata.Visibility = Visibility.Collapsed;
       }
       else
       {
@@ -45,8 +46,9 @@ namespace ApkaJezykowa.MVVM.View
         tt_lessons.Visibility = Visibility.Visible;
         tt_dictionary.Visibility = Visibility.Visible;
         tt_information.Visibility = Visibility.Visible;
-        //tt_settings.Visibility = Visibility.Visible;
+        tt_settings.Visibility = Visibility.Visible;
         tt_logout.Visibility = Visibility.Visible;
+        tt_measurementdata.Visibility = Visibility.Visible;
       }
     }
 

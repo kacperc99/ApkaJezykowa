@@ -30,7 +30,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Phrases. Start!");
+      //Console.WriteLine("Fetching Phrases. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -55,7 +55,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Phrases", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return phrases;
     }
     public ObservableCollection<TTS> GetTestPhrases(int id, string Language)
@@ -66,7 +70,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Test Phrases. Start!");
+      //Console.WriteLine("Fetching Test Phrases. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -91,7 +95,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Test Phrases", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return phrases;
     }
     public void GetAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang)
@@ -102,7 +110,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Questions with Answers. Start!");
+      //Console.WriteLine("Fetching Questions with Answers. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -145,7 +153,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Questions with Answers", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
     public void GetTestAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang)
     {
@@ -198,7 +210,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Test Questions with Answers", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
   }
 }

@@ -30,7 +30,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Exercise Tasks Data. Start!");
+      //Console.WriteLine("Fetching Exercise Tasks Data. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -57,7 +57,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Exercise Task Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
     public void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language, string Country)
     {
@@ -66,7 +70,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Exercise List. Start!");
+      //Console.WriteLine("Fetching Exercise List. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -91,7 +95,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Exercise List", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
     public void Obtain_Pars(List<Pars> pars, string Language)
     {
@@ -100,7 +108,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Exercise Ids. Start!");
+      //Console.WriteLine("Fetching Exercise Ids. Start!");
       using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
@@ -123,7 +131,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching ercise Ids", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
     public void Enter_Test_Mode(int Id, string Language, ObservableCollection<TestData> TestingData)
     {
@@ -135,7 +147,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Three Random Exercises. Start!");
+      //Console.WriteLine("Fetching Three Random Exercises. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -162,7 +174,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Three Random Exercises", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
     public List<string> Obtain_Exercise_Names(string Country, string Language, decimal Level)
     {
@@ -180,7 +196,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Exercise Names. Start!");
+      //Console.WriteLine("Fetching Exercise Names. Start!");
       using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
@@ -200,7 +216,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Exercise Names", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return ex_nam;
     }
     public ObservableCollection<ExerciseData> Obtain_Exercise_Content(string Exercise)
@@ -211,7 +231,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Exercise Content. Start!");
+      //Console.WriteLine("Fetching Exercise Content. Start!");
       using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
@@ -236,7 +256,11 @@ namespace ApkaJezykowa.Repositories
         }
         stopwatch.Stop();
         Properties.Settings.Default.ThreadManager = false;
-        Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+        MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+          ("Fetching Exercise Content", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+          stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+        MeasurementModel.Instance.CPU_Vals.Clear();
+        MeasurementModel.Instance.RAM_Vals.Clear();
         return ec;
       }
     }
@@ -248,7 +272,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Obtaining Exercise Parameters. Start!");
+      //Console.WriteLine("Obtaining Exercise Parameters. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -275,7 +299,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Exercise Parameters", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return result;
     }
     public bool DoesLessonExist(string Country, string Language, decimal Level)
@@ -286,7 +314,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Finding Exercise. Start!");
+      //Console.WriteLine("Finding Exercise. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -302,7 +330,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Finding Exercise", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return p;
     }
     public void AddExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string Title, decimal Level, string TaskText)
@@ -313,7 +345,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Adding Exercise. Start!");
+      //Console.WriteLine("Adding Exercise. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -354,7 +386,11 @@ namespace ApkaJezykowa.Repositories
         }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Adding Exercise", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
     
     public void EditExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string TaskText, string OldTitle, string Title, decimal Level, int CourseID, int Exercise_Id)
@@ -367,7 +403,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Editing Exercise. Start!");
+      //Console.WriteLine("Editing Exercise. Start!");
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -454,7 +490,11 @@ namespace ApkaJezykowa.Repositories
       }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
-      Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Editing Exercise", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
     }
   }
 }

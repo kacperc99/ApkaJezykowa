@@ -24,7 +24,6 @@ namespace ApkaJezykowa.Commands
       lessonRepository = new LessonRepository();
     }
 
-
     public event EventHandler CanExecuteChanged;
 
     public bool CanExecute(object parameter)
@@ -33,8 +32,12 @@ namespace ApkaJezykowa.Commands
     }
     public void Execute(object parameter)
     {
-      decimal LessonLevel = lessonRepository.Obtain_Level((int)parameter, Lang);
-      viewModel.SelectedViewModel = new LessonViewModel(Lang, LessonLevel, (int)parameter);
+      var values = (object[])parameter;
+      var id_Lesson_Title = values[0];
+      var lesson_Title = values[1];
+      var lesson_Level = values[2];
+      //decimal LessonLevel = lessonRepository.Obtain_Level((int)parameter, Lang);
+      viewModel.SelectedViewModel = new LessonViewModel(Lang, (int)id_Lesson_Title, lesson_Title.ToString(), (decimal)lesson_Level);
     }
   }
 }
