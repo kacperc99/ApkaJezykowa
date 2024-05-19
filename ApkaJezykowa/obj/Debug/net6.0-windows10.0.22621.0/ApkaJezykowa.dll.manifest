@@ -53,13 +53,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ApkaJezykowa.dll" size="6836736">
+  <file name="ApkaJezykowa.dll" size="6836224">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>yMTs6yNxH8eaG8C3NBm2ucQz8Dp3LQi5uok4fayauzo=</dsig:DigestValue>
+      <dsig:DigestValue>Cm5gmw3NoqFA3B9pCagfXouuDWAaGUiFhIC5k6s8Kiw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ApkaJezykowa.dll.config" size="4921">
@@ -77,7 +77,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RQ5ZYAhVnFyNKclyrb1C/CCkRdtM+HwK3YEoByMVRh4=</dsig:DigestValue>
+      <dsig:DigestValue>0+yyc3aoOX7qvgROxkajAdNwC4YuVwot1QiY4rfvjxc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Azure.Core.dll" size="422848">
@@ -125,13 +125,13 @@
       <dsig:DigestValue>292jXxNNyZBd+vY7OgQduvIUTBhRqOPHDZD9m96yKGg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="AzureVaultKeyAccessProvider.dll" size="10240">
+  <file name="AzureVaultKeyAccessProvider.dll" size="9728">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>3+qO+BbnbE3Vw0Mv9E2k/AMQmfe6vy8pXl/ojauhy3Y=</dsig:DigestValue>
+      <dsig:DigestValue>CAJizIdcJagsVnsKi3I3fVZMSjtjsH4lj7iMdYjKDJM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="cs-CZ\Xceed.Wpf.AvalonDock.NET5.resources.dll" size="6144">
@@ -440,13 +440,13 @@
       <dsig:DigestValue>4QQhM8jyo9aDQufnOFZgnUzrwsksMH1b4cX/7JyAq8M=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Microsoft.Windows.SDK.NET.dll" size="22745008">
+  <file name="Microsoft.Windows.SDK.NET.dll" size="21752200">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>wGf3Prl1tMMr23LM094zbr1RF0190lNRTJ8kyzNovYI=</dsig:DigestValue>
+      <dsig:DigestValue>aA7e+/if4DDHRl8OXbHUZ0H6tFAnVcF0Fq92mvIzgUQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Microsoft.Xaml.Behaviors.dll" size="145272">
@@ -1835,13 +1835,13 @@
       <dsig:DigestValue>4G1SeTQ8MQz7hoFI3Fcxc3cHtwDMBIHzy4oUzwg4aE8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="WinRT.Runtime.dll" size="399280">
+  <file name="WinRT.Runtime.dll" size="395672">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>SXeh5tzuTDMQpo4g8oec85uVJV4p8/11V3geBYRFy5s=</dsig:DigestValue>
+      <dsig:DigestValue>k5u7Yl3mc1YHa/au7rPHUTwZSEor1jncFap3tIKRZFg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Xceed.Wpf.AvalonDock.NET5.dll" size="459264">
