@@ -23,6 +23,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureKeyVault;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace ApkaJezykowa
 {
@@ -41,12 +43,14 @@ namespace ApkaJezykowa
     public static extern void FreeConsole();
     protected override void OnStartup(StartupEventArgs e)
     {
+      string ConnectionString;
       var client = new NamedPipeClientStream("DataPasser");
       client.Connect();
       using (var reader = new StreamReader(client))
       {
         SpeechServiceKey.Instance.Key = reader.ReadLine();
         SpeechServiceKey.Instance.Region = reader.ReadLine();
+        ConnectionString = reader.ReadLine();
       }
       AllocConsole();
       MeasurementModel.Instance.cpu = new("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);
@@ -54,6 +58,22 @@ namespace ApkaJezykowa
       MeasurementModel.Instance.Measurement_Results = new List<Tuple<string, List<double>, List<float>, TimeSpan, double, float>>();
       MeasurementModel.Instance.CPU_Vals = new List<double>();
       MeasurementModel.Instance.RAM_Vals = new List<float>();
+      string connectionUri = ConnectionString;
+      var settings = MongoClientSettings.FromConnectionString(connectionUri);
+      // Set the ServerApi field of the settings object to set the version of the Stable API on the client
+      settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+      // Create a new client and connect to the server
+      SpeechServiceKey.Instance.Client = new MongoClient(settings);
+      // Send a ping to confirm a successful connection
+      try
+      {
+        var result = SpeechServiceKey.Instance.Client.GetDatabase("admin").RunCommand<BsonDocument>(new BsonDocument("ping", 1));
+        Console.WriteLine("Pinged your deployment. You successfully connected to MongoDB!");
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine(ex);
+      }
       //MeasurementModel.Instance.measurement = new Thread(new ThreadStart(MeasurementModel.Instance.CPU_Measurement));
       //MeasurementModel.Instance.measurement.Start();
       //MeasurementModel.Instance.stopwatch = new Stopwatch();

@@ -16,7 +16,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
         builder.Logging.AddConsole();
         builder.Configuration.AddJsonFile("appsettings.json");
-        var keyVaultUrl = builder.Configuration.GetSection("KeyVault:KeyVaultURL");
+
         // Add services to the container.
 
         builder.Services.AddControllers();
@@ -25,12 +25,15 @@ public class Program
         //builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
-        var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(new AzureServiceTokenProvider().KeyVaultTokenCallback));
-        builder.Configuration.AddAzureKeyVault(keyVaultUrl.Value.ToString(), new DefaultKeyVaultSecretManager());
+        var keyVaultUrl = builder.Configuration.GetSection("KeyVault:KeyVaultURL");
         var client = new SecretClient(new Uri(keyVaultUrl.Value.ToString()), new DefaultAzureCredential());
+        //var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(new AzureServiceTokenProvider().KeyVaultTokenCallback));
+        builder.Configuration.AddAzureKeyVault(keyVaultUrl.Value.ToString(), new DefaultKeyVaultSecretManager());
+
 
         var key = client.GetSecret("speechkey").Value.Value.ToString();
         var region = client.GetSecret("speechregion").Value.Value.ToString();
+        var connectionstring = client.GetSecret("mongodbconnectionstring").Value.Value.ToString();
         // Configure the HTTP request pipeline.
         /*if (app.Environment.IsDevelopment())
         {
@@ -44,6 +47,7 @@ public class Program
             writer.AutoFlush = true;
             writer.WriteLine(key);
             writer.WriteLine(region);
+            writer.WriteLine(connectionstring);
             server.WaitForPipeDrain();
         }
 

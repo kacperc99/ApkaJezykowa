@@ -1,4 +1,7 @@
-﻿using ApkaJezykowa.MVVM.Model;
+﻿using ApkaJezykowa.Keys;
+using ApkaJezykowa.MVVM.Model;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,9 +19,14 @@ namespace ApkaJezykowa.Repositories
     private IPerformanceMeasurementRepository performanceMeasurementRepository;
     Thread measurement;
     Stopwatch stopwatch;
+    IMongoCollection<UserModel> userCollection;
+    IMongoCollection<ProgressCardModel> progressCardCollection;
     public ProgressCardRepository()
     {
       performanceMeasurementRepository = new PerformanceMeasurementRepository();
+      var database = SpeechServiceKey.Instance.Client.GetDatabase("UserBase");
+      userCollection = database.GetCollection<UserModel>("User");
+      progressCardCollection = database.GetCollection<ProgressCardModel>("Progress_Card");
     }
     public bool IsUserSignedIn(string username, string language, string country)
     {
@@ -28,8 +36,18 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Checking Level Roles. Start!");
-      using (var connection = GetUserConnection())
+      var filter = Builders<UserModel>.Filter.Eq("Username",username);
+      var projection = Builders<UserModel>.Projection.Include("_id").Exclude("Username").Exclude("Password").Exclude("Email").Exclude("Country");
+      var result = userCollection.Find(filter).Project<UserModel>(projection).First();
+      var filterBuilder2 = Builders<ProgressCardModel>.Filter;
+      var filter2 = filterBuilder2.Empty;
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Lang_Course",country));
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Lang", language));
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Id_User", result.Id));
+      var projection2 = Builders<ProgressCardModel>.Projection.Include("_id").Exclude("Lang_Course").Exclude("Lang").Exclude("Exercise_User_Level").Exclude("Listening_User_Level").Exclude("Text_User_Level").Exclude("Id_User");
+      IsUserSigned = progressCardCollection.Find(filter2).Project<ProgressCardModel>(projection2).FirstOrDefault() == null ? false: true;
+      //Console.WriteLine("Checking Level Roles. Start!");
+      /*using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -41,7 +59,7 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.AddWithValue("@username", SqlDbType.NVarChar).Value = username;
         
         IsUserSigned = command.ExecuteScalar() == null ? false : true;
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -58,8 +76,24 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Applying Level Roles. Start!");
-      using (var connection = GetUserConnection())
+      var filter = Builders<UserModel>.Filter.Eq("Username", username);
+      var projection = Builders<UserModel>.Projection.Include("_id").Exclude("Username").Exclude("Password").Exclude("Email").Exclude("Country");
+      var result = userCollection.Find(filter).Project<UserModel>(projection).First();
+      var sort2 = Builders<ProgressCardModel>.Sort.Descending("_id");
+      var projection2 = Builders<ProgressCardModel>.Projection.Include("_id").Exclude("Lang_Course").Exclude("Lang").Exclude("Exercise_User_Level").Exclude("Listening_User_Level").Exclude("Text_User_Level").Exclude("Id_User");
+      var result2 = progressCardCollection.Find(new BsonDocument()).Sort(sort2).Project<ProgressCardModel>(projection2).FirstOrDefault();
+      var progress = new ProgressCardModel
+      {
+        Id = result2.Id + 1,
+        LangCourse = country,
+        Lang = language,
+        ExerciseUserLevel = 1,
+        ListeningUserLevel = 1,
+        TextUserLevel = 1,
+        IdUser = result.Id
+      };
+      //Console.WriteLine("Applying Level Roles. Start!");
+      /*using (var connection = GetUserConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -70,7 +104,7 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.AddWithValue("@username", SqlDbType.NVarChar).Value = username;
         command.ExecuteNonQuery();
         Console.WriteLine("p?!");
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>

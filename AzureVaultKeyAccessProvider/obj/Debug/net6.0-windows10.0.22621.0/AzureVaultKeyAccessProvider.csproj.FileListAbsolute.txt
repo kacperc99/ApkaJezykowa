@@ -62,3 +62,5 @@ C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\n
 C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0-windows10.0.22621.0\AzureVaultKeyAccessProvider.pdb
 C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0-windows10.0.22621.0\AzureVaultKeyAccessProvider.genruntimeconfig.cache
 C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\obj\Debug\net6.0-windows10.0.22621.0\ref\AzureVaultKeyAccessProvider.dll
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\bin\Debug\net6.0-windows10.0.22621.0\Microsoft.Extensions.Azure.dll
+C:\Users\ogryz\source\repos\ApkaJezykowa\AzureVaultKeyAccessProvider\bin\Debug\net6.0-windows10.0.22621.0\Azure.Extensions.AspNetCore.Configuration.Secrets.dll

@@ -25,7 +25,7 @@ namespace ApkaJezykowa.MVVM.View
     {
       InitializeComponent();
 
-      DataContext = new MainViewModel();
+      //DataContext = new MainViewModel();
     }
 
     private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)

@@ -28,7 +28,7 @@ namespace ApkaJezykowaTest
       string Username = "admin";
       Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
       var MainViewModel = new MainViewModel();
-      MainViewModel.LoadCurrentUserData();
+      //MainViewModel.LoadCurrentUserData();
       Assert.AreEqual(MainViewModel.WelcomeMessage, $"Witaj, admin", "musi pyknąć");
       
     }

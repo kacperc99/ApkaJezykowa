@@ -1,6 +1,7 @@
 ﻿using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.MVVM.ViewModel;
 using Microsoft.CognitiveServices.Speech.Diagnostics.Logging;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -455,14 +456,15 @@ namespace ApkaJezykowa.Repositories
     public void AddLesson(string Country, string Language, ObservableCollection<LessonData> EditedLessons, string Title, decimal Level)
     {
       bool MaxLevel;
-      int? CourseID, LessonID, Lesson_TitleID;
-      decimal MaxLevelInt = 0;
+      int? CourseID, LessonID = 0, Lesson_TitleID;
+      decimal MaxLevelInt = 0, MaxLevelIntLang=0;
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
       //Console.WriteLine("Adding Lesson. Start!");
+      
       using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
@@ -473,29 +475,103 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
         CourseID = System.Convert.ToInt32(command.ExecuteScalar());
-        //szukanie lekcji w danym języku z największym możliwym przypisanym poziomem dla danego kursu
-        command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = (select max(Lesson_Level) from [Lesson] where Id_Course = @id) and Id_Course=@id)";
+        //zmniejszenie poziomu lekcji do najwyższego możliwego +1 w celu uniknięcia dezorganizacji lekcji
+        command.CommandText = "select max(L.Lesson_Level) from [Lesson] L join [Lesson_Title] LT on L.Id_Lesson = LT.Id_Lesson where LT.Lesson_Language = @language and L.Id_Course = @id";
+        command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+        var p = command.ExecuteScalar();
+        if (p==DBNull.Value)
+          Level = 1;
+        else
+        {
+          MaxLevelIntLang = (decimal)p;
+          if (MaxLevelIntLang + 1 < Level)
+            Level = MaxLevelIntLang + 1;
+        }
+        //ten cały fragment poniżej musi zostać zrekonstruowany. Jego celem ma być znalezienie, czy isnieje rekord w tabeli Lessons odpowiadający danej lekcji
+        //szukanie lekcji w danym języku z największym możliwym przypisanym poziomem dla danego kursu
+        //command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = (select max(Lesson_Level) from [Lesson] where Id_Course = @id) and Id_Course=@id)";
+        //command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Level = (select max(Lesson_Level) from [Lesson] where Id_Course = @id) and Id_Course=@id";
+        //command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+        //command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+        command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id";
+        //command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+        //command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
         MaxLevel = command.ExecuteScalar() == null ? false : true;
       }
       if (MaxLevel)
       {
-
         using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
-          //znajdź maksymalny poziom
           connection.Open();
           command.Connection = connection;
-          command.CommandText = "select max(Lesson_Level) from [Lesson] where Id_Course = @id";
+          command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id)";
+          command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
+          command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
           command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
-          MaxLevelInt = System.Convert.ToInt32(command.ExecuteScalar());
-          //stwórz instancję lekcji o poziomie wyższym o jeden
-          command.CommandText = "insert into [Lesson] values(@level, @id_course)";
-          command.Parameters.Add("@level", SqlDbType.Decimal).Value = MaxLevelInt + 1;
-          //command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country.ToLower() + (MaxLevelInt + 1).ToString();
+          Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
+        }
+        if (Lesson_TitleID !=0)
+        {
+          /*using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            //znajdź maksymalny poziom
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "";
+          }
+          if()
+          { */
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            //znajdź maksymalny poziom
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "select max(Lesson_Level) from [Lesson] where Id_Course = @id";
+            command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+            MaxLevelInt = System.Convert.ToInt32(command.ExecuteScalar());
+            if (MaxLevelInt == MaxLevelIntLang)
+            {
+              //stwórz instancję lekcji o poziomie wyższym o jeden
+              command.CommandText = "insert into [Lesson] (Lesson_Level, Id_Course) output inserted.Id_Lesson values(@level, @id_course)";
+              command.Parameters.Add("@level", SqlDbType.Decimal).Value = MaxLevelInt + 1;
+              //command.Parameters.Add("@parameter", SqlDbType.NVarChar).Value = Country.ToLower() + (MaxLevelInt + 1).ToString();
+              command.Parameters.Add("@id_course", SqlDbType.Int).Value = CourseID;
+              LessonID = (int)command.ExecuteScalar();
+            }
+
+            //}
+          }
+        }
+        else
+        {
+          using (var connection = GetCourseConnection())
+          using (var command = new SqlCommand())
+          {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Level=@level and Id_Course=@id";
+            command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+            LessonID = System.Convert.ToInt32(command.ExecuteScalar());
+          }
+        }
+      }
+      else
+      {
+        using (var connection = GetCourseConnection())
+        using (var command = new SqlCommand())
+        {
+          //stwórz nową lekcję na odpowiednim poziomie
+          connection.Open();
+          command.Connection = connection;
+          command.CommandText = "insert into [Lesson] (Lesson_Level, Id_Course) output inserted.Id_Lesson values(@level, @id_course)";
+          command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
           command.Parameters.Add("@id_course", SqlDbType.Int).Value = CourseID;
-          command.ExecuteScalar();
+          LessonID = (int)command.ExecuteScalar();
         }
       }
       //sprawdzanie, czy istnieje już lekcja przypisana do danego poziomu
@@ -504,10 +580,10 @@ namespace ApkaJezykowa.Repositories
       {
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Level=@level and Id_Course=@id";
+        /*command.CommandText = "select Id_Lesson from [Lesson] where Lesson_Level=@level and Id_Course=@id";
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
-        LessonID = System.Convert.ToInt32(command.ExecuteScalar());
+        LessonID = System.Convert.ToInt32(command.ExecuteScalar());*/
         command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language and Id_Lesson = @lesson_id";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@lesson_id", SqlDbType.Int).Value = LessonID;
@@ -524,10 +600,10 @@ namespace ApkaJezykowa.Repositories
             connection.Open();
             command.Connection = connection;
             command.CommandText = "update [Lesson_Title] set Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @levelup and Id_Course = @id) where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id)";
-            command.Parameters.Add("@levelup", SqlDbType.Decimal).Value = MaxLevelInt + 1;
-            command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
+            command.Parameters.Add("@levelup", SqlDbType.Decimal).Value = MaxLevelIntLang + 1;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
             command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-            command.Parameters.Add("@level", SqlDbType.Decimal).Value = MaxLevelInt;
+            command.Parameters.Add("@level", SqlDbType.Decimal).Value = MaxLevelIntLang;
             command.ExecuteScalar();
             MaxLevelInt--;
           }
@@ -543,7 +619,7 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
         command.Parameters.Add("@title", SqlDbType.NVarChar).Value = Title;
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
-        command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
+        command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
         Lesson_TitleID = (int)command.ExecuteScalar();
         /*command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language2 and Id_Lesson =(select Id_Lesson from [Lesson] where Lesson_Level=@level2 and Id_Course=@id2)";
         command.Parameters.Add("@language2", SqlDbType.NVarChar).Value = Language;

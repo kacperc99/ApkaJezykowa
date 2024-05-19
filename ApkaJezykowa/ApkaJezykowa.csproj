@@ -140,6 +140,7 @@
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.24" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime.Azure" Version="3.3.19" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="22.2.9" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="22.2.9" />
     <PackageReference Include="System.ClientModel" Version="1.0.0" />

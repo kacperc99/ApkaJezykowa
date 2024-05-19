@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApkaJezykowaTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea6fbca8c4f20fdb868dd70366e3c0dd4983f807")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34218412a5faf353b8c519bf213dfc7a71701c16")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApkaJezykowaTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApkaJezykowaTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

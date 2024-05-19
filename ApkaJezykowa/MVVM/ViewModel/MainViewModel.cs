@@ -66,7 +66,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
 
     public void LoadCurrentUserData()
     {
-      AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
+      /*AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);
       var user = userRepository.GetByUsername(Thread.CurrentPrincipal?.Identity.Name);
       if (user != null)
       {
@@ -76,12 +76,12 @@ namespace ApkaJezykowa.MVVM.ViewModel
         Console.WriteLine("Działa?");
       }
       else
-      { 
+      { */
       CurrentUserAccount.Username = UserModel.Instance.Username;
       CurrentUserAccount.DisplayName = $"Hello, {UserModel.Instance.Username}";
       WelcomeMessage = $"Hello, {UserModel.Instance.Username}";
-        Console.WriteLine(":(");
-      }
+      //Console.WriteLine(":(");
+      //}
       if(Properties.Settings.Default.FilePath!=null && System.IO.File.Exists(Properties.Settings.Default.FilePath)==true)
       {
         FilePath = Properties.Settings.Default.FilePath;
