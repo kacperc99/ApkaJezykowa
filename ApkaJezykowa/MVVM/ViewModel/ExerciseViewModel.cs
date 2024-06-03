@@ -25,7 +25,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
   public class ExerciseViewModel : BaseViewModel
   {
     string _test;
-    public ObservableCollection<ExerciseModel> exercises = new ObservableCollection<ExerciseModel>();
+    public ObservableCollection<ExerciseContentModel> exercises = new ObservableCollection<ExerciseContentModel>();
     public ObservableCollection<Ex> exs = new ObservableCollection<Ex>();
     public string _result;
     private BaseViewModel _selectedViewModel;
@@ -38,7 +38,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     private IExerciseRepository exerciseRepository;
 
     public string Test { get { return _test; } set { _test = value; OnPropertyChanged(nameof(Test)); } }
-    public ObservableCollection<ExerciseModel> Exercises { get { return exercises; } set { exercises = value; OnPropertyChanged(nameof(Exercises)); } }
+    public ObservableCollection<ExerciseContentModel> Exercises { get { return exercises; } set { exercises = value; OnPropertyChanged(nameof(Exercises)); } }
     public ObservableCollection<Ex> Exs { get { return exs; } set { exs = value; OnPropertyChanged(nameof(Exs)); } }
     public string Result { get { return _result; } set { _result = value; OnPropertyChanged(nameof(Result)); } }
     public BaseViewModel SelectedViewModel 
@@ -175,7 +175,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       else*/
       {
         Test = taskText;
-        exerciseRepository.Display(Exercises, id);
+        Exercises = exerciseRepository.Display(id);
         for (var i = 0; i < Exercises.Count; i++)
         {
           Ex p = new Ex();
@@ -197,7 +197,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Test = TestingData[i].TestTasks;
           Exercises.Clear();
           Exs.Clear();
-          exerciseRepository.Display(Exercises, TestingData[i].TestId);
+          Exercises = exerciseRepository.Display(TestingData[i].TestId);
           for (var j = 0; j < Exercises.Count; j++)
           {
             Ex p = new Ex();

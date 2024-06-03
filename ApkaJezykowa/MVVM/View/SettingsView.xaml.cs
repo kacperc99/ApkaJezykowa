@@ -30,7 +30,7 @@ namespace ApkaJezykowa.MVVM.View
     {
       OpenFileDialog openFileDialog1 = new OpenFileDialog
       {
-        InitialDirectory = @"D:\",
+        InitialDirectory = @"C:\",
         Title = "Wybierz obraz",
 
         CheckFileExists = true,

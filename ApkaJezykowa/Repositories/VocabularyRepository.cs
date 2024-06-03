@@ -1,4 +1,6 @@
-﻿using ApkaJezykowa.MVVM.Model;
+﻿using ApkaJezykowa.Keys;
+using ApkaJezykowa.MVVM.Model;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,9 +21,20 @@ namespace ApkaJezykowa.Repositories
     private IPerformanceMeasurementRepository performanceMeasurementRepository;
     Thread measurement;
     Stopwatch stopwatch;
+    IMongoCollection<VocabularyModel> vocabularyCollection;
+    IMongoCollection<CourseModel> courseCollection;
+    IMongoCollection<ListeningListModel> listeningCollection;
+    IMongoCollection<ReadingListModel> comprehensionCollection;
+    IMongoCollection<AccentModel> accentCollection;
     public VocabularyRepository()
     {
       performanceMeasurementRepository = new PerformanceMeasurementRepository();
+      var database = SpeechServiceKey.Instance.Client.GetDatabase("CourseBase");
+      vocabularyCollection = database.GetCollection<VocabularyModel>("Vocabulary");
+      courseCollection = database.GetCollection<CourseModel>("Course");
+      comprehensionCollection = database.GetCollection<ReadingListModel>("Comprehension");
+      listeningCollection = database.GetCollection<ListeningListModel>("Listening");
+      accentCollection = database.GetCollection<AccentModel>("Accent");
     }
     public void ObtainVocabList(ObservableCollection<VocabularyListModel> VocabularyList, string Country, string Language)
     {
@@ -30,8 +43,27 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<CourseModel>.Filter.Eq("Course_Name", Country);
+      var projection = Builders<CourseModel>.Projection.Include("_id").Exclude("Course_Name").Exclude("Image");
+      var result = courseCollection.Find(filter).Project<CourseModel>(projection).FirstOrDefault();
+      var filter2 = Builders<VocabularyModel>.Filter.Eq("Id_Course", result.Id);
+      var result2 = vocabularyCollection.Find(filter2).ToList();
+      foreach (var item in result2)
+      {
+        VocabularyListModel model= new VocabularyListModel();
+        model.Id_Vocabulary = item.Id;
+        model.Vocabulary_Level = item.VocabularyLevel;
+        model.Id_Course = null;
+        var filter3 = Builders<ListeningListModel>.Filter.Eq("Id_Vocabulary", item.Id);
+        var result3 = listeningCollection.Find(filter3).ToList();
+        model.ListeningList = new ObservableCollection<ListeningListModel>(result3);
+        var filter4 = Builders<ReadingListModel>.Filter.Eq("Id_Vocabulary", item.Id);
+        var result4 = comprehensionCollection.Find(filter4).ToList();
+        model.ReadingList = new ObservableCollection<ReadingListModel>(result4);
+        VocabularyList.Add(model);
+      }
       //Console.WriteLine("Fetching Vocabulary Exercises List. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -93,7 +125,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -109,8 +141,14 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<CourseModel>.Filter.Eq("Course_Name", Lang);
+      var projection = Builders<CourseModel>.Projection.Expression(item=>item.Id);//Include("_id");
+      var result = courseCollection.Find(filter).Project(projection).FirstOrDefault();
+      var filter2 = Builders<AccentModel>.Filter.Eq("Id_Course", result);
+      var result2 = accentCollection.Find(filter2).FirstOrDefault();
+      
       //Console.WriteLine("Fetching Accent Data. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -126,16 +164,16 @@ namespace ApkaJezykowa.Repositories
             accent.Lang = reader[1].ToString();
             accent.Voice = reader[2].ToString();
           }
-        }
-        stopwatch.Stop();
+        }*/
+      stopwatch.Stop();
         Properties.Settings.Default.ThreadManager = false;
         MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
           ("Fetching Accent Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
           stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
         MeasurementModel.Instance.CPU_Vals.Clear();
         MeasurementModel.Instance.RAM_Vals.Clear();
-        return accent;
-      }
+        return result2;
+      //}
     }
   }
 }

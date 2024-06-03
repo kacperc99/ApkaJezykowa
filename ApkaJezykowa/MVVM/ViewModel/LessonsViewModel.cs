@@ -53,7 +53,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public void LoadButtons()
     {
-      lessonRepository.GetButtons(Buttons);
+      Buttons = lessonRepository.GetButtons();
     }
     
   }

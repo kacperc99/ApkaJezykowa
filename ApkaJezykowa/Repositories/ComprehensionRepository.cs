@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading;
+using MongoDB.Driver;
+using ApkaJezykowa.Keys;
+using System.Runtime.InteropServices;
 
 namespace ApkaJezykowa.Repositories
 {
@@ -18,9 +21,20 @@ namespace ApkaJezykowa.Repositories
     private IPerformanceMeasurementRepository performanceMeasurementRepository;
     Thread measurement;
     Stopwatch stopwatch;
+    IMongoCollection<ReadingListModel> comprehensionCollection;
+    IMongoCollection<TranslatedTextModel> translatedTextCollection;
+    IMongoCollection<ReadingTextModel> readingTextCollection;
+    IMongoCollection<TextWordbookModel> textWordbookCollection;
+    IMongoCollection<TextQuestionModel> textQuestionCollection;
     public ComprehensionRepository()
     {
       performanceMeasurementRepository = new PerformanceMeasurementRepository();
+      var database = SpeechServiceKey.Instance.Client.GetDatabase("CourseBase");
+      comprehensionCollection = database.GetCollection<ReadingListModel>("Comprehension");
+      translatedTextCollection = database.GetCollection<TranslatedTextModel>("Translated_Text");
+      readingTextCollection = database.GetCollection<ReadingTextModel>("Reading_Text");
+      textWordbookCollection = database.GetCollection<TextWordbookModel>("Text_Wordbook");
+      textQuestionCollection = database.GetCollection<TextQuestionModel>("Text_Question");
     }
     public ReadingTextModel Obtain_Text(int Id_Comprehension)
     {
@@ -29,8 +43,24 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<TranslatedTextModel>.Filter.Eq("Id_Comprehension", Id_Comprehension);
+      var projection = Builders<TranslatedTextModel>.Projection.Expression(item=>item.Id_Reading_Text);
+      var result = translatedTextCollection.Find(filter).Project(projection).ToList();
+      var filterBuilder2 = Builders<ReadingTextModel>.Filter;
+      var filter2 = filterBuilder2.Empty;
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Only_Test_Mode", false));
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.In("Id_Reading_Text", result));
+      var result2 = readingTextCollection.Aggregate().Match(filter2).AppendStage<ReadingTextModel>($@"{{ $sample: {{ size: {1} }} }}").FirstOrDefault();
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Random Text Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      return result2;
       //Console.WriteLine("Fetching Random Text Data. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -56,9 +86,9 @@ namespace ApkaJezykowa.Repositories
         MeasurementModel.Instance.CPU_Vals.Clear();
         MeasurementModel.Instance.RAM_Vals.Clear();
         return result;
-      }
+      }*/
     }
-    public int Get_Comprehension_Int(int Id_Vocabulary)
+    /*public int Get_Comprehension_Int(int Id_Vocabulary)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
@@ -84,7 +114,7 @@ namespace ApkaJezykowa.Repositories
         MeasurementModel.Instance.RAM_Vals.Clear();
         return id;
       }
-    }
+    }*/
     public ReadingTextModel Obtain_Test_Text(int Id_Vocabulary)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
@@ -92,8 +122,27 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<ReadingListModel>.Filter.Eq("Id_Vocabulary", Id_Vocabulary);
+      var projection = Builders<ReadingListModel>.Projection.Expression(item=>item.Id_Reading);
+      var result = comprehensionCollection.Find(filter).Project(projection).ToList();
+      var filter2 = Builders<TranslatedTextModel>.Filter.In("Id_Comprehension",result);
+      var projection2 = Builders<TranslatedTextModel>.Projection.Expression(item => item.Id_Translation);
+      var result2 = translatedTextCollection.Find(filter2).Project(projection2).ToList();
+      var filterBuilder3 = Builders<ReadingTextModel>.Filter;
+      var filter3 = filterBuilder3.Empty;
+      filter3 = filterBuilder3.And(filter3, filterBuilder3.Eq("Only_Test_Mode", true));
+      filter3 = filterBuilder3.And(filter3, filterBuilder3.In("Id_Reading_Text", result2));
+      var result3 = readingTextCollection.Aggregate().Match(filter3).AppendStage<ReadingTextModel>($@"{{ $sample: {{ size: {1} }} }}").FirstOrDefault();
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Random Test Text Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      return result3;
       //Console.WriteLine("Fetching Random Test Text Data. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -119,7 +168,7 @@ namespace ApkaJezykowa.Repositories
         MeasurementModel.Instance.CPU_Vals.Clear();
         MeasurementModel.Instance.RAM_Vals.Clear();
         return result;
-      }
+      }*/
     }
     public void Obtain_Dictionary(int Id_Reading_Text, ObservableCollection<TextWordbookModel> TextWordBook)
     {
@@ -128,8 +177,11 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<TextWordbookModel>.Filter.Eq("Id_Reading_Text", Id_Reading_Text);
+      var result = textWordbookCollection.Find(filter).ToList();
+      TextWordBook = new ObservableCollection<TextWordbookModel>(result);
       //Console.WriteLine("Fetching Dictionary for the Text. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -150,7 +202,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -166,8 +218,19 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<TranslatedTextModel>.Filter.Eq("Id_Comprehension", Id_Comprehension);
+      var projection = Builders<TranslatedTextModel>.Projection.Expression(item => item.Translation);
+      var result = translatedTextCollection.Find(filter).Project(projection).FirstOrDefault();
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Translation Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      return result;
       //Console.WriteLine("Fetching Translation Data. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -187,18 +250,47 @@ namespace ApkaJezykowa.Repositories
         MeasurementModel.Instance.CPU_Vals.Clear();
         MeasurementModel.Instance.RAM_Vals.Clear();
         return Text_Translated;
-      }
+      }*/
     }
     public ObservableCollection<TextQuestionTestModel> Obtain_Questions(int Id_Reading_Text, ObservableCollection<string> correctAnswers)
     {
+      int counter = 0;
+      var rnd = new Random();
       ObservableCollection<TextQuestionTestModel> textQuestions = new ObservableCollection<TextQuestionTestModel>();
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<TextQuestionModel>.Filter.Eq("Id_Reading_Text",Id_Reading_Text);
+      var result = textQuestionCollection.Aggregate().AppendStage<TextQuestionModel>($@"{{ $sample: {{ size: {10} }} }}").Match(filter).ToList();
+      foreach(var x in result)
+      {
+        TextQuestionTestModel model = new TextQuestionTestModel();
+        model.Id_Text_Question = x.Id_Text_Question;
+        model.Question = x.Question;
+        correctAnswers.Add(x.Correct_Answer);
+        List<string> Answers = new List<string>
+            {
+              x.Correct_Answer,
+              x.Wrong_Answer,
+              x.Wrong_Answer_2,
+              x.Wrong_Answer_3
+            };
+        var result2 = Answers.OrderBy(item => rnd.Next()).ToList();
+        Answers = new List<string>(result2);
+        model.Answer1 = Answers[0];
+        model.Answer2 = Answers[1];
+        model.Answer3 = Answers[2];
+        model.Answer4 = Answers[3];
+        model.Answer_Tip = x.Answer_Tip;
+        model.Id_Reading_Text = x.Id_Reading_Text;
+        model.GroupName = counter.ToString();
+        textQuestions.Add(model);
+        counter++;
+      }
       //Console.WriteLine("Fetching Random Questions. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -235,8 +327,8 @@ namespace ApkaJezykowa.Repositories
             counter++;
           }
           reader.NextResult();
-        }
-        stopwatch.Stop();
+        }*/
+      stopwatch.Stop();
         Properties.Settings.Default.ThreadManager = false;
         MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
           ("Fetching Random Questions", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
@@ -244,7 +336,6 @@ namespace ApkaJezykowa.Repositories
         MeasurementModel.Instance.CPU_Vals.Clear();
         MeasurementModel.Instance.RAM_Vals.Clear();
         return textQuestions;
-      }
     }
   }
 }

@@ -37,7 +37,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     public void LoadList()
     {
-      exerciseRepository.Display_Exercise_List(ExerciseList, Lang, Properties.Settings.Default.Language);
+      ExerciseList = exerciseRepository.Display_Exercise_List(Lang, Properties.Settings.Default.Language);
     }
   }
 }

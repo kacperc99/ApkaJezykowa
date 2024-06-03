@@ -54,7 +54,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       {
         //level has to be replaced with title id or, even better, remove stupid title requirement
         //LessonTitle = lessonRepository.GetTitle(Id, Properties.Settings.Default.Language);
-        lessonRepository.Obtain_Lesson_List(LessonsList, Lang, Properties.Settings.Default.Language);
+        LessonsList = lessonRepository.Obtain_Lesson_List(Lang, Properties.Settings.Default.Language);
         lessonRepository.Obtain_Lessons(Lessons, Id);
       }
     }

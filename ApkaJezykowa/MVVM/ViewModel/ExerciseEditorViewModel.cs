@@ -37,7 +37,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string language { get; set; }
     public string title {  get; set; }
     public string task_Text { get; set; }
-    public decimal level { get; set; }
+    public int level { get; set; }
   }
   public class ExerciseEditorViewModel : BaseViewModel
   {
@@ -48,7 +48,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string _language;
     public string _exercise;
     public string _title;
-    public decimal _level;
+    public int _level;
     public string _taskText;
     public string _task;
     public string _answer1;
@@ -100,7 +100,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         }
       } }
     public string Title { get { return _title; } set { _title = value; OnPropertyChanged(nameof(Title)); } }
-    public decimal Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); if (!IsExerciseBeingEdited) LoadData(); } }
+    public int Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); if (!IsExerciseBeingEdited) LoadData(); } }
     public string TaskText {  get { return _taskText; } set { _taskText = value; OnPropertyChanged(nameof(TaskText)); } }
     public string Task { get { return _task; } set { _task = value; OnPropertyChanged(nameof(Task)); } }
     public string Answer1 { get { return _answer1; } set { _answer1 = value; OnPropertyChanged(nameof(Answer1)); } }

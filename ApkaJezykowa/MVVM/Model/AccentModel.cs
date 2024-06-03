@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,15 @@ namespace ApkaJezykowa.MVVM.Model
 {
   public class AccentModel
   {
+    [BsonElement("_id")]
     public int Id_Accent { get; set; }
+    [BsonElement("Accent")]
     public string Accent { get; set; }
+    [BsonElement("Lang")]
     public string Lang { get; set; }
+    [BsonElement("Voice")]
     public string Voice { get; set; }
-    public string Id_Course { get; set; }
+    [BsonElement("Id_Course")]
+    public int Id_Course { get; set; }
   }
 }

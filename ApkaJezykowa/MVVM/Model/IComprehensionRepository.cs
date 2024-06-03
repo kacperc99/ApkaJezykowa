@@ -14,6 +14,6 @@ namespace ApkaJezykowa.MVVM.Model
     string Obtain_Translation(int Id_Comprehension);
     ObservableCollection<TextQuestionTestModel> Obtain_Questions(int Id_Reading_Text, ObservableCollection<string> correctAnswers);
     ReadingTextModel Obtain_Test_Text(int Id_Vocabulary);
-    int Get_Comprehension_Int(int Id_Vocabulary);
+    //int Get_Comprehension_Int(int Id_Vocabulary);
   }
 }

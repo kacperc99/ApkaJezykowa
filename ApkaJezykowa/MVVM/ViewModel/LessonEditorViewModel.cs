@@ -43,7 +43,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string country { get; set; }
     public string language { get; set; }
     public string title { get; set; }
-    public decimal level { get; set; }
+    public int level { get; set; }
     //private LessonParamModel() { }
     //public static readonly LessonParamModel Instance = new LessonParamModel();
   }
@@ -57,7 +57,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string _language;
     public string _lesson;
     public string _title;
-    public decimal _level;
+    public int _level;
     public string _editedContent;
     public ObservableCollection<LessonImagesData> _editedImages = new ObservableCollection<LessonImagesData>();
     public bool IsLessonBeingEdited = false;
@@ -106,7 +106,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         }
       } }
     public string Title { get { return _title; } set { _title = value; OnPropertyChanged(nameof(Title)); } }
-    public decimal Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); if (!IsLessonBeingEdited) LoadData(); } }
+    public int Level { get { return _level; } set { _level = value; OnPropertyChanged(nameof(Level)); if (!IsLessonBeingEdited) LoadData(); } }
     public string EditedContent { get { return _editedContent; } set { _editedContent = value; OnPropertyChanged(nameof(EditedContent)); } }
     public ObservableCollection<LessonImagesData> EditedImages { get { return _editedImages; } set { _editedImages = value; OnPropertyChanged(nameof(EditedImages)); } }
     public string ErrorMessage { get { return _errorMessage; } set { _errorMessage = value;OnPropertyChanged(nameof(ErrorMessage)); } } 
@@ -263,6 +263,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
         EditedLessons.Clear();
         Country = "None";
         Language = "None";
+        Lesson = "None";
         Title = null;
         Level = 0;
         EditedContent = null;

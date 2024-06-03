@@ -31,7 +31,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     { 
       this.Lang = Lang;
       lessonRepository = new LessonRepository();
-      lessonRepository.Obtain_Lesson_List(LessonsList, Lang, Properties.Settings.Default.Language);
+      LessonsList = lessonRepository.Obtain_Lesson_List(Lang, Properties.Settings.Default.Language);
       LessonListUpdateViewCommand = new LessonListUpdateViewCommand(this, Lang);
     }
   }

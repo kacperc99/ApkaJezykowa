@@ -40,7 +40,7 @@ namespace ApkaJezykowa.Commands
     }
     public void Execute(object parameter)
     {
-      exerciseRepository.Obtain_Pars(pars, Lang);
+      pars = exerciseRepository.Obtain_Pars(Lang);
       Console.WriteLine("Clicked!");
       foreach(var s in pars)
       {

@@ -46,7 +46,7 @@ namespace ApkaJezykowa.Commands
       {
         ObservableCollection<TestData> TestingData = new ObservableCollection<TestData>();
         //TestModel.instance.TestMode = true;
-        exerciseRepository.Enter_Test_Mode(id, Lang, TestingData);
+        TestingData = exerciseRepository.Enter_Test_Mode(id, Lang);
         //TestModel.instance.Test_Points = 0;
         viewModel.SelectedViewModel = new ExerciseViewModel(TestingData, Lang);
       }

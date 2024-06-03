@@ -53,13 +53,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ApkaJezykowa.dll" size="6840832">
+  <file name="ApkaJezykowa.dll" size="6852608">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>t13iUZPxhxMoCWIhKON0r0JspgLhxvhEalR1T06Dcoo=</dsig:DigestValue>
+      <dsig:DigestValue>oC876mA8oi3EJ7RpQZfxgNz3RqdHT253/PAImebQALk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ApkaJezykowa.dll.config" size="4921">

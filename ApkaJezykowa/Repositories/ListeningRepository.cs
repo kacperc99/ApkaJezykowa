@@ -1,6 +1,10 @@
-﻿using ApkaJezykowa.MVVM.Model;
+﻿using ApkaJezykowa.Keys;
+using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.MVVM.ViewModel;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -18,20 +22,48 @@ namespace ApkaJezykowa.Repositories
     private IPerformanceMeasurementRepository performanceMeasurementRepository;
     Thread measurement;
     Stopwatch stopwatch;
+    IMongoCollection<TTSPhraseModel> tTSPhraseCollection;
+    IMongoCollection<TTSTranslationModel> tTSTranslationCollection;
+    IMongoCollection<ChooseRightPhraseModel> chooseRightPhraseCollection;
+    IMongoCollection<WrongAnswersListModel> wrongAnswersListCollection;
+    IMongoCollection<ListeningListModel> listeningCollection;
     public ListeningRepository()
     {
       performanceMeasurementRepository = new PerformanceMeasurementRepository();
+      var database = SpeechServiceKey.Instance.Client.GetDatabase("CourseBase");
+      tTSPhraseCollection = database.GetCollection<TTSPhraseModel>("TTS_Phrase");
+      tTSTranslationCollection = database.GetCollection<TTSTranslationModel>("TTS_Translation");
+      chooseRightPhraseCollection = database.GetCollection<ChooseRightPhraseModel>("Choose_Right_Phrase");
+      wrongAnswersListCollection = database.GetCollection<WrongAnswersListModel>("Wrong_Answers_List");
+      listeningCollection = database.GetCollection<ListeningListModel>("Listening");
     }
     public ObservableCollection<TTS> GetPhrases(int id, string Language)
     {
-      ObservableCollection<TTS> phrases = new ObservableCollection<TTS>();
+      ObservableCollection<TTS> phrases; 
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
+      var rnd = new Random();
       measurement.Start();
       stopwatch.Start();
+      //var user = tTSPhraseCollection.Find(filter).Aggregate().Lookup<TTSPhraseModel, TTSTranslationModel, TTS>(tTSTranslationCollection, x => x.Id, y => y.IdTTSPhrase, x => x._phrase).ToList();
+      //var result = tTSPhraseCollection.Aggregate([{ $lookup: { } }])
       //Console.WriteLine("Fetching Phrases. Start!");
-      using (var connection = GetCourseConnection())
+      //var query = (from p in tTSPhraseCollection.AsQueryable() join t in tTSTranslationCollection.AsQueryable().Where(x => x.IdListening == id) on p.Id equals t.IdTTSPhrase select new { p.Phrase, t.PhraseTranslated }).ToList();
+      //var query = tTSPhraseCollection.AsQueryable().Join(tTSTranslationCollection, p=> p.Id, t=>t.IdTTSPhrase, (p, t) => new TTS{_phrase=p.Phrase, _phrase_Translated=t.PhraseTranslated }).Where
+      var query = (from p in tTSPhraseCollection.AsQueryable()
+                   join t in tTSTranslationCollection on p.Id equals t.IdTTSPhrase
+                   where (t.IdListening == id)
+                   select new TTS
+                   {
+                     _phrase = p.Phrase,
+                     _phrase_Translated = t.PhraseTranslated
+                   }).Sample(8).ToList();
+      phrases = new ObservableCollection<TTS>(query);
+      var result = phrases.OrderBy(item => rnd.Next()).ToList();
+      phrases = new ObservableCollection<TTS>(result);
+      //var result = query.Select(x => new { }).ToList();
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -52,7 +84,7 @@ namespace ApkaJezykowa.Repositories
         }
         var result = phrases.OrderBy(item => rnd.Next()).ToList();
         phrases = new ObservableCollection<TTS>(result);
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -64,14 +96,29 @@ namespace ApkaJezykowa.Repositories
     }
     public ObservableCollection<TTS> GetTestPhrases(int id, string Language)
     {
-      ObservableCollection<TTS> phrases = new ObservableCollection<TTS>();
+      ObservableCollection<TTS> phrases;
+      var rnd = new Random();
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<ListeningListModel>.Filter.Eq("Id_Vocabulary", id);
+      var projection = Builders<ListeningListModel>.Projection.Expression(item=>item.Id_Listening);
+      var result = listeningCollection.Find(filter).Project(projection).ToList();
+      var query = (from p in tTSPhraseCollection.AsQueryable()
+                   join t in tTSTranslationCollection on p.Id equals t.IdTTSPhrase
+                   where (result.Contains(t.IdListening))
+                   select new TTS
+                   {
+                     _phrase = p.Phrase,
+                     _phrase_Translated = t.PhraseTranslated
+                   }).Sample(8).ToList();
+      phrases = new ObservableCollection<TTS>(query);
+      var result2 = phrases.OrderBy(item => rnd.Next()).ToList();
+      phrases = new ObservableCollection<TTS>(result2);
       //Console.WriteLine("Fetching Test Phrases. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -93,7 +140,7 @@ namespace ApkaJezykowa.Repositories
         var result = phrases.OrderBy(item => rnd.Next()).ToList();
         phrases = new ObservableCollection<TTS>(result);
       }
-      stopwatch.Stop();
+      stopwatch.Stop();*/
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
         ("Fetching Test Phrases", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
@@ -104,14 +151,35 @@ namespace ApkaJezykowa.Repositories
     }
     public void GetAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang)
     {
-      int id_choose;
+      //int id_choose;
+      var rnd = new Random();
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<ChooseRightPhraseModel>.Filter.Eq("Id_Listening", id);
+      var result = chooseRightPhraseCollection.Aggregate().Match(filter).AppendStage<ChooseRightPhraseModel>("{ $sample: { size: 2 } }").ToList();
+      foreach(var x in result)
+      {
+        TaskTemplate task = new TaskTemplate();
+        task._description = x.SituationDescription;
+        task._tts_phrase = x.TTSPhrase;
+        task._correct_answer = x.Answer;
+        task._answers.Add(x.Answer);
+        var filter2 = Builders<WrongAnswersListModel>.Filter.Eq("Id_Choose_Right_Phrase", x.Id);
+        var projection = Builders<WrongAnswersListModel>.Projection.Expression(item=>item.WrongAnswer);
+        var result2 = wrongAnswersListCollection.Aggregate().Match(filter2).AppendStage<WrongAnswersListModel>($@"{{ $sample: {{ size: {3} }} }}").Project(projection).ToList();
+        foreach(var y in result2)
+        {
+          task._answers.Add(y);
+        }
+        var result3 = task._answers.OrderBy(item => rnd.Next());
+        task._answers = new ObservableCollection<string>(result3);
+        data.Add(task);
+      }
       //Console.WriteLine("Fetching Questions with Answers. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open(); 
@@ -150,7 +218,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -161,14 +229,38 @@ namespace ApkaJezykowa.Repositories
     }
     public void GetTestAnswers(ObservableCollection<TaskTemplate> data, int id, string Lang)
     {
-      int id_choose;
+      //int id_choose;
+      var rnd = new Random();
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
-      Console.WriteLine("Fetching Test Questions with Answers. Start!");
-      using (var connection = GetCourseConnection())
+      var filter = Builders<ListeningListModel>.Filter.Eq("Id_Vocabulary", id);
+      var projection = Builders<ListeningListModel>.Projection.Expression(item=>item.Id_Listening);
+      var result = listeningCollection.Find(filter).Project(projection).ToList();
+      var filter2 = Builders<ChooseRightPhraseModel>.Filter.In("Id_Listening", result);
+      var result2 = chooseRightPhraseCollection.Aggregate().Match(filter2).AppendStage<ChooseRightPhraseModel>($@"{{ $sample: {{ size: {2} }} }}").ToList();
+      foreach (var x in result2)
+      {
+        TaskTemplate task = new TaskTemplate();
+        task._description = x.SituationDescription;
+        task._tts_phrase = x.TTSPhrase;
+        task._correct_answer = x.Answer;
+        task._answers.Add(x.Answer);
+        var filter3 = Builders<WrongAnswersListModel>.Filter.Eq("Id_Choose_Right_Phrase", x.Id);
+        var projection2 = Builders<WrongAnswersListModel>.Projection.Expression(item=>item.WrongAnswer);
+        var result3 = wrongAnswersListCollection.Aggregate().Match(filter3).AppendStage<WrongAnswersListModel>($@"{{ $sample: {{ size: {3} }} }}").Project(projection2).ToList();
+        foreach (var y in result3)
+        {
+          task._answers.Add(y);
+        }
+        var result4 = task._answers.OrderBy(item => rnd.Next());
+        task._answers = new ObservableCollection<string>(result4);
+        data.Add(task);
+      }
+      //Console.WriteLine("Fetching Test Questions with Answers. Start!");
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -207,7 +299,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>

@@ -1,12 +1,17 @@
 ﻿using ApkaJezykowa.Commands;
+using ApkaJezykowa.Keys;
 using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.MVVM.ViewModel;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -19,19 +24,34 @@ namespace ApkaJezykowa.Repositories
     private IPerformanceMeasurementRepository performanceMeasurementRepository;
     Thread measurement;
     Stopwatch stopwatch;
+    IMongoCollection<CourseModel> courseCollection;
+    IMongoCollection<ExerciseModel> exerciseCollection;
+    IMongoCollection<ExerciseContentModel> exerciseContentCollection;
+    IMongoCollection<LessonModelDB> lessonCollection;
+    IMongoCollection<LessonTitleModel> lessonTitleCollection;
     public ExerciseRepository()
     {
       performanceMeasurementRepository = new PerformanceMeasurementRepository();
+      var database = SpeechServiceKey.Instance.Client.GetDatabase("CourseBase");
+      courseCollection = database.GetCollection<CourseModel>("Course");
+      exerciseCollection = database.GetCollection<ExerciseModel>("Exercise");
+      exerciseContentCollection = database.GetCollection<ExerciseContentModel>("Exercise_Content");
+      lessonCollection = database.GetCollection<LessonModelDB>("Lesson");
+      lessonTitleCollection = database.GetCollection<LessonTitleModel>("Lesson_Title");
     }
-    public void Display(ObservableCollection<ExerciseModel> Exercises, int Id)
+    public ObservableCollection<ExerciseContentModel> Display(int Id)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var rnd = new Random();
+      var filter = Builders<ExerciseContentModel>.Filter.Eq("Id_Exercise", Id);
+      var result = exerciseContentCollection.Aggregate().Match(filter).AppendStage<ExerciseContentModel>($@"{{ $sample: {{ size: {10} }} }}").ToList();
+      ObservableCollection<ExerciseContentModel> Exercises = new ObservableCollection<ExerciseContentModel>(result.OrderBy(item => rnd.Next()));
       //Console.WriteLine("Fetching Exercise Tasks Data. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -42,7 +62,7 @@ namespace ApkaJezykowa.Repositories
         {
           while(reader.Read())
           {
-            ExerciseModel model = new ExerciseModel();
+            ExerciseContentModel model = new ExerciseContentModel();
             model.Id = (int)reader["Id_Exercise_Content"];
             model.Task = reader["Task"].ToString();
             model.Answer = reader["Answer"].ToString();
@@ -54,7 +74,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -62,16 +82,33 @@ namespace ApkaJezykowa.Repositories
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
+      return Exercises;
     }
-    public void Display_Exercise_List(List<ExerciseListModel> ExerciseList, string Language, string Country)
+    public List<ExerciseListModel> Display_Exercise_List(string Language, string Country)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<CourseModel>.Filter.Eq("Course_Name",Language);
+      var projection = Builders<CourseModel>.Projection.Expression(item=>item.Id);
+      var result = courseCollection.Find(filter).Project(projection).FirstOrDefault();
+      var filterBuilder2 = Builders<ExerciseModel>.Filter;
+      var filter2 = filterBuilder2.Empty;
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Exercise_Language", Country));
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Id_Course", result));
+      var projection2 = Builders<ExerciseModel>.Projection.Expression(item=>new ExerciseListModel
+      {
+        Id_Exercise = item.Id,
+        Exercise_Level = item.ExerciseLevel,
+        Exercise_Title = item.ExerciseTitle,
+        Task_Text = item.TaskText
+      });
+      var sort = Builders<ExerciseModel>.Sort.Ascending("Exercise_Level");
+      var result2 = exerciseCollection.Find(filter2).Sort(sort).Project(projection2).ToList();
       //Console.WriteLine("Fetching Exercise List. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -92,7 +129,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -100,16 +137,29 @@ namespace ApkaJezykowa.Repositories
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
+      return new List<ExerciseListModel>(result2);
     }
-    public void Obtain_Pars(List<Pars> pars, string Language)
+    public List<Pars> Obtain_Pars(string Language)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<CourseModel>.Filter.Eq("Course_Name", Language);
+      var projection = Builders<CourseModel>.Projection.Expression(item => item.Id);
+      var result = courseCollection.Find(filter).Project(projection).FirstOrDefault();
+      var filter2 = Builders<ExerciseModel>.Filter.Eq("Id_Course", result);
+      var projection2 = Builders<ExerciseModel>.Projection.Expression(item => new Pars
+      {
+        title = item.ExerciseTitle,
+        id = item.Id,
+        text = item.TaskText
+      });//Include("_id").Include("Exercise_Title").Include("Task_Text");
+      var sort = Builders<ExerciseModel>.Sort.Ascending("Exercise_Level");
+      var result2 = exerciseCollection.Find(filter2).Sort(sort).Project(projection2).ToList();
       //Console.WriteLine("Fetching Exercise Ids. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -128,7 +178,7 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -136,8 +186,9 @@ namespace ApkaJezykowa.Repositories
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
+      return new List<Pars>(result2);
     }
-    public void Enter_Test_Mode(int Id, string Language, ObservableCollection<TestData> TestingData)
+    public ObservableCollection<TestData> Enter_Test_Mode(int Id, string Language)
     {
       //List<int> ids = new List<int>();
       //List<string> tasks = new List<string>();
@@ -147,8 +198,27 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<CourseModel>.Filter.Eq("Course_Name", Language);
+      var projection = Builders<CourseModel>.Projection.Expression(item => item.Id);
+      var result = courseCollection.Find(filter).Project(projection).FirstOrDefault();
+      var filter2 = Builders<ExerciseModel>.Filter.Eq("_id", Id);
+      var projection2 = Builders<ExerciseModel>.Projection.Expression(item => item.ExerciseLevel);
+      var result2 = exerciseCollection.Find(filter2).Project(projection2).FirstOrDefault();
+      var filterBuilder3 = Builders<ExerciseModel>.Filter;
+      var filter3 = filterBuilder3.Empty;
+      filter3 = filterBuilder3.And(filter3, filterBuilder3.Eq("Id_Course", result));
+      filter3 = filterBuilder3.And(filter3, filterBuilder3.Eq(item => item.ExerciseLevel, result2));
+      filter3 = filterBuilder3.And(filter3, filterBuilder3.Ne("_id", Id));
+      var projection3 = Builders<ExerciseModel>.Projection.Expression(item => new TestData
+      {
+        TestId = item.Id,
+        TestTasks = item.TaskText,
+        TestDone = false
+      });//Include("_id").Include("Task_Text");
+      var result3 = exerciseCollection.Aggregate().Match(filter3).AppendStage<ExerciseModel>($@"{{ $sample: {{ size: {3} }} }}").Project(projection3).ToList();
+
       //Console.WriteLine("Fetching Three Random Exercises. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -171,7 +241,7 @@ namespace ApkaJezykowa.Repositories
           //TestModel.instance.TestTasks = tasks;
           //TestModel.instance.Test_Done = check;
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -179,25 +249,44 @@ namespace ApkaJezykowa.Repositories
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
+      return new ObservableCollection<TestData>(result3);
     }
-    public List<string> Obtain_Exercise_Names(string Country, string Language, decimal Level)
+    public List<string> Obtain_Exercise_Names(string Country, string Language, int Level)
     {
-      if (Country == "None")
-        Country = null;
-      if (Language == "None")
-        Language = null;
-      Nullable<decimal> DecimalLevel = Level;
-      if (DecimalLevel == 0)
-        DecimalLevel = null;
-      List<string> ex_nam = new List<string>();
-      ex_nam.Add("None");
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filterBuilder2 = Builders<ExerciseModel>.Filter;
+      var filter2 = filterBuilder2.Empty;
+      if (Country != "None")
+      {
+        var filterBuilder = Builders<CourseModel>.Filter;
+        var filter = filterBuilder.Empty;
+        filter = filterBuilder.And(filter, filterBuilder.Eq("Course_Name", Country));
+        var projection = Builders<CourseModel>.Projection.Expression(item => item.Id);
+        var result = courseCollection.Find(filter).Project(projection).FirstOrDefault();
+        filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Id_Course", result));
+      }
+      if (Language != "None")
+      {
+        filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Exercise_Language",Language));
+      }
+      if (Level != 0)
+      {
+        filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Exercise_Level", Level));
+      }
+      var projection2 = Builders<ExerciseModel>.Projection.Expression(item => item.ExerciseTitle);
+      var result2 = exerciseCollection.Find(filter2).Project(projection2).ToList();
+      List<string> ex_nam = new List<string>
+      {
+        "None"
+      };
+      ex_nam.AddRange(result2);
+
       //Console.WriteLine("Fetching Exercise Names. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -213,7 +302,7 @@ namespace ApkaJezykowa.Repositories
             ex_nam.Add(reader["Exercise_Title"].ToString());
           }
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -225,14 +314,27 @@ namespace ApkaJezykowa.Repositories
     }
     public ObservableCollection<ExerciseData> Obtain_Exercise_Content(string Exercise)
     {
-      ObservableCollection<ExerciseData> ec = new ObservableCollection<ExerciseData>();
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<ExerciseModel>.Filter.Eq("Exercise_Title", Exercise);
+      var projection = Builders<ExerciseModel>.Projection.Expression(item => item.Id);
+      var result = exerciseCollection.Aggregate().Match(filter).Project(projection).ToList();
+      var filter2 = Builders<ExerciseContentModel>.Filter.Eq("Id_Exercise",result);
+      var projection2 = Builders<ExerciseContentModel>.Projection.Expression(item=>new ExerciseData
+      {
+        Exercise_Content_Id = item.Id,
+        Task = item.Task,
+        Answer1 = item.Answer,
+        Answer2 = item.Answer2,
+        Answer3 = item.Answer3,
+        Tip = item.Tip
+      });//Exclude("Id_Exercise");
+      ObservableCollection<ExerciseData> ec = new ObservableCollection<ExerciseData>(exerciseContentCollection.Aggregate().Match(filter2).Project<ExerciseData>(projection2).ToList());
       //Console.WriteLine("Fetching Exercise Content. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
       {
         connection.Open();
@@ -253,16 +355,17 @@ namespace ApkaJezykowa.Repositories
             ec.Add(data);
           }
           reader.NextResult();
-        }
-        stopwatch.Stop();
-        Properties.Settings.Default.ThreadManager = false;
-        MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
-          ("Fetching Exercise Content", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
-          stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
-        MeasurementModel.Instance.CPU_Vals.Clear();
-        MeasurementModel.Instance.RAM_Vals.Clear();
-        return ec;
-      }
+        }*/
+      //return ec
+      //}
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Exercise Content", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
+      return ec;
     }
     public ExerciseParamModel Obtain_Exercise_Parameters(string Exercise)
     {
@@ -272,8 +375,21 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var query = (from c in courseCollection.AsQueryable()
+                   join e in exerciseCollection on c.Id equals e.IdCourse
+                   where (e.ExerciseTitle==Exercise)
+                   select new ExerciseParamModel
+                   {
+                      courseId = c.Id,
+                      exerciseID = e.Id,
+                      country = c.CourseName,
+                      language = e.ExerciseLanguage,
+                      title = e.ExerciseTitle,
+                      task_Text = e.TaskText,
+                      level = e.ExerciseLevel
+                   }).FirstOrDefault();
       //Console.WriteLine("Obtaining Exercise Parameters. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -296,7 +412,7 @@ namespace ApkaJezykowa.Repositories
             };
           }
         }
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -304,9 +420,9 @@ namespace ApkaJezykowa.Repositories
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
-      return result;
+      return query;
     }
-    public bool DoesLessonExist(string Country, string Language, decimal Level)
+    public bool DoesLessonExist(string Country, string Language, int Level)
     {
       bool p;
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
@@ -314,8 +430,22 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var filter = Builders<CourseModel>.Filter.Eq("Course_Name", Country);
+      var projection = Builders<CourseModel>.Projection.Expression(item => item.Id);
+      var result = courseCollection.Find(filter).Project(projection).FirstOrDefault();
+      var filterBuilder2 = Builders<LessonModelDB>.Filter;
+      var filter2 = filterBuilder2.Empty;
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Lesson_Level", Level));
+      filter2 = filterBuilder2.And(filter2, filterBuilder2.Eq("Id_Course", result));
+      var projection2 = Builders<LessonModelDB>.Projection.Expression(item => item.Id);
+      var result2 = lessonCollection.Find(filter2).Project(projection2).FirstOrDefault();
+      var filterBuilder3 = Builders<LessonTitleModel>.Filter;
+      var filter3 = filterBuilder3.Empty;
+      filter3 = filterBuilder3.And(filter3, filterBuilder3.Eq("Id_Lesson", result2));
+      filter3 = filterBuilder3.And(filter3, filterBuilder3.Eq("Lesson_Language", Language));
+      p = lessonTitleCollection.Find(filter3).FirstOrDefault() == null ? false : true;
       //Console.WriteLine("Finding Exercise. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -327,7 +457,7 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@country", SqlDbType.NVarChar).Value = Country;
         p = command.ExecuteScalar() == null ? false : true;
-      }
+      }*/
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -337,16 +467,33 @@ namespace ApkaJezykowa.Repositories
       MeasurementModel.Instance.RAM_Vals.Clear();
       return p;
     }
-    public void AddExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string Title, decimal Level, string TaskText)
+    public void AddExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string Title, int Level, string TaskText)
     {
-      int id;
+      
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      var sort = Builders<ExerciseModel>.Sort.Descending("_id");
+      var projection = Builders<ExerciseModel>.Projection.Expression(item => item.Id);
+      var result = exerciseCollection.Find(new BsonDocument()).Sort(sort).Project(projection).FirstOrDefault();
+      var filter2 = Builders<CourseModel>.Filter.Eq("Course_Name", Country);
+      var projection2 = Builders<CourseModel>.Projection.Expression(item => item.Id);
+      var result2 = courseCollection.Find(filter2).Project(projection2).FirstOrDefault();
+      var exercise = new ExerciseModel
+      {
+        Id = result+1,
+        ExerciseLanguage = Language,
+        ExerciseLevel = Level,
+        ExerciseTitle = Title,
+        TaskText = TaskText,
+        IdCourse = result2,
+      };
+      exerciseCollection.InsertOne(exercise);
+      int id=result+1;
       //Console.WriteLine("Adding Exercise. Start!");
-      using (var connection = GetCourseConnection())
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -365,25 +512,39 @@ namespace ApkaJezykowa.Repositories
         //command.CommandText = "select Id_Exercise from [Exercise] where Exercise_Parameter = @param2";
         //command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
         //id = System.Convert.ToInt32(command.ExecuteScalar());
-      }
-    
-        foreach (var x in EditedExercises)
+      }*/
+
+      foreach (var x in EditedExercises)
+      {
+        var sort3 = Builders<ExerciseContentModel>.Sort.Descending("_id");
+        var projection3 = Builders<ExerciseContentModel>.Projection.Include("_id");
+        var result3 = exerciseContentCollection.Find(new BsonDocument()).Sort(sort3).Project<int>(projection3).FirstOrDefault();
+        var exercisecontent = new ExerciseContentModel
         {
-          using (var connection = GetCourseConnection())
-          using (var command = new SqlCommand())
-          {
-           connection.Open();
-           command.Connection = connection;
-           command.CommandText = "insert into [Exercise_Content] values (@task, @answer1, @answer2, @answer3, @tip, @id)";
-           command.Parameters.Add("@task", SqlDbType.NVarChar).Value = x.Task;
-           command.Parameters.Add("@answer1", SqlDbType.NVarChar).Value = x.Answer1;
-           command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = x.Answer2 ?? (object)DBNull.Value;
-           command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = x.Answer3 ?? (object)DBNull.Value;
-           command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = x.Tip;
-           command.Parameters.Add("@id", SqlDbType.Int).Value = id;
-           command.ExecuteNonQuery();
-          }
-        }
+          Id = result3+1,
+          Task = x.Task,
+          Answer = x.Answer1,
+          Answer2 = x.Answer2,
+          Answer3 = x.Answer3,
+          Tip = x.Tip,
+          Id_Exercise = id
+        };
+        exerciseContentCollection.InsertOne(exercisecontent);
+        /*using (var connection = GetCourseConnection())
+        using (var command = new SqlCommand())
+        {
+          connection.Open();
+          command.Connection = connection;
+          command.CommandText = "insert into [Exercise_Content] values (@task, @answer1, @answer2, @answer3, @tip, @id)";
+          command.Parameters.Add("@task", SqlDbType.NVarChar).Value = x.Task;
+          command.Parameters.Add("@answer1", SqlDbType.NVarChar).Value = x.Answer1;
+          command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = x.Answer2 ?? (object)DBNull.Value;
+          command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = x.Answer3 ?? (object)DBNull.Value;
+          command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = x.Tip;
+          command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+          command.ExecuteNonQuery();
+        }*/
+      }
       stopwatch.Stop();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
@@ -393,9 +554,9 @@ namespace ApkaJezykowa.Repositories
       MeasurementModel.Instance.RAM_Vals.Clear();
     }
     
-    public void EditExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string TaskText, string OldTitle, string Title, decimal Level, int CourseID, int Exercise_Id)
+    public void EditExercise(string Country, string Language, ObservableCollection<ExerciseData> EditedExercises, string TaskText, string OldTitle, string Title, int Level, int CourseID, int Exercise_Id)
     {
-      ObservableCollection<ExerciseData> data = new ObservableCollection<ExerciseData>();
+
       //few changes and improvements will be needed, certain actions are being initiaied unecessarily
       //everything is going to be moved to the dabase itself as a procedure
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
@@ -404,7 +565,21 @@ namespace ApkaJezykowa.Repositories
       measurement.Start();
       stopwatch.Start();
       //Console.WriteLine("Editing Exercise. Start!");
-      using (var connection = GetCourseConnection())
+      var filter = Builders<ExerciseModel>.Filter.Eq("_id", Exercise_Id);
+      var update = Builders<ExerciseModel>.Update.Set("Exercise_Level", Level).Set("Task_Text", TaskText);
+      exerciseCollection.UpdateOne(filter, update);
+      var filter2 = Builders<ExerciseContentModel>.Filter.Eq("Id_Exercise",Exercise_Id);
+      var projection2 = Builders<ExerciseContentModel>.Projection.Expression(item => new ExerciseData
+      {
+        Exercise_Content_Id = item.Id,
+        Task = item.Task,
+        Answer1 = item.Answer,
+        Answer2 = item.Answer2,
+        Answer3 = item.Answer3,
+        Tip = item.Tip
+      });
+      ObservableCollection<ExerciseData> data = new ObservableCollection<ExerciseData>(exerciseContentCollection.Find(filter2).Project(projection2).ToList());
+      /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
       {
         connection.Open();
@@ -435,43 +610,63 @@ namespace ApkaJezykowa.Repositories
           }
           reader.NextResult();
         }
-      }
+      }*/
       foreach (var x in data)
       {
-        using (var connection = GetCourseConnection())
+
+        /*using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {
           connection.Open();
-          command.Connection = connection;
+          command.Connection = connection;*/
           if (EditedExercises.Any(e => e.Exercise_Content_Id == x.Exercise_Content_Id))
           {
             if (EditedExercises.Any(e => e.Exercise_Content_Id == x.Exercise_Content_Id && (e.Answer1 != x.Answer1 || e.Answer2 != x.Answer2 || e.Answer3 != x.Answer3 || e.Task != x.Task || e.Tip != x.Tip)))
             {
-              command.CommandText = "update [Exercise_Content] set Task = @task, Answer = @answer1, Answer2 = @answer2, Answer3 = @answer3, Tip = @tip where Id_Exercise_Content = @id2";
+              var filter3 = Builders<ExerciseContentModel>.Filter.Eq("Id_Exercise", x.Exercise_Content_Id);
+              var update3 = Builders<ExerciseContentModel>.Update.Set("Task", x.Task).Set("Answer", x.Answer1).Set("Answer2", x.Answer2).Set("Answer3", x.Answer3).Set("Tip", x.Tip);
+              exerciseContentCollection.UpdateOne(filter3, update3);
+              /*command.CommandText = "update [Exercise_Content] set Task = @task, Answer = @answer1, Answer2 = @answer2, Answer3 = @answer3, Tip = @tip where Id_Exercise_Content = @id2";
               command.Parameters.Add("@task", SqlDbType.NVarChar).Value = x.Task;
               command.Parameters.Add("@answer1", SqlDbType.NVarChar).Value = x.Answer1;
               command.Parameters.Add("@answer2", SqlDbType.NVarChar).Value = x.Answer2 ?? (object)DBNull.Value;
               command.Parameters.Add("@answer3", SqlDbType.NVarChar).Value = x.Answer3 ?? (object)DBNull.Value;
               command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = x.Tip;
               command.Parameters.Add("@id2", SqlDbType.Int).Value = x.Exercise_Content_Id;
-              command.ExecuteNonQuery();
+              command.ExecuteNonQuery();*/
             }
             var ToRemove = EditedExercises.Where(e => e.Exercise_Content_Id == x.Exercise_Content_Id).First();
             EditedExercises.Remove(ToRemove);
           }
           else
           {
-            command.CommandText = "delete from [Exercise_Content] where Id_Exercise_Content = @id2";
+            var filter3 = Builders<ExerciseContentModel>.Filter.Eq("Id_Exercise", x.Exercise_Content_Id);
+            exerciseContentCollection.DeleteOne(filter3);
+            /*command.CommandText = "delete from [Exercise_Content] where Id_Exercise_Content = @id2";
             command.Parameters.Add("@id2", SqlDbType.Int).Value = x.Exercise_Content_Id;
-            command.ExecuteNonQuery();
+            command.ExecuteNonQuery();*/
           }
-        }
+        //}
       }
         if(EditedExercises.Count > 0)
         {
           foreach(var p in EditedExercises)
           {
-          using (var connection = GetCourseConnection())
+          var sort3 = Builders<ExerciseContentModel>.Sort.Descending("_id");
+          var projection3 = Builders<ExerciseContentModel>.Projection.Expression(item=>item.Id);
+          var result3 = exerciseContentCollection.Find(new BsonDocument()).Sort(sort3).Project(projection3).FirstOrDefault();
+          var exercisecontent = new ExerciseContentModel
+          {
+            Id = result3+1,
+            Task = p.Task,
+            Answer = p.Answer1,
+            Answer2 = p.Answer2,
+            Answer3 = p.Answer3,
+            Tip = p.Tip,
+            Id_Exercise = Exercise_Id
+          };
+          exerciseContentCollection.InsertOne(exercisecontent);
+          /*using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
           {
             connection.Open();
@@ -484,8 +679,7 @@ namespace ApkaJezykowa.Repositories
             command.Parameters.Add("@tip", SqlDbType.NVarChar).Value = p.Tip;
             command.Parameters.Add("@id", SqlDbType.Int).Value = Exercise_Id;
             command.ExecuteNonQuery();
-          
-          }
+          }*/
         }
       }
       stopwatch.Stop();
