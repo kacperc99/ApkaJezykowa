@@ -53,13 +53,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ApkaJezykowa.dll" size="6836224">
+  <file name="ApkaJezykowa.dll" size="6837248">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Cm5gmw3NoqFA3B9pCagfXouuDWAaGUiFhIC5k6s8Kiw=</dsig:DigestValue>
+      <dsig:DigestValue>dCLF1RTTJKqvBc2oz5bJZJCDFKOQWlpvXxYmIUh0GH8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ApkaJezykowa.dll.config" size="4921">
@@ -131,7 +131,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>CAJizIdcJagsVnsKi3I3fVZMSjtjsH4lj7iMdYjKDJM=</dsig:DigestValue>
+      <dsig:DigestValue>DVj+23Ods5I9qapQoFIYZ+qq5Nf2JMO2M4NXJCHQspo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="cs-CZ\Xceed.Wpf.AvalonDock.NET5.resources.dll" size="6144">

@@ -583,15 +583,17 @@ namespace ApkaJezykowa.Repositories
         command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
         command.Parameters.Add("@id", SqlDbType.NVarChar).Value = CourseID;
         LessonID = System.Convert.ToInt32(command.ExecuteScalar());*/
-        command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language and Id_Lesson = @lesson_id";
+        command.CommandText = "select Id_Lesson_Title from [Lesson_Title] where Lesson_Language = @language and Id_Lesson = (select Id_Lesson from [Lesson] where Lesson_Level = @level and Id_Course = @id)";
         command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
-        command.Parameters.Add("@lesson_id", SqlDbType.Int).Value = LessonID;
+        command.Parameters.Add("@level", SqlDbType.Decimal).Value = Level;
+        command.Parameters.Add("@id", SqlDbType.Int).Value = CourseID;
+        //command.Parameters.Add("@lesson_id", SqlDbType.Int).Value = LessonID;
         Lesson_TitleID = System.Convert.ToInt32(command.ExecuteScalar());
       }
       if (Lesson_TitleID != 0)
       {
         //przeniesienie lekcji o poziom wyżej, jeśli wybrany poziom jest zajęty
-        while (Level <= MaxLevelInt)
+        while (Level <= MaxLevelIntLang)
         {
           using (var connection = GetCourseConnection())
           using (var command = new SqlCommand())
@@ -604,7 +606,7 @@ namespace ApkaJezykowa.Repositories
             command.Parameters.Add("@language", SqlDbType.NVarChar).Value = Language;
             command.Parameters.Add("@level", SqlDbType.Decimal).Value = MaxLevelIntLang;
             command.ExecuteScalar();
-            MaxLevelInt--;
+            MaxLevelIntLang--;
           }
         }
       }
