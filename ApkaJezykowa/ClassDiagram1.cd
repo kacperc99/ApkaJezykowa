@@ -1,0 +1,1012 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ApkaJezykowa.Properties.Resources">
+    <Position X="47.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.Properties.Settings">
+    <Position X="49.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAIAAAAAABABAAAABAABAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.ChooseRightPhraseUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAACAAQAAMAQAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ChooseRightPhraseUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.ComprehensionTestUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ComprehensionTestUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.ComprehensionUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAgCIGQAAEAUAAAAAAAAAAAABAAIAAAAAAA=</HashCode>
+      <FileName>Commands\ComprehensionUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.ExerciseEditorUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="44" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ExerciseEditorUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.Pars">
+    <Position X="37" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAgA=</HashCode>
+      <FileName>Commands\ExerciseMenuUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.ExerciseMenuUpdateViewCommand">
+    <Position X="8.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQEAEAQAAAAAAAAAAABBAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ExerciseMenuUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.ExerciseUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="37" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAACgAQAAEAQAAAAAAAAAAAABAAAAAAAgAA=</HashCode>
+      <FileName>Commands\ExerciseUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.LessonEditorUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\LessonEditorUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.LessonListUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="37" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAACAAQAAEAQAAAAAAAAAAAABAAAAAABAAA=</HashCode>
+      <FileName>Commands\LessonListUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.LessonUpdateViewComand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Commands\LessonUpdateViewComand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.LessonUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="51" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAACAAQAAEAQAAAAAAAAAAAABAAAAAABAAA=</HashCode>
+      <FileName>Commands\LessonUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.LoginUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\LoginUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.ModuleMenuUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ModuleMenuUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.TestData">
+    <Position X="38.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAEAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\TestInfoUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.TestInfoUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAABBAAAAAAAAgA=</HashCode>
+      <FileName>Commands\TestInfoUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.TTSPhraseUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAACEAQAAMAQAAAAAAAAAAAABAAIAAAAAAA=</HashCode>
+      <FileName>Commands\TTSPhraseUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.UpdateMainViewCommand" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\UpdateMainViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.UpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\UpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.VocabularyMenuListeningUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Commands\VocabularyMenuListeningUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.VocabularyMenuReadingUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Commands\VocabularyMenuReadingUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.VocabularyMenuUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Commands\VocabularyMenuUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Commands.VocabularyTestModeUpdateViewCommand" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAABAAAAAAAAgA=</HashCode>
+      <FileName>Commands\VocabularyTestModeUpdateViewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Converters.CommandParameterConverter" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\CommandParameterConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Converters.VisibilityConverter" BaseTypeListCollapsed="true">
+    <Position X="51" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\VisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.CustomControls.BindablePasswordBox" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAABACAAAAAAAAAAA=</HashCode>
+      <FileName>CustomControls\BindablePasswordBox.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Keys.SpeechServiceKey">
+    <Position X="35.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAQAAAAAAAAAQ=</HashCode>
+      <FileName>Keys\SpeechServiceKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.Main.ObservableObject" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Main\ObservableObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Main.RelayCommand" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Main\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Main.UploadImage">
+    <Position X="44" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Main\UploadImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.AccentModel">
+    <Position X="35.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEEAACAAAAAAAABAAAAAAAAAg=</HashCode>
+      <FileName>MVVM\Model\AccentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ChooseRightPhraseModel">
+    <Position X="40.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAgAAAAAAAAIQAAAIAAAAgAAAAA=</HashCode>
+      <FileName>MVVM\Model\ChooseRightPhraseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ComprehensionModel">
+    <Position X="47.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCQAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ComprehensionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.CourseModel">
+    <Position X="38.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\CourseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ExerciseContentModel">
+    <Position X="42.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAACAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAgAAACA=</HashCode>
+      <FileName>MVVM\Model\ExerciseContentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ExerciseListModel">
+    <Position X="47.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABCA=</HashCode>
+      <FileName>MVVM\Model\ExerciseListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ExerciseModel">
+    <Position X="51" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAgAAAAAAAAAAAAEgAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ExerciseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.HeightModel">
+    <Position X="40.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\HeightModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.LessonContentModel">
+    <Position X="44" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\LessonContentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.LessonContentModelDB">
+    <Position X="45.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\LessonContentModelDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.LessonImageModel">
+    <Position X="51" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAABAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\LessonImageModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.LessonListModel">
+    <Position X="33.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAggAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\LessonListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.LessonModel">
+    <Position X="49.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\LessonModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.LessonModelDB">
+    <Position X="42.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAACAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\LessonModelDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.LessonTitleModel">
+    <Position X="51" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAABAAAAAEAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\LessonTitleModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ListeningListModel">
+    <Position X="35.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAIAAAEAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ListeningListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ListeningModel">
+    <Position X="38.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAABAAAAAgAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ListeningModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.MeasurementModel">
+    <Position X="45.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAIAAAAAAAAAIAAAAAAAAAAAIAAQIAAIAAAAAA=</HashCode>
+      <FileName>MVVM\Model\MeasurementModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ProgressCardModel">
+    <Position X="33.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAACAAEAAACAAQAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ProgressCardModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ReadingListModel">
+    <Position X="42.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAIAAAAAAAAAAAABABAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ReadingListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.ReadingTextModel">
+    <Position X="44" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAACAAAABABAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ReadingTextModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.TextQuestionModel">
+    <Position X="44" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAABAABAAARAAAAAAAAEAAAECAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\TextQuestionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.TextQuestionTestModel">
+    <Position X="12.75" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wCEAAAAAAAAEAAAAAARAAAAAAAAEAAAEAAAAAAAAAAE=</HashCode>
+      <FileName>MVVM\Model\TextQuestionTestModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.TextWordbookModel">
+    <Position X="45.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAEAAAAEAABAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\TextWordbookModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.TranslatedTextModel">
+    <Position X="47.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAGAABAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\TranslatedTextModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.TTSPhraseModel">
+    <Position X="51" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\TTSPhraseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.TTSTranslationModel">
+    <Position X="38.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\TTSTranslationModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.User_CourseModel">
+    <Position X="45.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAEAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\User_CourseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.UserAccountModel">
+    <Position X="47.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAAAAAQAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\UserAccountModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.UserModel">
+    <Position X="49.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAQAAAAAAAAIAAAACQAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\UserModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.VisibilityModel">
+    <Position X="35.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgQACAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\VisibilityModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.VocabularyListModel">
+    <Position X="37" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAEABAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\VocabularyListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.VocabularyModel">
+    <Position X="45.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAACAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\VocabularyModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.Model.WrongAnswersListModel">
+    <Position X="51" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\WrongAnswersListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.ChooseRightPhraseView" BaseTypeListCollapsed="true">
+    <Position X="44" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\ChooseRightPhraseView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.ComprehensionTestView" BaseTypeListCollapsed="true">
+    <Position X="51" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\ComprehensionTestView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.ComprehensionView" BaseTypeListCollapsed="true">
+    <Position X="37" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\ComprehensionView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.DictionaryView" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\DictionaryView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.ExerciseEditorView" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\ExerciseEditorView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.ExerciseMenuView" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\ExerciseMenuView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.ExerciseView" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\ExerciseView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.InfoView" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\InfoView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.LessonEditorView" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>MVVM\View\LessonEditorView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.LessonListView" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\LessonListView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.LessonsView" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\LessonsView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.LessonView" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\LessonView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.LoginView" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\LoginView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="44" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAABAAAgAAARQAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\MainView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.ModuleMenuView" BaseTypeListCollapsed="true">
+    <Position X="51" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\ModuleMenuView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.SettingsView" BaseTypeListCollapsed="true">
+    <Position X="51" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\SettingsView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.TestInfoView" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\TestInfoView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.TTSPhraseView" BaseTypeListCollapsed="true">
+    <Position X="37" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\TTSPhraseView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.VocabularyMenuView" BaseTypeListCollapsed="true">
+    <Position X="44" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\VocabularyMenuView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.View.VocabularyTestModeView" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\View\VocabularyTestModeView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.BaseViewModel">
+    <Position X="11.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAIAAAAAAAgAAAAAAgAACAIAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.TaskTemplate">
+    <Position X="37" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAACCAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>MVVM\ViewModel\ChooseRightPhraseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ChooseRightPhraseViewModel">
+    <Position X="6" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>xCUQhAqQAAhxMiwUBYJgABAGAAJAgAAAhAAYAGAAaAk=</HashCode>
+      <FileName>MVVM\ViewModel\ChooseRightPhraseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ComprehensionTestViewModel">
+    <Position X="8.25" Y="22" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABACAAIoAomwYQAAEAEAAAABAAAAABAAMAIAACAA=</HashCode>
+      <FileName>MVVM\ViewModel\ComprehensionTestViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ComprehensionViewModel">
+    <Position X="12.75" Y="30.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAghASAAIgIIGAUQKIEBBADAAAQACAQBAAISAgAIAg=</HashCode>
+      <FileName>MVVM\ViewModel\ComprehensionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.DictionaryViewModel">
+    <Position X="17.25" Y="22.5" Width="1.5" />
+    <InheritanceLine Type="ApkaJezykowa.MVVM.ViewModel.BaseViewModel" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="16.343" />
+        <Point X="12.5" Y="18.125" />
+        <Point X="17.05" Y="18.125" />
+        <Point X="17.05" Y="22.2" />
+        <Point X="18" Y="22.2" />
+        <Point X="18" Y="22.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\DictionaryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ExerciseData">
+    <Position X="19.5" Y="31" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>xBkAAAAAAAgCAAAAASAAAAAAAAAAAAAAAEAAAAAAAAg=</HashCode>
+      <FileName>MVVM\ViewModel\ExerciseEditorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ExerciseParamModel">
+    <Position X="47.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAQAAAABgAAAAAAAAAAAEAAAACAAAAAAAABAA=</HashCode>
+      <FileName>MVVM\ViewModel\ExerciseEditorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ExerciseEditorViewModel">
+    <Position X="3.75" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wQ0IxAgASIkSIGUQqWECAQFkAIIASASBIkwAAEAAAAg=</HashCode>
+      <FileName>MVVM\ViewModel\ExerciseEditorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ExerciseMenuViewModel">
+    <Position X="8.25" Y="29.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAQAAAAEQAACAAAABAAAAAAABBAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\ExerciseMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.Ex">
+    <Position X="12.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAQCAAAAACAAAAAAAAAAAAAAAEAAAgAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\ExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ExerciseViewModel">
+    <Position X="15" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBABABAAAgQISAAkCAAQAAAAAAAABBAAACBCEggA=</HashCode>
+      <FileName>MVVM\ViewModel\ExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.InfoViewModel">
+    <Position X="17.25" Y="27.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAIBAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\InfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LessonImagesData">
+    <Position X="19.5" Y="28" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAEAAAAAAAAASAAQBAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\LessonEditorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LessonData">
+    <Position X="3.75" Y="22" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAIQAAAAAAQ=</HashCode>
+      <FileName>MVVM\ViewModel\LessonEditorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LessonParamModel">
+    <Position X="44" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAgEAAAAAAAAAAEAAAQCAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\LessonEditorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LessonEditorViewModel">
+    <Position X="15" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAARwAAiIEQIOVQCFAAKQAkEgIAIMVBKggAQAABQEI=</HashCode>
+      <FileName>MVVM\ViewModel\LessonEditorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LessonListViewModel">
+    <Position X="17.25" Y="30.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAABAAAAAAAAAAQAAEAAAAAAAAAAAAABAAAAAAhAAA=</HashCode>
+      <FileName>MVVM\ViewModel\LessonListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.Clicker">
+    <Position X="19.5" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\LessonsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LessonsViewModel">
+    <Position X="3.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAgAABQIAAAAAAAEAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>MVVM\ViewModel\LessonsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LessonViewModel">
+    <Position X="6" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACBAAAAAAAAAAQAAAAAgCAAAAAABIABAAQgAAhACA=</HashCode>
+      <FileName>MVVM\ViewModel\LessonViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.LoginViewModel">
+    <Position X="10.5" Y="29.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUQChAAkhiAAIQAQQVAAAAAEwEIAAAiDAgIAAoKACIE=</HashCode>
+      <FileName>MVVM\ViewModel\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.MainViewModel">
+    <Position X="12.75" Y="25.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAIAFAgAAAARAAAQAgASAAAAAAAAAAQAAABAAIBAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.ModuleMenuViewModel">
+    <Position X="17.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAhAgAAAAAAAAQAAAAAAAAAAQAAACBAAAAAAECAAA=</HashCode>
+      <FileName>MVVM\ViewModel\ModuleMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.SettingsViewModel">
+    <Position X="19.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAACAQAQAQAAAAAAAAAAAAAAAAIAAAAAAAAIAA=</HashCode>
+      <FileName>MVVM\ViewModel\SettingsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.TestInfoViewModel">
+    <Position X="19.5" Y="35" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAQAQAAAAAAAAAAAAAABAAAAAAAAgA=</HashCode>
+      <FileName>MVVM\ViewModel\TestInfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.TTS">
+    <Position X="49.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAI=</HashCode>
+      <FileName>MVVM\ViewModel\TTSPhraseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.TTSPhraseViewModel">
+    <Position X="10.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAoAhCyRQgQoEAAQAIIAAACCEAIAoAGAhEAYAjCIIBg=</HashCode>
+      <FileName>MVVM\ViewModel\TTSPhraseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.VocabularyMenuViewModel">
+    <Position X="17.25" Y="24.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAIAAAAAAQAAIAACACAQAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\VocabularyMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MVVM.ViewModel.VocabularyTestModeViewModel">
+    <Position X="19.5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAQAAAAAAAAAAAAAAAABgAAAAAAAgA=</HashCode>
+      <FileName>MVVM\ViewModel\VocabularyTestModeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.BaseRepository" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAQAAAAABAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.ComprehensionRepository">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAQAAAAAAAQAAAAAEAAAAIAAAABAAAQAAEADAAEA=</HashCode>
+      <FileName>Repositories\ComprehensionRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.ExerciseRepository">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAYAAAAAAAAAADAAYAAICQAADYAAQACAAAgAQA=</HashCode>
+      <FileName>Repositories\ExerciseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.LessonRepository">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABCAAAAAgAAABgAAAACAAQAAJigAALgAAQAAAAAAAQQ=</HashCode>
+      <FileName>Repositories\LessonRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.ListeningRepository">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAACAAAAAQAAIEAEABAAAQAhAAAAAgE=</HashCode>
+      <FileName>Repositories\ListeningRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.PerformanceMeasurementRepository" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\PerformanceMeasurementRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.ProgressCardRepository">
+    <Position X="15.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAAAAAAAAAIAAAAAAAAAIAAAARAAAQAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ProgressCardRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.UserRepository">
+    <Position X="18" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIACAAAAAAAAAIAAAAgBAACIAAAABACAQAAAAAAAIA=</HashCode>
+      <FileName>Repositories\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.Repositories.VocabularyRepository">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAACAAAAAIACAAICCAABAAAQAgAAAAAAA=</HashCode>
+      <FileName>Repositories\VocabularyRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApkaJezykowa.App">
+    <Position X="37" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAABAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApkaJezykowa.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="ApkaJezykowa.MVVM.Model.IComprehensionRepository">
+    <Position X="35.25" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAABAAEA=</HashCode>
+      <FileName>MVVM\Model\IComprehensionRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.IExerciseRepository">
+    <Position X="37" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAYAAAAAAAAAAAAAYAAAAQAAAYAAAACAAAgAAA=</HashCode>
+      <FileName>MVVM\Model\IExerciseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.ILessonRepository">
+    <Position X="38.75" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABCAAAAAgAAABAAAAAAAAQAABggAAIgAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ILessonRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.IListeningRepository">
+    <Position X="40.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAACAAAAAAAAAEAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>MVVM\Model\IListeningRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.IPerformanceMeasurementRepository">
+    <Position X="42.25" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\IPerformanceMeasurementRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.IProgressCardRepository">
+    <Position X="44" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\IProgressCardRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.ISessionContext">
+    <Position X="47.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\ISessionContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.IUserRepository">
+    <Position X="45.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIACAAAAAAAAAAAAAAgBAACAAAAAAACAAAAAAAAAIA=</HashCode>
+      <FileName>MVVM\Model\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ApkaJezykowa.MVVM.Model.IVocabularyRepository">
+    <Position X="49.25" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\IVocabularyRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

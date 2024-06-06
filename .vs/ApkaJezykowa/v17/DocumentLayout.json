@@ -3,67 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\repositories\\lessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\lessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ogryz\\AppData\\Local\\SourceServer\\c329d95bbd0479b7c326ca8831d153381a8c9baeafc879c878be7b6d8273acd4\\ApkaJezykowa\\Repositories\\LessonRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\commands\\lessoneditorupdateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\commands\\lessoneditorupdateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\lessoneditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\lessoneditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\repositories\\listeningrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\listeningrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\model\\ilessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\ilessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\viewmodel\\comprehensionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\comprehensionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\viewmodel\\lessonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\lessonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\exerciseeditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\exerciseeditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\exerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\exerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\iexerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\iexerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\repositories\\comprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\comprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\comprehensionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\comprehensionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\exerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\exerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\lessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\lessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\view\\lessonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\view\\lessonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\textwordbookmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\textwordbookmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\readingtextmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\readingtextmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\model\\icomprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\icomprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\repositories\\vocabularyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\vocabularyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\repositories\\comprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\comprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\model\\ilessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\ilessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\commands\\lessoneditorupdateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\commands\\lessoneditorupdateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\viewmodel\\exerciseeditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\exerciseeditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\readingtextmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\readingtextmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\readinglistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -72,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\lessonmodeldb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\lessonmodeldb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\exercisemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -114,10 +111,6 @@
       "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\lessonlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\accentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\accentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\commands\\testinfoupdateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\commands\\testinfoupdateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -128,10 +121,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\coursemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\coursemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\lessonlistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -160,14 +149,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\lessoncontentmodeldb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\lessoncontentmodeldb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\textquestiontestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\textquestiontestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\textquestionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\textquestionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\model\\listeninglistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -217,11 +198,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 29,
-          "SelectedChildIndex": 36,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 37,
               "Title": "ListeningListModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ListeningListModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ListeningListModel.cs",
@@ -230,7 +211,21 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-22T01:44:54.919Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T00:05:17.761Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -238,7 +233,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\BaseViewModel.cs",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\BaseViewModel.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\BaseViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T20:02:28.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LessonView.xaml",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\View\\LessonView.xaml",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\View\\LessonView.xaml",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\View\\LessonView.xaml",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\View\\LessonView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-05T12:28:41.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "LessonEditorUpdateViewCommand.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Commands\\LessonEditorUpdateViewCommand.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\Commands\\LessonEditorUpdateViewCommand.cs",
@@ -251,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "ExerciseEditorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ExerciseEditorViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\ExerciseEditorViewModel.cs",
@@ -264,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "ExerciseMenuUpdateViewCommand.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Commands\\ExerciseMenuUpdateViewCommand.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\Commands\\ExerciseMenuUpdateViewCommand.cs",
@@ -272,11 +292,12 @@
               "RelativeToolTip": "ApkaJezykowa\\Commands\\ExerciseMenuUpdateViewCommand.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAAkwCoAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T22:49:45.195Z"
+              "WhenOpened": "2024-05-31T22:49:45.195Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "ExerciseMenuViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ExerciseMenuViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\ExerciseMenuViewModel.cs",
@@ -284,11 +305,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\ExerciseMenuViewModel.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAA9wCcAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T22:40:47.453Z"
+              "WhenOpened": "2024-05-31T22:40:47.453Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "ExerciseViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ExerciseViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\ExerciseViewModel.cs",
@@ -296,11 +318,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\ExerciseViewModel.cs",
               "ViewState": "AQIAALUAAAAAAAAAAAAowMUAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T22:33:59.952Z"
+              "WhenOpened": "2024-05-31T22:33:59.952Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 29,
               "Title": "CourseModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\CourseModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\CourseModel.cs",
@@ -308,23 +331,25 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\CourseModel.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T01:33:21.419Z"
+              "WhenOpened": "2024-05-29T01:33:21.419Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "IExerciseRepository.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\IExerciseRepository.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\IExerciseRepository.cs",
               "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\IExerciseRepository.cs",
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\IExerciseRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBMAAABDAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA4AAABTAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T23:47:09.19Z"
+              "WhenOpened": "2024-05-28T23:47:09.19Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 30,
               "Title": "LessonListModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonListModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\LessonListModel.cs",
@@ -332,11 +357,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonListModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAvwA4AAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T17:37:12.233Z"
+              "WhenOpened": "2024-05-25T17:37:12.233Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 32,
               "Title": "LessonUpdateViewCommand.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Commands\\LessonUpdateViewCommand.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\Commands\\LessonUpdateViewCommand.cs",
@@ -344,11 +370,12 @@
               "RelativeToolTip": "ApkaJezykowa\\Commands\\LessonUpdateViewCommand.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T15:37:40.344Z"
+              "WhenOpened": "2024-05-25T15:37:40.344Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 33,
               "Title": "LessonUpdateViewComand.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Commands\\LessonUpdateViewComand.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\Commands\\LessonUpdateViewComand.cs",
@@ -356,11 +383,12 @@
               "RelativeToolTip": "ApkaJezykowa\\Commands\\LessonUpdateViewComand.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T15:37:30.709Z"
+              "WhenOpened": "2024-05-25T15:37:30.709Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "LessonListViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonListViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LessonListViewModel.cs",
@@ -368,11 +396,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LessonListViewModel.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T15:37:11.338Z"
+              "WhenOpened": "2024-05-25T15:37:11.338Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 28,
               "Title": "LessonsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonsViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LessonsViewModel.cs",
@@ -380,11 +409,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LessonsViewModel.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAAADQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T15:36:56.363Z"
+              "WhenOpened": "2024-05-25T15:36:56.363Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "LessonContentModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonContentModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\LessonContentModel.cs",
@@ -392,11 +422,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonContentModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T12:02:02.666Z"
+              "WhenOpened": "2024-05-25T12:02:02.666Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "ExerciseModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ExerciseModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ExerciseModel.cs",
@@ -404,11 +435,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ExerciseModel.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAgwBkAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T12:18:58.761Z"
+              "WhenOpened": "2024-05-25T12:18:58.761Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 35,
               "Title": "ExerciseListModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ExerciseListModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ExerciseListModel.cs",
@@ -416,11 +448,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ExerciseListModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T12:13:32.346Z"
+              "WhenOpened": "2024-05-25T12:13:32.346Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 34,
               "Title": "ExerciseContentModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ExerciseContentModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ExerciseContentModel.cs",
@@ -428,11 +461,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ExerciseContentModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T12:13:14.166Z"
+              "WhenOpened": "2024-05-25T12:13:14.166Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "LessonImageModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonImageModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\LessonImageModel.cs",
@@ -440,11 +474,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonImageModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T12:09:05.649Z"
+              "WhenOpened": "2024-05-25T12:09:05.649Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 36,
               "Title": "LessonContentModelDB.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonContentModelDB.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\LessonContentModelDB.cs",
@@ -452,23 +487,25 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonContentModelDB.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T12:03:02.108Z"
+              "WhenOpened": "2024-05-25T12:03:02.108Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 9,
               "Title": "TextWordbookModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TextWordbookModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\TextWordbookModel.cs",
               "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TextWordbookModel.cs",
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\TextWordbookModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBUAAAADAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:55:41.976Z"
+              "WhenOpened": "2024-05-24T15:55:41.976Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "ReadingTextModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ReadingTextModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ReadingTextModel.cs",
@@ -476,11 +513,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ReadingTextModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBMAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T11:37:56.764Z"
+              "WhenOpened": "2024-05-24T11:37:56.764Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 40,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\App.xaml.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\App.xaml.cs",
@@ -488,11 +526,12 @@
               "RelativeToolTip": "ApkaJezykowa\\App.xaml.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAAADkAAAB/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T19:56:37.924Z"
+              "WhenOpened": "2024-05-23T19:56:37.924Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 43,
               "Title": "WrongAnswersListModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\WrongAnswersListModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\WrongAnswersListModel.cs",
@@ -500,11 +539,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\WrongAnswersListModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T20:34:52.117Z"
+              "WhenOpened": "2024-05-22T20:34:52.117Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 46,
               "Title": "ChooseRightPhraseModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ChooseRightPhraseModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ChooseRightPhraseModel.cs",
@@ -512,11 +552,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ChooseRightPhraseModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T20:17:39.776Z"
+              "WhenOpened": "2024-05-22T20:17:39.776Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 45,
               "Title": "TTSTranslationModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TTSTranslationModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\TTSTranslationModel.cs",
@@ -524,11 +565,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\TTSTranslationModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T20:09:24.265Z"
+              "WhenOpened": "2024-05-22T20:09:24.265Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 44,
               "Title": "TTSPhraseModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TTSPhraseModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\TTSPhraseModel.cs",
@@ -536,7 +578,8 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\TTSPhraseModel.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAAABYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T20:03:33.757Z"
+              "WhenOpened": "2024-05-22T20:03:33.757Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -548,11 +591,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ReadingListModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T02:05:18.807Z"
+              "WhenOpened": "2024-05-22T02:05:18.807Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 41,
               "Title": "ComprehensionModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ComprehensionModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ComprehensionModel.cs",
@@ -560,11 +604,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ComprehensionModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T01:01:37.162Z"
+              "WhenOpened": "2024-05-22T01:01:37.162Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 42,
               "Title": "ListeningModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ListeningModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ListeningModel.cs",
@@ -572,11 +617,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ListeningModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T00:59:28.276Z"
+              "WhenOpened": "2024-05-22T00:59:28.276Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 38,
               "Title": "VocabularyModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\VocabularyModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\VocabularyModel.cs",
@@ -584,11 +630,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\VocabularyModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T16:29:27.201Z"
+              "WhenOpened": "2024-05-21T16:29:27.201Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 31,
               "Title": "VocabularyListModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\VocabularyListModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\VocabularyListModel.cs",
@@ -596,11 +643,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\VocabularyListModel.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T16:17:11.776Z"
+              "WhenOpened": "2024-05-21T16:17:11.776Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 39,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
@@ -608,11 +656,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAFIAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T00:41:17.618Z"
+              "WhenOpened": "2024-05-11T00:41:17.618Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 27,
               "Title": "TestInfoUpdateViewCommand.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Commands\\TestInfoUpdateViewCommand.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\Commands\\TestInfoUpdateViewCommand.cs",
@@ -620,11 +669,12 @@
               "RelativeToolTip": "ApkaJezykowa\\Commands\\TestInfoUpdateViewCommand.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAIwDAAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T23:17:27.247Z"
+              "WhenOpened": "2024-05-30T23:17:27.247Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 8,
               "Title": "LessonModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\LessonModel.cs",
@@ -632,29 +682,18 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T11:12:05.241Z"
+              "WhenOpened": "2024-05-25T11:12:05.241Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ComprehensionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
-              "RelativeToolTip": "ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADUAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T00:22:01.04Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "LessonRepository.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\LessonRepository.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\LessonRepository.cs",
               "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\LessonRepository.cs",
               "RelativeToolTip": "ApkaJezykowa\\Repositories\\LessonRepository.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAAAEYAAAAnAAAA",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAAAEYAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-18T16:00:43.044Z",
               "EditorCaption": ""
@@ -670,176 +709,89 @@
         "Id": "5757bcc9-b5ae-4e40-86cc-213f8575dbd2",
         "Display": 1,
         "X": -5,
-        "Y": 1628,
+        "Y": 1639,
         "Width": 2170,
-        "Height": 2173,
+        "Height": 2162,
         "WindowState": 0
       },
       "DocumentGroups": [
         {
-          "DockedWidth": 10,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 15,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LessonRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\AppData\\Local\\SourceServer\\c329d95bbd0479b7c326ca8831d153381a8c9baeafc879c878be7b6d8273acd4\\ApkaJezykowa\\Repositories\\LessonRepository.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\c329d95bbd0479b7c326ca8831d153381a8c9baeafc879c878be7b6d8273acd4\\ApkaJezykowa\\Repositories\\LessonRepository.cs",
-              "ToolTip": "C:\\Users\\ogryz\\AppData\\Local\\SourceServer\\c329d95bbd0479b7c326ca8831d153381a8c9baeafc879c878be7b6d8273acd4\\ApkaJezykowa\\Repositories\\LessonRepository.cs[Tylko do odczytu]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\c329d95bbd0479b7c326ca8831d153381a8c9baeafc879c878be7b6d8273acd4\\ApkaJezykowa\\Repositories\\LessonRepository.cs[Tylko do odczytu]",
-              "ViewState": "AQIAAKIDAAAAAAAAAAAjwN4DAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T23:59:24.834Z",
-              "EditorCaption": "[Tylko do odczytu]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "AccentModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\AccentModel.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\AccentModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\AccentModel.cs",
-              "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\AccentModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T01:43:28.17Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LessonViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADgAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T00:31:20.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "ApkaJezykowa\\Repositories\\UserRepository.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAjwI8AAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T01:29:55.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "TextQuestionModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TextQuestionModel.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\TextQuestionModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TextQuestionModel.cs",
-              "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\TextQuestionModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T11:58:05.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "TextQuestionTestModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TextQuestionTestModel.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\TextQuestionTestModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\TextQuestionTestModel.cs",
-              "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\TextQuestionTestModel.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:23:27.301Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ListeningRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ListeningRepository.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\ListeningRepository.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ListeningRepository.cs",
-              "RelativeToolTip": "ApkaJezykowa\\Repositories\\ListeningRepository.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAN0AAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T00:22:04.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "ExerciseRepository.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
               "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
               "RelativeToolTip": "ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
-              "ViewState": "AQIAALABAAAAAAAAAAAAACACAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBUAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T00:21:59.284Z",
+              "WhenOpened": "2024-06-05T01:58:37.223Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAAAEQAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T11:13:11.203Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "VocabularyRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
-              "RelativeToolTip": "ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKcAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T00:22:07.932Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "ComprehensionViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ComprehensionViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\ComprehensionViewModel.cs",
               "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ComprehensionViewModel.cs",
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\ComprehensionViewModel.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAMwEAAAAAGAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAABVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T00:46:29.037Z",
+              "WhenOpened": "2024-06-05T01:57:44.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IComprehensionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\IComprehensionRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\IComprehensionRepository.cs",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\IComprehensionRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\IComprehensionRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T01:50:41.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ComprehensionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAAANQAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T00:22:01.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LessonEditorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
-              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
-              "ViewState": "AQIAAJ0AAAAAAAAAAAAAAAkBAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T19:46:17.655Z",
+              "Title": "ClassDiagram1.cd",
+              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\ClassDiagram1.cd",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\ClassDiagram1.cd",
+              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\ClassDiagram1.cd",
+              "RelativeToolTip": "ApkaJezykowa\\ClassDiagram1.cd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000463|",
+              "WhenOpened": "2024-06-05T13:30:49.026Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 6,
+          "DockedWidth": 1,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "LessonTitleModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonTitleModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\LessonTitleModel.cs",
@@ -847,17 +799,18 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonTitleModel.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAqwAoAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T12:00:22.042Z"
+              "WhenOpened": "2024-05-25T12:00:22.042Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "ILessonRepository.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
               "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwA4AAAAsAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAA1wA4AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-25T15:36:34.436Z",
               "EditorCaption": ""
@@ -872,11 +825,12 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonModelDB.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T11:32:18.1Z"
+              "WhenOpened": "2024-05-25T11:32:18.1Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "ChooseRightPhraseViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ChooseRightPhraseViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\ChooseRightPhraseViewModel.cs",
@@ -884,7 +838,8 @@
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\ChooseRightPhraseViewModel.cs",
               "ViewState": "AQIAAGMAAAAAAAAAAAAAAHUAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T01:45:53.358Z"
+              "WhenOpened": "2024-05-31T01:45:53.358Z",
+              "EditorCaption": ""
             }
           ]
         }

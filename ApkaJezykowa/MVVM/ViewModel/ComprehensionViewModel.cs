@@ -65,7 +65,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Title = result.Text_Title;
       this.TTS_Text = result.TTS_Text;
       this.Illustration = result.Illustration;
-      comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text, TextWordBook);
+      TextWordBook = comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text);
       var result2 = vocabularyRepository.GetAccent(Lang);
       Accent = result2.Accent;
       Lang_Accent = result2.Lang;
@@ -90,7 +90,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Title = result.Text_Title;
       this.TTS_Text = result.TTS_Text;
       this.Illustration = result.Illustration;
-      comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text, TextWordBook);
+      TextWordBook = comprehensionRepository.Obtain_Dictionary(result.Id_Reading_Text);
       var result2 = vocabularyRepository.GetAccent(Lang);
       Accent = result2.Accent;
       Lang_Accent = result2.Lang;

@@ -59,7 +59,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>oC876mA8oi3EJ7RpQZfxgNz3RqdHT253/PAImebQALk=</dsig:DigestValue>
+      <dsig:DigestValue>oTHTWM8Oq8xBMCBYmQV7Fm4jsIW4Ao7qapZ5qTFw3EA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ApkaJezykowa.dll.config" size="4921">

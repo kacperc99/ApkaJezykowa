@@ -10,7 +10,7 @@ namespace ApkaJezykowa.MVVM.Model
   public interface IComprehensionRepository
   {
     ReadingTextModel Obtain_Text(int Id_Comprehension);
-    void Obtain_Dictionary(int Id_Reading_Text, ObservableCollection<TextWordbookModel> TextWordBook);
+    ObservableCollection<TextWordbookModel> Obtain_Dictionary(int Id_Reading_Text);
     string Obtain_Translation(int Id_Comprehension);
     ObservableCollection<TextQuestionTestModel> Obtain_Questions(int Id_Reading_Text, ObservableCollection<string> correctAnswers);
     ReadingTextModel Obtain_Test_Text(int Id_Vocabulary);

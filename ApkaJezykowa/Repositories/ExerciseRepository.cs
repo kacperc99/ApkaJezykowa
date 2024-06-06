@@ -321,7 +321,7 @@ namespace ApkaJezykowa.Repositories
       stopwatch.Start();
       var filter = Builders<ExerciseModel>.Filter.Eq("Exercise_Title", Exercise);
       var projection = Builders<ExerciseModel>.Projection.Expression(item => item.Id);
-      var result = exerciseCollection.Aggregate().Match(filter).Project(projection).ToList();
+      var result = exerciseCollection.Aggregate().Match(filter).Project(projection).FirstOrDefault();
       var filter2 = Builders<ExerciseContentModel>.Filter.Eq("Id_Exercise",result);
       var projection2 = Builders<ExerciseContentModel>.Projection.Expression(item=>new ExerciseData
       {
@@ -332,7 +332,7 @@ namespace ApkaJezykowa.Repositories
         Answer3 = item.Answer3,
         Tip = item.Tip
       });//Exclude("Id_Exercise");
-      ObservableCollection<ExerciseData> ec = new ObservableCollection<ExerciseData>(exerciseContentCollection.Aggregate().Match(filter2).Project<ExerciseData>(projection2).ToList());
+      var result2 = exerciseContentCollection.Find(filter2).Project(projection2).ToList();
       //Console.WriteLine("Fetching Exercise Content. Start!");
       /*using (var connection = GetCourseConnection())
       using(var command = new SqlCommand())
@@ -365,7 +365,7 @@ namespace ApkaJezykowa.Repositories
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
-      return ec;
+      return new ObservableCollection<ExerciseData>(result2);
     }
     public ExerciseParamModel Obtain_Exercise_Parameters(string Exercise)
     {

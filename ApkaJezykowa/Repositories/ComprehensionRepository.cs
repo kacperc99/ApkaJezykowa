@@ -170,7 +170,7 @@ namespace ApkaJezykowa.Repositories
         return result;
       }*/
     }
-    public void Obtain_Dictionary(int Id_Reading_Text, ObservableCollection<TextWordbookModel> TextWordBook)
+    public ObservableCollection<TextWordbookModel> Obtain_Dictionary(int Id_Reading_Text)
     {
       measurement = new Thread(new ThreadStart(performanceMeasurementRepository.CPU_Measurement));
       stopwatch = new Stopwatch();
@@ -179,7 +179,7 @@ namespace ApkaJezykowa.Repositories
       stopwatch.Start();
       var filter = Builders<TextWordbookModel>.Filter.Eq("Id_Reading_Text", Id_Reading_Text);
       var result = textWordbookCollection.Find(filter).ToList();
-      TextWordBook = new ObservableCollection<TextWordbookModel>(result);
+      
       //Console.WriteLine("Fetching Dictionary for the Text. Start!");
       /*using (var connection = GetCourseConnection())
       using (var command = new SqlCommand())
@@ -210,6 +210,7 @@ namespace ApkaJezykowa.Repositories
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
+      return new ObservableCollection<TextWordbookModel>(result);
     }
     public string Obtain_Translation(int Id_Comprehension)
     {
@@ -263,7 +264,7 @@ namespace ApkaJezykowa.Repositories
       measurement.Start();
       stopwatch.Start();
       var filter = Builders<TextQuestionModel>.Filter.Eq("Id_Reading_Text",Id_Reading_Text);
-      var result = textQuestionCollection.Aggregate().AppendStage<TextQuestionModel>($@"{{ $sample: {{ size: {10} }} }}").Match(filter).ToList();
+      var result = textQuestionCollection.Aggregate().Match(filter).AppendStage<TextQuestionModel>($@"{{ $sample: {{ size: {10} }} }}").ToList();
       foreach(var x in result)
       {
         TextQuestionTestModel model = new TextQuestionTestModel();
