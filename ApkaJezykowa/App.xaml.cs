@@ -47,6 +47,8 @@ namespace ApkaJezykowa
       {
         SpeechServiceKey.Instance.Key = reader.ReadLine();
         SpeechServiceKey.Instance.Region = reader.ReadLine();
+        SpeechServiceKey.Instance.UserBaseConnection = reader.ReadLine();
+        SpeechServiceKey.Instance.CourseBaseConnection = reader.ReadLine();
       }
       AllocConsole();
       MeasurementModel.Instance.cpu = new("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);

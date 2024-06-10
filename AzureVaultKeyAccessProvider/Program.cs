@@ -31,6 +31,8 @@ public class Program
 
         var key = client.GetSecret("speechkey").Value.Value.ToString();
         var region = client.GetSecret("speechregion").Value.Value.ToString();
+        var userBase = client.GetSecret("mssqluserconnectionstring").Value.Value.ToString();
+        var courseBase = client.GetSecret("mssqlcourseconnectionstring").Value.Value.ToString();
         // Configure the HTTP request pipeline.
         /*if (app.Environment.IsDevelopment())
         {
@@ -44,6 +46,8 @@ public class Program
             writer.AutoFlush = true;
             writer.WriteLine(key);
             writer.WriteLine(region);
+            writer.WriteLine(userBase);
+            writer.WriteLine(courseBase);
             server.WaitForPipeDrain();
         }
 
