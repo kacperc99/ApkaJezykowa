@@ -513,12 +513,11 @@ namespace ApkaJezykowa.Repositories
         //command.Parameters.Add("@param2", SqlDbType.NVarChar).Value = Country + Level.ToString() + (count + 1).ToString();
         //id = System.Convert.ToInt32(command.ExecuteScalar());
       }*/
-
+      var sort3 = Builders<ExerciseContentModel>.Sort.Descending("_id");
+      var projection3 = Builders<ExerciseContentModel>.Projection.Expression(item => item.Id);
+      var result3 = exerciseContentCollection.Find(new BsonDocument()).Sort(sort3).Project(projection3).FirstOrDefault();
       foreach (var x in EditedExercises)
       {
-        var sort3 = Builders<ExerciseContentModel>.Sort.Descending("_id");
-        var projection3 = Builders<ExerciseContentModel>.Projection.Include("_id");
-        var result3 = exerciseContentCollection.Find(new BsonDocument()).Sort(sort3).Project<int>(projection3).FirstOrDefault();
         var exercisecontent = new ExerciseContentModel
         {
           Id = result3+1,
@@ -530,6 +529,7 @@ namespace ApkaJezykowa.Repositories
           Id_Exercise = id
         };
         exerciseContentCollection.InsertOne(exercisecontent);
+        result3++;
         /*using (var connection = GetCourseConnection())
         using (var command = new SqlCommand())
         {

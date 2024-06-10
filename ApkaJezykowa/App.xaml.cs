@@ -52,6 +52,7 @@ namespace ApkaJezykowa
         SpeechServiceKey.Instance.Region = reader.ReadLine();
         ConnectionString = reader.ReadLine();
       }
+      
       AllocConsole();
       MeasurementModel.Instance.cpu = new("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);
       MeasurementModel.Instance.ram = new("Process", "Working Set", Process.GetCurrentProcess().ProcessName);

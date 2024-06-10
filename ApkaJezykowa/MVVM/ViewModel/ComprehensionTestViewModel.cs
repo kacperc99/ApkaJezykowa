@@ -95,11 +95,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
           if (answers[i] == CorrectAnswers[i])
           {
             points++;
-            TextQuestions[i].Answer_Tip = "Correct answer!";//Tips.Add("Correct Answer!");
+            TextQuestions[i].Answer_Tip = "Correct answer!";
           }
-          //else
-            //Tips.Add(TextQuestions[i].Answer_Tip);
-
         }
         Tip_Enabler = true;
         if (points > 7)
@@ -114,10 +111,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
           if (answers[i] == CorrectAnswers[i])
           {
             points++;
-            //Tips.Add("Correct Answer!");
           }
-          //else
-            //Tips.Add(TextQuestions[i].Answer_Tip);
         }
         Tip_Enabler = true;
         if (points > 15)

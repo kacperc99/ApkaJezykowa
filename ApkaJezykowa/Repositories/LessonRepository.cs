@@ -307,6 +307,7 @@ namespace ApkaJezykowa.Repositories
       Properties.Settings.Default.ThreadManager = true;
       measurement.Start();
       stopwatch.Start();
+      //long StartingTime = Stopwatch.GetTimestamp();
       //var filterBuilder = Builders<CourseModel>.Filter;
       //var filter = filterBuilder.Empty;
       var filterBuilder2 = Builders<LessonModelDB>.Filter;
@@ -364,13 +365,14 @@ namespace ApkaJezykowa.Repositories
         }
       }*/
       stopwatch.Stop();
+      //long EndingTime = Stopwatch.GetTimestamp();
       Properties.Settings.Default.ThreadManager = false;
       MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
         ("Fetching Lesson Names", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
         stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
       MeasurementModel.Instance.CPU_Vals.Clear();
       MeasurementModel.Instance.RAM_Vals.Clear();
-      //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
+      //Console.WriteLine("Stop! Czas wykonania: " + ((EndingTime - StartingTime)*(1.0/Stopwatch.Frequency)).ToString());
       return ts;
     }
     public LessonParamModel Obtain_Lesson_Parameters(string LName)
@@ -515,6 +517,13 @@ namespace ApkaJezykowa.Repositories
         //Console.WriteLine("Stop! Czas wykonania: " + stopwatch.Elapsed.ToString());
         return lc;
       }*/
+      stopwatch.Stop();
+      Properties.Settings.Default.ThreadManager = false;
+      MeasurementModel.Instance.Measurement_Results.Add(new Tuple<string, List<double>, List<float>, TimeSpan, double, float>
+        ("Fetching Display Data", new List<double>(MeasurementModel.Instance.CPU_Vals), new List<float>(MeasurementModel.Instance.RAM_Vals),
+        stopwatch.Elapsed, MeasurementModel.Instance.CPU_Vals.Count > 0 ? MeasurementModel.Instance.CPU_Vals.Average() : 0.0, MeasurementModel.Instance.RAM_Vals.Count > 0 ? MeasurementModel.Instance.RAM_Vals.Average() : 0));
+      MeasurementModel.Instance.CPU_Vals.Clear();
+      MeasurementModel.Instance.RAM_Vals.Clear();
       return lc;
     }
     public ObservableCollection<Clicker> GetButtons()

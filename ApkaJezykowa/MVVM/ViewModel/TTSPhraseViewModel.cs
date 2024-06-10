@@ -111,10 +111,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Random rnd = new Random();
       num = rnd.Next(1, 5);
       switch (num)
-      {//najlepiej będzie ustawić tutaj wszystkie zmienne i tyle,
-       //a te funkcje niech odpowiadają po prostu za sammo wykonanie sprawdzenia
+      {
         case 1:
-          //ListenAndWrite();
           Task = "Transcribe the sentence correctly";
           Phrase = phrases[counter]._phrase;
           Colour = "Black";
@@ -126,7 +124,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Answer = null;
           break;
         case 2:
-          //ReadItOut();
           Task = "Pronouonce the phrase correctly";
           Phrase = phrases[counter]._phrase;
           Colour = "Black";
@@ -147,10 +144,8 @@ namespace ApkaJezykowa.MVVM.ViewModel
           Answer_Read_Only = false;
           Next_Button_Text = "Next";
           Answer = null;
-          //TranslateText();
           break;
         case 4:
-          //TranslateSpoken();
           Task = "Transcribe and translate the sentence correctly";
           Phrase = phrases[counter]._phrase;
           Colour = "Black";
@@ -196,32 +191,11 @@ namespace ApkaJezykowa.MVVM.ViewModel
     }
     async void ExecuteSpeak(object obj)
     {
-      /*SpeechRecognitionEngine p = new SpeechRecognitionEngine(new CultureInfo(Accent));
-      Grammar word = new DictationGrammar();
-      p.LoadGrammar(word);
-      try
-      {
-        p.SetInputToDefaultAudioDevice();
-        RecognitionResult result = p.Recognize();
-        Answer = result.Text;
-        Next_Button_Text = "Next";
-      }
-      catch (Exception ex)
-      {
-        Answer = "";
-        MessageBox.Show(ex.ToString());
-      }
-      finally
-      {
-        p.UnloadAllGrammars();
-      } */
-      //SpeechServiceKey speech = new SpeechServiceKey();
       var Key = SpeechServiceKey.Instance.Key;
       var Region = SpeechServiceKey.Instance.Region;
       var speechConfig = SpeechConfig.FromSubscription(Key, Region);
 
       speechConfig.SpeechRecognitionLanguage = Accent;
-      //TranslationConfig.AddTargetLanguage(Lang_Accent);
       using (var audioConfig = AudioConfig.FromDefaultMicrophoneInput())
       using(var recognizer = new Microsoft.CognitiveServices.Speech.SpeechRecognizer(speechConfig, audioConfig))
       {

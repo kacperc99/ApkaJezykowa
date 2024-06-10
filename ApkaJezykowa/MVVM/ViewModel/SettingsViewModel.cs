@@ -20,15 +20,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
   public ICommand LanguageCommand { get; set; }
     public SettingsViewModel()
     {
-      test();
       LanguageCommand = new RelayCommand(ExecuteLanguageCommand);
     }
 
-    void test()
-    {
-      //var SettingsView = new SettingsView();
-      //Filename = new Uri((BitmapImage)SettingsView.ImageDisplay.Source);
-    }
     public void ExecuteLanguageCommand(object obj)
     {
       Properties.Settings.Default.Language = Language;

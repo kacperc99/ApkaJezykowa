@@ -44,9 +44,9 @@ namespace ApkaJezykowa.Repositories
       measurement.Start();
       stopwatch.Start();
       var filter = Builders<CourseModel>.Filter.Eq("Course_Name", Country);
-      var projection = Builders<CourseModel>.Projection.Include("_id").Exclude("Course_Name").Exclude("Image");
-      var result = courseCollection.Find(filter).Project<CourseModel>(projection).FirstOrDefault();
-      var filter2 = Builders<VocabularyModel>.Filter.Eq("Id_Course", result.Id);
+      var projection = Builders<CourseModel>.Projection.Expression(item => item.Id);
+      var result = courseCollection.Find(filter).Project(projection).FirstOrDefault();
+      var filter2 = Builders<VocabularyModel>.Filter.Eq("Id_Course", result);
       var result2 = vocabularyCollection.Find(filter2).ToList();
       foreach (var item in result2)
       {

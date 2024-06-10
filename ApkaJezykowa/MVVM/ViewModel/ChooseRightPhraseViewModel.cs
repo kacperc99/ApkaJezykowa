@@ -107,7 +107,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Button_Enabler = true;
       listeningRepository = new ListeningRepository();
       vocabularyRepository = new VocabularyRepository();
-      //ChooseRightPhraseUpdateViewCommand = new ChooseRightPhraseUpdateViewCommand(this, Lang, Id_Vocabulary, points);
       var result = vocabularyRepository.GetAccent(Lang);
       Accent = result.Accent;
       Lang_Accent = result.Lang;

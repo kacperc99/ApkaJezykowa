@@ -3,7 +3,6 @@ using ApkaJezykowa.Keys;
 using ApkaJezykowa.Main;
 using ApkaJezykowa.MVVM.Model;
 using ApkaJezykowa.Repositories;
-//using AzureVaultKeyAccessProvider.Keys;
 using Microsoft.CognitiveServices.Speech;
 using System;
 using System.Collections.Generic;
@@ -58,9 +57,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       this.Lang = Lang;
       comprehensionRepository = new ComprehensionRepository();
       vocabularyRepository = new VocabularyRepository();
-      //wrzuć wszystko przez repo to var text czy coś
       MoveToNextScreenCommand = new RelayCommand(ExecuteMoveToNextScreenCommand);
-      //ComprehensionUpdateViewCommand = new ComprehensionUpdateViewCommand(this, textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, Lang);
       var result = comprehensionRepository.Obtain_Text(Id_Comprehension);
       this.Title = result.Text_Title;
       this.TTS_Text = result.TTS_Text;
@@ -70,10 +67,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Accent = result2.Accent;
       Lang_Accent = result2.Lang;
       Voice = result2.Voice;
-      //ReadText();
       Data_Obtainer(Id_Comprehension, result.Id_Reading_Text);
-
-      //a tutaj pobierz słownik i asynchronicznie w tle pobierz resztę danych
     }
     public ComprehensionViewModel(int Id_Vocabulary, string Lang, bool IsTestMode, int points)
     {
@@ -84,8 +78,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       comprehensionRepository = new ComprehensionRepository();
       vocabularyRepository = new VocabularyRepository();
       MoveToNextScreenCommand = new RelayCommand(ExecuteMoveToNextScreenCommand);
-      //ComprehensionUpdateViewCommand = new ComprehensionUpdateViewCommand(this, textQuestions, correctAnswers, Translated_Text, TTS_Text, Title, Lang, true, points);
-      //this.Id_Comprehension = comprehensionRepository.Get_Comprehension_Int(Id_Vocabulary);
       var result = comprehensionRepository.Obtain_Test_Text(Id_Vocabulary);
       this.Title = result.Text_Title;
       this.TTS_Text = result.TTS_Text;
@@ -96,12 +88,9 @@ namespace ApkaJezykowa.MVVM.ViewModel
       Lang_Accent = result2.Lang;
       Voice = result2.Voice;
       Data_Obtainer(Id_Comprehension, result.Id_Reading_Text);
-
-      //a tutaj pobierz słownik i asynchronicznie w tle pobierz resztę danych
     }
     async Task Data_Obtainer(int id, int reader_id)
     {
-      //Translated_Text = Task.Run(()=>comprehensionRepository.Obtain_Translation(Id_Comprehension)).ToString();
       Translated_Text = await Get_Translation(id);
       textQuestions = await Get_Questions(reader_id);
       ButtonSwitch = true;

@@ -8,7 +8,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using System.Web.UI.WebControls;
 using System.Windows.Input;
 //things to solve: 
 // - limit the level variable to current max level +1
@@ -44,8 +43,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
     public string language { get; set; }
     public string title { get; set; }
     public int level { get; set; }
-    //private LessonParamModel() { }
-    //public static readonly LessonParamModel Instance = new LessonParamModel();
   }
   internal class LessonEditorViewModel : BaseViewModel
   {
@@ -167,7 +164,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
       }
       else
         EditedImages = null;
-      //EditedImages = value.LessonImage;
       ModifiedContentId = value.LessonID;
       IsContentBeingEdited = true;
     }
@@ -212,7 +208,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
         EditedLessons.Add(lsn);
         EditedContent = null;
         EditedImages.Clear();
-        //foreach (LessonData p in EditedLessons) { Console.WriteLine(p.LessonText, p.LessonImage, p.LessonID); }
       }  
       if(IsContentBeingEdited)
       {
@@ -225,7 +220,6 @@ namespace ApkaJezykowa.MVVM.ViewModel
         }
         else
           EditedLessons[i].LessonImage = null;
-        //EditedLessons[i].LessonImage = EditedImages;
         EditedContent = null;
         EditedImages.Clear();
         ModifiedContentId = 0;

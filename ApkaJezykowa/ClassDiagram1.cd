@@ -208,7 +208,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAABACAAAAAAAAAAA=</HashCode>
       <FileName>CustomControls\BindablePasswordBox.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.Keys.SpeechServiceKey">
     <Position X="35.25" Y="8.5" Width="1.5" />
@@ -484,7 +483,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\ChooseRightPhraseView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.ComprehensionTestView" BaseTypeListCollapsed="true">
     <Position X="51" Y="0.5" Width="1.5" />
@@ -492,7 +490,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\ComprehensionTestView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.ComprehensionView" BaseTypeListCollapsed="true">
     <Position X="37" Y="2.5" Width="1.5" />
@@ -500,7 +497,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\ComprehensionView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.DictionaryView" BaseTypeListCollapsed="true">
     <Position X="40.5" Y="3.25" Width="1.5" />
@@ -508,7 +504,6 @@
       <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\DictionaryView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.ExerciseEditorView" BaseTypeListCollapsed="true">
     <Position X="45.75" Y="2" Width="1.5" />
@@ -516,7 +511,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\ExerciseEditorView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.ExerciseMenuView" BaseTypeListCollapsed="true">
     <Position X="49.25" Y="3.5" Width="1.5" />
@@ -524,7 +518,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\ExerciseMenuView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.ExerciseView" BaseTypeListCollapsed="true">
     <Position X="38.75" Y="5.25" Width="1.5" />
@@ -532,7 +525,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\ExerciseView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.InfoView" BaseTypeListCollapsed="true">
     <Position X="40.5" Y="17.75" Width="1.5" />
@@ -540,7 +532,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\InfoView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.LessonEditorView" BaseTypeListCollapsed="true">
     <Position X="49.25" Y="5.25" Width="1.5" />
@@ -548,7 +539,6 @@
       <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>MVVM\View\LessonEditorView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.LessonListView" BaseTypeListCollapsed="true">
     <Position X="38.75" Y="6.75" Width="1.5" />
@@ -556,7 +546,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\LessonListView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.LessonsView" BaseTypeListCollapsed="true">
     <Position X="45.75" Y="5.25" Width="1.5" />
@@ -564,7 +553,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\LessonsView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.LessonView" BaseTypeListCollapsed="true">
     <Position X="40.5" Y="10.25" Width="1.5" />
@@ -572,7 +560,6 @@
       <HashCode>AAAAAAgAAAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\LessonView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.LoginView" BaseTypeListCollapsed="true">
     <Position X="42.25" Y="8.25" Width="1.5" />
@@ -580,7 +567,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\LoginView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.MainWindow" BaseTypeListCollapsed="true">
     <Position X="44" Y="9.25" Width="1.5" />
@@ -588,7 +574,6 @@
       <HashCode>AAAAAAABAAAAAAABAAAgAAARQAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\MainView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.ModuleMenuView" BaseTypeListCollapsed="true">
     <Position X="51" Y="10" Width="1.5" />
@@ -596,7 +581,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\ModuleMenuView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.SettingsView" BaseTypeListCollapsed="true">
     <Position X="51" Y="11.5" Width="1.5" />
@@ -612,7 +596,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\TestInfoView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.TTSPhraseView" BaseTypeListCollapsed="true">
     <Position X="37" Y="14.5" Width="1.5" />
@@ -620,7 +603,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\TTSPhraseView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.VocabularyMenuView" BaseTypeListCollapsed="true">
     <Position X="44" Y="18.25" Width="1.5" />
@@ -628,7 +610,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\VocabularyMenuView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.View.VocabularyTestModeView" BaseTypeListCollapsed="true">
     <Position X="33.5" Y="0.5" Width="1.5" />
@@ -636,7 +617,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\VocabularyTestModeView.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ApkaJezykowa.MVVM.ViewModel.BaseViewModel">
     <Position X="11.75" Y="13.5" Width="1.5" />
@@ -820,7 +800,7 @@
   <Class Name="ApkaJezykowa.MVVM.ViewModel.SettingsViewModel">
     <Position X="19.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAACAQAQAQAAAAAAAAAAAAAAAAIAAAAAAAAIAA=</HashCode>
+      <HashCode>AAAAQAAACAQAQAQAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>MVVM\ViewModel\SettingsViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -943,7 +923,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Interface Name="ApkaJezykowa.MVVM.Model.IComprehensionRepository">
     <Position X="35.25" Y="19" Width="1.5" />
