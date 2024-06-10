@@ -21,7 +21,8 @@
                           BorderBrush="Transparent"
                           ItemsSource="{Binding Lessons}"
                           Width="Auto" Height="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              HorizontalAlignment="Center">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Height="Auto">
@@ -31,7 +32,7 @@
                                     <ListBox x:Name="LV3" Background="DimGray"
                                         BorderBrush="Transparent"
                                         ItemsSource="{Binding LessonImages}"
-                                        Width="Auto" Height="Auto"
+                                        Width="400" Height="Auto"
                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
