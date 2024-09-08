@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AzureVaultKeyAccessProvider")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9cee60caa62d2f64e1790328dc3186c23f687f5e")]
 [assembly: System.Reflection.AssemblyProductAttribute("AzureVaultKeyAccessProvider")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AzureVaultKeyAccessProvider")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

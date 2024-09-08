@@ -1,14 +1,130 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\",
+  "WorkspaceRootPath": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\ogryz\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2CF74845-BE7F-42F3-95EA-3A9639F2506E}|AzureVaultKeyAccessProvider\\AzureVaultKeyAccessProvider.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\azurevaultkeyaccessprovider\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CF74845-BE7F-42F3-95EA-3A9639F2506E}|AzureVaultKeyAccessProvider\\AzureVaultKeyAccessProvider.csproj|solutionrelative:azurevaultkeyaccessprovider\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\apkajezykowa\\mvvm\\viewmodel\\lessonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\lessonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\lessonlistviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\lessonlistviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\exerciseeditortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\exerciseeditortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\lessoneditortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\lessoneditortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\comprehensiontests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\comprehensiontests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\listeningtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\listeningtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\exerciselistviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\exerciselistviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\languagesviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\languagesviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\mainviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\mainviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\exerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\exerciserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\comprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\comprehensionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\model\\exerciselistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\exerciselistmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\exercisemenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\exercisemenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\exerciseviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\exerciseviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\infoviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\infoviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\model\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\lessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\lessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\model\\ilessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\model\\ilessonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\lessoneditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\lessoneditorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\lessonviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\lessonviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\lessonlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\lessonlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowatest\\loginviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FCF4F54-1311-474E-AF8D-5BD52F7B477B}|ApkaJezykowaTest\\ApkaJezykowaTest.csproj|solutionrelative:apkajezykowatest\\loginviewmodeltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\chooserightphraseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\chooserightphraseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\commands\\updateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\commands\\updateviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\vocabularyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\vocabularyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\repositories\\performancemeasurementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\repositories\\performancemeasurementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|c:\\users\\kacper celary\\source\\repos\\apkajezykowa\\apkajezykowa\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2FEC62-5FDF-47ED-BC99-DE39EEC2C5DF}|ApkaJezykowa\\ApkaJezykowa.csproj|solutionrelative:apkajezykowa\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,8 +133,64 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 29,
+          "DockedWidth": 790,
           "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppSettings.json",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\AppSettings.json",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\AppSettings.json",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\AppSettings.json",
+              "RelativeToolTip": "ApkaJezykowa\\AppSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-24T22:19:13.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\AzureVaultKeyAccessProvider\\Program.cs",
+              "RelativeDocumentMoniker": "AzureVaultKeyAccessProvider\\Program.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\AzureVaultKeyAccessProvider\\Program.cs",
+              "RelativeToolTip": "AzureVaultKeyAccessProvider\\Program.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAiwBwAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-24T21:47:43.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\BaseRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAACXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-24T21:46:11.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\App.xaml.cs",
+              "RelativeToolTip": "ApkaJezykowa\\App.xaml.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAAD8AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T17:57:35.398Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 34,
+          "SelectedChildIndex": 26,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,50 +198,328 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 14,
+              "Title": "ComprehensionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\ComprehensionRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:49:53.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ExerciseListModel.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ExerciseListModel.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ExerciseListModel.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ExerciseListModel.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ExerciseListModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:49:45.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ExerciseMenuViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ExerciseMenuViewModel.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\ExerciseMenuViewModel.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ExerciseMenuViewModel.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\ExerciseMenuViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:49:34.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LessonModel.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonModel.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\LessonModel.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\LessonModel.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\LessonModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:46:54.177Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ILessonRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\Model\\ILessonRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:45:18.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "LessonEditorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LessonEditorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:43:40.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LessonListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonListViewModel.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LessonListViewModel.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonListViewModel.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LessonListViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:42:50.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ExerciseViewModelTests.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ExerciseViewModelTests.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\ExerciseViewModelTests.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ExerciseViewModelTests.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\ExerciseViewModelTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAACgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:41:13.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "InfoViewModelTests.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\InfoViewModelTests.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\InfoViewModelTests.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\InfoViewModelTests.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\InfoViewModelTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:41:01.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LanguagesViewModelTest.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LanguagesViewModelTest.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\LanguagesViewModelTest.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LanguagesViewModelTest.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\LanguagesViewModelTest.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAkwEAAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:40:57.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LessonViewModelTests.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LessonViewModelTests.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\LessonViewModelTests.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LessonViewModelTests.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\LessonViewModelTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAACPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:40:33.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "LoginViewModelTest.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LoginViewModelTest.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\LoginViewModelTest.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LoginViewModelTest.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\LoginViewModelTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAABSAQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:38:23.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ChooseRightPhraseViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ChooseRightPhraseViewModel.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\ChooseRightPhraseViewModel.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\ChooseRightPhraseViewModel.cs",
+              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\ChooseRightPhraseViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:38:02.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ListeningTests.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ListeningTests.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\ListeningTests.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ListeningTests.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\ListeningTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:32:23.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LessonListViewModelTest.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LessonListViewModelTest.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\LessonListViewModelTest.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LessonListViewModelTest.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\LessonListViewModelTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:31:50.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LessonEditorTest.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LessonEditorTest.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\LessonEditorTest.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\LessonEditorTest.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\LessonEditorTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:31:27.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ExerciseListViewModelTests.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ExerciseListViewModelTests.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\ExerciseListViewModelTests.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ExerciseListViewModelTests.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\ExerciseListViewModelTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:31:12.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExerciseEditorTests.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ExerciseEditorTests.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\ExerciseEditorTests.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ExerciseEditorTests.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\ExerciseEditorTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:30:44.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ComprehensionTests.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ComprehensionTests.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\ComprehensionTests.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\ComprehensionTests.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\ComprehensionTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:30:26.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainViewModelTest.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\MainViewModelTest.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowaTest\\MainViewModelTest.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowaTest\\MainViewModelTest.cs",
+              "RelativeToolTip": "ApkaJezykowaTest\\MainViewModelTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T19:13:36.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UpdateViewCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Commands\\UpdateViewCommand.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Commands\\UpdateViewCommand.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Commands\\UpdateViewCommand.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Commands\\UpdateViewCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T15:56:24.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "VocabularyRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\VocabularyRepository.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAADgAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T21:53:28.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ExerciseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\ExerciseRepository.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAEEAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T20:31:36.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LessonRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\LessonRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\LessonRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\LessonRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\LessonRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwB0AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T17:06:49.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "PerformanceMeasurementRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\PerformanceMeasurementRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\PerformanceMeasurementRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\PerformanceMeasurementRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\PerformanceMeasurementRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T03:35:46.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "ApkaJezykowa\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "ApkaJezykowa\\Repositories\\UserRepository.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAIwGUAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T02:13:31.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
               "Title": "MainViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
               "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\Kacper Celary\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
               "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\MainViewModel.cs",
               "ViewState": "AQIAAFIAAAAAAAAAAAAAAF8AAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T00:41:17.618Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "5757bcc9-b5ae-4e40-86cc-213f8575dbd2",
-        "Display": 1,
-        "X": -8,
-        "Y": 1628,
-        "Width": 2171,
-        "Height": 2173,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 8,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LessonViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "RelativeDocumentMoniker": "ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "ToolTip": "C:\\Users\\ogryz\\source\\repos\\ApkaJezykowa\\ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "RelativeToolTip": "ApkaJezykowa\\MVVM\\ViewModel\\LessonViewModel.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAADkAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T00:31:20.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-11T00:41:17.618Z"
             }
           ]
         }

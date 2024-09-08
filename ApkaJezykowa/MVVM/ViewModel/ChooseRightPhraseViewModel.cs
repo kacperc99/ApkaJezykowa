@@ -25,7 +25,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
   }
   public class ChooseRightPhraseViewModel : BaseViewModel
   {
-    ObservableCollection<TaskTemplate> data = new ObservableCollection<TaskTemplate>();
+    public ObservableCollection<TaskTemplate> data = new ObservableCollection<TaskTemplate>();
     int Id_Listening;
     int Id_Vocabulary;
     string Lang;

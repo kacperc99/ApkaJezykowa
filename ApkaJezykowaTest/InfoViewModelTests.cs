@@ -11,15 +11,23 @@ using System.Threading;
 using System.Security.Principal;
 using System.Net;
 using System.Data.SqlClient;
+using ApkaJezykowa.Keys;
+using System.Diagnostics;
 
 namespace ApkaJezykowaTest
 {
-  public class InfoViewModelTests : InfoViewModel
+  public class InfoViewModelTests
   {
     [SetUp]
     public void Setup()
     {
-      
+      MeasurementModel.Instance.cpu = new("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);
+      MeasurementModel.Instance.ram = new("Process", "Working Set", Process.GetCurrentProcess().ProcessName);
+      MeasurementModel.Instance.Measurement_Results = new List<Tuple<string, List<double>, List<float>, TimeSpan, double, float>>();
+      MeasurementModel.Instance.CPU_Vals = new List<double>();
+      MeasurementModel.Instance.RAM_Vals = new List<float>();
+      SpeechServiceKey.Instance.UserBaseConnection = @"Server=tcp:linguonator2.database.windows.net,1433;Initial Catalog=UserBase;Persist Security Info=False;User ID=r4fxdvt7fu;Password=jkhGKjuFKku653212#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;MultipleActiveResultSets=true";
+      SpeechServiceKey.Instance.CourseBaseConnection = @"Server=tcp:linguonator2.database.windows.net,1433;Initial Catalog=CourseBase;Persist Security Info=False;User ID=r4fxdvt7fu;Password=jkhGKjuFKku653212#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;MultipleActiveResultSets=true";
     }
 
     [Test]

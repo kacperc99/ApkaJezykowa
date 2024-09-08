@@ -47,7 +47,7 @@ namespace ApkaJezykowa.MVVM.ViewModel
     //private LessonParamModel() { }
     //public static readonly LessonParamModel Instance = new LessonParamModel();
   }
-  internal class LessonEditorViewModel : BaseViewModel
+  public class LessonEditorViewModel : BaseViewModel
   {
 
     public List<string> lessonNames = new List<string>();

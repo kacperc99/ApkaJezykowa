@@ -46,8 +46,8 @@ public class Program
             writer.AutoFlush = true;
             writer.WriteLine(key);
             writer.WriteLine(region);
-            writer.WriteLine(userBase);
-            writer.WriteLine(courseBase);
+            //writer.WriteLine(userBase);
+            //writer.WriteLine(courseBase);
             server.WaitForPipeDrain();
         }
 

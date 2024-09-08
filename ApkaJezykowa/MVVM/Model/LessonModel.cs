@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApkaJezykowa.MVVM.Model
 {
-  internal class LessonModel
+  public class LessonModel
   {
     public int Id { get; set; }
     public decimal Lesson_Level { get; set; }

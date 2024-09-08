@@ -18,7 +18,7 @@ using static ApkaJezykowa.MVVM.ViewModel.LessonImagesData;
 
 namespace ApkaJezykowa.Repositories
 {
-  internal class LessonRepository : BaseRepository, ILessonRepository
+  public class LessonRepository : BaseRepository, ILessonRepository
   {
     private IPerformanceMeasurementRepository performanceMeasurementRepository;
     Thread measurement;

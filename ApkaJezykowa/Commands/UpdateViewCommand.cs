@@ -26,7 +26,6 @@ namespace ApkaJezykowa.Commands
         }
         public void Execute(object parameter)
         {
-            Console.WriteLine("Clicked!");
             if(parameter.ToString() == "Lessons")
             {
                 viewModel.SelectedViewModel = new LessonsViewModel();

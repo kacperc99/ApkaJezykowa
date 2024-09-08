@@ -45,10 +45,10 @@ namespace ApkaJezykowa
       client.Connect();
       using (var reader = new StreamReader(client))
       {
-        SpeechServiceKey.Instance.Key = reader.ReadLine();
-        SpeechServiceKey.Instance.Region = reader.ReadLine();
-        SpeechServiceKey.Instance.UserBaseConnection = reader.ReadLine();
-        SpeechServiceKey.Instance.CourseBaseConnection = reader.ReadLine();
+      SpeechServiceKey.Instance.Key = reader.ReadLine();
+      SpeechServiceKey.Instance.Region = reader.ReadLine();
+        SpeechServiceKey.Instance.UserBaseConnection = @"Server=192.168.50.116,49170; Initial Catalog=UserBase; User ID=app; Password=app; MultipleActiveResultSets=true";
+        SpeechServiceKey.Instance.CourseBaseConnection = @"Server=192.168.50.116,49170; Initial Catalog=CourseBase; User ID=app; Password=app; MultipleActiveResultSets=true";
       }
       AllocConsole();
       MeasurementModel.Instance.cpu = new("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ApkaJezykowa.MVVM.Model
 {
-  internal interface ILessonRepository
+  public interface ILessonRepository
   {
     LessonModel Display(int Level, string Language, string Lesson_Language);
     //string GetTitle(int Id, string Language);

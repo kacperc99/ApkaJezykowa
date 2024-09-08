@@ -10075,6 +10075,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -10248,7 +10253,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.22621.29, 10.0.22621.29]"
+            "version": "[10.0.22621.31, 10.0.22621.31]"
           }
         ],
         "frameworkReferences": {
@@ -10262,8 +10267,30 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „Azure.Identity” 1.11.2 ma znane umiarkowana luki w zabezpieczeniach o ważności, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net6.0-windows10.0.22621"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „Microsoft.Identity.Client” 4.60.3 ma znane umiarkowana luki w zabezpieczeniach o ważności, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Microsoft.Identity.Client",
+      "targetGraphs": [
+        "net6.0-windows10.0.22621"
+      ]
+    }
+  ]
 }

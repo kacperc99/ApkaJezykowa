@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace ApkaJezykowa.MVVM.ViewModel
 {
-  internal class ExerciseMenuViewModel : BaseViewModel
+  public class ExerciseMenuViewModel : BaseViewModel
   {
     public string Lang;
     List<ExerciseListModel> exerciseList = new List<ExerciseListModel>();
